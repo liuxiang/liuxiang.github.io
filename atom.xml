@@ -320,11 +320,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[linux nginx权限控制策略.md]]></title>
+    <title><![CDATA[nginx 部署的项目无法加载jquery.js或仅加载出代码片段问题,多个解决办法]]></title>
     <link href="http://yoursite.com/2016/07/22/nginx%20%E9%83%A8%E7%BD%B2%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BDjquery.js%E6%88%96%E4%BB%85%E5%8A%A0%E8%BD%BD%E5%87%BA%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%E9%97%AE%E9%A2%98-%E5%A4%9A%E4%B8%AA%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
     <id>http://yoursite.com/2016/07/22/nginx 部署的项目无法加载jquery.js或仅加载出代码片段问题-多个解决办法/</id>
     <published>2016-07-21T16:00:00.000Z</published>
-    <updated>2016-07-25T03:35:52.166Z</updated>
+    <updated>2016-07-25T13:04:41.699Z</updated>
     <content type="html"><![CDATA[<h1 id="问题现象_jquery-js文件无法加载，导致页面样式错乱">问题现象 <code>jquery.js</code>文件无法加载，导致页面样式错乱</h1><ul>
 <li>前端浏览器体现：<br><code>GET http://***/jquery.js net::ERR_INCOMPLETE_CHUNKED_ENCODING</code></li>
 </ul>
