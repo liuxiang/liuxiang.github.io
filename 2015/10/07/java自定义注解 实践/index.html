@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <title>java自定义注解 实践 | 编程在继续</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="可以使用自定义注解解决的场景需求，有哪些？
+程序在编写时，对类或方法就已经知道（或准备赋予）的行为或数据初始化，就可以考虑使用自定义注解进行标记。
+代码的通用性，封装代码的一种手段。同类行为定义一个自定义注解，调用时使用前置切面处理自定义注解的业务实现。
+
+怎么使用自定义注解？示例：存在注解方法@annotation a() （或 注解类@annotation class Test）
+
+【常规】调">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java自定义注解 实践">
+<meta property="og:url" content="http://yoursite.com/2015/10/07/java自定义注解 实践/index.html">
+<meta property="og:site_name" content="编程在继续">
+<meta property="og:description" content="可以使用自定义注解解决的场景需求，有哪些？
+程序在编写时，对类或方法就已经知道（或准备赋予）的行为或数据初始化，就可以考虑使用自定义注解进行标记。
+代码的通用性，封装代码的一种手段。同类行为定义一个自定义注解，调用时使用前置切面处理自定义注解的业务实现。
+
+怎么使用自定义注解？示例：存在注解方法@annotation a() （或 注解类@annotation class Test）
+
+【常规】调">
+<meta property="og:updated_time" content="2016-07-09T03:24:53.827Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java自定义注解 实践">
+<meta name="twitter:description" content="可以使用自定义注解解决的场景需求，有哪些？
+程序在编写时，对类或方法就已经知道（或准备赋予）的行为或数据初始化，就可以考虑使用自定义注解进行标记。
+代码的通用性，封装代码的一种手段。同类行为定义一个自定义注解，调用时使用前置切面处理自定义注解的业务实现。
+
+怎么使用自定义注解？示例：存在注解方法@annotation a() （或 注解类@annotation class Test）
+
+【常规】调">
+  
+    <link rel="alternative" href="/atom.xml" title="编程在继续" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/assets/blogImg/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">刘祥@赛学霸</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">编程在继续，刘祥&#39;s blog</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/1988/12/27/关于我/">关于我(挺坏一人)</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://liuxiang.github.io/iloveyuan">i love yuan</a></li>
+				        
+							<li><a href="http://liuxiang.github.io/iloveyuan/FullPageImageGallery/photo.html">Gallery</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/liuxiang" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="mailto: liuxiang@wosaitech.com" title="mail">mail</a>
+					        
+						</div>
+
+						<div id="mobile-busuanzi" style="font-size: 12px;">
+							站访问<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次
+							站访客<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>人
+						</div>
+					</nav>
+
+
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-远程调试/" style="font-size: 10px;">Android 远程调试</a> <a href="/tags/Apple-Developer/" style="font-size: 10px;">Apple Developer</a> <a href="/tags/BCompare/" style="font-size: 10px;">BCompare</a> <a href="/tags/C-hrome/" style="font-size: 10px;">C hrome</a> <a href="/tags/Chrom/" style="font-size: 10px;">Chrom</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/Chrome-Dev-Tools/" style="font-size: 11.11px;">Chrome Dev Tools</a> <a href="/tags/Chrome-DevTools/" style="font-size: 10px;">Chrome DevTools</a> <a href="/tags/Chrome-Web-Tools/" style="font-size: 10px;">Chrome Web Tools</a> <a href="/tags/Crosswalk/" style="font-size: 10px;">Crosswalk</a> <a href="/tags/DevTools/" style="font-size: 10px;">DevTools</a> <a href="/tags/ES6/" style="font-size: 11.11px;">ES6</a> <a href="/tags/FunctionalInterface/" style="font-size: 10px;">FunctionalInterface</a> <a href="/tags/Generator/" style="font-size: 10px;">Generator</a> <a href="/tags/Github，搜索技巧/" style="font-size: 10px;">Github，搜索技巧</a> <a href="/tags/IDE/" style="font-size: 11.11px;">IDE</a> <a href="/tags/IIFE/" style="font-size: 10px;">IIFE</a> <a href="/tags/IntelliJ/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lambda/" style="font-size: 10px;">Lambda</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/Popups/" style="font-size: 10px;">Popups</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Pull-Request/" style="font-size: 10px;">Pull Request</a> <a href="/tags/Safari/" style="font-size: 10px;">Safari</a> <a href="/tags/TPS/" style="font-size: 10px;">TPS</a> <a href="/tags/Tips/" style="font-size: 11.11px;">Tips</a> <a href="/tags/WebStorm/" style="font-size: 13.33px;">WebStorm</a> <a href="/tags/WebStorm-Deployment/" style="font-size: 10px;">WebStorm Deployment</a> <a href="/tags/Webstorm/" style="font-size: 11.11px;">Webstorm</a> <a href="/tags/Web前端黑客技术揭秘/" style="font-size: 10px;">Web前端黑客技术揭秘</a> <a href="/tags/Win10/" style="font-size: 10px;">Win10</a> <a href="/tags/Wox/" style="font-size: 10px;">Wox</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/android打包/" style="font-size: 10px;">android打包</a> <a href="/tags/angular/" style="font-size: 11.11px;">angular</a> <a href="/tags/ant-renamer/" style="font-size: 10px;">ant renamer</a> <a href="/tags/api文档生成工具/" style="font-size: 10px;">api文档生成工具</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/async-await/" style="font-size: 10px;">async-await</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/builtInFunction/" style="font-size: 10px;">builtInFunction</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-Emulated-Devices/" style="font-size: 10px;">chrome Emulated Devices</a> <a href="/tags/cnpm/" style="font-size: 10px;">cnpm</a> <a href="/tags/console/" style="font-size: 10px;">console</a> <a href="/tags/css/" style="font-size: 12.22px;">css</a> <a href="/tags/css-tips/" style="font-size: 10px;">css tips</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/git/" style="font-size: 12.22px;">git</a> <a href="/tags/github-pages/" style="font-size: 11.11px;">github pages</a> <a href="/tags/git命令/" style="font-size: 10px;">git命令</a> <a href="/tags/hexo/" style="font-size: 12.22px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/hybrid/" style="font-size: 11.11px;">hybrid</a> <a href="/tags/iOS证书-打包-上架/" style="font-size: 10px;">iOS证书&打包&上架</a> <a href="/tags/iTunesConnect/" style="font-size: 10px;">iTunesConnect</a> <a href="/tags/inspect/" style="font-size: 11.11px;">inspect</a> <a href="/tags/interface-default/" style="font-size: 10px;">interface default</a> <a href="/tags/ionic/" style="font-size: 18.89px;">ionic</a> <a href="/tags/ionic安装/" style="font-size: 10px;">ionic安装</a> <a href="/tags/ios/" style="font-size: 13.33px;">ios</a> <a href="/tags/ios-内测托管平台/" style="font-size: 10px;">ios 内测托管平台</a> <a href="/tags/ios免审核/" style="font-size: 10px;">ios免审核</a> <a href="/tags/ios证书/" style="font-size: 10px;">ios证书</a> <a href="/tags/ios问题笔录/" style="font-size: 10px;">ios问题笔录</a> <a href="/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/java8/" style="font-size: 15.56px;">java8</a> <a href="/tags/javaScript/" style="font-size: 15.56px;">javaScript</a> <a href="/tags/javaScript-循环遍历/" style="font-size: 10px;">javaScript 循环遍历</a> <a href="/tags/javaScript-时间格式化/" style="font-size: 10px;">javaScript 时间格式化</a> <a href="/tags/javaScript风格/" style="font-size: 10px;">javaScript风格</a> <a href="/tags/javaStript/" style="font-size: 10px;">javaStript</a> <a href="/tags/jdk工具命令，jstack/" style="font-size: 10px;">jdk工具命令，jstack</a> <a href="/tags/json/" style="font-size: 11.11px;">json</a> <a href="/tags/jsoup抓取/" style="font-size: 10px;">jsoup抓取</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 11.11px;">mysql</a> <a href="/tags/mysql依据数据库表/" style="font-size: 10px;">mysql依据数据库表</a> <a href="/tags/nginx/" style="font-size: 14.44px;">nginx</a> <a href="/tags/nginx日志/" style="font-size: 10px;">nginx日志</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm/" style="font-size: 11.11px;">npm</a> <a href="/tags/online-web-tools/" style="font-size: 10px;">online-web-tools</a> <a href="/tags/oracle-函数-with-as/" style="font-size: 10px;">oracle 函数  with as</a> <a href="/tags/package-json/" style="font-size: 12.22px;">package.json</a> <a href="/tags/phonegap/" style="font-size: 11.11px;">phonegap</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/sql编程/" style="font-size: 10px;">sql编程</a> <a href="/tags/ssh/" style="font-size: 12.22px;">ssh</a> <a href="/tags/su/" style="font-size: 10px;">su</a> <a href="/tags/svn/" style="font-size: 12.22px;">svn</a> <a href="/tags/twoColons-function-realize/" style="font-size: 10px;">twoColons::function realize</a> <a href="/tags/userScript/" style="font-size: 10px;">userScript</a> <a href="/tags/web跨域/" style="font-size: 10px;">web跨域</a> <a href="/tags/win-R/" style="font-size: 10px;">win+R</a> <a href="/tags/windows文件与linux文件比对/" style="font-size: 10px;">windows文件与linux文件比对</a> <a href="/tags/wiz/" style="font-size: 10px;">wiz</a> <a href="/tags/xmind/" style="font-size: 12.22px;">xmind</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/【Shiro-流程】java安全框架-cas单点登录/" style="font-size: 10px;">【Shiro-流程】java安全框架&cas单点登录</a> <a href="/tags/中国历史大事年表/" style="font-size: 10px;">中国历史大事年表</a> <a href="/tags/书录/" style="font-size: 11.11px;">书录</a> <a href="/tags/位运算/" style="font-size: 11.11px;">位运算</a> <a href="/tags/六位密码框/" style="font-size: 10px;">六位密码框</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/前端/" style="font-size: 17.78px;">前端</a> <a href="/tags/前端-加密-混淆-，-gulp/" style="font-size: 10px;">前端 加密 混淆 ， gulp</a> <a href="/tags/前端-加密-混淆-，-gulp，-ionic-，cordova-hook/" style="font-size: 10px;">前端 加密 混淆 ， gulp， ionic ，cordova hook</a> <a href="/tags/前端安全-认证/" style="font-size: 10px;">前端安全&认证</a> <a href="/tags/前端导航/" style="font-size: 10px;">前端导航</a> <a href="/tags/前端技术/" style="font-size: 10px;">前端技术</a> <a href="/tags/前端文集/" style="font-size: 10px;">前端文集</a> <a href="/tags/匿名-function/" style="font-size: 10px;">匿名 function</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/压力测试/" style="font-size: 11.11px;">压力测试</a> <a href="/tags/压力测试，-阿里云-PTS/" style="font-size: 10px;">压力测试， 阿里云 PTS</a> <a href="/tags/反向工程设计/" style="font-size: 10px;">反向工程设计</a> <a href="/tags/后端/" style="font-size: 10px;">后端</a> <a href="/tags/善用佳软/" style="font-size: 10px;">善用佳软</a> <a href="/tags/图片转换为Base64/" style="font-size: 10px;">图片转换为Base64</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/学习内容平均留存率/" style="font-size: 10px;">学习内容平均留存率</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/并发控制/" style="font-size: 10px;">并发控制</a> <a href="/tags/开发文档API/" style="font-size: 10px;">开发文档API</a> <a href="/tags/异步编程/" style="font-size: 10px;">异步编程</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/快速启动/" style="font-size: 11.11px;">快速启动</a> <a href="/tags/思维导图/" style="font-size: 18.89px;">思维导图</a> <a href="/tags/思维导图log4j/" style="font-size: 10px;">思维导图log4j</a> <a href="/tags/情商/" style="font-size: 10px;">情商</a> <a href="/tags/托管/" style="font-size: 10px;">托管</a> <a href="/tags/技术栈/" style="font-size: 10px;">技术栈</a> <a href="/tags/抽奖转盘/" style="font-size: 11.11px;">抽奖转盘</a> <a href="/tags/推酷/" style="font-size: 10px;">推酷</a> <a href="/tags/数据透视图/" style="font-size: 10px;">数据透视图</a> <a href="/tags/文档托管平台/" style="font-size: 10px;">文档托管平台</a> <a href="/tags/文章/" style="font-size: 10px;">文章</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/服务器监测/" style="font-size: 11.11px;">服务器监测</a> <a href="/tags/权限管理/" style="font-size: 10px;">权限管理</a> <a href="/tags/构造数据/" style="font-size: 10px;">构造数据</a> <a href="/tags/正则/" style="font-size: 11.11px;">正则</a> <a href="/tags/正确的情商认知/" style="font-size: 10px;">正确的情商认知</a> <a href="/tags/注解/" style="font-size: 11.11px;">注解</a> <a href="/tags/清理当前页-缓存/" style="font-size: 10px;">清理当前页 缓存</a> <a href="/tags/爬虫/" style="font-size: 11.11px;">爬虫</a> <a href="/tags/白帽子讲web安全/" style="font-size: 10px;">白帽子讲web安全</a> <a href="/tags/知识/" style="font-size: 10px;">知识</a> <a href="/tags/科学上网，hosts/" style="font-size: 10px;">科学上网，hosts</a> <a href="/tags/程序锁使用/" style="font-size: 10px;">程序锁使用</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/编程书籍/" style="font-size: 10px;">编程书籍</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/自定义书签/" style="font-size: 10px;">自定义书签</a> <a href="/tags/表单验证/" style="font-size: 10px;">表单验证</a> <a href="/tags/设计模式-23/" style="font-size: 10px;">设计模式-23</a> <a href="/tags/运维/" style="font-size: 10px;">运维</a> <a href="/tags/远程调试/" style="font-size: 10px;">远程调试</a> <a href="/tags/逆向-递归/" style="font-size: 10px;">逆向 递归</a> <a href="/tags/问题定位分析/" style="font-size: 11.11px;">问题定位分析</a> <a href="/tags/静态博客/" style="font-size: 10px;">静态博客</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jeremy017.github.io">正一的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://zouxuewen.github.io">邹学文博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我很危险,离我远点</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">刘祥@赛学霸</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/assets/blogImg/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">刘祥@赛学霸</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">编程在继续，刘祥&#39;s blog</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/1988/12/27/关于我/">关于我(挺坏一人)</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://liuxiang.github.io/iloveyuan">i love yuan</a></li>
+		        
+					<li><a href="http://liuxiang.github.io/iloveyuan/FullPageImageGallery/photo.html">Gallery</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/liuxiang" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="mailto: liuxiang@wosaitech.com" title="mail">mail</a>
+			        
+				</div>
+				
+				<div style="font-size: 12px;padding-left: 11px;">
+					站访问<span id="busuanzi_value_site_pv_copy"><i class="fa fa-spinner fa-spin"></i></span>次
+					站访客<span id="busuanzi_value_site_uv_copy"><i class="fa fa-spinner fa-spin"></i></span>人
+				</div>
+
+			</nav>
+
+		</header>				
+	</div>
+</nav>
+
+<script>
+	function busuanzi_copy(){
+		$("#busuanzi_value_site_pv_copy").text($("#busuanzi_value_site_pv").text());
+		$("#busuanzi_value_site_uv_copy").text($("#busuanzi_value_site_uv").text());
+	}
+	setTimeout(busuanzi_copy,500);
+</script>
+      <div class="body-wrap"><article id="post-java自定义注解 实践" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/07/java自定义注解 实践/" class="article-date">
+  	<time datetime="2015-10-06T18:00:00.000Z" itemprop="datePublished">2015-10-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java自定义注解 实践
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/注解/">注解</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+
+        <div style="font-size: 12px;">
+          此文阅<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次
+        </div>
+
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="可以使用自定义注解解决的场景需求，有哪些？">可以使用自定义注解解决的场景需求，有哪些？</h2><ol>
+<li>程序在编写时，对类或方法就已经知道（或准备赋予）的行为或数据初始化，就可以考虑使用自定义注解进行标记。</li>
+<li>代码的通用性，封装代码的一种手段。同类行为定义一个自定义注解，调用时使用前置切面处理自定义注解的业务实现。</li>
+</ol>
+<h2 id="怎么使用自定义注解？">怎么使用自定义注解？</h2><p>示例：存在注解方法@annotation a() （或 注解类@annotation class Test）</p>
+<ol>
+<li>【常规】调用方法a()时，执行自定义注解业务。需要使用前置切面处理自定义注解的业务实现。</li>
+</ol>
+<p>示例：存在注解类 @annotation class Test，和常规类 class Test2</p>
+<ol>
+<li>【少见】在常规类Test2的方法中接收到Test（注解类）时，可以通过clazz.getAnnotation(Description.class); 获取注解，<br> 完成使用注解类时的业务处理。</li>
+</ol>
+<h2 id="我的实践：">我的实践：</h2><p>常规实体类接口EntityService中，使用自定义注解@ForSimpleHander 完成接口服务，程序员只需要定义，不需要写一行代码<br>去完成业务。</p>
+<a id="more"></a>
+<p>注解类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.Documented;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Retention;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.RetentionPolicy;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Target;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="annotation">@Target</span>(&#123;java.lang.annotation.ElementType.METHOD&#125;)</span><br><span class="line"><span class="annotation">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="annotation">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="annotation">@interface</span> ForSimpleHander &#123;</span><br><span class="line"></span><br><span class="line"><span class="function">String <span class="title">entity</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line"></span><br><span class="line">String[] params() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">String[] paramsStatic() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>切面处理类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationTargetException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.JoinPoint;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.ProceedingJoinPoint;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.After;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Aspect;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Before;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.reflect.MethodSignature;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wosai.teach.annotation.ForSimpleHander;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="annotation">@Component</span> <span class="comment">// 初始化Bean</span></span><br><span class="line"><span class="annotation">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RestFulAspect</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试示例：http://localhost:8080/teach/service/aspect</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">* 必须为final String类型的,注解里要使用的变量只能是静态常量类型的</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String EDP0 = <span class="string">"execution(* com.wosai.teach.restful.wosaiTeach2.*(..))"</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String EDP1 = <span class="string">"execution(* com.wosai.teach.restful.EntityService.*(..))"</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String EDP2 = <span class="string">"execution(* com.wosai.teach.restful.EntityChangeService.*(..))"</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String EDP = EDP0 + <span class="string">" || "</span> + EDP1 + <span class="string">" || "</span> + EDP2;<span class="comment">// 或  EDP1 + " or " + EDP2</span></span><br><span class="line"></span><br><span class="line"><span class="annotation">@Before</span>(EDP)<span class="comment">// spring中Before通知</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">logBefore</span><span class="params">(JoinPoint joinPoint)</span> </span>&#123;</span><br><span class="line"><span class="comment">// System.out.println("logBefore:现在时间是:"+new Date());</span></span><br><span class="line"></span><br><span class="line">Object target = joinPoint.getTarget();</span><br><span class="line">MethodSignature methodSignature = (MethodSignature)joinPoint.getSignature();</span><br><span class="line"></span><br><span class="line">String clazzName = target.getClass().getName();</span><br><span class="line">String methodName = methodSignature.getName();</span><br><span class="line">Arrays.toString(joinPoint.getArgs());</span><br><span class="line">Object[] args = joinPoint.getArgs();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HttpServletRequest request = <span class="keyword">null</span>;</span><br><span class="line">HttpServletResponse response = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (Object arg : args) &#123;</span><br><span class="line"><span class="keyword">if</span> (arg <span class="keyword">instanceof</span> HttpServletRequest) request = (HttpServletRequest) arg;</span><br><span class="line"><span class="keyword">if</span> (arg <span class="keyword">instanceof</span> HttpServletResponse) response = (HttpServletResponse) arg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/** 日志 */</span></span><br><span class="line">System.out.println(<span class="string">"&gt;&gt;&gt; "</span> + clazzName + <span class="string">" "</span> + methodName + <span class="string">"() request:"</span>+ request.getRequestURL().toString());</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 自定义注解处理 - anootationHandle */</span></span><br><span class="line">ForSimpleHander forSimpleHander = methodSignature.getMethod().getAnnotation(ForSimpleHander.class);</span><br><span class="line"><span class="keyword">if</span> (forSimpleHander != <span class="keyword">null</span>) &#123;</span><br><span class="line">Method m = getForSimpleHanderMethod(target.getClass());</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(m == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">String argEntity = forSimpleHander.entity();</span><br><span class="line">String[] argParams = forSimpleHander.params();</span><br><span class="line">String[] argParamsStatics = forSimpleHander.paramsStatic();</span><br><span class="line"></span><br><span class="line">Object entity = Class.forName(<span class="string">"com.wosai.teach.entity."</span>+argEntity).newInstance();</span><br><span class="line"></span><br><span class="line">Object[][] params = <span class="keyword">new</span> Object[argParams.length + argParamsStatics.length][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 动态参数</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; argParams.length; i++) &#123;</span><br><span class="line">String argParam = argParams[i];</span><br><span class="line">params[i] = <span class="keyword">new</span> Object[]&#123;argParam,args[i]&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 静态参数</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; argParamsStatics.length; i++) &#123;</span><br><span class="line">String[] argParamsStatic = argParamsStatics[i].split(<span class="string">","</span>);</span><br><span class="line">params[i+argParams.length] = <span class="keyword">new</span> Object[] &#123; argParamsStatic[<span class="number">0</span>], argParamsStatic[<span class="number">1</span>] &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">m.invoke(target, request,response,entity,params);</span><br><span class="line">&#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line"><span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IllegalArgumentException e) &#123;</span><br><span class="line"><span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">catch</span> (InstantiationException e) &#123;</span><br><span class="line"><span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line"><span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</span><br><span class="line"><span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Method <span class="title">getForSimpleHanderMethod</span><span class="params">(Class clazz)</span></span>&#123;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Method m1 = clazz.getDeclaredMethod(<span class="string">"simpleHander"</span>,</span><br><span class="line">HttpServletRequest.class, HttpServletResponse.class,Object.class,Object[][].class);</span><br><span class="line">System.out.println(<span class="string">"ok"</span>);</span><br><span class="line"><span class="keyword">return</span> m1;</span><br><span class="line">&#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</span><br><span class="line"><span class="comment">// e.printStackTrace();</span></span><br><span class="line"><span class="keyword">return</span> getForSimpleHanderMethod(clazz.getSuperclass());</span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@After</span>(EDP) <span class="comment">// spring中After通知</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">logAfter</span><span class="params">(JoinPoint joinPoint)</span> </span>&#123;</span><br><span class="line"><span class="comment">// System.out.println("logAfter:现在时间是:" + new Date());</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">String clazzName = joinPoint.getTarget().getClass().getName();</span><br><span class="line">String methodName = joinPoint.getSignature().getName();</span><br><span class="line">Arrays.toString(joinPoint.getArgs());</span><br><span class="line">Object[] args = joinPoint.getArgs();</span><br><span class="line"></span><br><span class="line">HttpServletRequest request = <span class="keyword">null</span>;</span><br><span class="line">HttpServletResponse response = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (Object arg : args) &#123;</span><br><span class="line"><span class="keyword">if</span> (arg <span class="keyword">instanceof</span> HttpServletRequest) request = (HttpServletRequest) arg;</span><br><span class="line"><span class="keyword">if</span> (arg <span class="keyword">instanceof</span> HttpServletResponse) response = (HttpServletResponse) arg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"&lt;&lt;&lt; "</span> + clazzName + <span class="string">" "</span> + methodName + <span class="string">"() response:"</span> + request.getAttribute(<span class="string">"result"</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// @Around(EDP) //spring中Around通知</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">logAround</span><span class="params">(ProceedingJoinPoint joinPoint)</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">"logAround开始:现在时间是:"</span> + <span class="keyword">new</span> Date()); <span class="comment">// 方法执行前的代理处理</span></span><br><span class="line">Object[] args = joinPoint.getArgs();</span><br><span class="line">Object obj = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">obj = joinPoint.proceed(args);</span><br><span class="line">&#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">"logAround结束:现在时间是:"</span> + <span class="keyword">new</span> Date()); <span class="comment">// 方法执行后的代理处理</span></span><br><span class="line"><span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>声明类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PathVariable;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wosai.teach.annotation.ForSimpleHander;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="annotation">@Controller</span></span><br><span class="line"><span class="annotation">@RequestMapping</span>(<span class="string">"/service/entity"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EntityService</span> <span class="keyword">extends</span> <span class="title">RestFulBase</span></span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/** 自定义注解 ****************************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="annotation">@ForSimpleHander</span>(entity=<span class="string">"AreaProvince"</span>,params = &#123;&#125;)</span><br><span class="line"><span class="annotation">@RequestMapping</span>(method = RequestMethod.GET , value=<span class="string">"/areaProvinceFor"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">areaProvince_for</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@ForSimpleHander</span>(entity=<span class="string">"AreaCity"</span>,params = &#123;<span class="string">"provinceId"</span>&#125;)</span><br><span class="line"><span class="annotation">@RequestMapping</span>(method = RequestMethod.GET , value=<span class="string">"/areaCityFor/&#123;provinceId&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">areaCity_for</span><span class="params">(HttpServletRequest request, HttpServletResponse response,@PathVariable Integer provinceId)</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 非注解处理方式 - 无切面前 ****************************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">* 学校，专业，班级相关接口：获取地域，获取地域校园</span><br><span class="line">* 学校，专业，班级相关接口：获取专业，获取班级</span><br><span class="line">* 账户相关接口:获取用户账户信息，我的金币</span><br><span class="line">* 账户相关接口:获取金币获取明细</span><br><span class="line">**/</span></span><br><span class="line"><span class="annotation">@RequestMapping</span>(method = RequestMethod.GET , value=<span class="string">"/aspect"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">aspect</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取数据</span></span><br><span class="line">PageBean pageBean = initPageBean(request);</span><br><span class="line">Map&lt;String, Object&gt; condition = initCondition(pageBean,prams(<span class="string">""</span>,<span class="string">""</span>),prams(<span class="string">""</span>,<span class="string">""</span>));</span><br><span class="line">List&lt;School&gt; schoolList = baseListHander(<span class="keyword">new</span> School(), emptyMap(condition));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 整理响应</span></span><br><span class="line">JsonResult result = initJsonResult(schoolList, pageBean.getRecordCount(), schoolList.size(), C.JSON_RESULT_SUCCESS, <span class="keyword">null</span>);</span><br><span class="line">responseWriter(request, response, result);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/** 非注解处理方式 - 切面后</span><br><span class="line">* <span class="doctag">@throws</span> IOException ****************************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="annotation">@RequestMapping</span>(method = RequestMethod.GET , value=<span class="string">"/areaProvinceSimple"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">areaProvince_simple</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> IOException </span>&#123; </span><br><span class="line"></span><br><span class="line"><span class="comment">/** simpleHander */</span></span><br><span class="line">simpleHander(request, response, <span class="keyword">new</span> AreaProvince(),prams(<span class="string">""</span>,<span class="string">""</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@RequestMapping</span>(method = RequestMethod.GET , value=<span class="string">"/areaCitySimple/&#123;provinceId&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">areaCity_simple</span><span class="params">(HttpServletRequest request, HttpServletResponse response,@PathVariable Integer provinceId)</span> <span class="keyword">throws</span> IOException </span>&#123; </span><br><span class="line"></span><br><span class="line"><span class="comment">/** simpleHander */</span></span><br><span class="line">simpleHander(request, response, <span class="keyword">new</span> AreaProvince(),prams(<span class="string">"provinceId"</span>,provinceId));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/******************************************************************************************/</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/07/JVM参数配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JVM参数配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/07/java自定义注解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java自定义注解</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="java自定义注解 实践" data-title="java自定义注解 实践" data-url="http://yoursite.com/2015/10/07/java自定义注解 实践/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 刘祥@赛学霸
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
