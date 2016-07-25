@@ -4,7 +4,7 @@
   <subtitle><![CDATA[编程在继续，刘祥's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-25T12:39:04.106Z</updated>
+  <updated>2016-07-25T12:58:24.750Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,19 +19,21 @@
     <link href="http://yoursite.com/2016/07/25/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE-linux%20Web%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8.xmind/"/>
     <id>http://yoursite.com/2016/07/25/思维导图-linux Web服务安全.xmind/</id>
     <published>2016-07-24T16:00:03.000Z</published>
-    <updated>2016-07-25T12:39:04.106Z</updated>
+    <updated>2016-07-25T12:58:24.750Z</updated>
     <content type="html"><![CDATA[<p><code>完整请见</code> <a href="https://github.com/liuxiang/xmind/" target="_blank" rel="external">https://github.com/liuxiang/xmind/</a></p>
-<p><img src="http://i1.piimg.com/567571/609d9972c3969ee4.png" alt=""><br><!--
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/16-7-25/37155340.jpg" alt=""><br><!--
 --></p>
  <a id="more"></a>]]></content>
     <summary type="html">
     <![CDATA[<p><code>完整请见</code> <a href="https://github.com/liuxiang/xmind/">https://github.com/liuxiang/xmind/</a></p>
-<p><img src="http://i1.piimg.com/567571/609d9972c3969ee4.png" alt=""><br><!--
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/16-7-25/37155340.jpg" alt=""><br><!--
 --></p>]]>
     
     </summary>
     
-      <category term="linux，异步加载" scheme="http://yoursite.com/tags/linux%EF%BC%8C%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD/"/>
+      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+      <category term="异步加载" scheme="http://yoursite.com/tags/%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD/"/>
     
   </entry>
   
@@ -40,12 +42,14 @@
     <link href="http://yoursite.com/2016/07/25/%E5%9B%BE%E7%89%87%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E6%96%B9%E6%A1%88/"/>
     <id>http://yoursite.com/2016/07/25/图片异步加载方案/</id>
     <published>2016-07-24T16:00:02.000Z</published>
-    <updated>2016-07-25T12:40:19.078Z</updated>
+    <updated>2016-07-25T12:56:23.032Z</updated>
     <content type="html"><![CDATA[<h1 id="jQuery_Lazy_Load_图片延迟加载">jQuery Lazy Load 图片延迟加载</h1><blockquote>
-<p>Lazy Load 是一个用 JavaScript 编写的 jQuery 插件. 它可以延迟加载长页面中的图片. 在浏览器可视区域外的图片不会被载入, 直到用户将页面滚动到它们所在的位置. 这与图片预加载的处理方式正好是相反的.<br>在包含很多大图片长页面中延迟加载图片可以加快页面加载速度. 浏览器将会在加载可见图片之后即进入就绪状态. 在某些情况下还可以帮助降低服务器负担.<br><a href="http://www.w3cways.com/1765.html" target="_blank" rel="external">http://www.w3cways.com/1765.html</a><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.lazyload.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span><br><span class="line">将真实图片地址写在 data-original 属性中，而 src 属性中的图片换成占位符的图片（例如 1x1 像素的灰色图片或者 loading 的 gif 图片）</span><br><span class="line">添加 class="lazy" 用于区别哪些图片需要延时加载，当然你也可以换成别的关键词，修改的同时记得修改调用时的 jQuery 选择器</span><br><span class="line">添加 width 和 height 属性有助于在图片未加载时占满所需要的空间</span><br><span class="line">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">class</span>=<span class="value">"lazy"</span> <span class="attribute">src</span>=<span class="value">"grey.gif"</span> <span class="attribute">data-original</span>=<span class="value">"example.jpg"</span> <span class="attribute">width</span>=<span class="value">"640"</span> <span class="attribute">heigh</span>=<span class="value">"480"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">$('img.lazy').lazyload();</span><br></pre></td></tr></table></figure></p>
+<p>Lazy Load 是一个用 JavaScript 编写的 jQuery 插件. 它可以延迟加载长页面中的图片. 在浏览器可视区域外的图片不会被载入, 直到用户将页面滚动到它们所在的位置. 这与图片预加载的处理方式正好是相反的.<br>在包含很多大图片长页面中延迟加载图片可以加快页面加载速度. 浏览器将会在加载可见图片之后即进入就绪状态. 在某些情况下还可以帮助降低服务器负担.<br><a href="http://www.w3cways.com/1765.html" target="_blank" rel="external">http://www.w3cways.com/1765.html</a></p>
 </blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.lazyload.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span><br><span class="line">将真实图片地址写在 data-original 属性中，而 src 属性中的图片换成占位符的图片（例如 1x1 像素的灰色图片或者 loading 的 gif 图片）</span><br><span class="line">添加 class="lazy" 用于区别哪些图片需要延时加载，当然你也可以换成别的关键词，修改的同时记得修改调用时的 jQuery 选择器</span><br><span class="line">添加 width 和 height 属性有助于在图片未加载时占满所需要的空间</span><br><span class="line">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">class</span>=<span class="value">"lazy"</span> <span class="attribute">src</span>=<span class="value">"grey.gif"</span> <span class="attribute">data-original</span>=<span class="value">"example.jpg"</span> <span class="attribute">width</span>=<span class="value">"640"</span> <span class="attribute">heigh</span>=<span class="value">"480"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">$('img.lazy').lazyload();</span><br></pre></td></tr></table></figure>
 <p><code>jQuery Lazy Load 图片延迟加载 - 前端开发仓库</code><br><a href="http://code.ciaoca.com/jquery/lazyload/" target="_blank" rel="external">http://code.ciaoca.com/jquery/lazyload/</a></p>
-<p><code>你还在用jquery.lazyload这个坑爹的图片分屏加载插件么？ - 胡尐睿丶 - 博客园</code><br><a href="http://www.cnblogs.com/hooray/archive/2011/10/15/2212922.html" target="_blank" rel="external">http://www.cnblogs.com/hooray/archive/2011/10/15/2212922.html</a><br>(第二次图片请求，取消了)</p>
+<p><code>你还在用jquery.lazyload这个坑爹的图片分屏加载插件么？ - 胡尐睿丶 - 博客园</code><br><a href="http://www.cnblogs.com/hooray/archive/2011/10/15/2212922.html" target="_blank" rel="external">http://www.cnblogs.com/hooray/archive/2011/10/15/2212922.html</a><br>(第二次图片请求，取消了)<br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/16-7-25/81154367.jpg" alt=""><br><!--
+ --></p>
 <h1 id="更多工具">更多工具</h1><ul>
 <li><p>lazysizes</p>
 <blockquote>
@@ -70,10 +74,12 @@
 <a id="more"></a>]]></content>
     <summary type="html">
     <![CDATA[<h1 id="jQuery_Lazy_Load_图片延迟加载">jQuery Lazy Load 图片延迟加载</h1><blockquote>
-<p>Lazy Load 是一个用 JavaScript 编写的 jQuery 插件. 它可以延迟加载长页面中的图片. 在浏览器可视区域外的图片不会被载入, 直到用户将页面滚动到它们所在的位置. 这与图片预加载的处理方式正好是相反的.<br>在包含很多大图片长页面中延迟加载图片可以加快页面加载速度. 浏览器将会在加载可见图片之后即进入就绪状态. 在某些情况下还可以帮助降低服务器负担.<br><a href="http://www.w3cways.com/1765.html">http://www.w3cways.com/1765.html</a><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.lazyload.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span><br><span class="line">将真实图片地址写在 data-original 属性中，而 src 属性中的图片换成占位符的图片（例如 1x1 像素的灰色图片或者 loading 的 gif 图片）</span><br><span class="line">添加 class="lazy" 用于区别哪些图片需要延时加载，当然你也可以换成别的关键词，修改的同时记得修改调用时的 jQuery 选择器</span><br><span class="line">添加 width 和 height 属性有助于在图片未加载时占满所需要的空间</span><br><span class="line">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">class</span>=<span class="value">"lazy"</span> <span class="attribute">src</span>=<span class="value">"grey.gif"</span> <span class="attribute">data-original</span>=<span class="value">"example.jpg"</span> <span class="attribute">width</span>=<span class="value">"640"</span> <span class="attribute">heigh</span>=<span class="value">"480"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">$('img.lazy').lazyload();</span><br></pre></td></tr></table></figure></p>
+<p>Lazy Load 是一个用 JavaScript 编写的 jQuery 插件. 它可以延迟加载长页面中的图片. 在浏览器可视区域外的图片不会被载入, 直到用户将页面滚动到它们所在的位置. 这与图片预加载的处理方式正好是相反的.<br>在包含很多大图片长页面中延迟加载图片可以加快页面加载速度. 浏览器将会在加载可见图片之后即进入就绪状态. 在某些情况下还可以帮助降低服务器负担.<br><a href="http://www.w3cways.com/1765.html">http://www.w3cways.com/1765.html</a></p>
 </blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.lazyload.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span><br><span class="line">将真实图片地址写在 data-original 属性中，而 src 属性中的图片换成占位符的图片（例如 1x1 像素的灰色图片或者 loading 的 gif 图片）</span><br><span class="line">添加 class="lazy" 用于区别哪些图片需要延时加载，当然你也可以换成别的关键词，修改的同时记得修改调用时的 jQuery 选择器</span><br><span class="line">添加 width 和 height 属性有助于在图片未加载时占满所需要的空间</span><br><span class="line">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">class</span>=<span class="value">"lazy"</span> <span class="attribute">src</span>=<span class="value">"grey.gif"</span> <span class="attribute">data-original</span>=<span class="value">"example.jpg"</span> <span class="attribute">width</span>=<span class="value">"640"</span> <span class="attribute">heigh</span>=<span class="value">"480"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">$('img.lazy').lazyload();</span><br></pre></td></tr></table></figure>
 <p><code>jQuery Lazy Load 图片延迟加载 - 前端开发仓库</code><br><a href="http://code.ciaoca.com/jquery/lazyload/">http://code.ciaoca.com/jquery/lazyload/</a></p>
-<p><code>你还在用jquery.lazyload这个坑爹的图片分屏加载插件么？ - 胡尐睿丶 - 博客园</code><br><a href="http://www.cnblogs.com/hooray/archive/2011/10/15/2212922.html">http://www.cnblogs.com/hooray/archive/2011/10/15/2212922.html</a><br>(第二次图片请求，取消了)</p>
+<p><code>你还在用jquery.lazyload这个坑爹的图片分屏加载插件么？ - 胡尐睿丶 - 博客园</code><br><a href="http://www.cnblogs.com/hooray/archive/2011/10/15/2212922.html">http://www.cnblogs.com/hooray/archive/2011/10/15/2212922.html</a><br>(第二次图片请求，取消了)<br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/16-7-25/81154367.jpg" alt=""><br><!--
+ --></p>
 <h1 id="更多工具">更多工具</h1><ul>
 <li><p>lazysizes</p>
 <blockquote>
@@ -436,20 +442,15 @@
     <link href="http://yoursite.com/2016/07/21/linux%20ssh%E7%AB%AF%E5%8F%A3%E4%BF%AE%E6%94%B9/"/>
     <id>http://yoursite.com/2016/07/21/linux ssh端口修改/</id>
     <published>2016-07-20T16:00:02.000Z</published>
-    <updated>2016-07-25T03:35:52.142Z</updated>
-    <content type="html"><![CDATA[<h1 id="编辑sshd服务配置文件">编辑<code>sshd</code>服务配置文件</h1><figure class="highlight"><figcaption><span>vim</span><a href="/etc/ssh/sshd_config">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```&#10;&#10;&#10;# &#26356;&#25913;&#31471;&#21475;</span><br></pre></td></tr></table></figure>
-<p>#Port 22 =&gt; Port 1997</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="vala"><span class="preprocessor"># 重启sshd服务</span></span></span><br></pre></td></tr></table></figure>
-<p>sudo /etc/init.d/sshd restart</p>
-<p>```</p>
-<a id="more"></a>
-]]></content>
+    <updated>2016-07-25T12:52:33.102Z</updated>
+    <content type="html"><![CDATA[<h1 id="编辑sshd服务配置文件">编辑<code>sshd</code>服务配置文件</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<h1 id="更改端口">更改端口</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># Port <span class="number">22</span> =&gt; Port <span class="number">1997</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="重启sshd服务">重启sshd服务</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/sshd restart</span><br></pre></td></tr></table></figure>
+<a id="more"></a>]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="编辑sshd服务配置文件">编辑<code>sshd</code>服务配置文件</h1><figure class="highlight"><figcaption><span>vim</span><a href="/etc/ssh/sshd_config">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```&#10;&#10;&#10;# &#26356;&#25913;&#31471;&#21475;</span><br></pre></td></tr></table></figure>
-<p>#Port 22 =&gt; Port 1997</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="vala"><span class="preprocessor"># 重启sshd服务</span></span></span><br></pre></td></tr></table></figure>
-<p>sudo /etc/init.d/sshd restart</p>
-<p>```</p>]]>
+    <![CDATA[<h1 id="编辑sshd服务配置文件">编辑<code>sshd</code>服务配置文件</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<h1 id="更改端口">更改端口</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># Port <span class="number">22</span> =&gt; Port <span class="number">1997</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="重启sshd服务">重启sshd服务</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/sshd restart</span><br></pre></td></tr></table></figure>]]>
     
     </summary>
     
