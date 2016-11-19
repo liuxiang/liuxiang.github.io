@@ -4,7 +4,7 @@
   <subtitle><![CDATA[编程在继续，刘祥's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-19T04:53:15.564Z</updated>
+  <updated>2016-11-19T05:06:15.173Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,21 +19,23 @@
     <link href="http://yoursite.com/2016/11/19/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%20ShadowSocks(%E5%85%8D%E8%B4%B9)/"/>
     <id>http://yoursite.com/2016/11/19/科学上网 ShadowSocks(免费)/</id>
     <published>2016-11-18T16:00:00.000Z</published>
-    <updated>2016-11-19T04:53:15.564Z</updated>
+    <updated>2016-11-19T05:06:15.173Z</updated>
     <content type="html"><![CDATA[<h1 id="客户端下载">客户端下载</h1><p><code>地址</code>  <a href="https://www.mianvpn.com/client.html" target="_blank" rel="external">https://www.mianvpn.com/client.html</a></p>
 <!--
 -->
 <p> <img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/58373972.jpg" alt=""></p>
 <h1 id="使用">使用</h1><ul>
-<li>打开互联网提供的免费ss<br><a href="https://www.mianvpn.com/index.html#free" target="_blank" rel="external">https://www.mianvpn.com/index.html#free</a><br>&lt;!–</li>
+<li>打开互联网提供的免费ss<br><a href="https://www.mianvpn.com/index.html#free" target="_blank" rel="external">https://www.mianvpn.com/index.html#free</a></li>
 </ul>
-<p>–&gt;<br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/34802253.jpg" alt=""></p>
+<!-- -->
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/34802253.jpg" alt=""></p>
 <p>注意 <code>免费试用节点6小时更换一次密码与端口，请勿用于商业用途</code></p>
 <ul>
-<li>查看配置<!--
--->
-<img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/17683825.jpg" alt=""></li>
+<li>查看配置</li>
 </ul>
+<!--
+-->
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/17683825.jpg" alt=""></p>
 <ul>
 <li><p><code>方式一</code>二维码扫码</p>
 <!--
@@ -47,10 +49,11 @@
 </li>
 </ul>
 <ul>
-<li>开启全局代理<!--
--->
-<img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/17445067.jpg" alt=""></li>
+<li>开启全局代理</li>
 </ul>
+<!--
+-->
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/17445067.jpg" alt=""></p>
 <h1 id="验证">验证</h1><!--
 -->
 <p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/51446865.jpg" alt=""></p>
@@ -59,6 +62,9 @@
 -->
 <p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/6264520.jpg" alt=""></p>
 <p>中文名: 影梭<br>源地址: <a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-android/releases</a></p>
+<ul>
+<li>效果</li>
+</ul>
 <!--
 -->
 <p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/5282729.jpg" alt=""></p>
@@ -66,10 +72,11 @@
 <h1 id="浏览器插件,推荐另一款快速安全通道">浏览器插件,推荐另一款<code>快速安全通道</code></h1><p><a href="https://faststunnel.cc/" target="_blank" rel="external">https://faststunnel.cc/</a><br><!--
 --><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/66641490.jpg" alt=""></p>
 <ul>
-<li>使用 &amp; 效果<!--
--->
-<img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/15101991.jpg" alt=""></li>
+<li>使用 &amp; 效果</li>
 </ul>
+<!--
+  -->
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/public/16-11-19/15101991.jpg" alt=""></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="客户端下载">客户端下载</h1><p><code>地址</code>  <a href="https://www.mianvpn.com/client.html" target="_blank" rel="external">https://www.mianvp]]>
