@@ -4,7 +4,7 @@
   <subtitle><![CDATA[编程在继续，刘祥's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-07T12:53:56.400Z</updated>
+  <updated>2017-06-07T12:53:56.412Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,21 +13,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2017/06/07/java%E6%9E%B6%E6%9E%84%E7%9B%B8%E5%85%B3-%E7%B3%BB%E7%BB%9F%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84/"/>
-    <id>http://yoursite.com/2017/06/07/java架构相关-系统高可用架构/</id>
-    <published>2017-06-07T12:54:18.487Z</published>
-    <updated>2017-06-07T12:53:56.400Z</updated>
-    <content type="html"><![CDATA[<h1 id="系统高可用架构">系统高可用架构</h1><p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-7/18489400.jpg" alt=""></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="系统高可用架构">系统高可用架构</h1><p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-7/18489400.jpg" alt=""></p>
-]]>
-    </summary>
-    
-  </entry>
   
   <entry>
     <title><![CDATA[java架构相关-性能]]></title>
@@ -39,6 +24,23 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="性能">性能</h1><p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-7/25074587.jpg" alt=""></p>
+]]>
+    </summary>
+    
+      <category term="架构" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[java架构相关-系统高可用架构]]></title>
+    <link href="http://yoursite.com/2017/06/07/java%E6%9E%B6%E6%9E%84%E7%9B%B8%E5%85%B3-%E7%B3%BB%E7%BB%9F%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84/"/>
+    <id>http://yoursite.com/2017/06/07/java架构相关-系统高可用架构/</id>
+    <published>2017-06-06T16:00:04.000Z</published>
+    <updated>2017-06-07T13:02:27.857Z</updated>
+    <content type="html"><![CDATA[<h1 id="系统高可用架构">系统高可用架构</h1><p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-7/18489400.jpg" alt=""></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="系统高可用架构">系统高可用架构</h1><p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-7/18489400.jpg" alt=""></p>
 ]]>
     </summary>
     
