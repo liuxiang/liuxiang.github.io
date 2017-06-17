@@ -4,7 +4,7 @@
   <subtitle><![CDATA[编程在继续，刘祥's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-07T12:53:56.412Z</updated>
+  <updated>2017-06-17T05:00:39.720Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,246 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[红黑树(Red-Black Tree，简称R-B Tree)]]></title>
+    <link href="http://yoursite.com/2017/06/17/%E7%BA%A2%E9%BB%91%E6%A0%91(Red-Black%20Tree%EF%BC%8C%E7%AE%80%E7%A7%B0R-B%20Tree)/"/>
+    <id>http://yoursite.com/2017/06/17/红黑树(Red-Black Tree，简称R-B Tree)/</id>
+    <published>2017-06-16T16:00:02.000Z</published>
+    <updated>2017-06-17T05:00:39.720Z</updated>
+    <content type="html"><![CDATA[<h1 id="红黑树(Red-Black_Tree，简称R-B_Tree)">红黑树(Red-Black Tree，简称R-B Tree)</h1><p>红-黑树的就是这样的一棵平衡树，对一个要插入的数据项，插入例程要检查会不会破坏树的特征，如果破坏了，程序就会进行纠正，根据需要改变树的结构，从而保持树的平衡</p>
+<ul>
+<li><p>【规则】有效的红黑树我们增加了如下的额外要求：</p>
+<ul>
+<li>1.节点是红色或黑色。</li>
+<li>2.根是黑色。</li>
+<li>3.所有叶子都是黑色（叶子是NIL节点）。</li>
+<li>4.每个红色节点必须有两个黑色的子节点。（从每个叶子到根的所有路径上不能有两个连续的红色节点。）</li>
+<li>5.从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点。</li>
+</ul>
+</li>
+</ul>
+<p>作用：红黑树的节点是有颜色概念的，即非红即黑。<code>通过颜色的约束，红黑树维持着二叉搜索树的平衡性</code></p>
+<hr>
+<h1 id="分析与理解"><code>分析与理解</code></h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">结合： 【<span class="number">10</span>,<span class="number">85</span>,<span class="number">15</span>,<span class="number">70</span>,<span class="number">20</span> <span class="number">60</span>,<span class="number">30</span>,<span class="number">50</span>】想象和理解</span><br><span class="line">理想目标是绝对平衡树. 平衡控制主要由`规则<span class="number">5</span>`来约束，假如在不设 规则<span class="number">1</span>的颜色条件下，`绝对平衡树`会出现无法插入单结点只能整层插入。</span><br><span class="line">为提供灵活性，设置红色为弹性元素可插入到新层中，但避免红色的单边蔓延，破坏了层数的平衡。（似<span class="number">2</span>-<span class="number">3</span>-<span class="number">4</span>树 子树结点以元素存在）</span><br><span class="line">通过`规则<span class="number">4</span>`，来仅一步约束平衡。上限时为所有的黑结点提供满树的红色子结点。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">小结：红色的出现是因为`绝对平衡树`不能接受单结点的插入，需要提供入口条件。AVL树的规则是允许平衡因子 BF 允许<span class="number">1</span>层的差。</span><br><span class="line">而红黑树的规则是，通过特殊色(红色)来提供入口，接受新元素) [彩蛋：AVL平衡树也不是绝对平衡BF为<span class="number">1</span>的平衡]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">为了避免层数的蔓延(相对平衡控制)，AVL树通过平衡因子BF差为<span class="number">1</span>来控制，红黑树通过特殊色不能串层出现（`规则<span class="number">4</span>`）。两者目的一样</span><br><span class="line">红黑树，在排除特殊色的情况下，应该处于`绝对平衡树`状态。为方便理解 `绝对平衡树`状态下 层数计算，增加了(`规则<span class="number">3</span>`)-辅助理解</span><br><span class="line">`规则<span class="number">2</span>`是确定了绝对平衡树的基准色(黑色)和特殊色(红色)，根颜色一定是绝对平衡树的基准色.</span><br><span class="line">`规则<span class="number">1</span>`是因为该算法只需要一个特殊色， 再 为了统一知识约定，将其定为红色和黑色。</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>绝对平衡树控制</th>
+<th>插入新结点</th>
+<th>蔓延控制</th>
+<th>统计绝对平衡树层</th>
+<th>优缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>绝对平衡树</td>
+<td>根与到各结点的距离一致</td>
+<td>不允许,会破坏绝对平衡<br> 只能按层插入</td>
+<td>【不需要】</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AVL平衡树</td>
+<td>(相对平衡)</td>
+<td>弥补绝对平衡树的不能插入新结点的缺点 <br> 允许新结点加入新层</td>
+<td>允许加入层差在1以内的新结点</td>
+<td>总层数-溢出的新结点层(1)</td>
+<td>更接近绝对平衡(差1层) <br> 平衡维持更频繁</td>
+</tr>
+<tr>
+<td>红黑平衡树</td>
+<td>(相对平衡)</td>
+<td>弥补绝对平衡树的不能插入新结点的缺点 <br> 允许新结点以特殊色(红色)加入新层</td>
+<td>设置特殊色(红色)不允许串层出现（规则4） <br> 类2-3-4树: <br> 4结点允许3个元素存在后再扩展子树 <br> (红结点类似3元素成员,允许平衡条件下特殊存在)</td>
+<td>黑色结点的层数(规则5)</td>
+<td>接近绝对平衡(最大差除2加1) <br> 平衡维持有特殊色缓冲</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>红黑平衡树-规则</th>
+<th>红黑平衡树-作用或目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>5.从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点。|  限定绝对平衡的关键规则<br>弥补绝对平衡树的不能插入新结点的缺点<br>允许新结点以特殊色(红色)加入新层<br>4.每个红色节点必须有两个黑色的子节点。（从每个叶子到根的所有路径上不能有两个连续的红色节点。）| 设置特殊色(红色)不允许串层出现,避免蔓延控制<br>类2-3-4树:<br>4结点允许3个元素存在后再扩展子树<br>(红结点类似3元素成员,允许平衡条件下特殊存在)<br>3.所有叶子都是黑色（叶子是NIL节点）。|在排除特殊色的情况下，应该处于<code>绝对平衡树</code>状态。<br>规则3,为方便理解<code>绝对平衡树</code>状态下层数计算<br>2.根是黑色。| 规则2是确定了绝对平衡树的基准色(黑色)和特殊色(红色)，根颜色黑色是绝对平衡树的基准色<br>1.节点是红色或黑色。| 规则1是因为该算法只需要一个特殊色。再为了统一知识约定，将其定为红色和黑色</p>
+<hr>
+<h1 id="规则冲突时,调整认识">规则冲突时,调整认识</h1><p>红黑定义与切换，以及旋转都是随意的，只需要插入或删除结束后符合红黑树的规则(包含二叉排序树规则)<br>各场景该如何切换颜色与旋转，需转换为程序思维，依据场景进行变换（此变换不在红黑树的规则或要求限定以内）</p>
+<p><code>核心思路</code>：先变换颜色,满足[规则4].再检查[规则5]是否<code>提前越层</code>,如果是通过<code>旋转降层</code>恢复.</p>
+<hr>
+<h1 id="插入过程">插入过程</h1><p>见：★  <code>5. 数据结构 - 红黑树 - 简书</code><br><a href="http://www.jianshu.com/p/f4639d0cc887" target="_blank" rel="external">http://www.jianshu.com/p/f4639d0cc887</a></p>
+<ul>
+<li>规则5,效果：<br>根据红黑树的性质（5），红黑树要求从根节点到叶子所有叶子节点上经过的黑色节点个数是相同的，因此如果插入的节点着色为黑色，那必然有可能导致某条路径上的黑色节点数量大于其他路径上的黑色节点数量，因此<code>默认插入的节点必须是红色</code>的，以此来维持红黑树的性质（5）</li>
+</ul>
+<p>( 因为 G 为根节点，那么根据情况 1，将其涂为黑色，完事 )</p>
+<ul>
+<li>规则4,效果：红红冲突，可简单讲父级改色。<br>但又违反了规则5[60子树黑点比10,110,140子树黑点多]， 将60改为红色，可维持规则5</li>
+</ul>
+<ul>
+<li>规则4,效果：维持了规则5情况下，规则4又出现冲突，但在更上层。<br>直观做法：将40设为黑色，可满足规则4。 120结点也设为黑色，可同时满足规则5。<br>（<code>此时状态，是不完全的平衡树，但满足红黑树规则</code>）</li>
+<li>满足规则5的条件下，每个黑点可容纳上下层为红点，是不破坏规则5的。</li>
+</ul>
+<ul>
+<li><p>示例：插入【10,85,15,70,20 60,30,50】</p>
+<ul>
+<li><p>首个为根，黑色：10</p>
+</li>
+<li><p>85比10大，放右边，默认插入为红色。【红黑特性校验器-正常】     </p>
+</li>
+<li><p>15比10大 比85小，放85左边，默认插入为 红 色。【红黑特性校验器-异常】     </p>
+</li>
+<li><p>【红黑特性校验器-异常】矫正</p>
+<ul>
+<li><p>对新插入节点的父节点进行一次右旋操作</p>
+</li>
+<li><p>新插入节点的父节点着色为黑色，新插入节点的祖父节点着色为红色</p>
+</li>
+<li><p>对新插入节点的祖父节点进行一次左旋操作</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="gif_过程【10，85，15，70，20，60，30，50，65，80，90，40，5，55】">gif 过程【10，85，15，70，20，60，30，50，65，80，90，40，5，55】 <img src="http://upload-images.jianshu.io/upload_images/1630488-0b740e32e6c690cf.gif?imageMogr2/auto-orient/strip" alt=""></h2><hr>
+<p><strong>参考</strong></p>
+<ul>
+<li>五性质<br>★  <code>5. 数据结构 - 红黑树 - 简书</code><br><a href="http://www.jianshu.com/p/f4639d0cc887" target="_blank" rel="external">http://www.jianshu.com/p/f4639d0cc887</a></li>
+</ul>
+<p><code>JAVA学习-红黑树详解   - 简书</code><br><a href="http://www.jianshu.com/p/4cd37000f4e3" target="_blank" rel="external">http://www.jianshu.com/p/4cd37000f4e3</a></p>
+<p><code>数据结构-红黑树 - 简书</code><br><a href="http://www.jianshu.com/p/5e567cc01b50" target="_blank" rel="external">http://www.jianshu.com/p/5e567cc01b50</a></p>
+<p><code>红黑树(五)之 Java的实现 - 如果天空不死 - 博客园</code><br><a href="http://www.cnblogs.com/skywang12345/p/3624343.html" target="_blank" rel="external">http://www.cnblogs.com/skywang12345/p/3624343.html</a></p>
+<ul>
+<li>三性质(<code>特立的定义，会破坏知识的共同认知和沟通</code>)<br>★  <code>图解集合7：红黑树概念、红黑树的插入及旋转操作详细解读 - 五月的仓颉 - 博客园</code><br><a href="http://www.cnblogs.com/xrq730/p/6867924.html" target="_blank" rel="external">http://www.cnblogs.com/xrq730/p/6867924.html</a></li>
+</ul>
+<p><code>红黑树数据结构剖析 - Florian - 博客园</code><br><a href="http://www.cnblogs.com/fanzhidongyzby/p/3187912.html" target="_blank" rel="external">http://www.cnblogs.com/fanzhidongyzby/p/3187912.html</a></p>
+<ul>
+<li>四性质 (<code>特立的定义，会破坏知识的共同认知和沟通</code>)</li>
+</ul>
+<p><code>【数据结构和算法05】 红-黑树（看完包懂~） - 倪升武的博客 - 博客频道 - CSDN.NET</code></p>
+<p><a href="http://blog.csdn.net/eson_15/article/details/51144079" target="_blank" rel="external">http://blog.csdn.net/eson_15/article/details/51144079</a></p>
+<hr>
+<h1 id="红黑树_-_维基百科">红黑树 - 维基百科</h1><p><code>红黑树 - 维基百科，自由的百科全书</code><br><a href="https://zh.wikipedia.org/wiki/红黑树" target="_blank" rel="external">https://zh.wikipedia.org/wiki/红黑树</a></p>
+<p><code>红黑树 - Wikiwand</code><br><a href="http://www.wikiwand.com/zh/%E7%BA%A2%E9%BB%91%E6%A0%91" target="_blank" rel="external">http://www.wikiwand.com/zh/%E7%BA%A2%E9%BB%91%E6%A0%91</a></p>
+<p><code>2-3-4树 - 维基百科，自由的百科全书</code> - 2-3-4 树是红黑树的一种等同<br><a href="https://zh.mdzz.men/wiki/2-3-4%E6%A0%91" target="_blank" rel="external">https://zh.mdzz.men/wiki/2-3-4%E6%A0%91</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="红黑树(Red-Black_Tree，简称R-B_Tree)">红黑树(Red-Black Tree，简称R-B Tree)</h1><p>红-黑树的就是这样的一棵平衡树，对一个要插入的数据项，插入例程要检查会不会破坏树的特征，如果破坏了，程序就会进行纠正，根据需]]>
+    </summary>
+    
+      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[树&二叉树&二叉排序树&多路搜索树(B树)-总结]]></title>
+    <link href="http://yoursite.com/2017/06/17/%E6%A0%91&%E4%BA%8C%E5%8F%89%E6%A0%91&%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91&%E5%A4%9A%E8%B7%AF%E6%90%9C%E7%B4%A2%E6%A0%91(B%E6%A0%91)-%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2017/06/17/树&二叉树&二叉排序树&多路搜索树(B树)-总结/</id>
+    <published>2017-06-16T16:00:01.000Z</published>
+    <updated>2017-06-17T05:01:42.023Z</updated>
+    <content type="html"><![CDATA[<p>完整学习见： 《 大话数据结构》 第六章 树</p>
+<hr>
+<h1 id="Tree：根结点-内部节点-终端节点(叶子节点)_组成的数据结构">Tree：根结点-内部节点-终端节点(叶子节点) 组成的数据结构</h1><p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/12872520.jpg" alt=""></p>
+<hr>
+<h1 id="二叉树【Binary_tree】：每个节点最多有两个子节点">二叉树【Binary tree】：每个节点最多有两个子节点</h1><ul>
+<li>遍历二叉树：前序，中序，后续 （利用递归或自循环+ Stack栈回放路径 ）<br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/94470744.jpg" alt=""></li>
+</ul>
+<hr>
+<h1 id="二叉排序树【Binary_Sort_tree】【BST】：在二叉树的基础上，最左终端结点最小，使用中序遍历的方法可排序元素">二叉排序树【Binary Sort tree】【BST】：在二叉树的基础上，最左终端结点最小，使用中序遍历的方法可排序元素</h1><ul>
+<li><p>插入： 致入任意数值，首个为根，后者逐个比较小放左，大放右直至终端结点</p>
+</li>
+<li><p>删除： 叶子结点(直删)  单叶内部结点(子替位)  双叶内部结点(前驱或后继替位)</p>
+</li>
+</ul>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/51153658.jpg" alt=""></p>
+<hr>
+<h1 id="二叉平衡树【AVL树】：_是一种高度平衡的二插排序树。子树深度差最大为1">二叉平衡树【AVL树】： 是一种高度平衡的二插排序树。子树<code>深度差</code>最大为1</h1><ul>
+<li><code>平衡因子（BF）</code>  = 左字树深度-右子树深度</li>
+<li><code>BF值为正（即左子树深）</code>，因此为达到平衡将<code>整树右旋</code> / 反之  <code>整树左旋</code> 【 目标：找最小不平衡树，进行平衡控制】</li>
+<li>特殊场景：<code>旋转节点的BF值</code>与<code>旋转方向的参考节点的BF值</code>是相反的情况下，需要先统一<br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/3065500.jpg" alt=""></li>
+</ul>
+<hr>
+<h1 id="多路查找树【_muitl-way_search_tree_】：每个结点可以存储多个元素，孩子数是父结点元素数+1（且必需或全没有）">多路查找树【 muitl-way search tree 】：每个结点可以存储多个元素，孩子数是父结点元素数+1（且必需或全没有）</h1><ul>
+<li><p><code>2-3树</code>：结点的孩子树可以为2个或3个，即结点元素可以为1个或2个。</p>
+<ul>
+<li>2结点如有3孩子,中间字树的范围介于2结点元素的访问之间<ul>
+<li>元素 插入 2结点 ： 找到最近小于元素的结点，如为2结点可扩展为3结点，插入到右边/无更小值插入2结点的左边</li>
+</ul>
+</li>
+<li><p>元素插入3结点：因3结点已经是最大容量，无法再插入新元素，需要拆分。</p>
+<ul>
+<li><p>情况一：3结点的父结点是2结点， 可将2结点扩展为3结点，再将待插入的元素补入3结点的子树空位</p>
+<ul>
+<li>情况二：3结点的父结点是3结点，需要再向上找是否有可扩展的2结点。扩展后插入方式同上</li>
+</ul>
+</li>
+<li><p>情况三：结合情况1,2，顶层结点均为3结点，无法再插入元素，则整链的3结点都解体为2结点</p>
+</li>
+</ul>
+</li>
+<li><code>删终端 3结点中元素</code>：不会破坏结构，直删即可<ul>
+<li><code>删终端 2结点中元素</code>：会出现不平衡情况，需要<code>平衡补位</code>，补位元素所在结点因由2个结点否则移位后还是不平</li>
+<li><code>删非终端 2结点中元素</code>  ： 会出现不平衡情况，需要<code>平衡补位</code>，前置或后置元素替位</li>
+</ul>
+</li>
+<li><code>删非终端 3结点中元素</code>  ： 会出现不平衡情况，需要<code>平衡补位</code> ，前置或后置元素 替位</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/93548120.jpg" alt=""></p>
+<ul>
+<li><p><code>2-3-4树</code>：类似<code>2-3树</code>，要么没有孩子要么4个孩子，结点元素可以为1到3个</p>
+<ul>
+<li>插入，删除操作同<code>2-3树</code>逻辑</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/15573800.jpg" alt=""></p>
+<ul>
+<li><p><code>B树【B-tree】</code>： <code>2-3树</code>是3阶B树， <code>2-3-4树</code>是4阶B树。树阶是最大孩子树的数目</p>
+<ul>
+<li><p>查找：根结点开始查找关键字匹配和区间子树结点的递归匹配</p>
+</li>
+<li><p>插入，删除操作同<code>2-3树</code>  <code>2-3-4树</code> 逻辑</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/91316945.jpg" alt=""></p>
+<ul>
+<li><p><code>B+树</code>：是<code>B树</code>的变形树</p>
+<ul>
+<li>1.每个分支结点的元素会在中序<code>后继者</code>的位置再次列出：<code>随机查找</code>（顶层开始，逐层查找）</li>
+<li>2.每个叶子节点会保存指向下一个叶子节点的指针：<code>范围查找</code>（从起点开始随下一叶子节点位置按顺序找到范围内所有记录）</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/83935023.jpg" alt=""></p>
+<hr>
+<p><strong>参考</strong><br><code>大话数据结构.pdf</code> 第六章 树</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>完整学习见： 《 大话数据结构》 第六章 树</p>
+<hr>
+<h1 id="Tree：根结点-内部节点-终端节点(叶子节点)_组成的数据结构">Tree：根结点-内部节点-终端节点(叶子节点) 组成的数据结构</h1><p><img src="http://7xnbs3]]>
+    </summary>
+    
+      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[java架构相关-性能]]></title>
@@ -70,7 +310,7 @@
     <link href="http://yoursite.com/2017/06/07/%E5%88%86%E5%B8%83%E5%BC%8F-%E9%9B%86%E7%BE%A4-SOA-%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%A6%82%E5%BF%B5%E5%B7%AE%E5%BC%82/"/>
     <id>http://yoursite.com/2017/06/07/分布式-集群-SOA-微服务-概念差异/</id>
     <published>2017-06-06T16:00:02.000Z</published>
-    <updated>2017-06-07T12:53:56.373Z</updated>
+    <updated>2017-06-17T04:39:38.017Z</updated>
     <content type="html"><![CDATA[<h1 id="分布式服务架构与微服务架构概念的区别与联系">分布式服务架构与微服务架构概念的区别与联系</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">分布式：分散压力。</span><br><span class="line">微服务：分散能力。</span><br></pre></td></tr></table></figure>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">分布式只是把东西分散部署，是一个比较笼统的概念。</span><br><span class="line">微服务一般都是分布式的，而微服务更强调敏捷和健壮，他的边界应该更加清晰，包括你部署的程序和数据都应该独立，这里可能借助docker。微服务要处理好服务的发布，发现。</span><br><span class="line">微服务真正做得好，还是难，数据分布还是制约了事务的强一致或者实时性</span><br></pre></td></tr></table></figure>
 <p><strong>参考</strong><br><code>分布式服务架构与微服务架构概念的区别与联系是怎样的？ - 知乎</code><br><a href="https://www.zhihu.com/question/28253777" target="_blank" rel="external">https://www.zhihu.com/question/28253777</a></p>
@@ -114,6 +354,7 @@
 <p><code>微服务架构和企业实施策略(3.8)</code><br><a href="http://www.tuicool.com/articles/F3ayeuJ" target="_blank" rel="external">http://www.tuicool.com/articles/F3ayeuJ</a></p>
 <p><code>基于微服务的软件架构模式 - DockOne.io</code></p>
 <p><a href="http://dockone.io/article/877" target="_blank" rel="external">http://dockone.io/article/877</a></p>
+<p><code>微服务设计原则 - 推酷</code><br><a href="http://www.tuicool.com/articles/BfEfY3V" target="_blank" rel="external">http://www.tuicool.com/articles/BfEfY3V</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="分布式服务架构与微服务架构概念的区别与联系">分布式服务架构与微服务架构概念的区别与联系</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</]]>
@@ -189,7 +430,7 @@
     <link href="http://yoursite.com/2017/05/23/%E6%89%B9%E5%A4%84%E7%90%86%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     <id>http://yoursite.com/2017/05/23/批处理自动输入命令行/</id>
     <published>2017-05-22T16:00:00.000Z</published>
-    <updated>2017-05-31T10:27:24.947Z</updated>
+    <updated>2017-06-17T04:39:37.978Z</updated>
     <content type="html"><![CDATA[<p>从windows上往Linux上传送文件的时候，安装openSSH后，在cmd中使用scp命令，需要在命令执行后输入密码，这样就无法在程序中调用。批处理也不是很熟，在网上找了一些资料后结果如下：因为runas命令也有类似情况，网上一般都是以此为例<br>1.<a href="http://www.cn-dos.net/forum/viewthread.php?tid=34574" target="_blank" rel="external">http://www.cn-dos.net/forum/viewthread.php?tid=34574</a></p>
 <p>[c-sharp] view plain copy</p>
 <ul>
@@ -219,7 +460,7 @@
 <hr>
 <h1 id="自动输入_&amp;_连续执行">自动输入 &amp; 连续执行</h1><ul>
 <li><p>all 1+.bat.vbs</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">'call <span class="string">"1.xcopy unsigned.apk.bat"</span>'</span><br><span class="line">'call <span class="string">"2.signed.bat"</span>'</span><br><span class="line">'call <span class="string">"3.adb install.bat"</span>'</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">'开始'</span><br><span class="line">Dim wsh</span><br><span class="line">Set wsh= CreateObject(<span class="string">"wscript.shell"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">wsh.run <span class="string">""</span><span class="string">"0.cordova build android --release.bat"</span><span class="string">""</span>,,<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">wsh.run <span class="string">""</span><span class="string">"1.xcopy unsigned.apk.bat"</span><span class="string">""</span>,,<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">wsh.run <span class="string">"2.signed.bat &amp; 3.adb_install.bat"</span></span><br><span class="line">WScript.Sleep <span class="number">500</span></span><br><span class="line">wsh.SendKeys <span class="string">"teach_platform&#123;enter&#125;&#123;enter&#125;"</span></span><br><span class="line">wsh.SendKeys <span class="string">"mobile&#123;enter&#125;&#123;enter&#125;"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">'call <span class="string">"1.xcopy unsigned.apk.bat"</span>'</span><br><span class="line">'call <span class="string">"2.signed.bat"</span>'</span><br><span class="line">'call <span class="string">"3.adb install.bat"</span>'</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">'开始'</span><br><span class="line">Dim wsh</span><br><span class="line">Set wsh= CreateObject(<span class="string">"wscript.shell"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">wsh.run <span class="string">""</span><span class="string">"0.cordova build android --release.bat"</span><span class="string">""</span>,,<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">wsh.run <span class="string">""</span><span class="string">"1.xcopy unsigned.apk.bat"</span><span class="string">""</span>,,<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">wsh.run <span class="string">"2.signed.bat &amp; 3.adb_install.bat"</span></span><br><span class="line">WScript.Sleep <span class="number">500</span></span><br><span class="line">wsh.SendKeys <span class="string">"**** **** &#123;enter&#125;&#123;enter&#125;"</span></span><br><span class="line">wsh.SendKeys <span class="string">" **** &#123;enter&#125;&#123;enter&#125;"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>VBS注释 ： ‘开始’</p>
 </li>
@@ -654,84 +895,6 @@
     </summary>
     
       <category term="ngrok" scheme="http://yoursite.com/tags/ngrok/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[javaScript空值[undefined,null,'',0]比较]]></title>
-    <link href="http://yoursite.com/2017/04/09/javaScript%E7%A9%BA%E5%80%BC%5Bundefined,null,--,0%5D%E6%AF%94%E8%BE%83/"/>
-    <id>http://yoursite.com/2017/04/09/javaScript空值[undefined,null,--,0]比较/</id>
-    <published>2017-04-08T16:00:00.000Z</published>
-    <updated>2017-05-31T10:27:24.752Z</updated>
-    <content type="html"><![CDATA[<p><img src="https://segmentfault.com/img/bVkpiW" alt=""></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;<span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> aa = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> aaa = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">var</span> aaaa = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(a)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(aa));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(aaa));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(aaaa));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'--------------------------------'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a === <span class="literal">undefined</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(a == <span class="literal">undefined</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aa === <span class="literal">undefined</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aa == <span class="literal">undefined</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaa === <span class="literal">undefined</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aaa == <span class="literal">undefined</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaaa === <span class="literal">undefined</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aaaa == <span class="literal">undefined</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'--------------------------------'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a === <span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a == <span class="literal">null</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aa === <span class="literal">null</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(aa == <span class="literal">null</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaa === <span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aaa == <span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaaa === <span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aaaa == <span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'--------------------------------'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a === <span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a == <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aa === <span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aa == <span class="string">''</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaa === <span class="string">''</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(aaa == <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaaa === <span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aaaa == <span class="string">''</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'--------------------------------'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(!a);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(!aa);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(!aaa);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(!aaaa);<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p><code>undefined与null的区别 - 阮一峰的网络日志</code><br><a href="http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
-<p><a href="https://segmentfault.com/a/1190000002441634" target="_blank" rel="external">https://segmentfault.com/a/1190000002441634</a></p>
-<p><code>细说 Javascript 拾遗篇（二） : undefined 和 null - StephenLee - SegmentFault</code><br><a href="https://segmentfault.com/a/1190000000512023" target="_blank" rel="external">https://segmentfault.com/a/1190000000512023</a></p>
-<p><code>js判断undefined类型,undefined,null, 的区别详细解析 - 博客频道 - CSDN.NET</code><br><a href="http://blog.csdn.net/qq_34117825/article/details/52325685" target="_blank" rel="external">http://blog.csdn.net/qq_34117825/article/details/52325685</a></p>
-<p><code>javascript类型系统——undefined和null - 推酷</code><br><a href="http://www.tuicool.com/articles/b2MVJ3" target="_blank" rel="external">http://www.tuicool.com/articles/b2MVJ3</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><img src="https://segmentfault.com/img/bVkpiW" alt=""></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span ]]>
-    </summary>
-    
-      <category term="空值" scheme="http://yoursite.com/tags/%E7%A9%BA%E5%80%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[angular图片或附件上传]]></title>
-    <link href="http://yoursite.com/2017/04/08/angular%E5%9B%BE%E7%89%87%E6%88%96%E9%99%84%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
-    <id>http://yoursite.com/2017/04/08/angular图片或附件上传/</id>
-    <published>2017-04-07T16:00:00.000Z</published>
-    <updated>2017-05-31T10:27:24.721Z</updated>
-    <content type="html"><![CDATA[<h1 id="工具">工具</h1><p><code>AngularJS 文件上传控件 ng-file-upload - 岳小昊 - 博客园</code><br><a href="http://www.cnblogs.com/yuexiaohao/p/5556055.html" target="_blank" rel="external">http://www.cnblogs.com/yuexiaohao/p/5556055.html</a></p>
-<ul>
-<li><code>ng-file-upload</code>  <a href="https://github.com/danialfarid/ng-file-upload" target="_blank" rel="external">https://github.com/danialfarid/ng-file-upload</a></li>
-<li><code>angular-file-upload</code>  <a href="https://github.com/nervgh/angular-file-upload" target="_blank" rel="external">https://github.com/nervgh/angular-file-upload</a></li>
-</ul>
-<p><code>[Angularjs]ng-file-upload上传文件 - 推酷</code><br><a href="http://www.tuicool.com/articles/eeAb6r6" target="_blank" rel="external">http://www.tuicool.com/articles/eeAb6r6</a></p>
-<hr>
-<h1 id="angular_$http">angular $http</h1><p><code>AngularJS下$http上传文件(AngularJS file upload/post file) - Jannie_Kung的博客 - 博客频道 - CSDN.NET</code><br><a href="http://blog.csdn.net/jannie_kung/article/details/52057288" target="_blank" rel="external">http://blog.csdn.net/jannie_kung/article/details/52057288</a></p>
-<p><code>angular 采用$http 上传file spring 提示找不到boundary</code></p>
-<p><a href="http://blog.csdn.net/wendy260310/article/details/49493461" target="_blank" rel="external">http://blog.csdn.net/wendy260310/article/details/49493461</a></p>
-<ul>
-<li>遗留问题<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The <span class="built_in">server</span> cannot <span class="keyword">or</span> will <span class="keyword">not</span> process the <span class="built_in">request</span> due <span class="keyword">to</span> something that <span class="keyword">is</span> perceived <span class="keyword">to</span> be a client <span class="keyword">error</span> (e.g., malformed <span class="built_in">request</span> syntax, invalid <span class="built_in">request</span> message framing, <span class="keyword">or</span> deceptive <span class="built_in">request</span> routing).</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">服务器由于被认为是客户端错误（例如，格式错误的请求语法，无效请求消息成帧或欺骗性请求路由）的某些东西而无法或不会处理该请求。</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/99127824.jpg" alt=""></p>
-<ul>
-<li>后台异常：<code>“iconSrc”所需的类型[java.lang.String]：找不到匹配的编辑者或转换策略</code><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Field</span> error <span class="keyword">in</span> <span class="keyword">object</span> 'layerIconlib' on field 'iconSrc': rejected value [org.springframework.web.multipart.commons.<span class="type">CommonsMultipartFile</span>@<span class="number">78</span>cfdcd6]; codes [typeMismatch.layerIconlib.iconSrc,typeMismatch.iconSrc,typeMismatch.java.lang.<span class="type">String</span>,typeMismatch]; arguments [org.springframework.context.support.<span class="type">DefaultMessageSourceResolvable</span>: codes [layerIconlib.iconSrc,iconSrc]; arguments []; default message [iconSrc]]; default message [<span class="type">Failed</span> to convert property value <span class="keyword">of</span> <span class="keyword">type</span> [org.springframework.web.multipart.commons.<span class="type">CommonsMultipartFile</span>] to required <span class="keyword">type</span> [java.lang.<span class="type">String</span>] <span class="keyword">for</span> property 'iconSrc'; nested exception <span class="keyword">is</span> java.lang.<span class="type">IllegalStateException</span>: <span class="type">Cannot</span> convert value <span class="keyword">of</span> <span class="keyword">type</span> [org.springframework.web.multipart.commons.<span class="type">CommonsMultipartFile</span>] to required <span class="keyword">type</span> [java.lang.<span class="type">String</span>] <span class="keyword">for</span> property 'iconSrc': no matching editors <span class="keyword">or</span> conversion strategy found]</span><br><span class="line">at org.springframework.web.<span class="keyword">method</span>.annotation.<span class="type">ModelAttributeMethodProcessor</span>.resolveArgument(<span class="type">ModelAttributeMethodProcessor</span>.java:<span class="number">113</span>)</span><br><span class="line">at org.springframework.web.<span class="keyword">method</span>.support.<span class="type">HandlerMethodArgumentResolverComposite</span>.resolveArgument(<span class="type">HandlerMethodArgumentResolverComposite</span>.java:<span class="number">78</span>)</span><br><span class="line">at org.springframework.web.<span class="keyword">method</span>.support.<span class="type">InvocableHandlerMethod</span>.getMethodArgumentValues(<span class="type">InvocableHandlerMethod</span>.java:<span class="number">162</span>)</span><br><span class="line">at org.springframework.web.<span class="keyword">method</span>.support.<span class="type">InvocableHandlerMethod</span>.invokeForRequest(<span class="type">InvocableHandlerMethod</span>.java:<span class="number">129</span>)</span><br><span class="line">at org.springframework.web.servlet.mvc.<span class="keyword">method</span>.annotation.<span class="type">ServletInvocableHandlerMethod</span>.invokeAndHandle(<span class="type">ServletInvocableHandlerMethod</span>.java:<span class="number">110</span>)</span><br><span class="line">at org.springframework.web.servlet.mvc.<span class="keyword">method</span>.annotation.<span class="type">RequestMappingHandlerAdapter</span>.invokeHandlerMethod(<span class="type">RequestMappingHandlerAdapter</span>.java:<span class="number">775</span>)</span><br><span class="line">at org.springframework.web.servlet.mvc.<span class="keyword">method</span>.annotation.<span class="type">RequestMappingHandlerAdapter</span>.handleInternal(<span class="type">RequestMappingHandlerAdapter</span>.java:<span class="number">705</span>)</span><br><span class="line">at org.springframework.web.servlet.mvc.<span class="keyword">method</span>.<span class="type">AbstractHandlerMethodAdapter</span>.handle(<span class="type">AbstractHandlerMethodAdapter</span>.java:<span class="number">85</span>)</span><br><span class="line">at org.springframework.web.servlet.<span class="type">DispatcherServlet</span>.doDispatch(<span class="type">DispatcherServlet</span>.java:<span class="number">959</span>)</span><br><span class="line">at org.springframework.web.servlet.<span class="type">DispatcherServlet</span>.doService(<span class="type">DispatcherServlet</span>.java:<span class="number">893</span>)</span><br><span class="line">at org.springframework.web.servlet.<span class="type">FrameworkServlet</span>.processRequest(<span class="type">FrameworkServlet</span>.java:<span class="number">965</span>)</span><br><span class="line">at org.springframework.web.servlet.<span class="type">FrameworkServlet</span>.doPost(<span class="type">FrameworkServlet</span>.java:<span class="number">867</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>问题原因：<code>File</code>文件（图片）对象不能使Model中的file_url值存储，因为数据类型不一致，在spring的自动装载时，会出现此错误</li>
-<li>解决办法：换个名字载入对象</li>
-</ul>
-<hr>
-<h1 id="完整示例">完整示例</h1><h2 id="方案一：$_http轻量支持">方案一：<code>$ http</code>轻量支持</h2><ul>
-<li>业务调用</li>
-</ul>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 上传文件</span><br><span class="line"><span class="variable">$httpFactory</span>.layer.iconlib_save(iconlib.id, iconlib.classId, iconlib.iconSrc, iconlib.icon)</span><br><span class="line">  .success(<span class="keyword">function</span> (response) &#123;</span><br><span class="line">    <span class="variable">$log</span>.debug(response);</span><br><span class="line">    toastr.success(<span class="string">'操作成功'</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>一贯统一的接口定义方式</li>
-</ul>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iconlib_save: <span class="function"><span class="keyword">function</span></span> (id, classId, iconSrc, <span class="keyword">file</span>) &#123;</span><br><span class="line">  var url = domain + <span class="string">'layer/iconlib/save'</span>;</span><br><span class="line">  var <span class="type">data</span> = &#123;id: id, classId: classId, iconSrc: iconSrc, <span class="keyword">file</span>: <span class="keyword">file</span>&#125;;</span><br><span class="line">  <span class="keyword">return</span> sendForm(url, <span class="type">data</span>);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>formData</code>公共处理<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendForm</span><span class="params">(url, data)</span> </span>&#123;</span><br><span class="line">  angular.<span class="keyword">forEach</span>(data, <span class="function"><span class="keyword">function</span> <span class="params">(value, key, data)</span> </span>&#123;</span><br><span class="line">    value == <span class="keyword">null</span> &amp;&amp; delete data[key];<span class="comment">// 清理空字段,避免后台数据自动组装引发异常</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> req = &#123;</span><br><span class="line">    url: url,</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    data: data,</span><br><span class="line">    headers: &#123;<span class="string">'Content-Type'</span>: undefined&#125;,</span><br><span class="line">    transformRequest: <span class="function"><span class="keyword">function</span> <span class="params">(data, headersGetter)</span> </span>&#123;</span><br><span class="line">      let formData = <span class="keyword">new</span> FormData();</span><br><span class="line">      angular.<span class="keyword">forEach</span>(data, <span class="function"><span class="keyword">function</span> <span class="params">(value, key)</span> </span>&#123;</span><br><span class="line">        formData.append(key, value);</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="keyword">return</span> formData;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="comment">// 参见：http://blog.csdn.net/jannie_kung/article/details/52057288</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$http</span>(req)</span><br><span class="line">    .success(<span class="function"><span class="keyword">function</span> <span class="params">(response)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// alert(response);</span></span><br><span class="line">    &#125;).error(<span class="function"><span class="keyword">function</span> <span class="params">(err)</span> </span>&#123;</span><br><span class="line">      <span class="variable">$log</span>.error(error);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="方案二：插件支持，优点：支持进度展示">方案二：插件支持，优点：支持进度展示</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件上传示例</span></span><br><span class="line"><span class="literal">false</span> &amp;&amp; Upload.upload(&#123;</span><br><span class="line">  url: _config.domain_name + <span class="string">'layer/iconlib/save'</span>,</span><br><span class="line">  data: &#123;classId: iconlib.classId&#125;,</span><br><span class="line">  file: iconlib.icon</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">resp</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Success '</span> + resp.config.data.file.name + <span class="string">'uploaded. Response: '</span> + resp.data);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">resp</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Error status: '</span> + resp.status);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> progressPercentage = <span class="built_in">parseInt</span>(<span class="number">100.0</span> * evt.loaded / evt.total);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'progress: '</span> + progressPercentage + <span class="string">'% '</span> + evt.config.data.file.name);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="后端">后端</h2><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 变更图标库图标</span><br><span class="line"> * (前端请求需要注意,文件字段名必须为file,与此声明对应/如不声明则需与字段名一致-否则无法获取到文件对象)</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> layerIconlib</span><br><span class="line"> * <span class="doctag">@return</span></span><br><span class="line"> */</span></span><br><span class="line"><span class="annotation">@ResponseBody</span></span><br><span class="line"><span class="annotation">@RequestMapping</span>(method = RequestMethod.POST, value = <span class="string">"iconlib/save"</span>)</span><br><span class="line"><span class="keyword">public</span> Object saveIconLib(LayerIconlib layerIconlib, <span class="annotation">@RequestParam</span>(required = <span class="keyword">false</span>, value = <span class="string">"file"</span>) MultipartFile file) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (layerIconlib.getId() != <span class="keyword">null</span>) &#123;</span><br><span class="line">        layerIconlibMapper.updateByPrimaryKey(layerIconlib);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        layerIconlibMapper.insert(layerIconlib);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> HashedMap() &#123;&#123;</span><br><span class="line">        put(<span class="string">"object"</span>, <span class="keyword">null</span>);</span><br><span class="line">        put(<span class="string">"result"</span>, Constants.JSON_RESULT_SUCCESS);</span><br><span class="line">        put(<span class="string">"message"</span>, <span class="string">"success"</span>);</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="http_or_ajax_($http_boundary)">http or ajax ($http boundary)</h1><p><code>HTTP上传文件的boundary - Hello World! - 博客频道 - CSDN.NET</code><br><a href="http://blog.csdn.net/cxb_phoenix/article/details/51063147" target="_blank" rel="external">http://blog.csdn.net/cxb_phoenix/article/details/51063147</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="工具">工具</h1><p><code>AngularJS 文件上传控件 ng-file-upload - 岳小昊 - 博客园</code><br><a href="http://www.cnblogs.com/yuexiaohao/p/5556055.html"]]>
-    </summary>
-    
-      <category term="上传" scheme="http://yoursite.com/tags/%E4%B8%8A%E4%BC%A0/"/>
     
   </entry>
   
