@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <title>API安全与会话 | 编程在继续</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="https
+目标: 网络过程, 加密传输,对称加解密
+作用:  劫持,监听,篡改 (广告), 隐私泄露
+
+
+
+
+
+对称密钥如何保护
+加密方案约定
+互信
+被公开的信息
+
+
+
+
+单向验证
+生成随机数作为密钥传输过程用公钥加密-B公钥不可解密-B私钥可以
+明文反馈加密使用预定的加密方案+B公钥+A随机对称密钥
+A获得B证书,进行验证(服务端可信)
+B公钥加密方案 加密过的对称密钥(B公钥)
+
+
+双向验证">
+<meta property="og:type" content="article">
+<meta property="og:title" content="API安全与会话">
+<meta property="og:url" content="http://yoursite.com/2017/06/23/API安全与会话/index.html">
+<meta property="og:site_name" content="编程在继续">
+<meta property="og:description" content="https
+目标: 网络过程, 加密传输,对称加解密
+作用:  劫持,监听,篡改 (广告), 隐私泄露
+
+
+
+
+
+对称密钥如何保护
+加密方案约定
+互信
+被公开的信息
+
+
+
+
+单向验证
+生成随机数作为密钥传输过程用公钥加密-B公钥不可解密-B私钥可以
+明文反馈加密使用预定的加密方案+B公钥+A随机对称密钥
+A获得B证书,进行验证(服务端可信)
+B公钥加密方案 加密过的对称密钥(B公钥)
+
+
+双向验证">
+<meta property="og:updated_time" content="2017-06-26T06:46:37.420Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="API安全与会话">
+<meta name="twitter:description" content="https
+目标: 网络过程, 加密传输,对称加解密
+作用:  劫持,监听,篡改 (广告), 隐私泄露
+
+
+
+
+
+对称密钥如何保护
+加密方案约定
+互信
+被公开的信息
+
+
+
+
+单向验证
+生成随机数作为密钥传输过程用公钥加密-B公钥不可解密-B私钥可以
+明文反馈加密使用预定的加密方案+B公钥+A随机对称密钥
+A获得B证书,进行验证(服务端可信)
+B公钥加密方案 加密过的对称密钥(B公钥)
+
+
+双向验证">
+  
+    <link rel="alternative" href="/atom.xml" title="编程在继续" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/assets/blogImg/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">刘祥@赛学霸</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">编程在继续，刘祥&#39;s blog</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="https://github.com/liuxiang/blog.hexo/tree/master/source/_posts">搜索</a></li>
+				        
+							<li><a href="http://liuxiang.github.io/iloveyuan">i love yuan</a></li>
+				        
+							<li><a href="http://liuxiang.github.io/iloveyuan/FullPageImageGallery/photo.html">Gallery</a></li>
+				        
+							<li><a href="/1988/12/27/关于我(技术的生活面)/">关于我(技术的生活面)</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/liuxiang" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="mailto: liuxiang@wosaitech.com" title="mail">mail</a>
+					        
+						</div>
+
+						<div id="mobile-busuanzi" style="font-size: 12px;">
+							站访问<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次
+							站访客<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>人
+						</div>
+					</nav>
+
+
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-远程调试/" style="font-size: 10px;">Android 远程调试</a> <a href="/tags/Android6-0/" style="font-size: 10px;">Android6.0</a> <a href="/tags/Android签名/" style="font-size: 10px;">Android签名</a> <a href="/tags/Apple-Developer/" style="font-size: 10px;">Apple Developer</a> <a href="/tags/BCompare/" style="font-size: 10px;">BCompare</a> <a href="/tags/C-hrome/" style="font-size: 10px;">C hrome</a> <a href="/tags/Chrom/" style="font-size: 10px;">Chrom</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/Chrome-Dev-Tools/" style="font-size: 11px;">Chrome Dev Tools</a> <a href="/tags/Chrome-DevTools/" style="font-size: 10px;">Chrome DevTools</a> <a href="/tags/Chrome-Web-Tools/" style="font-size: 10px;">Chrome Web Tools</a> <a href="/tags/Cordova-plugin-qpay/" style="font-size: 10px;">Cordova-plugin-qpay</a> <a href="/tags/Crosswalk/" style="font-size: 10px;">Crosswalk</a> <a href="/tags/DevTools/" style="font-size: 10px;">DevTools</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/FunctionalInterface/" style="font-size: 10px;">FunctionalInterface</a> <a href="/tags/Generator/" style="font-size: 10px;">Generator</a> <a href="/tags/Github，搜索技巧/" style="font-size: 10px;">Github，搜索技巧</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/IDE/" style="font-size: 11px;">IDE</a> <a href="/tags/IIFE/" style="font-size: 10px;">IIFE</a> <a href="/tags/IntelliJ/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 11px;">IntelliJ IDEA</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lambda/" style="font-size: 10px;">Lambda</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/Popups/" style="font-size: 10px;">Popups</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Pull-Request/" style="font-size: 10px;">Pull Request</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/React-native/" style="font-size: 10px;">React native</a> <a href="/tags/Safari/" style="font-size: 11px;">Safari</a> <a href="/tags/TPS/" style="font-size: 10px;">TPS</a> <a href="/tags/Tips/" style="font-size: 10px;">Tips</a> <a href="/tags/Vue-js/" style="font-size: 10px;">Vue.js</a> <a href="/tags/WebStorm/" style="font-size: 12px;">WebStorm</a> <a href="/tags/Webstorm/" style="font-size: 11px;">Webstorm</a> <a href="/tags/Web前端黑客技术揭秘/" style="font-size: 10px;">Web前端黑客技术揭秘</a> <a href="/tags/Win10/" style="font-size: 10px;">Win10</a> <a href="/tags/Wox/" style="font-size: 10px;">Wox</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android打包/" style="font-size: 10px;">android打包</a> <a href="/tags/angular/" style="font-size: 13px;">angular</a> <a href="/tags/angular的自定义弹窗层/" style="font-size: 10px;">angular的自定义弹窗层</a> <a href="/tags/ant-renamer/" style="font-size: 10px;">ant renamer</a> <a href="/tags/api文档生成工具/" style="font-size: 10px;">api文档生成工具</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/async-await/" style="font-size: 10px;">async-await</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/builtInFunction/" style="font-size: 10px;">builtInFunction</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/chrome/" style="font-size: 11px;">chrome</a> <a href="/tags/chrome-Emulated-Devices/" style="font-size: 10px;">chrome Emulated Devices</a> <a href="/tags/chromium/" style="font-size: 10px;">chromium</a> <a href="/tags/cnpm/" style="font-size: 10px;">cnpm</a> <a href="/tags/cocos/" style="font-size: 10px;">cocos</a> <a href="/tags/console/" style="font-size: 10px;">console</a> <a href="/tags/console控制/" style="font-size: 10px;">console控制</a> <a href="/tags/cordova-qpay/" style="font-size: 10px;">cordova qpay</a> <a href="/tags/css/" style="font-size: 14px;">css</a> <a href="/tags/css-tips/" style="font-size: 10px;">css tips</a> <a href="/tags/css兼容性前缀/" style="font-size: 10px;">css兼容性前缀</a> <a href="/tags/css选择器/" style="font-size: 10px;">css选择器</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/drag/" style="font-size: 10px;">drag</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/emoji/" style="font-size: 10px;">emoji</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/flex-table-fixed布局差异/" style="font-size: 10px;">flex/table/fixed布局差异</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/github-pages/" style="font-size: 11px;">github pages</a> <a href="/tags/git命令/" style="font-size: 10px;">git命令</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/hybrid/" style="font-size: 11px;">hybrid</a> <a href="/tags/iOS证书-打包-上架/" style="font-size: 10px;">iOS证书&打包&上架</a> <a href="/tags/iTunesConnect/" style="font-size: 10px;">iTunesConnect</a> <a href="/tags/innerHTML/" style="font-size: 10px;">innerHTML</a> <a href="/tags/inspect/" style="font-size: 11px;">inspect</a> <a href="/tags/interface-default/" style="font-size: 10px;">interface default</a> <a href="/tags/ionic/" style="font-size: 19px;">ionic</a> <a href="/tags/ionic-native-transitions/" style="font-size: 10px;">ionic-native-transitions</a> <a href="/tags/ionic安装/" style="font-size: 10px;">ionic安装</a> <a href="/tags/ionic路由控制/" style="font-size: 10px;">ionic路由控制</a> <a href="/tags/ios/" style="font-size: 13px;">ios</a> <a href="/tags/ios-内测托管平台/" style="font-size: 10px;">ios 内测托管平台</a> <a href="/tags/ios免审核/" style="font-size: 10px;">ios免审核</a> <a href="/tags/ios证书/" style="font-size: 10px;">ios证书</a> <a href="/tags/ios问题笔录/" style="font-size: 10px;">ios问题笔录</a> <a href="/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="/tags/java/" style="font-size: 16px;">java</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/javaScript/" style="font-size: 16px;">javaScript</a> <a href="/tags/javaScript-循环遍历/" style="font-size: 10px;">javaScript 循环遍历</a> <a href="/tags/javaScript-时间格式化/" style="font-size: 10px;">javaScript 时间格式化</a> <a href="/tags/javaScript风格/" style="font-size: 10px;">javaScript风格</a> <a href="/tags/jdk工具命令，jstack/" style="font-size: 10px;">jdk工具命令，jstack</a> <a href="/tags/jetbrains/" style="font-size: 10px;">jetbrains</a> <a href="/tags/jira/" style="font-size: 10px;">jira</a> <a href="/tags/json/" style="font-size: 11px;">json</a> <a href="/tags/jsoup抓取/" style="font-size: 10px;">jsoup抓取</a> <a href="/tags/js对象传递/" style="font-size: 10px;">js对象传递</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/linux-yum相关/" style="font-size: 10px;">linux yum相关</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/markdown/" style="font-size: 11px;">markdown</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mysql/" style="font-size: 12px;">mysql</a> <a href="/tags/mysql依据数据库表/" style="font-size: 10px;">mysql依据数据库表</a> <a href="/tags/ngin-conf/" style="font-size: 10px;">ngin.conf</a> <a href="/tags/nginx/" style="font-size: 14px;">nginx</a> <a href="/tags/nginx日志/" style="font-size: 10px;">nginx日志</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm/" style="font-size: 11px;">npm</a> <a href="/tags/npm-registry/" style="font-size: 10px;">npm registry</a> <a href="/tags/online-web-tools/" style="font-size: 10px;">online-web-tools</a> <a href="/tags/oracle/" style="font-size: 12px;">oracle</a> <a href="/tags/oracle-函数-with-as/" style="font-size: 10px;">oracle 函数  with as</a> <a href="/tags/package-json/" style="font-size: 12px;">package.json</a> <a href="/tags/phonegap/" style="font-size: 11px;">phonegap</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/spring/" style="font-size: 12px;">spring</a> <a href="/tags/sql编程/" style="font-size: 10px;">sql编程</a> <a href="/tags/ssh/" style="font-size: 12px;">ssh</a> <a href="/tags/su/" style="font-size: 10px;">su</a> <a href="/tags/sublime-text/" style="font-size: 10px;">sublime text</a> <a href="/tags/svn/" style="font-size: 13px;">svn</a> <a href="/tags/t-ips/" style="font-size: 10px;">t ips</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/twoColons-function-realize/" style="font-size: 10px;">twoColons::function realize</a> <a href="/tags/userScript/" style="font-size: 10px;">userScript</a> <a href="/tags/video/" style="font-size: 11px;">video</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/web跨域/" style="font-size: 10px;">web跨域</a> <a href="/tags/win-R/" style="font-size: 10px;">win+R</a> <a href="/tags/windows文件与linux文件比对/" style="font-size: 10px;">windows文件与linux文件比对</a> <a href="/tags/wiz/" style="font-size: 10px;">wiz</a> <a href="/tags/xmind/" style="font-size: 12px;">xmind</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/yeoman/" style="font-size: 14px;">yeoman</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/【Shiro-流程】java安全框架-cas单点登录/" style="font-size: 10px;">【Shiro-流程】java安全框架&cas单点登录</a> <a href="/tags/上传/" style="font-size: 10px;">上传</a> <a href="/tags/中国历史大事年表/" style="font-size: 10px;">中国历史大事年表</a> <a href="/tags/书录/" style="font-size: 11px;">书录</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/位运算/" style="font-size: 11px;">位运算</a> <a href="/tags/六位密码框/" style="font-size: 10px;">六位密码框</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/兼容性测试/" style="font-size: 10px;">兼容性测试</a> <a href="/tags/判断实时网络/" style="font-size: 10px;">判断实时网络</a> <a href="/tags/前端/" style="font-size: 17px;">前端</a> <a href="/tags/前端-加密-混淆-，-gulp/" style="font-size: 10px;">前端 加密 混淆 ， gulp</a> <a href="/tags/前端-加密-混淆-，-gulp，-ionic-，cordova-hook/" style="font-size: 10px;">前端 加密 混淆 ， gulp， ionic ，cordova hook</a> <a href="/tags/前端-规范/" style="font-size: 11px;">前端 规范</a> <a href="/tags/前端图片/" style="font-size: 10px;">前端图片</a> <a href="/tags/前端安全-认证/" style="font-size: 10px;">前端安全&认证</a> <a href="/tags/前端导航/" style="font-size: 10px;">前端导航</a> <a href="/tags/前端异常/" style="font-size: 10px;">前端异常</a> <a href="/tags/前端技术/" style="font-size: 10px;">前端技术</a> <a href="/tags/前端文集/" style="font-size: 10px;">前端文集</a> <a href="/tags/前端框架库/" style="font-size: 10px;">前端框架库</a> <a href="/tags/前端模板库/" style="font-size: 10px;">前端模板库</a> <a href="/tags/加密/" style="font-size: 10px;">加密</a> <a href="/tags/匿名-function/" style="font-size: 10px;">匿名 function</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/压力测试/" style="font-size: 11px;">压力测试</a> <a href="/tags/压力测试，-阿里云-PTS/" style="font-size: 10px;">压力测试， 阿里云 PTS</a> <a href="/tags/反向工程设计/" style="font-size: 10px;">反向工程设计</a> <a href="/tags/后端/" style="font-size: 10px;">后端</a> <a href="/tags/善用佳软/" style="font-size: 10px;">善用佳软</a> <a href="/tags/图片加载/" style="font-size: 10px;">图片加载</a> <a href="/tags/图片取色/" style="font-size: 10px;">图片取色</a> <a href="/tags/图片拖拽/" style="font-size: 10px;">图片拖拽</a> <a href="/tags/图片转换为Base64/" style="font-size: 10px;">图片转换为Base64</a> <a href="/tags/图片预览/" style="font-size: 10px;">图片预览</a> <a href="/tags/天气/" style="font-size: 10px;">天气</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/学习内容平均留存率/" style="font-size: 10px;">学习内容平均留存率</a> <a href="/tags/安全/" style="font-size: 11px;">安全</a> <a href="/tags/并发控制/" style="font-size: 10px;">并发控制</a> <a href="/tags/广告/" style="font-size: 10px;">广告</a> <a href="/tags/开发文档API/" style="font-size: 10px;">开发文档API</a> <a href="/tags/异步加载/" style="font-size: 11px;">异步加载</a> <a href="/tags/异步编程/" style="font-size: 10px;">异步编程</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/微信支付/" style="font-size: 10px;">微信支付</a> <a href="/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/快速启动/" style="font-size: 11px;">快速启动</a> <a href="/tags/思维导图/" style="font-size: 18px;">思维导图</a> <a href="/tags/思维导图log4j/" style="font-size: 10px;">思维导图log4j</a> <a href="/tags/情商/" style="font-size: 10px;">情商</a> <a href="/tags/打开QQ群/" style="font-size: 10px;">打开QQ群</a> <a href="/tags/托管/" style="font-size: 10px;">托管</a> <a href="/tags/技术栈/" style="font-size: 10px;">技术栈</a> <a href="/tags/抽奖转盘/" style="font-size: 11px;">抽奖转盘</a> <a href="/tags/推酷/" style="font-size: 10px;">推酷</a> <a href="/tags/效果库/" style="font-size: 10px;">效果库</a> <a href="/tags/数据结构/" style="font-size: 12px;">数据结构</a> <a href="/tags/数据透视图/" style="font-size: 10px;">数据透视图</a> <a href="/tags/文档托管平台/" style="font-size: 10px;">文档托管平台</a> <a href="/tags/文章/" style="font-size: 10px;">文章</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/替代jQuery/" style="font-size: 10px;">替代jQuery</a> <a href="/tags/服务器监测/" style="font-size: 11px;">服务器监测</a> <a href="/tags/权限检查机制/" style="font-size: 10px;">权限检查机制</a> <a href="/tags/权限管理/" style="font-size: 10px;">权限管理</a> <a href="/tags/构造数据/" style="font-size: 10px;">构造数据</a> <a href="/tags/架构/" style="font-size: 13px;">架构</a> <a href="/tags/模块化/" style="font-size: 10px;">模块化</a> <a href="/tags/正则/" style="font-size: 11px;">正则</a> <a href="/tags/正确的情商认知/" style="font-size: 10px;">正确的情商认知</a> <a href="/tags/注解/" style="font-size: 11px;">注解</a> <a href="/tags/涟漪效果/" style="font-size: 10px;">涟漪效果</a> <a href="/tags/清理当前页-缓存/" style="font-size: 10px;">清理当前页 缓存</a> <a href="/tags/爬虫/" style="font-size: 11px;">爬虫</a> <a href="/tags/特性检测库/" style="font-size: 10px;">特性检测库</a> <a href="/tags/白帽子讲web安全/" style="font-size: 10px;">白帽子讲web安全</a> <a href="/tags/知识/" style="font-size: 11px;">知识</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/科学上网，hosts/" style="font-size: 10px;">科学上网，hosts</a> <a href="/tags/程序锁使用/" style="font-size: 10px;">程序锁使用</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/线程/" style="font-size: 10px;">线程</a> <a href="/tags/线程池/" style="font-size: 10px;">线程池</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/编程书籍/" style="font-size: 10px;">编程书籍</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/网络劫持/" style="font-size: 10px;">网络劫持</a> <a href="/tags/脚手架/" style="font-size: 17px;">脚手架</a> <a href="/tags/自动化测试/" style="font-size: 15px;">自动化测试</a> <a href="/tags/自动输入/" style="font-size: 10px;">自动输入</a> <a href="/tags/自定义书签/" style="font-size: 10px;">自定义书签</a> <a href="/tags/表单验证/" style="font-size: 10px;">表单验证</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/设计模式-23/" style="font-size: 10px;">设计模式-23</a> <a href="/tags/运维/" style="font-size: 10px;">运维</a> <a href="/tags/远程调试/" style="font-size: 10px;">远程调试</a> <a href="/tags/逆向-递归/" style="font-size: 10px;">逆向 递归</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/问题定位分析/" style="font-size: 11px;">问题定位分析</a> <a href="/tags/隧道/" style="font-size: 10px;">隧道</a> <a href="/tags/静态博客/" style="font-size: 10px;">静态博客</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jeremy017.github.io">正一的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://zouxuewen.github.io">邹学文博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">刘祥@赛学霸</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">刘祥@赛学霸</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/assets/blogImg/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">刘祥@赛学霸</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">编程在继续，刘祥&#39;s blog</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="https://github.com/liuxiang/blog.hexo/tree/master/source/_posts">搜索</a></li>
+		        
+					<li><a href="http://liuxiang.github.io/iloveyuan">i love yuan</a></li>
+		        
+					<li><a href="http://liuxiang.github.io/iloveyuan/FullPageImageGallery/photo.html">Gallery</a></li>
+		        
+					<li><a href="/1988/12/27/关于我(技术的生活面)/">关于我(技术的生活面)</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/liuxiang" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="mailto: liuxiang@wosaitech.com" title="mail">mail</a>
+			        
+				</div>
+				
+				<div style="font-size: 12px;padding-left: 11px;">
+					站访问<span id="busuanzi_value_site_pv_copy"><i class="fa fa-spinner fa-spin"></i></span>次
+					站访客<span id="busuanzi_value_site_uv_copy"><i class="fa fa-spinner fa-spin"></i></span>人
+				</div>
+
+			</nav>
+
+		</header>				
+	</div>
+</nav>
+
+<script>
+	function busuanzi_copy(){
+		$("#busuanzi_value_site_pv_copy").text($("#busuanzi_value_site_pv").text());
+		$("#busuanzi_value_site_uv_copy").text($("#busuanzi_value_site_uv").text());
+	}
+	setTimeout(busuanzi_copy,500);
+</script>
+      <div class="body-wrap"><article id="post-API安全与会话" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/23/API安全与会话/" class="article-date">
+  	<time datetime="2017-06-22T16:00:00.000Z" itemprop="datePublished">2017-06-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      API安全与会话
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/">API</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+
+        <div style="font-size: 12px;">
+          此文阅<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次
+        </div>
+
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="https">https</h1><ul>
+<li>目标: 网络过程, 加密传输,对称加解密</li>
+<li>作用:  劫持,监听,篡改 (广告), 隐私泄露</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>对称密钥如何保护</th>
+<th>加密方案约定</th>
+<th>互信</th>
+<th>被公开的信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单向验证</td>
+<td>生成随机数作为密钥<br>传输过程用公钥加密<br>-B公钥不可解密<br>-B私钥可以</td>
+<td>明文反馈加密<br>使用预定的加密方案<br>+B公钥+A随机对称密钥</td>
+<td>A获得B证书,进行验证(服务端可信)</td>
+<td>B公钥<br>加密方案 <br>加密过的对称密钥(B公钥)</td>
+</tr>
+<tr>
+<td>双向验证</td>
+<td>生成随机数作为密钥<br>传输过程用公钥加密<br>-B公钥不可解密<br>-B私钥可以</td>
+<td>A公钥加密反馈加密方案<br>(仅A私钥可解) <br>使用预定的加密方案 <br>+B公钥+A随机对称密钥</td>
+<td>A获得B证书,进行验证(服务端可信)<br>B也获得A证书,进行验证(客户端可信)</td>
+<td>B公钥<br>A公钥<br>加密过的加密方案(A公钥)<br>加密过的对称密钥(B公钥)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="OAuth（开放授权）[_用户托管_]">OAuth（开放授权）[ 用户托管 ]</h1><p><code>理解OAuth 2.0</code><br><a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html</a></p>
+<ul>
+<li><p><code>QQ</code> 网页登陆</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">QQ</span>登录<span class="constant">OAuth2</span>.<span class="number">0</span>总体处理流程</span><br><span class="line"><span class="constant">QQ</span>登录<span class="constant">OAuth2</span>.<span class="number">0</span>总体处理流程如下：</span><br><span class="line"><span class="constant">Step1</span>：申请接入，获取appid和apikey；</span><br><span class="line"><span class="constant">Step2</span>：开发应用，并设置协作者帐号进行测试联调；</span><br><span class="line"><span class="constant">Step3</span>：放置<span class="constant">QQ</span>登录按钮；</span><br><span class="line"><span class="constant">Step4</span>：通过用户登录验证和授权，获取<span class="constant">Access</span> <span class="constant">Token</span>；</span><br><span class="line"><span class="constant">Step5</span>：通过<span class="constant">Access</span> <span class="constant">Token</span>获取用户的<span class="constant">OpenID</span>；</span><br><span class="line"><span class="constant">Step6</span>：调用<span class="constant">OpenAPI</span>，来请求访问或修改用户授权的资源。 <span class="symbol">http:</span>/<span class="regexp">/wiki.connect.qq.com/oauth</span>2-<span class="number">0</span><span class="variable">%E7</span><span class="variable">%AE</span><span class="variable">%80</span><span class="variable">%E4</span><span class="variable">%BB</span><span class="variable">%8B</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-  开发攻略_ <span class="constant">Server</span>-side</span><br><span class="line"></span><br><span class="line"><span class="symbol">http:</span>/<span class="regexp">/wiki.connect.qq.com/</span><span class="variable">%E5</span><span class="variable">%BC</span><span class="variable">%80</span><span class="variable">%E5</span><span class="variable">%8F</span><span class="variable">%91</span><span class="variable">%E6</span><span class="variable">%94</span><span class="variable">%BB</span><span class="variable">%E7</span><span class="variable">%95</span><span class="variable">%A5_server</span>-side</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 开发攻略_Client-side</span><br><span class="line"><span class="symbol">http:</span>/<span class="regexp">/wiki.connect.qq.com/</span><span class="variable">%E5</span><span class="variable">%BC</span><span class="variable">%80</span><span class="variable">%E5</span><span class="variable">%8F</span><span class="variable">%91</span><span class="variable">%E6</span><span class="variable">%94</span><span class="variable">%BB</span><span class="variable">%E7</span><span class="variable">%95</span><span class="variable">%A5_client</span>-side</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>QQ</code> app 登陆<br>注:认证流程一致,仅在各初唤醒QQ的方式不同,app需要通过原生代码拉起 / 获取用户信息接口一致(openId-&gt; get_user_info )<br><a href="http://wiki.connect.qq.com/qq%E7%99%BB%E5%BD%95" target="_blank" rel="external">http://wiki.connect.qq.com/qq%E7%99%BB%E5%BD%95</a></p>
+</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Tencent<span class="class">.login</span>	用户使用QQ账号登录应用</span><br><span class="line">Tencent<span class="class">.logout</span>	注销登录</span><br><span class="line">Tencent<span class="class">.reAuth</span>	当应用调用API返回没有权限（返回码为<span class="number">100030</span>)时，可以让用户重新进行授权</span><br><span class="line">Tencent<span class="class">.shareToQQ</span>	可将新闻、图片、文字等分享给QQ好友、群和讨论组</span><br><span class="line">Tencent<span class="class">.setAvatar</span>	设置用户的QQ头像</span><br><span class="line">OpenApi接口	用于调用没有被SDK分装成单独接口的OpenApi，更多功能接口请查看《API列表》</span><br></pre></td></tr></table></figure>
+<p>— - <code>微信</code> 网页登录<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 第三方发起微信授权登录请求，微信用户允许授权第三方应用后，微信会拉起应用或重定向到第三方网站，并且带上授权临时票据code参数；</span><br><span class="line"><span class="number">2.</span> 通过code参数加上AppID和AppSecret等，通过API换取access_token；</span><br><span class="line"><span class="number">3.</span> 通过access_token进行接口调用，获取用户基本数据资源或帮助用户实现基本操作。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">https:<span class="comment">//open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419316505&amp;token=&amp;lang=zh_CN</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>微信</code> app登录<br>注:认证流程一致,仅在各初唤醒微信的方式不同,app需要通过原生代码拉起 / 获取用户信息接口一致(openId-&gt; get_user_info )</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 第三方发起微信授权登录请求，微信用户允许授权第三方应用后，微信会拉起应用或重定向到第三方网站，并且带上授权临时票据code参数；</span><br><span class="line"><span class="number">2.</span> 通过code参数加上AppID和AppSecret等，通过API换取access_token；</span><br><span class="line"><span class="number">3.</span> 通过access_token进行接口调用，获取用户基本数据资源或帮助用户实现基本操作。</span><br><span class="line"></span><br><span class="line">https:<span class="comment">//open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419317851&amp;token=&amp;lang=zh_CN</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结:<br>OAuth(用户托管)  : 客户端与服务端之间,把原有的账号密码登录托管至第三方 授权机构,在机构登录后,颁发的 access_token (临时)用户本次业务使用.<br>access_token(临时会话,授权机构颁发)  : 包含了商户信息(appid)与登录用户(openId)的信息,特点是有效期控制.</li>
+</ul>
+<hr>
+<h1 id="会话身份传递">会话身份传递</h1><ul>
+<li>session [管理后台]<br>缺点:依赖 cooke传递sessionId,有跨域屏障</li>
+<li><code>账号密码</code> -&gt; token [body 或 get,post]  [前端系统]<br>缺点:存在明文登录前提,有被劫持风险 / token被盗情况下,所有业务接口都可调用</li>
+<li><code>app_key</code> + md5(<code>param</code>+<code>app_secret</code>)  [get,post 或 body] [接入第三方系统]<br>优点:无需登录即可开始业务,减少账号被劫持的风险 / 不用担心签名被盗用<br>缺点:每次交互都要加解密. 唯一风险:单一接口被恶意多次调用</li>
+</ul>
+<hr>
+<h1 id="参数签名">参数签名</h1><ul>
+<li>形式<br>商家密钥: app_secret</li>
+</ul>
+<p>sign= MD5(<code>参数字典序</code>+<code>&amp;key= app_secret</code>)</p>
+<p>sign=hash_hmac(“sha256”, <code>参数字典序</code> , app_secret )</p>
+<ul>
+<li>作用:<code>会话身份传递,防身份伪造,防数据篡改</code></li>
+</ul>
+<ul>
+<li>约束<br>1.在不知商家密钥的情况下,无法做出有效的签名,无效的签名在服务端发现时,将不受理业务。<br>2.客户端发起的任何行为都 不可避免 自动化攻击，但无法篡改数据。<br>3.自动化攻击可建立QPS监控, 机器人检测( 行为分析,报文分析)进行阻拦,https双向验证到客户端 。(爬虫,反爬虫)<br>注意：拼装的关键数据(价格)后端决定,避免签名前篡改。-前端校验不可信</li>
+</ul>
+<ul>
+<li><code>微信</code> 支付<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">商户系统和微信支付系统主要交互说明：</span><br><span class="line">步骤<span class="number">1</span>：用户在商户APP中选择商品，提交订单，选择微信支付。</span><br><span class="line">步骤<span class="number">2</span>：商户后台收到用户支付单，调用微信支付统一下单接口。参见【统一下单API】。</span><br><span class="line">步骤<span class="number">3</span>：统一下单接口返回正常的prepay_id，再按签名规范重新生成签名后，将数据传输给APP。参与签名的字段名为appid，partnerid，prepayid，noncestr，timestamp，package。注意：package的值格式为Sign=WXPay</span><br><span class="line">步骤<span class="number">4</span>：商户APP调起微信支付。api参见本章节【app端开发步骤说明】</span><br><span class="line">步骤<span class="number">5</span>：商户后台接收支付通知。api参见【支付结果通知API】</span><br><span class="line">步骤<span class="number">6</span>：商户后台查询支付结果。，api参见【查询订单API】</span><br><span class="line">https:<span class="comment">//pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_3</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>微信支付</code>  <a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=4_3" target="_blank" rel="external">https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=4_3</a></p>
+<ul>
+<li><code>QQ</code> 手机支付<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">商户系统和手Q支付系统主要交互说明：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">步骤<span class="number">1</span>：用户在商户APP中选择商品，提交订单，选择手Q支付；</span><br><span class="line">步骤<span class="number">2</span>：商户后台收到用户支付单，调用手Q支付统一下单接口。参见【统一下单API】；</span><br><span class="line">步骤<span class="number">3</span>：统一下单接口返回正常的prepay_id，再按签名规范重新生成签名后，将数据传输给APP；</span><br><span class="line">步骤<span class="number">4</span>：商户APP调起手Q支付；</span><br><span class="line">步骤<span class="number">5</span>：商户后台接收支付通知api，参见【支付结果API】</span><br><span class="line">步骤<span class="number">6</span>：商户后台查询支付结果api，参见【订单查询API】</span><br><span class="line">https:<span class="comment">//qpay.qq.com/qpaywiki/showdocument.php?pid=38&amp;docid=201</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/26/依据任务优先级,实现可插队的线程池-简装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          依据任务优先级,实现可插队的线程池 -简装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/17/红黑树(Red-Black Tree，简称R-B Tree)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">红黑树(Red-Black Tree，简称R-B Tree)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="API安全与会话" data-title="API安全与会话" data-url="http://yoursite.com/2017/06/23/API安全与会话/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 刘祥@赛学霸
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
