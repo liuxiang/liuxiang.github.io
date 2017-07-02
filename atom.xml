@@ -4,7 +4,7 @@
   <subtitle><![CDATA[编程在继续，刘祥's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-26T06:35:21.104Z</updated>
+  <updated>2017-07-02T16:09:30.532Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,108 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[jvm相关]]></title>
+    <link href="http://yoursite.com/2017/07/02/jvm%E7%9B%B8%E5%85%B3/"/>
+    <id>http://yoursite.com/2017/07/02/jvm相关/</id>
+    <published>2017-07-01T16:00:00.000Z</published>
+    <updated>2017-07-02T16:09:30.532Z</updated>
+    <content type="html"><![CDATA[<p>详见 : <code>jvm相关.xmind</code></p>
+<hr>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/81372067.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/34371066.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/44918091.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/10451692.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/97280524.jpg" alt=""></p>
+<hr>
+<p><strong>参考</strong><br><code>Java虚拟机规范（Java SE 7）.pdf</code></p>
+<p><code>JVM内幕：Java虚拟机详解 - ImportNew</code><br><a href="http://www.importnew.com/17770.html" target="_blank" rel="external">http://www.importnew.com/17770.html</a><br><a href="http://www.jianshu.com/p/c63a8b5a84f9" target="_blank" rel="external">http://www.jianshu.com/p/c63a8b5a84f9</a></p>
+<p><code>JVM内存模型 - 简书</code>  - <code>jijs</code></p>
+<p><a href="http://www.jianshu.com/p/a60d6ef0771b" target="_blank" rel="external">http://www.jianshu.com/p/a60d6ef0771b</a></p>
+<p><code>深入理解JVM--JVM垃圾回收机制 - jbutton - ITeye技术网站</code><br><a href="http://jbutton.iteye.com/blog/1569746" target="_blank" rel="external">http://jbutton.iteye.com/blog/1569746</a></p>
+<p><code>JVM（HotSpot） 垃圾收集器 - 简书</code>  - <code>jijs</code><br><a href="http://www.jianshu.com/p/b4a03b5de0d9" target="_blank" rel="external">http://www.jianshu.com/p/b4a03b5de0d9</a></p>
+<p><code>JVM垃圾回收算法 - 简书</code>  - <code>jijs</code><br><a href="http://www.jianshu.com/p/114bf4d9e59e" target="_blank" rel="external">http://www.jianshu.com/p/114bf4d9e59e</a></p>
+<p><code>JVM 类加载机制深入浅出</code> - <code>jijs</code><br><a href="http://www.jianshu.com/p/3cab74a189de" target="_blank" rel="external">http://www.jianshu.com/p/3cab74a189de</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>详见 : <code>jvm相关.xmind</code></p>
+<hr>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/81372067.jpg" alt=""><br><img src="http:]]>
+    </summary>
+    
+      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[markdown_tables表格工具]]></title>
+    <link href="http://yoursite.com/2017/06/29/markdown_tables%E8%A1%A8%E6%A0%BC%E5%B7%A5%E5%85%B7/"/>
+    <id>http://yoursite.com/2017/06/29/markdown_tables表格工具/</id>
+    <published>2017-06-28T16:00:00.000Z</published>
+    <updated>2017-07-02T16:19:03.697Z</updated>
+    <content type="html"><![CDATA[<p>在线：<a href="http://www.tablesgenerator.com/markdown_tables" target="_blank" rel="external">http://www.tablesgenerator.com/markdown_tables</a></p>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/97052676.jpg" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>提供client请求目标的方式</th>
+<th style="text-align:right">(反)序列化消息体</th>
+<th>网络服务</th>
+<th>暴露服务/服务发现</th>
+<th>(反)序列化消息体</th>
+<th>提供server服务注册方式</th>
+<th>RPC框架初始化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Dubbo</td>
+<td>spring-Bean</td>
+<td style="text-align:right">Object-二进制</td>
+<td>tcp(dubbo),nio</td>
+<td>zookeeper</td>
+<td>二进制-Object</td>
+<td>spring-Bean</td>
+<td>spring-Schema</td>
+</tr>
+<tr>
+<td style="text-align:center">webService-Axis</td>
+<td>axis.client.Call</td>
+<td style="text-align:right">Object-soap(xml)</td>
+<td>http</td>
+<td>proName.wsdl描述</td>
+<td>soap(xml)-Object</td>
+<td>Apache Axis:deploy.wsdd部署<br>或 JAX-WS (注解) <br> @WebService,@WebMethod</td>
+<td>servlet</td>
+</tr>
+<tr>
+<td style="text-align:center">java.rmi</td>
+<td>Naming.lookup</td>
+<td style="text-align:right">Object-二进制</td>
+<td>tcp(rmi)</td>
+<td>rmi_doc</td>
+<td>二进制-Object</td>
+<td>LocateRegistry.createRegistry<br>Naming.rebind</td>
+<td>thread</td>
+</tr>
+<tr>
+<td style="text-align:center">RESTful</td>
+<td>httpClient</td>
+<td style="text-align:right">json</td>
+<td>http</td>
+<td>api_doc</td>
+<td>json</td>
+<td>spring mvc</td>
+<td>servlet</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在线：<a href="http://www.tablesgenerator.com/markdown_tables" target="_blank" rel="external">http://www.tablesgenerator.com/markdown_tables]]>
+    </summary>
+    
+      <category term="markdown" scheme="http://yoursite.com/tags/markdown/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[依据任务优先级,实现可插队的线程池 -简装]]></title>
@@ -44,38 +146,14 @@
     <link href="http://yoursite.com/2017/06/23/API%E5%AE%89%E5%85%A8%E4%B8%8E%E4%BC%9A%E8%AF%9D/"/>
     <id>http://yoursite.com/2017/06/23/API安全与会话/</id>
     <published>2017-06-22T16:00:00.000Z</published>
-    <updated>2017-06-26T06:46:37.420Z</updated>
+    <updated>2017-07-02T16:09:30.496Z</updated>
     <content type="html"><![CDATA[<h1 id="https">https</h1><ul>
 <li>目标: 网络过程, 加密传输,对称加解密</li>
 <li>作用:  劫持,监听,篡改 (广告), 隐私泄露</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>对称密钥如何保护</th>
-<th>加密方案约定</th>
-<th>互信</th>
-<th>被公开的信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>单向验证</td>
-<td>生成随机数作为密钥<br>传输过程用公钥加密<br>-B公钥不可解密<br>-B私钥可以</td>
-<td>明文反馈加密<br>使用预定的加密方案<br>+B公钥+A随机对称密钥</td>
-<td>A获得B证书,进行验证(服务端可信)</td>
-<td>B公钥<br>加密方案 <br>加密过的对称密钥(B公钥)</td>
-</tr>
-<tr>
-<td>双向验证</td>
-<td>生成随机数作为密钥<br>传输过程用公钥加密<br>-B公钥不可解密<br>-B私钥可以</td>
-<td>A公钥加密反馈加密方案<br>(仅A私钥可解) <br>使用预定的加密方案 <br>+B公钥+A随机对称密钥</td>
-<td>A获得B证书,进行验证(服务端可信)<br>B也获得A证书,进行验证(客户端可信)</td>
-<td>B公钥<br>A公钥<br>加密过的加密方案(A公钥)<br>加密过的对称密钥(B公钥)</td>
-</tr>
-</tbody>
-</table>
+<p>| 对称密钥如何保护 | 加密方案约定 | 互信 | 被公开的信息 |</p>
+<p>—— |——| ——| ——|  </p>
+<p>单向验证 | 生成随机数作为密钥<br> 传输过程用公钥加密 <br> -B公钥不可解密 <br> -B私钥可以 | 明文反馈加密<br> 使用预定的加密方案<br> +B公钥+A随机对称密钥 |  A获得B证书,进行验证(服务端可信) |  B 公钥<br> 加密方案 <br> 加密过的对称密钥(B公钥)<br>双向验证 | 生成随机数作为密钥<br> 传输过程用公钥加密<br> -B公钥不可解密<br> -B私钥可以 | A公钥加密反馈加密方案<br> (仅A私钥可解) <br> 使用预定的加密方案 <br> +B公钥+A随机对称密钥  |  A获得B证书,进行验证(服务端可信)<br> B也获得A证书,进行验证(客户端可信) | B 公钥<br> A公钥 <br> 加密过的加密方案(A公钥) <br> 加密过的对称密钥(B公钥)</p>
 <hr>
 <h1 id="OAuth（开放授权）[_用户托管_]">OAuth（开放授权）[ 用户托管 ]</h1><p><code>理解OAuth 2.0</code><br><a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html</a></p>
 <ul>
@@ -127,11 +205,7 @@
 <li>目标: 网络过程, 加密传输,对称加解密</li>
 <li>作用:  劫持,监听,篡改 (广告), 隐私泄露</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>对称密钥如]]>
+<p>| 对称密钥如何保护 | 加密方案约定 | 互信 | 被公开的信息 |</]]>
     </summary>
     
       <category term="API" scheme="http://yoursite.com/tags/API/"/>
@@ -830,109 +904,6 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="ionic-datepicker">ionic-datepicker</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><]]>
-    </summary>
-    
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[jetbrains IntelliJ/Webstorm svn插件初始化]]></title>
-    <link href="http://yoursite.com/2017/05/09/jetbrains%20IntelliJ-Webstorm%20svn%E6%8F%92%E4%BB%B6%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
-    <id>http://yoursite.com/2017/05/09/jetbrains IntelliJ-Webstorm svn插件初始化/</id>
-    <published>2017-05-08T16:00:00.000Z</published>
-    <updated>2017-05-31T10:27:24.866Z</updated>
-    <content type="html"><![CDATA[<h1 id="subversion_工具_下载">subversion 工具 下载</h1><p><a href="http://subversion.apache.org/packages.html#windows" target="_blank" rel="external">http://subversion.apache.org/packages.html#windows</a><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/88396036.jpg" alt=""></p>
-<ul>
-<li><strong>subversion </strong><br><a href="https://tortoisesvn.net/downloads.html" target="_blank" rel="external">https://tortoisesvn.net/downloads.html</a>  <code>TortoiseSVN-1.9.5.27581-x64-svn-1.9.5.msi</code></li>
-</ul>
-<p>使用的是TortoiseSVN-1.9.4.27285-x64-svn-1.9.4，安装过程需要注意的是，默认安装没有选择”command line client tools”<br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/25113416.jpg" alt=""></p>
-<ul>
-<li><strong>subversion </strong>  绿色免安装<br><a href="http://subversion.apache.org/download.cgi#recommended-release" target="_blank" rel="external">http://subversion.apache.org/download.cgi#recommended-release</a>  <code>subversion-1.9.5.zip</code><br><strong>命令行支持，配置环境变量</strong>：path += <code>F:\Tool\SVN,CVS\Apache-Subversion-1.9.5\bin</code></li>
-</ul>
-<ul>
-<li><strong> sliksvn </strong>  ： <code>Slik-Subversion-1.9.5-x64.msi</code><br><a href="https://sliksvn.com/download/" target="_blank" rel="external">https://sliksvn.com/download/</a></li>
-</ul>
-<hr>
-<h1 id="配置">配置</h1><p><code>Ctrl + Alt + S</code><br><strong> Use Command line client </strong> ：  <code>svn</code> 或 <code>C:\Program Files\SlikSvn\bin\svn.exe</code><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/56881942.jpg" alt=""></p>
-<hr>
-<p><strong>参考</strong><br><code>Windows下使用svn命令行.md</code></p>
-<p><code>Webstorm2016使用技巧——SVN插件使用 - 博客频道 - CSDN.NET</code></p>
-<p><a href="http://blog.csdn.net/hysh_keystone/article/details/52013789" target="_blank" rel="external">http://blog.csdn.net/hysh_keystone/article/details/52013789</a></p>
-<p><code>Webstorm SVN配置_屋里屋外点点_新浪博客</code><br><a href="http://blog.sina.com.cn/s/blog_9984f2fb0102w8av.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_9984f2fb0102w8av.html</a></p>
-<p><code>webstorm上svn的安装使用</code><br><a href="http://blog.csdn.net/jgj0129/article/details/52757115" target="_blank" rel="external">http://blog.csdn.net/jgj0129/article/details/52757115</a></p>
-<p><code>WebStorm配置svn共享、检出项目-博客-云栖社区-阿里云</code><br><a href="https://yq.aliyun.com/articles/46981" target="_blank" rel="external">https://yq.aliyun.com/articles/46981</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="subversion_工具_下载">subversion 工具 下载</h1><p><a href="http://subversion.apache.org/packages.html#windows" target="_blank" rel="external]]>
-    </summary>
-    
-      <category term="jetbrains" scheme="http://yoursite.com/tags/jetbrains/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[ionic嵌套路由]]></title>
-    <link href="http://yoursite.com/2017/05/08/ionic%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/"/>
-    <id>http://yoursite.com/2017/05/08/ionic嵌套路由/</id>
-    <published>2017-05-07T16:00:00.000Z</published>
-    <updated>2017-05-31T10:27:24.850Z</updated>
-    <content type="html"><![CDATA[<h1 id="getting-started">getting-started</h1><p><a href="http://ionicframework.com/getting-started" target="_blank" rel="external">http://ionicframework.com/getting-started</a><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/30893720.jpg" alt=""></p>
-<hr>
-<h1 id="示例：_ionic-starter-tabs">示例： ionic-starter-tabs</h1><p><a href="https://github.com/driftyco/ionic-starter-tabs" target="_blank" rel="external">https://github.com/driftyco/ionic-starter-tabs</a></p>
-<p><a href="http://plnkr.co/edit/qYMCrt?p=preview" target="_blank" rel="external">http://plnkr.co/edit/qYMCrt?p=preview</a><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/36107114.jpg" alt=""></p>
-<ul>
-<li><p>tab / tab.dash， tab.friends</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$stateProvider</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  // setup an abstract <span class="keyword">state</span> <span class="keyword">for</span> the tabs directive</span><br><span class="line">  .<span class="keyword">state</span>('tab', &#123;</span><br><span class="line">    url: <span class="string">"/tab"</span>,</span><br><span class="line">    abstract: true,</span><br><span class="line">    templateUrl: <span class="string">"tabs.html"</span></span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  // Each tab has its own nav history stack:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  .<span class="keyword">state</span>('tab.dash', &#123;</span><br><span class="line">    url: '/dash',</span><br><span class="line">    views: &#123;</span><br><span class="line">      'tab-dash': &#123;</span><br><span class="line">        templateUrl: 'tab-dash.html',</span><br><span class="line">        controller: 'DashCtrl'</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  .<span class="keyword">state</span>('tab.friends', &#123;</span><br><span class="line">    url: '/friends',</span><br><span class="line">    views: &#123;</span><br><span class="line">      'tab-friends': &#123;</span><br><span class="line">        templateUrl: 'tab-friends.html',</span><br><span class="line">        controller: 'FriendsCtrl'</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="keyword">state</span>('tab.friend-detail', &#123;</span><br><span class="line">    url: '/friend/:friendId',</span><br><span class="line">    views: &#123;</span><br><span class="line">      'tab-friends': &#123;</span><br><span class="line">        templateUrl: 'friend-detail.html',</span><br><span class="line">        controller: 'FriendDetailCtrl'</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  .<span class="keyword">state</span>('tab.account', &#123;</span><br><span class="line">    url: '/account',</span><br><span class="line">    views: &#123;</span><br><span class="line">      'tab-account': &#123;</span><br><span class="line">        templateUrl: 'tab-account.html',</span><br><span class="line">        controller: 'AccountCtrl'</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if <span class="keyword">none</span> of the above states are matched, use this as the fallback</span><br><span class="line"><span class="variable">$urlRouterProvider</span>.otherwise('/tab/dash');</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>tabs.html</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ion-tabs</span> <span class="attribute">class</span>=<span class="value">"tabs-icon-top"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- Pets Tab --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">ion-tab</span> <span class="attribute">title</span>=<span class="value">"Dashboard"</span> <span class="attribute">icon</span>=<span class="value">"icon ion-home"</span> <span class="attribute">href</span>=<span class="value">"#/tab/dash"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ion-nav-view</span> <span class="attribute">name</span>=<span class="value">"tab-dash"</span>&gt;</span><span class="tag">&lt;/<span class="title">ion-nav-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">ion-tab</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- Adopt Tab --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">ion-tab</span> <span class="attribute">title</span>=<span class="value">"Friends"</span> <span class="attribute">icon</span>=<span class="value">"icon ion-heart"</span> <span class="attribute">href</span>=<span class="value">"#/tab/friends"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ion-nav-view</span> <span class="attribute">name</span>=<span class="value">"tab-friends"</span>&gt;</span><span class="tag">&lt;/<span class="title">ion-nav-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">ion-tab</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- About Tab --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">ion-tab</span> <span class="attribute">title</span>=<span class="value">"Account"</span> <span class="attribute">icon</span>=<span class="value">"icon ion-gear-b"</span> <span class="attribute">href</span>=<span class="value">"#/tab/account"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ion-nav-view</span> <span class="attribute">name</span>=<span class="value">"tab-account"</span>&gt;</span><span class="tag">&lt;/<span class="title">ion-nav-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">ion-tab</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">ion-tabs</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h1 id="示例：_ionic-starter-sidemenu">示例： ionic-starter-sidemenu</h1><p><a href="https://github.com/driftyco/ionic-starter-sidemenu" target="_blank" rel="external">https://github.com/driftyco/ionic-starter-sidemenu</a></p>
-<p><a href="http://plnkr.co/edit/0RXSDB?p=preview" target="_blank" rel="external">http://plnkr.co/edit/0RXSDB?p=preview</a><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/68685846.jpg" alt=""></p>
-<h1 id="侧边栏+菜单">侧边栏+菜单</h1><ul>
-<li><p>app</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$stateProvider</span></span><br><span class="line">  .state(<span class="string">'app'</span>, &#123;</span><br><span class="line">    url: <span class="string">'/app'</span>,</span><br><span class="line">    abstract: true,</span><br><span class="line">    templateUrl: <span class="string">'app/app/menu.html'</span>,</span><br><span class="line">    controller: <span class="string">'AppCtrl'</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>app.table</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$stateProvider</span></span><br><span class="line">  .state(<span class="string">'app.table'</span>, &#123;</span><br><span class="line">    url: <span class="string">'/table'</span>,</span><br><span class="line">    templateUrl: <span class="string">'app/table/table.html'</span>,</span><br><span class="line">    controller: <span class="string">'TableCtrl'</span></span><br><span class="line">    // views:&#123;</span><br><span class="line">    //   <span class="string">'tableContent'</span>:&#123;</span><br><span class="line">    //     templateUrl:<span class="string">'app/table/table.html'</span>,</span><br><span class="line">    //     controller:<span class="string">'TableCtrl'</span></span><br><span class="line">    //   &#125;</span><br><span class="line">    // &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>app/table/table.html （<code>自定义嵌套路由页面</code>/<code>&lt;ion-tabs</code> ）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ion-view</span> <span class="attribute">view-title</span>=<span class="value">""</span> <span class="attribute">class</span>=<span class="value">"table_page"</span> <span class="attribute">hide-nav-bar</span>=<span class="value">"true"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">ion-content</span> <span class="attribute">class</span>=<span class="value">"table_content"</span> <span class="attribute">overflow-scroll</span>=<span class="value">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"table_panel"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"table_div"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--主页--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"button buttons button-clear header-item ws_tab"</span> <span class="attribute">ng-click</span>=<span class="value">"forward(4)"</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!--&lt;i class="icon ion-social-youtube-outline" style="color: white;"&gt;&lt;/i&gt;--&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/table/nav/6.png"</span> <span class="attribute">class</span>=<span class="value">"tab_img"</span> <span class="attribute">ng-if</span>=<span class="value">"active == 4"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/table/nav/5.png"</span> <span class="attribute">class</span>=<span class="value">"tab_img"</span> <span class="attribute">ng-if</span>=<span class="value">"active != 4"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"tab_text"</span> <span class="attribute">ng-style</span>=<span class="value">"&#123;true:&#123;color:'#56b0ec'&#125;&#125;[active == 4]"</span>&gt;</span>主页<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--课件--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"button buttons button-clear header-item ws_tab"</span> <span class="attribute">ng-click</span>=<span class="value">"forward(1)"</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!--&lt;i class="icon ion-android-home" style="color: white;"&gt;&lt;/i&gt;--&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/table/nav/4.png"</span> <span class="attribute">class</span>=<span class="value">"tab_img"</span> <span class="attribute">ng-if</span>=<span class="value">"active == 1"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/table/nav/3.png"</span> <span class="attribute">class</span>=<span class="value">"tab_img"</span> <span class="attribute">ng-if</span>=<span class="value">"active != 1"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"tab_text"</span> <span class="attribute">ng-style</span>=<span class="value">"&#123;true:&#123;color:'#56b0ec'&#125;&#125;[active == 1]"</span>&gt;</span>课件<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--专项--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"button buttons button-clear header-item ws_tab"</span> <span class="attribute">ng-click</span>=<span class="value">"forward(2)"</span> <span class="attribute">ng-if</span>=<span class="value">"$root.ios_isPayChoose"</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!--&lt;i class="icon ion-ios-bookmarks-outline" style="color: white;"&gt;&lt;/i&gt;--&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/table/nav/2.png"</span> <span class="attribute">class</span>=<span class="value">"tab_img"</span> <span class="attribute">ng-if</span>=<span class="value">"active == 2"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/table/nav/1.png"</span> <span class="attribute">class</span>=<span class="value">"tab_img"</span> <span class="attribute">ng-if</span>=<span class="value">"active != 2"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"tab_text"</span> <span class="attribute">ng-style</span>=<span class="value">"&#123;true:&#123;color:'#56b0ec'&#125;&#125;[active == 2]"</span>&gt;</span>专项<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--&lt;button ui-sref="app.table.live" class="button buttons button-clear header-item" ng-click="active=3"&gt;--&gt;</span></span><br><span class="line">          <span class="comment">&lt;!--&amp;lt;!&amp;ndash;&lt;i class="icon ion-social-youtube-outline" style="color: white;"&gt;&lt;/i&gt;&amp;ndash;&amp;gt;--&gt;</span></span><br><span class="line">          <span class="comment">&lt;!--&lt;img src="img/table/nav/play_active.png" style="height: 30px;" ng-if="active == 3"&gt;--&gt;</span></span><br><span class="line">          <span class="comment">&lt;!--&lt;img src="img/table/nav/play.png" style="height: 30px;" ng-if="active != 3"&gt;--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;/button&gt;--&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-show</span>=<span class="value">"active == 4"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">ion-nav-view</span> <span class="attribute">name</span>=<span class="value">"mainContent"</span>&gt;</span><span class="tag">&lt;/<span class="title">ion-nav-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-show</span>=<span class="value">"!active || active == 1"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">ion-nav-view</span> <span class="attribute">name</span>=<span class="value">"homeContent"</span>&gt;</span><span class="tag">&lt;/<span class="title">ion-nav-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-show</span>=<span class="value">"active == 2"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ion-nav-view</span> <span class="attribute">name</span>=<span class="value">"specialContent"</span>&gt;</span><span class="tag">&lt;/<span class="title">ion-nav-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;div ng-show="active == 3"&gt;--&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--&lt;ion-nav-view name="liveContent"&gt;&lt;/ion-nav-view&gt;--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;/div&gt;--&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">ion-content</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ion-view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>app.table. main</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$stateProvider</span></span><br><span class="line">  .state(<span class="string">'app.table.main'</span>, &#123;</span><br><span class="line">    url: <span class="string">'/main'</span>,</span><br><span class="line">    // cache:false,</span><br><span class="line">    views: &#123;</span><br><span class="line">      <span class="string">'mainContent'</span>: &#123;</span><br><span class="line">        templateUrl: <span class="string">'app/main/main.html'</span>,</span><br><span class="line">        controller: <span class="string">'MainCtrl'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h1 id="使用ion-tabs_存在二级路由丢失返回键问题">使用<code>ion-tabs</code>  存在二级路由丢失返回键问题</h1><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!--&lt;ion-view view-title="table" class="page-tab"&gt;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;ion-view class="page-tab"&gt; &amp;lt;!&amp;ndash; 取消路由页面的view-title避免子类复写失败 &amp;ndash;&amp;gt;--&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"page-tab"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 注意：存在二级路由丢失返回键问题 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;ion-tabs class="tabs-icon-top tabs-color-active-positive my-tab"&gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&amp;lt;!&amp;ndash; Dashboard Tab &amp;ndash;&amp;gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;ion-tab title="首页" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/app/tab/home"&gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;ion-nav-view name="tab-home"&gt;&lt;/ion-nav-view&gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;/ion-tab&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!--&amp;lt;!&amp;ndash; Chats Tab &amp;ndash;&amp;gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;ion-tab title="设备" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/app/tab/device"&gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;ion-nav-view name="tab-device"&gt;&lt;/ion-nav-view&gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;/ion-tab&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!--&amp;lt;!&amp;ndash; Account Tab &amp;ndash;&amp;gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;ion-tab title="工单" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/app/tab/work"&gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;ion-nav-view name="tab-work"&gt;&lt;/ion-nav-view&gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;/ion-tab&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!--&lt;ion-tab title="个人" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/app/tab/account"&gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;ion-nav-view name="tab-account"&gt;&lt;/ion-nav-view&gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;/ion-tab&gt;--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--&lt;/ion-tabs&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- ------------------------------------------------------------ --&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 注意：自定义路由,可解决二级路由丢失返回键问题 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-show</span>=<span class="value">"isShow('app.tab.home')"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ion-nav-view</span> <span class="attribute">name</span>=<span class="value">"tab-home"</span>&gt;</span><span class="tag">&lt;/<span class="title">ion-nav-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-show</span>=<span class="value">"isShow('app.tab.device')"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ion-nav-view</span> <span class="attribute">name</span>=<span class="value">"tab-device"</span>&gt;</span><span class="tag">&lt;/<span class="title">ion-nav-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-show</span>=<span class="value">"isShow('app.tab.work')"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ion-nav-view</span> <span class="attribute">name</span>=<span class="value">"tab-work"</span>&gt;</span><span class="tag">&lt;/<span class="title">ion-nav-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-show</span>=<span class="value">"isShow('app.tab.account')"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ion-nav-view</span> <span class="attribute">name</span>=<span class="value">"tab-account"</span>&gt;</span><span class="tag">&lt;/<span class="title">ion-nav-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"table_button"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;div class="" ui-sref="app.tab.home"&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">""</span> <span class="attribute">ng-click</span>=<span class="value">"go('app.tab.home')"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">img</span> <span class="attribute">ng-src</span>=<span class="value">"img/table/nav/</span></span></span><span class="expression">&#123;&#123;<span class="variable">isShow</span>('<span class="variable">app.tab.home</span>')?2:1&#125;&#125;</span><span class="xml"><span class="tag"><span class="value">.png"</span> <span class="attribute">class</span>=<span class="value">"tab_img"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">div</span>&gt;</span>首页<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;div class="" ui-sref="app.tab.device"&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">""</span> <span class="attribute">ng-click</span>=<span class="value">"go('app.tab.device')"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">img</span> <span class="attribute">ng-src</span>=<span class="value">"img/table/nav/</span></span></span><span class="expression">&#123;&#123;<span class="variable">isShow</span>('<span class="variable">app.tab.device</span>')?4:3&#125;&#125;</span><span class="xml"><span class="tag"><span class="value">.png"</span> <span class="attribute">class</span>=<span class="value">"tab_img"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">div</span>&gt;</span>设备<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;div class="" ui-sref="app.tab.work"&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">""</span> <span class="attribute">ng-click</span>=<span class="value">"go('app.tab.work')"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">img</span> <span class="attribute">ng-src</span>=<span class="value">"img/table/nav/</span></span></span><span class="expression">&#123;&#123;<span class="variable">isShow</span>('<span class="variable">app.tab.work</span>')?6:5&#125;&#125;</span><span class="xml"><span class="tag"><span class="value">.png"</span> <span class="attribute">class</span>=<span class="value">"tab_img"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">div</span>&gt;</span>工单<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;div class="" ui-sref="app.tab.account"&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">""</span> <span class="attribute">ng-click</span>=<span class="value">"go('app.tab.account')"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">img</span> <span class="attribute">ng-src</span>=<span class="value">"img/table/nav/</span></span></span><span class="expression">&#123;&#123;<span class="variable">isShow</span>('<span class="variable">app.tab.account</span>')?6:5&#125;&#125;</span><span class="xml"><span class="tag"><span class="value">.png"</span> <span class="attribute">class</span>=<span class="value">"tab_img"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">div</span>&gt;</span>个人<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;/ion-view&gt;--&gt;</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="variable">$scope</span>.isShow = isShow;</span><br><span class="line">  <span class="variable">$scope</span>.go = function (value) &#123;</span><br><span class="line">    // <span class="variable">$ionicHistory</span>.nextViewOptions(&#123;historyRoot: true&#125;);// 路由框架页面,全部升级为顶层路由(不同于默认顶层root)</span><br><span class="line">    <span class="variable">$state</span>.go(value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> isShow(stateName) &#123;</span><br><span class="line">  return stateName == <span class="variable">$state</span>.current.name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="取消路由页面的view-title避免子类复写失败">取消路由页面的view-title避免子类复写失败</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--&lt;ion-view view-title="table" class="page-tab"&gt;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;ion-view class="page-tab"&gt; &amp;lt;!&amp;ndash; 取消路由页面的view-title避免子类复写失败 &amp;ndash;&amp;gt;--&gt;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="tab切换出现菜单">tab切换出现菜单</h1><p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/9520430.jpg" alt=""></p>
-<ul>
-<li>出现情况，index=1 复用了historyId</li>
-</ul>
-<ul>
-<li><p>不出现情况，各自为index=0</p>
-</li>
-<li><p>问题原因：嵌套路由间切换，同样会发生历史轨迹，出现返回键的情况</p>
-</li>
-<li>解决办法：对嵌套路由间切换，全部升级为顶层路由 (不同于默认顶层root)<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.go = <span class="keyword">function</span> (<span class="keyword">value</span>) &#123;</span><br><span class="line">  <span class="variable">$ionicHistory</span>.nextViewOptions(&#123;historyRoot: true&#125;);// 路由框架页面,全部升级为顶层路由(不同于默认顶层root)</span><br><span class="line">  <span class="variable">$state</span>.go(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h1 id="同时使用_Tabs_+_Side_Menu">同时使用 Tabs + Side Menu</h1><p><code>Ionic Tabs + Side Menu</code><br><a href="http://loring-dodge.azurewebsites.net/ionic-tabs-plus-side-menu/" target="_blank" rel="external">http://loring-dodge.azurewebsites.net/ionic-tabs-plus-side-menu/</a><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/22491562.jpg" alt=""></p>
-<hr>
-<p><strong>参考</strong><br><code>ionic back 返回按钮不正常显示&amp;&amp;二级路由点击返回按钮失效无法返回到上一级页面的问题</code></p>
-<p><a href="http://blog.csdn.net/badgirl_hong/article/details/53505919" target="_blank" rel="external">http://blog.csdn.net/badgirl_hong/article/details/53505919</a></p>
-<p><code>ionic tab(选项卡) | 菜鸟教程</code><br><a href="http://www.runoob.com/ionic/ionic-tab.html" target="_blank" rel="external">http://www.runoob.com/ionic/ionic-tab.html</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="getting-started">getting-started</h1><p><a href="http://ionicframework.com/getting-started" target="_blank" rel="external">http://io]]>
     </summary>
     
       <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
