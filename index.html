@@ -253,7 +253,7 @@
 <hr>
 <p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/81372067.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/34371066.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/44918091.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/10451692.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/97280524.jpg" alt=""></p>
 <hr>
-<p><strong>参考</strong><br><code>Java虚拟机规范（Java SE 7）.pdf</code></p>
+<p><strong>参考</strong><br><code>★ Java虚拟机规范（Java SE 7）.pdf</code></p>
 <p><code>JVM内幕：Java虚拟机详解 - ImportNew</code><br><a href="http://www.importnew.com/17770.html" target="_blank" rel="external">http://www.importnew.com/17770.html</a><br><a href="http://www.jianshu.com/p/c63a8b5a84f9" target="_blank" rel="external">http://www.jianshu.com/p/c63a8b5a84f9</a></p>
 <p><code>JVM内存模型 - 简书</code>  - <code>jijs</code></p>
 <p><a href="http://www.jianshu.com/p/a60d6ef0771b" target="_blank" rel="external">http://www.jianshu.com/p/a60d6ef0771b</a></p>
@@ -496,9 +496,33 @@
 <li>目标: 网络过程, 加密传输,对称加解密</li>
 <li>作用:  劫持,监听,篡改 (广告), 隐私泄露</li>
 </ul>
-<p>| 对称密钥如何保护 | 加密方案约定 | 互信 | 被公开的信息 |</p>
-<p>—— |——| ——| ——|  </p>
-<p>单向验证 | 生成随机数作为密钥<br> 传输过程用公钥加密 <br> -B公钥不可解密 <br> -B私钥可以 | 明文反馈加密<br> 使用预定的加密方案<br> +B公钥+A随机对称密钥 |  A获得B证书,进行验证(服务端可信) |  B 公钥<br> 加密方案 <br> 加密过的对称密钥(B公钥)<br>双向验证 | 生成随机数作为密钥<br> 传输过程用公钥加密<br> -B公钥不可解密<br> -B私钥可以 | A公钥加密反馈加密方案<br> (仅A私钥可解) <br> 使用预定的加密方案 <br> +B公钥+A随机对称密钥  |  A获得B证书,进行验证(服务端可信)<br> B也获得A证书,进行验证(客户端可信) | B 公钥<br> A公钥 <br> 加密过的加密方案(A公钥) <br> 加密过的对称密钥(B公钥)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>对称密钥如何保护</th>
+<th>加密方案约定</th>
+<th>互信</th>
+<th>被公开的信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单向验证</td>
+<td>生成随机数作为密钥<br>传输过程用公钥加密<br>-B公钥不可解密<br>-B私钥可以</td>
+<td>明文反馈加密<br>使用预定的加密方案<br>+B公钥+A随机对称密钥</td>
+<td>A获得B证书,进行验证(服务端可信)</td>
+<td>B公钥<br>加密方案 <br>加密过的对称密钥(B公钥)</td>
+</tr>
+<tr>
+<td>双向验证</td>
+<td>生成随机数作为密钥<br>传输过程用公钥加密<br>-B公钥不可解密<br>-B私钥可以</td>
+<td>A公钥加密反馈加密方案<br>(仅A私钥可解) <br>使用预定的加密方案 <br>+B公钥+A随机对称密钥</td>
+<td>A获得B证书,进行验证(服务端可信)<br>B也获得A证书,进行验证(客户端可信)</td>
+<td>B公钥<br>A公钥<br>加密过的加密方案(A公钥)<br>加密过的对称密钥(B公钥)</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h1 id="OAuth（开放授权）[_用户托管_]">OAuth（开放授权）[ 用户托管 ]</h1><p><code>理解OAuth 2.0</code><br><a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html</a></p>
 <ul>
