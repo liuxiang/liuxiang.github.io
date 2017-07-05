@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <title>网络相关（tcp握手重传,http长短链接,Header分类） | 编程在继续</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="TCP特点：三次握手 /  四次挥手 /  可靠连接 /  丢包重传核心的： tcp是可以可靠传输协议，它的所有特点都为这个可靠传输服务
+
+位码即tcp标志位，有6种标示：SYN(synchronous建立联机)ACK(acknowledgement 确认)PSH(push传送)FIN(finish结束)RST(reset重置)URG(urgent紧急)
+Sequence number(顺序号码)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络相关（tcp握手重传,http长短链接,Header分类）">
+<meta property="og:url" content="http://yoursite.com/2017/07/05/网络相关（tcp握手重传,http长短链接,Header分类）/index.html">
+<meta property="og:site_name" content="编程在继续">
+<meta property="og:description" content="TCP特点：三次握手 /  四次挥手 /  可靠连接 /  丢包重传核心的： tcp是可以可靠传输协议，它的所有特点都为这个可靠传输服务
+
+位码即tcp标志位，有6种标示：SYN(synchronous建立联机)ACK(acknowledgement 确认)PSH(push传送)FIN(finish结束)RST(reset重置)URG(urgent紧急)
+Sequence number(顺序号码)">
+<meta property="og:image" content="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/44504274.jpg">
+<meta property="og:image" content="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/1347664.jpg">
+<meta property="og:image" content="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/6094124.jpg">
+<meta property="og:image" content="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/90636666.jpg">
+<meta property="og:updated_time" content="2017-07-05T10:16:18.820Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络相关（tcp握手重传,http长短链接,Header分类）">
+<meta name="twitter:description" content="TCP特点：三次握手 /  四次挥手 /  可靠连接 /  丢包重传核心的： tcp是可以可靠传输协议，它的所有特点都为这个可靠传输服务
+
+位码即tcp标志位，有6种标示：SYN(synchronous建立联机)ACK(acknowledgement 确认)PSH(push传送)FIN(finish结束)RST(reset重置)URG(urgent紧急)
+Sequence number(顺序号码)">
+  
+    <link rel="alternative" href="/atom.xml" title="编程在继续" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/assets/blogImg/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">刘祥@赛学霸</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">编程在继续，刘祥&#39;s blog</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="https://github.com/liuxiang/blog.hexo/tree/master/source/_posts">搜索</a></li>
+				        
+							<li><a href="http://liuxiang.github.io/iloveyuan">i love yuan</a></li>
+				        
+							<li><a href="http://liuxiang.github.io/iloveyuan/FullPageImageGallery/photo.html">Gallery</a></li>
+				        
+							<li><a href="/1988/12/27/关于我(技术的生活面)/">关于我(技术的生活面)</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/liuxiang" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="mailto: liuxiang@wosaitech.com" title="mail">mail</a>
+					        
+						</div>
+
+						<div id="mobile-busuanzi" style="font-size: 12px;">
+							站访问<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次
+							站访客<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>人
+						</div>
+					</nav>
+
+
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-远程调试/" style="font-size: 10px;">Android 远程调试</a> <a href="/tags/Android6-0/" style="font-size: 10px;">Android6.0</a> <a href="/tags/Android签名/" style="font-size: 10px;">Android签名</a> <a href="/tags/Apple-Developer/" style="font-size: 10px;">Apple Developer</a> <a href="/tags/BCompare/" style="font-size: 10px;">BCompare</a> <a href="/tags/C-hrome/" style="font-size: 10px;">C hrome</a> <a href="/tags/Chrom/" style="font-size: 10px;">Chrom</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/Chrome-Dev-Tools/" style="font-size: 11px;">Chrome Dev Tools</a> <a href="/tags/Chrome-DevTools/" style="font-size: 10px;">Chrome DevTools</a> <a href="/tags/Chrome-Web-Tools/" style="font-size: 10px;">Chrome Web Tools</a> <a href="/tags/Cordova-plugin-qpay/" style="font-size: 10px;">Cordova-plugin-qpay</a> <a href="/tags/Crosswalk/" style="font-size: 10px;">Crosswalk</a> <a href="/tags/DevTools/" style="font-size: 10px;">DevTools</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/FunctionalInterface/" style="font-size: 10px;">FunctionalInterface</a> <a href="/tags/Generator/" style="font-size: 10px;">Generator</a> <a href="/tags/Github，搜索技巧/" style="font-size: 10px;">Github，搜索技巧</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/IDE/" style="font-size: 11px;">IDE</a> <a href="/tags/IIFE/" style="font-size: 10px;">IIFE</a> <a href="/tags/IntelliJ/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 11px;">IntelliJ IDEA</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lambda/" style="font-size: 10px;">Lambda</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/Popups/" style="font-size: 10px;">Popups</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Pull-Request/" style="font-size: 10px;">Pull Request</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/React-native/" style="font-size: 10px;">React native</a> <a href="/tags/Safari/" style="font-size: 11px;">Safari</a> <a href="/tags/TPS/" style="font-size: 10px;">TPS</a> <a href="/tags/Tips/" style="font-size: 10px;">Tips</a> <a href="/tags/Vue-js/" style="font-size: 10px;">Vue.js</a> <a href="/tags/WebStorm/" style="font-size: 12px;">WebStorm</a> <a href="/tags/Webstorm/" style="font-size: 11px;">Webstorm</a> <a href="/tags/Web前端黑客技术揭秘/" style="font-size: 10px;">Web前端黑客技术揭秘</a> <a href="/tags/Win10/" style="font-size: 10px;">Win10</a> <a href="/tags/Wox/" style="font-size: 10px;">Wox</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android打包/" style="font-size: 10px;">android打包</a> <a href="/tags/angular/" style="font-size: 13px;">angular</a> <a href="/tags/angular的自定义弹窗层/" style="font-size: 10px;">angular的自定义弹窗层</a> <a href="/tags/ant-renamer/" style="font-size: 10px;">ant renamer</a> <a href="/tags/api文档生成工具/" style="font-size: 10px;">api文档生成工具</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/async-await/" style="font-size: 10px;">async-await</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/builtInFunction/" style="font-size: 10px;">builtInFunction</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/chrome/" style="font-size: 11px;">chrome</a> <a href="/tags/chrome-Emulated-Devices/" style="font-size: 10px;">chrome Emulated Devices</a> <a href="/tags/chromium/" style="font-size: 10px;">chromium</a> <a href="/tags/cnpm/" style="font-size: 10px;">cnpm</a> <a href="/tags/cocos/" style="font-size: 10px;">cocos</a> <a href="/tags/console/" style="font-size: 10px;">console</a> <a href="/tags/console控制/" style="font-size: 10px;">console控制</a> <a href="/tags/cordova-qpay/" style="font-size: 10px;">cordova qpay</a> <a href="/tags/css/" style="font-size: 14px;">css</a> <a href="/tags/css-tips/" style="font-size: 10px;">css tips</a> <a href="/tags/css兼容性前缀/" style="font-size: 10px;">css兼容性前缀</a> <a href="/tags/css选择器/" style="font-size: 10px;">css选择器</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/drag/" style="font-size: 10px;">drag</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/emoji/" style="font-size: 10px;">emoji</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/flex-table-fixed布局差异/" style="font-size: 10px;">flex/table/fixed布局差异</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/github-pages/" style="font-size: 11px;">github pages</a> <a href="/tags/git命令/" style="font-size: 10px;">git命令</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/hybrid/" style="font-size: 11px;">hybrid</a> <a href="/tags/iOS证书-打包-上架/" style="font-size: 10px;">iOS证书&打包&上架</a> <a href="/tags/iTunesConnect/" style="font-size: 10px;">iTunesConnect</a> <a href="/tags/innerHTML/" style="font-size: 10px;">innerHTML</a> <a href="/tags/inspect/" style="font-size: 11px;">inspect</a> <a href="/tags/interface-default/" style="font-size: 10px;">interface default</a> <a href="/tags/ionic/" style="font-size: 19px;">ionic</a> <a href="/tags/ionic-native-transitions/" style="font-size: 10px;">ionic-native-transitions</a> <a href="/tags/ionic安装/" style="font-size: 10px;">ionic安装</a> <a href="/tags/ionic路由控制/" style="font-size: 10px;">ionic路由控制</a> <a href="/tags/ios/" style="font-size: 13px;">ios</a> <a href="/tags/ios-内测托管平台/" style="font-size: 10px;">ios 内测托管平台</a> <a href="/tags/ios免审核/" style="font-size: 10px;">ios免审核</a> <a href="/tags/ios证书/" style="font-size: 10px;">ios证书</a> <a href="/tags/ios问题笔录/" style="font-size: 10px;">ios问题笔录</a> <a href="/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="/tags/java/" style="font-size: 16px;">java</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/javaScript/" style="font-size: 16px;">javaScript</a> <a href="/tags/javaScript-循环遍历/" style="font-size: 10px;">javaScript 循环遍历</a> <a href="/tags/javaScript-时间格式化/" style="font-size: 10px;">javaScript 时间格式化</a> <a href="/tags/javaScript风格/" style="font-size: 10px;">javaScript风格</a> <a href="/tags/jdk工具命令，jstack/" style="font-size: 10px;">jdk工具命令，jstack</a> <a href="/tags/jetbrains/" style="font-size: 10px;">jetbrains</a> <a href="/tags/jira/" style="font-size: 10px;">jira</a> <a href="/tags/json/" style="font-size: 11px;">json</a> <a href="/tags/jsoup抓取/" style="font-size: 10px;">jsoup抓取</a> <a href="/tags/js对象传递/" style="font-size: 10px;">js对象传递</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/linux-yum相关/" style="font-size: 10px;">linux yum相关</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/markdown/" style="font-size: 12px;">markdown</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mysql/" style="font-size: 12px;">mysql</a> <a href="/tags/mysql依据数据库表/" style="font-size: 10px;">mysql依据数据库表</a> <a href="/tags/ngin-conf/" style="font-size: 10px;">ngin.conf</a> <a href="/tags/nginx/" style="font-size: 14px;">nginx</a> <a href="/tags/nginx日志/" style="font-size: 10px;">nginx日志</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm/" style="font-size: 11px;">npm</a> <a href="/tags/npm-registry/" style="font-size: 10px;">npm registry</a> <a href="/tags/online-web-tools/" style="font-size: 10px;">online-web-tools</a> <a href="/tags/oracle/" style="font-size: 12px;">oracle</a> <a href="/tags/oracle-函数-with-as/" style="font-size: 10px;">oracle 函数  with as</a> <a href="/tags/package-json/" style="font-size: 12px;">package.json</a> <a href="/tags/phonegap/" style="font-size: 11px;">phonegap</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/spring/" style="font-size: 12px;">spring</a> <a href="/tags/sql编程/" style="font-size: 10px;">sql编程</a> <a href="/tags/ssh/" style="font-size: 12px;">ssh</a> <a href="/tags/su/" style="font-size: 10px;">su</a> <a href="/tags/sublime-text/" style="font-size: 10px;">sublime text</a> <a href="/tags/svn/" style="font-size: 13px;">svn</a> <a href="/tags/t-ips/" style="font-size: 10px;">t ips</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/twoColons-function-realize/" style="font-size: 10px;">twoColons::function realize</a> <a href="/tags/userScript/" style="font-size: 10px;">userScript</a> <a href="/tags/video/" style="font-size: 11px;">video</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/web跨域/" style="font-size: 10px;">web跨域</a> <a href="/tags/win-R/" style="font-size: 10px;">win+R</a> <a href="/tags/windows文件与linux文件比对/" style="font-size: 10px;">windows文件与linux文件比对</a> <a href="/tags/wiz/" style="font-size: 10px;">wiz</a> <a href="/tags/xmind/" style="font-size: 12px;">xmind</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/yeoman/" style="font-size: 14px;">yeoman</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/【Shiro-流程】java安全框架-cas单点登录/" style="font-size: 10px;">【Shiro-流程】java安全框架&cas单点登录</a> <a href="/tags/上传/" style="font-size: 10px;">上传</a> <a href="/tags/中国历史大事年表/" style="font-size: 10px;">中国历史大事年表</a> <a href="/tags/书录/" style="font-size: 11px;">书录</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/位运算/" style="font-size: 11px;">位运算</a> <a href="/tags/六位密码框/" style="font-size: 10px;">六位密码框</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/兼容性测试/" style="font-size: 10px;">兼容性测试</a> <a href="/tags/判断实时网络/" style="font-size: 10px;">判断实时网络</a> <a href="/tags/前端/" style="font-size: 17px;">前端</a> <a href="/tags/前端-加密-混淆-，-gulp/" style="font-size: 10px;">前端 加密 混淆 ， gulp</a> <a href="/tags/前端-加密-混淆-，-gulp，-ionic-，cordova-hook/" style="font-size: 10px;">前端 加密 混淆 ， gulp， ionic ，cordova hook</a> <a href="/tags/前端-规范/" style="font-size: 11px;">前端 规范</a> <a href="/tags/前端图片/" style="font-size: 10px;">前端图片</a> <a href="/tags/前端安全-认证/" style="font-size: 10px;">前端安全&认证</a> <a href="/tags/前端导航/" style="font-size: 10px;">前端导航</a> <a href="/tags/前端异常/" style="font-size: 10px;">前端异常</a> <a href="/tags/前端技术/" style="font-size: 10px;">前端技术</a> <a href="/tags/前端文集/" style="font-size: 10px;">前端文集</a> <a href="/tags/前端框架库/" style="font-size: 10px;">前端框架库</a> <a href="/tags/前端模板库/" style="font-size: 10px;">前端模板库</a> <a href="/tags/加密/" style="font-size: 10px;">加密</a> <a href="/tags/匿名-function/" style="font-size: 10px;">匿名 function</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/压力测试/" style="font-size: 11px;">压力测试</a> <a href="/tags/压力测试，-阿里云-PTS/" style="font-size: 10px;">压力测试， 阿里云 PTS</a> <a href="/tags/反向工程设计/" style="font-size: 10px;">反向工程设计</a> <a href="/tags/后端/" style="font-size: 10px;">后端</a> <a href="/tags/善用佳软/" style="font-size: 10px;">善用佳软</a> <a href="/tags/图片加载/" style="font-size: 10px;">图片加载</a> <a href="/tags/图片取色/" style="font-size: 10px;">图片取色</a> <a href="/tags/图片拖拽/" style="font-size: 10px;">图片拖拽</a> <a href="/tags/图片转换为Base64/" style="font-size: 10px;">图片转换为Base64</a> <a href="/tags/图片预览/" style="font-size: 10px;">图片预览</a> <a href="/tags/天气/" style="font-size: 10px;">天气</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/学习内容平均留存率/" style="font-size: 10px;">学习内容平均留存率</a> <a href="/tags/安全/" style="font-size: 11px;">安全</a> <a href="/tags/并发控制/" style="font-size: 10px;">并发控制</a> <a href="/tags/广告/" style="font-size: 10px;">广告</a> <a href="/tags/开发文档API/" style="font-size: 10px;">开发文档API</a> <a href="/tags/异步加载/" style="font-size: 11px;">异步加载</a> <a href="/tags/异步编程/" style="font-size: 10px;">异步编程</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/微信支付/" style="font-size: 10px;">微信支付</a> <a href="/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/快速启动/" style="font-size: 11px;">快速启动</a> <a href="/tags/思维导图/" style="font-size: 18px;">思维导图</a> <a href="/tags/思维导图log4j/" style="font-size: 10px;">思维导图log4j</a> <a href="/tags/情商/" style="font-size: 10px;">情商</a> <a href="/tags/打开QQ群/" style="font-size: 10px;">打开QQ群</a> <a href="/tags/托管/" style="font-size: 10px;">托管</a> <a href="/tags/技术栈/" style="font-size: 10px;">技术栈</a> <a href="/tags/抽奖转盘/" style="font-size: 11px;">抽奖转盘</a> <a href="/tags/推酷/" style="font-size: 10px;">推酷</a> <a href="/tags/效果库/" style="font-size: 10px;">效果库</a> <a href="/tags/数据结构/" style="font-size: 12px;">数据结构</a> <a href="/tags/数据透视图/" style="font-size: 10px;">数据透视图</a> <a href="/tags/文档托管平台/" style="font-size: 10px;">文档托管平台</a> <a href="/tags/文章/" style="font-size: 10px;">文章</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/替代jQuery/" style="font-size: 10px;">替代jQuery</a> <a href="/tags/服务器监测/" style="font-size: 11px;">服务器监测</a> <a href="/tags/权限检查机制/" style="font-size: 10px;">权限检查机制</a> <a href="/tags/权限管理/" style="font-size: 10px;">权限管理</a> <a href="/tags/构造数据/" style="font-size: 10px;">构造数据</a> <a href="/tags/架构/" style="font-size: 13px;">架构</a> <a href="/tags/模块化/" style="font-size: 10px;">模块化</a> <a href="/tags/正则/" style="font-size: 11px;">正则</a> <a href="/tags/正确的情商认知/" style="font-size: 10px;">正确的情商认知</a> <a href="/tags/注解/" style="font-size: 11px;">注解</a> <a href="/tags/涟漪效果/" style="font-size: 10px;">涟漪效果</a> <a href="/tags/清理当前页-缓存/" style="font-size: 10px;">清理当前页 缓存</a> <a href="/tags/爬虫/" style="font-size: 11px;">爬虫</a> <a href="/tags/特性检测库/" style="font-size: 10px;">特性检测库</a> <a href="/tags/白帽子讲web安全/" style="font-size: 10px;">白帽子讲web安全</a> <a href="/tags/知识/" style="font-size: 11px;">知识</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/科学上网，hosts/" style="font-size: 10px;">科学上网，hosts</a> <a href="/tags/程序锁使用/" style="font-size: 10px;">程序锁使用</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/线程/" style="font-size: 10px;">线程</a> <a href="/tags/线程池/" style="font-size: 10px;">线程池</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/编程书籍/" style="font-size: 10px;">编程书籍</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/网络/" style="font-size: 11px;">网络</a> <a href="/tags/网络劫持/" style="font-size: 10px;">网络劫持</a> <a href="/tags/脚手架/" style="font-size: 17px;">脚手架</a> <a href="/tags/自动化测试/" style="font-size: 15px;">自动化测试</a> <a href="/tags/自动输入/" style="font-size: 10px;">自动输入</a> <a href="/tags/自定义书签/" style="font-size: 10px;">自定义书签</a> <a href="/tags/表单验证/" style="font-size: 10px;">表单验证</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/设计模式-23/" style="font-size: 10px;">设计模式-23</a> <a href="/tags/运维/" style="font-size: 10px;">运维</a> <a href="/tags/远程调试/" style="font-size: 10px;">远程调试</a> <a href="/tags/逆向-递归/" style="font-size: 10px;">逆向 递归</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/问题定位分析/" style="font-size: 11px;">问题定位分析</a> <a href="/tags/隧道/" style="font-size: 10px;">隧道</a> <a href="/tags/静态博客/" style="font-size: 10px;">静态博客</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jeremy017.github.io">正一的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://zouxuewen.github.io">邹学文博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">刘祥@赛学霸</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">刘祥@赛学霸</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/assets/blogImg/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">刘祥@赛学霸</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">编程在继续，刘祥&#39;s blog</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="https://github.com/liuxiang/blog.hexo/tree/master/source/_posts">搜索</a></li>
+		        
+					<li><a href="http://liuxiang.github.io/iloveyuan">i love yuan</a></li>
+		        
+					<li><a href="http://liuxiang.github.io/iloveyuan/FullPageImageGallery/photo.html">Gallery</a></li>
+		        
+					<li><a href="/1988/12/27/关于我(技术的生活面)/">关于我(技术的生活面)</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/liuxiang" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="mailto: liuxiang@wosaitech.com" title="mail">mail</a>
+			        
+				</div>
+				
+				<div style="font-size: 12px;padding-left: 11px;">
+					站访问<span id="busuanzi_value_site_pv_copy"><i class="fa fa-spinner fa-spin"></i></span>次
+					站访客<span id="busuanzi_value_site_uv_copy"><i class="fa fa-spinner fa-spin"></i></span>人
+				</div>
+
+			</nav>
+
+		</header>				
+	</div>
+</nav>
+
+<script>
+	function busuanzi_copy(){
+		$("#busuanzi_value_site_pv_copy").text($("#busuanzi_value_site_pv").text());
+		$("#busuanzi_value_site_uv_copy").text($("#busuanzi_value_site_uv").text());
+	}
+	setTimeout(busuanzi_copy,500);
+</script>
+      <div class="body-wrap"><article id="post-网络相关（tcp握手重传,http长短链接,Header分类）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/05/网络相关（tcp握手重传,http长短链接,Header分类）/" class="article-date">
+  	<time datetime="2017-07-04T16:00:00.000Z" itemprop="datePublished">2017-07-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网络相关（tcp握手重传,http长短链接,Header分类）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络/">网络</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+
+        <div style="font-size: 12px;">
+          此文阅<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次
+        </div>
+
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="TCP">TCP</h1><p>特点：三次握手 /  四次挥手 /  可靠连接 /  丢包重传<br>核心的： tcp是可以可靠传输协议，它的所有特点都为这个可靠传输服务</p>
+<hr>
+<p>位码即tcp标志位，有6种标示：<br><code>SYN(synchronous建立联机)</code><br><code>ACK(acknowledgement 确认)</code><br><code>PSH(push传送)</code><br><code>FIN(finish结束)</code><br><code>RST(reset重置)</code><br><code>URG(urgent紧急)</code></p>
+<p><code>Sequence number(顺序号码)</code><br><code>Acknowledge number(确认号码)</code></p>
+<hr>
+<p>ack=seq+<code>len</code><br>ack总是seq+<code>len（包的大小）</code>，这样发送方明确知道server收到那些东西了。<br>但是特例是三次握手和四次挥手，虽然len都是0，但是<code>syn和fin都要占用一个seq号</code>，<code>所以这里的ack都是seq+1</code></p>
+<hr>
+<p>那么tcp是怎么样来保障可靠传输呢？</p>
+<p>tcp在传输过程中都有一个ack，接收方通过ack告诉发送方收到那些包了。这样发送方能知道有没有丢包，进而确定重传。</p>
+<h1 id="tcp建连接的三次握手">tcp建连接的三次握手</h1><p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/44504274.jpg" alt=""></p>
+<ul>
+<li>三个红框表示建立连接的三次握手：<br>第一步：client 发送 <code>syn</code> 到server 发起握手；<code>client-seq随机数</code><br>第二步：server 收到 syn后回复<code>syn+ack</code>给client； <code>server-seq随机数``ack确认（client seq）</code><br>第三步：client 收到<code>syn+ack</code>后，回复server一个<code>ack表示收到</code>了server的<code>syn</code>（此时client的<code>48287端口</code>的连接已经是<code>established</code>） <code>server-ack</code></li>
+</ul>
+<p>握手的<code>核心目的</code>是告知对方seq（绿框是client的初始seq，蓝色框是server 的初始seq），对方回复ack（收到的seq+包的大小），这样发送端就知道有没有丢包了。</p>
+<p>握手的<code>次要目的</code>是告知和<code>协商一些信息</code>，图中黄框。<br><code>MSS–最大传输包</code><br><code>SACK_PERM–是否支持Selective ack(用户优化重传效率）</code><br><code>WS–窗口计算指数</code>（有点复杂的话先不用管）</p>
+<p><strong>这就是tcp为什么要握手建立连接，就是为了解决tcp的可靠传输。</strong></p>
+<h1 id="tcp断开连接的四次挥手">tcp断开连接的四次挥手</h1><p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/1347664.jpg" alt=""></p>
+<ul>
+<li>四个红框表示断开连接的四次挥手：<br>第一步： client主动发送<code>fin</code>包给server<br>第二步： server回复ack（对应第一步fin包的ack）给client，表示<code>server知道client要断开了</code><br>第三步： server发送<code>fin</code>包给client，表示<code>server也可以断开了</code><br>第四部： client回复<code>ack</code>给server，表示既然<code>双发都发送fin包表示断开</code>，<code>那么就真的断开吧</code></li>
+</ul>
+<hr>
+<h1 id="三次握手中协商的其它信息">三次握手中协商的其它信息</h1><p><code>MSS 最大一个包中能传输的信息</code>（不含tcp、ip包头）<br><code>MSS+包头就是MTU（最大传输单元）</code>，如果<code>MTU过大可能在传输的过程中被卡住过不去造成卡死</code>（这个大小的包一直传输不过去），跟丢包还不一样。</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">请求的三次握手</th>
+<th>端到端</th>
+<th>目的</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">第一次</td>
+<td>Client-&gt;Server</td>
+<td>1.建立连接+丢包保障(包大小) <br> 2.协商:MSS最大传输包+SACK_perm重传效率</td>
+<td>1.[SYN]seq=<em> len=</em> <br>2.MSS=<em> SACK_perm=</em></td>
+</tr>
+<tr>
+<td style="text-align:center">第二次</td>
+<td>Server-&gt;Client</td>
+<td>收到&amp;并确认</td>
+<td>[SYN,ACK]seq=<em> ACK=c-seq+len len=</em> MSS=*</td>
+</tr>
+<tr>
+<td style="text-align:center">第三次</td>
+<td>Client-&gt;Server</td>
+<td>收到&amp;并确认</td>
+<td>[SYN,ACK]seq=* ACK=s-seq</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">断开的四次握手</th>
+<th>端到端</th>
+<th>目的</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">第一次</td>
+<td>Client-&gt;Server</td>
+<td>client请求断线</td>
+<td>[FIN,ACK]</td>
+</tr>
+<tr>
+<td style="text-align:center">第二次</td>
+<td>Server-&gt;Client</td>
+<td>收到&amp;并确认</td>
+<td>[ACK]</td>
+</tr>
+<tr>
+<td style="text-align:center">第三次</td>
+<td>Server-&gt;Client</td>
+<td>server请求断线</td>
+<td>[FIN,ACK]</td>
+</tr>
+<tr>
+<td style="text-align:center">第四次</td>
+<td>Client-&gt;Server</td>
+<td>收到&amp;并确认</td>
+<td>[ACK]</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="重传策略">重传策略</h1><p>场景:client[1,2,3,4,5] server[1,2,4,5] <code>数据包3</code>丢了</p>
+<h2 id="超时重传机制:_client没有收到server回复的数据包3的ack,超时就重传">超时重传机制: client没有收到server回复的数据包3的ack,超时就重传</h2><p><code>关于建连接时SYN超时</code>  在Linux下，默认重试次数为5次，重试的间隔时间从1s开始每次都翻售，5次的重试时间间隔为1s, 2s, 4s, 8s, 16s，总共31s，第5次发出后还要等32s都知道第5次也超时了，所以，总共需要 1s + 2s + 4s+ 8s+ 16s + 32s = 2^6 -1 = 63s，TCP才会把断开这个连接<br><code>关于SYN Flood攻击</code> 一些恶意的人就为此制造了SYN Flood攻击——给服务器发了一个SYN后，就下线了，于是服务器需要默认等63s才会断开连接，这样，攻击者就可以把服务器的syn连接的队列耗尽，让正常的连接请求不能处理。于是，Linux下给了一个叫tcp_syncookies的参数来应对这个事——当SYN队列满了后，TCP会通过源地址端口、目标地址端口和时间戳打造出一个特别的Sequence Number发回去（又叫cookie），如果是攻击者则不会有响应，如果是正常连接，则会把这个 SYN Cookie发回来，然后服务端可以通过cookie建连接（即使你不在SYN队列中）。</p>
+<h2 id="快速重传机制">快速重传机制</h2><p>于是，TCP引入了一种叫Fast Retransmit 的算法，不以时间驱动，而以数据驱动重传。也就是说，如果，包没有连续到达，就ack最后那个可能被丢了的包，如果发送方连续收到3次相同的ack，就重传。Fast Retransmit的好处是不用等timeout了再重传</p>
+<h2 id="SACK_方法_[数据碎版_]">SACK 方法 [<code>数据碎版</code> ]</h2><p>另外一种更好的方式叫：Selective Acknowledgment (SACK)（参看RFC 2018），这种方式需要在TCP头里加一个SACK的东西，ACK还是Fast Retransmit的ACK，SACK则是汇报收到的数据碎版<br>这样，在发送端就可以根据回传的SACK来知道哪些数据到了，哪些没有到。于是就优化了Fast Retransmit的算法。当然，这个协议需要两边都支持。在 Linux下，可以通过tcp_sack参数打开这个功能（linux 2.4后默认打开）。</p>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/6094124.jpg" alt=""></p>
+<p>这里还需要注意一个问题——接收方<code>Reneging</code>，所谓Reneging的意思就是接收方有权把已经报给发送端<code>SACK里的数据给丢了</code>。这样干是不被鼓励的，因为这个事会把问题复杂化了，但是，接收方这么做可能会有些极端情况，比如要把内存给别的更重要的东西。所以，发送方也不能完全依赖SACK，还是要依赖ACK，并维护Time-Out，如果后续的ACK没有增长，那么还是<code>要把SACK的东西重传</code>，另外，接收端这边永远不能把SACK的包标记为Ack。</p>
+<p>注意：<code>SACK会消费发送方的资源</code>，试想，如果一个攻击者给数据发送方发<code>一堆SACK的选项</code>，这会导致发送方开始要重传甚至遍历已经发出的数据，这会消耗很多发送端的资源。详细的东西请参看《TCP SACK的性能权衡》</p>
+<h1 id="Duplicate_SACK_–_重复收到数据的问题">Duplicate SACK – 重复收到数据的问题</h1><p>Duplicate SACK又称D-SACK，其主要<code>使用了SACK来告诉发送方有哪些数据被重复接收了</code></p>
+<p>示例一：ACK丢包 <code>[ACK( 4000) &gt; SACK( 3000-3500) ]</code><br>下面的示例中，丢了两个ACK，所以，发送端重传了第一个数据包（3000-3499），于是接收端发现重复收到，于是回了一个<code>SACK=3000-3500</code>，因为<code>ACK都到了4000</code>意味着收到了4000之前的所有数据，所以这个SACK就是D-SACK——<code>旨在告诉发送端我收到了重复的数据</code>，而且我们的发送端<br>还知道，数据包没有丢，丢的是ACK包。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Transmitted     Segment</th>
+<th>Received     Segment</th>
+<th>ACK Sent     (Including SACK Blocks)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">3000-3499</td>
+<td>3000-3499</td>
+<td>3500 (ACK dropped)</td>
+</tr>
+<tr>
+<td style="text-align:center">3500-3999</td>
+<td>3500-3999</td>
+<td>4000 (ACK dropped)</td>
+</tr>
+<tr>
+<td style="text-align:center">3000-3499</td>
+<td>3000-3499</td>
+<td>4000, SACK=3000-3500</td>
+</tr>
+</tbody>
+</table>
+<p>示例二，网络延误 <code>[ACK(3000) &gt; SACK(1000-1500)]</code> (+ACK重复,SACK碎片补偿)<br>下面的示例中，网络包（1000-1499）被网络给延误了，导致发送方没有收到ACK，而后面到达的三个包触发了“Fast Retransmit算法”，所以重传，但重传时，被延误的包又到了，所以，回了一个<code>SACK=1000-1500</code>，因为<code>ACK已到了3000</code>，所以，<code>这个SACK是D-SACK——标识收到了重复的包</code>。<br>这个案例下，发送端知道之前因为“Fast Retransmit算法”触发的重传不是因为发出去的包丢了，也不是因为回应的ACK包丢了，而是因为网络延时<br>了。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Transmitted     Segment</th>
+<th>Received     Segment</th>
+<th>ACK Sent     (Including SACK Blocks)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">500-999</td>
+<td>500-999</td>
+<td>1000</td>
+</tr>
+<tr>
+<td style="text-align:center">1000-1499</td>
+<td>(delayed)</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">1500-1999</td>
+<td>1500-1999</td>
+<td>1000, SACK=1500-2000</td>
+</tr>
+<tr>
+<td style="text-align:center">2000-2499</td>
+<td>2000-2499</td>
+<td>1000, SACK=1500-2500</td>
+</tr>
+<tr>
+<td style="text-align:center">2500-2999</td>
+<td>2500-2999</td>
+<td>1000, SACK=1500-3000</td>
+</tr>
+<tr>
+<td style="text-align:center">1000-1499</td>
+<td>1000-1499</td>
+<td>3000</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td>1000-1499</td>
+<td>3000, SACK=1000-1500</td>
+</tr>
+</tbody>
+</table>
+<p><code>引入了D-SACK，有这么几个好处</code>：<br>1）可以让发送方知道，是发出去的包丢了，还是回来的ACK包丢了。<br>2）是不是自己的timeout太小了，导致重传。<br>3）网络上出现了先发的包后到的情况（又称reordering）<br>4）网络上是不是把我的数据包给复制了。<br><code>Linux下的tcp_dsack参数用于开启这个功能（Linux 2.4后默认打开）</code></p>
+<hr>
+<h1 id="TCP(HTTP)长连接和短连接区别和怎样维护长连接">TCP(HTTP)长连接和短连接区别和怎样维护长连接</h1><p>在HTTP/1.0中，默认使用的是短连接。也就是说，浏览器和服务器每进行一次HTTP操作，就建立一次连接，但任务结束就中断连接<br>从 HTTP/1.1起，默认使用长连接，用以保持连接特性。使用长连接的HTTP协议，会在响应头有加入这行代码：<br><code>Connection:keep-alive</code></p>
+<p><code>模拟一下长连接的情况</code>，client向server发起连接，server接受client连接，双方建立连接。Client与server完成一次读写之后，它们之间的连接并不会主动关闭，后续的读写操作会继续使用这个连接</p>
+<p>首先说一下TCP/IP详解上讲到的TCP保活功能，保活功能主要为服务器应用提供，服务器应用希望知道客户主机是否崩溃，从而可以代表客户使用资源。如果客户已经消失，使得服务器上保留一个半开放的连接，而服务器又在等待来自客户端的数据，则服务器将<code>永远等待客户端的数据</code>，<code>保活</code>功能就是<code>试图在服务器端检测到这种半开放的连接</code>。</p>
+<p>— #  HTTP 协议格式 和 HTTP Header</p>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/90636666.jpg" alt=""></p>
+<p>请求字段(Request)<br>能够接受</p>
+<p><code>DevDocs — HTTP / Headers</code></p>
+<p><a href="http://devdocs.io/http-headers/" target="_blank" rel="external">http://devdocs.io/http-headers/</a></p>
+<p><strong> 请求字段(Request) </strong></p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept-?</td>
+<td>自 方 支持说明 <br> (类型,字符集,编码,语言,时间版本)</td>
+<td>Accept-Charset: utf-8     <br>Accept-Encoding:gzip, deflate     <br>Accept-Language: en-US     <br>Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT     <br>TE: trailers, deflate</td>
+</tr>
+<tr>
+<td></td>
+<td>告知对方(安全,cookie,要求匹配,跨域)</td>
+<td>Authorization: Basic   QWxhZGRpbjpvcGVuIHNlc2FtZQ==     <br>Cookie: $Version=1; Skin=new;     <br>Cache-Control: no-cache     <br>If-Match: “737060cd8c284d8af7ad3082f209582d”     <br>If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT     <br>If-None-Match: “737060cd8c284d8af7ad3082f209582d”     <br>If-Range: “737060cd8c284d8af7ad3082f209582d”     <br>If-Unmodified-Since: Sat, 29 Oct 1994 19:43:31 GMT     <br>Origin: <a href="http://www.example-social-network.com" target="_blank" rel="external">http://www.example-social-network.com</a></td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>连接预期</td>
+<td>Connection:   keep-alive     <br>Connection: Upgrade</td>
+</tr>
+<tr>
+<td>Content-?</td>
+<td>交换信息(长度,编码,类型)</td>
+<td>Content-Length:   348     <br>Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==     <br>Content-Type: application/x-www-form-urlencoded</td>
+</tr>
+<tr>
+<td></td>
+<td>自方信息 <br> (时间,期望,请求方信息,目标域,设备,代理)</td>
+<td>Date: Tue, 15 Nov 1994 08:12:31   GMT     <br>Expect: 100-continue     <br>From: user@example.com     <br>Host:en.wikipedia.org:80     <br>Host: en.wikipedia.org     <br>Referer: <a href="http://en.wikipedia.org/wiki/Main_Page" target="_blank" rel="external">http://en.wikipedia.org/wiki/Main_Page</a>     <br>User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0)   Gecko/20100101 Firefox/21.0     <br>     <br>Max-Forwards: 10     <br>Proxy-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==     <br>Via: 1.0 fred, 1.1 example.com (Apache/1.1)     <br>     <br>Range: bytes=500-999     <br>Pragma: no-cache     <br>Warning: 199 Miscellaneous warning</td>
+</tr>
+</tbody>
+</table>
+<p><strong>响应 字段(Response) </strong></p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Access-?</td>
+<td>自 方 支持说明(域,编码,动作)</td>
+<td>Access-Control-Allow-Origin: *     <br>Accept-Patch: text/example;charset=utf-8     <br>Accept-Ranges: bytes     <br>Allow: GET, HEAD</td>
+</tr>
+<tr>
+<td>　</td>
+<td>缓存相关</td>
+<td>Age: 12     <br>Cache-Control: max-age=3600</td>
+</tr>
+<tr>
+<td>　</td>
+<td>连接预期</td>
+<td>Connection: close</td>
+</tr>
+<tr>
+<td>　</td>
+<td>交换信息(内容,状态)</td>
+<td>Content-Disposition:   attachment; filename=”fname.ext”     <br>Content-Encoding: gzip     <br>Content-Language: da     <br>Content-Length: 348     <br>Content-Location: /index.htm     <br>Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==     <br>Content-Range: bytes 21010-47021/47022     <br>Content-Type: text/html; charset=utf-8     <br>Status: 200 OK</td>
+</tr>
+<tr>
+<td>　</td>
+<td>自 方信息<br>(时间,tag版本,失效时,代理,服务容器)</td>
+<td>Date:   Tue, 15 Nov 1994 08:12:31 GMT     <br>ETag: “737060cd8c284d8af7ad3082f209582d”     <br>Expires: Thu, 01 Dec 1994 16:00:00 GMT     <br>Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT     <br>Link: ; rel=”alternate”     <br>Location: <a href="http://www.w3.org/pub/WWW/People.html" target="_blank" rel="external">http://www.w3.org/pub/WWW/People.html</a>     <br>Pragma: no-cache     <br>Proxy-Authenticate: Basic     <br>Public-Key-Pins: max-age=2592000; pin-<br>sha256=”E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=”;     <br>Refresh: 5; url=<a href="http://www.w3.org/pub/WWW/People.html" target="_blank" rel="external">http://www.w3.org/pub/WWW/People.html</a>     <br>Server: Apache/2.4.1 (Unix)</td>
+</tr>
+<tr>
+<td>　</td>
+<td>告知对方<br> (cookie,传输, 重定向, 协议头,途径要求,警告,认证模式 )</td>
+<td>Set-Cookie:   UserID=JohnDoe; Max-Age=3600; Version=1 <br>Location: <a href="http://www.w3.org/pub/WWW/People.html" target="_blank" rel="external">http://www.w3.org/pub/WWW/People.html</a> <br>Transfer-Encoding: chunked     <br>Upgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11     <br>Vary: *     <br>Via: 1.0 fred, 1.1 example.com (Apache/1.1)     <br>Warning: 199 Miscellaneous warning     <br>WWW-Authenticate: Basic     <br>X-Frame-Options: deny</td>
+</tr>
+</tbody>
+</table>
+<p>完整见： <a href="http://www.jianshu.com/p/b963643ffe72" target="_blank" rel="external">http://www.jianshu.com/p/b963643ffe72</a></p>
+<hr>
+<p><code>就是要你懂 TCP</code> -  <code>什么是工程效率，什么是知识效率</code></p>
+<p><a href="http://www.tuicool.com/articles/rUzEJ3" target="_blank" rel="external">http://www.tuicool.com/articles/rUzEJ3</a></p>
+<p><code>关于TCP 半连接队列和全连接队列 | 阿里中间件团队博客</code><br><a href="http://jm.taobao.org/2017/05/25/525-1/" target="_blank" rel="external">http://jm.taobao.org/2017/05/25/525-1/</a><br><code>另外每个具体问题都是最好学习的机会，光看书理解肯定是不够深刻的，请珍惜每个具体问题，碰到后能够把来龙去脉弄清楚。</code></p>
+<p><code>tcp/ip 上，丢包重传机制 - DBC12345666的专栏 - 博客频道 - CSDN.NET</code><br><a href="http://blog.csdn.net/dbc12345666/article/details/42499889" target="_blank" rel="external">http://blog.csdn.net/dbc12345666/article/details/42499889</a></p>
+<p><code>TCP(HTTP)长连接和短连接区别和怎样维护长连接 - jayxu无捷之径的博客 - 博客频道 - CSDN.NET</code><br><a href="http://blog.csdn.net/ls5718/article/details/51757467" target="_blank" rel="external">http://blog.csdn.net/ls5718/article/details/51757467</a></p>
+<p><code>HTTP 协议格式 和 HTTP Header</code><br>www.tuicool.com/articles/jMFfIv</p>
+<p><code>HTTP Header简介 - 简书</code><br><a href="http://www.jianshu.com/p/b963643ffe72" target="_blank" rel="external">http://www.jianshu.com/p/b963643ffe72</a><br><a href="http://kb.cnblogs.com/page/92320/" target="_blank" rel="external">http://kb.cnblogs.com/page/92320/</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/02/jvm相关/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jvm相关</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="网络相关（tcp握手重传,http长短链接,Header分类）" data-title="网络相关（tcp握手重传,http长短链接,Header分类）" data-url="http://yoursite.com/2017/07/05/网络相关（tcp握手重传,http长短链接,Header分类）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 刘祥@赛学霸
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

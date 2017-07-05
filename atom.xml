@@ -4,7 +4,7 @@
   <subtitle><![CDATA[编程在继续，刘祥's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-03T01:22:46.233Z</updated>
+  <updated>2017-07-05T10:16:18.820Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,16 +15,303 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[网络相关（tcp握手重传,http长短链接,Header分类）]]></title>
+    <link href="http://yoursite.com/2017/07/05/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%EF%BC%88tcp%E6%8F%A1%E6%89%8B%E9%87%8D%E4%BC%A0,http%E9%95%BF%E7%9F%AD%E9%93%BE%E6%8E%A5,Header%E5%88%86%E7%B1%BB%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/07/05/网络相关（tcp握手重传,http长短链接,Header分类）/</id>
+    <published>2017-07-04T16:00:00.000Z</published>
+    <updated>2017-07-05T10:16:18.820Z</updated>
+    <content type="html"><![CDATA[<h1 id="TCP">TCP</h1><p>特点：三次握手 /  四次挥手 /  可靠连接 /  丢包重传<br>核心的： tcp是可以可靠传输协议，它的所有特点都为这个可靠传输服务</p>
+<hr>
+<p>位码即tcp标志位，有6种标示：<br><code>SYN(synchronous建立联机)</code><br><code>ACK(acknowledgement 确认)</code><br><code>PSH(push传送)</code><br><code>FIN(finish结束)</code><br><code>RST(reset重置)</code><br><code>URG(urgent紧急)</code></p>
+<p><code>Sequence number(顺序号码)</code><br><code>Acknowledge number(确认号码)</code></p>
+<hr>
+<p>ack=seq+<code>len</code><br>ack总是seq+<code>len（包的大小）</code>，这样发送方明确知道server收到那些东西了。<br>但是特例是三次握手和四次挥手，虽然len都是0，但是<code>syn和fin都要占用一个seq号</code>，<code>所以这里的ack都是seq+1</code></p>
+<hr>
+<p>那么tcp是怎么样来保障可靠传输呢？</p>
+<p>tcp在传输过程中都有一个ack，接收方通过ack告诉发送方收到那些包了。这样发送方能知道有没有丢包，进而确定重传。</p>
+<h1 id="tcp建连接的三次握手">tcp建连接的三次握手</h1><p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/44504274.jpg" alt=""></p>
+<ul>
+<li>三个红框表示建立连接的三次握手：<br>第一步：client 发送 <code>syn</code> 到server 发起握手；<code>client-seq随机数</code><br>第二步：server 收到 syn后回复<code>syn+ack</code>给client； <code>server-seq随机数``ack确认（client seq）</code><br>第三步：client 收到<code>syn+ack</code>后，回复server一个<code>ack表示收到</code>了server的<code>syn</code>（此时client的<code>48287端口</code>的连接已经是<code>established</code>） <code>server-ack</code></li>
+</ul>
+<p>握手的<code>核心目的</code>是告知对方seq（绿框是client的初始seq，蓝色框是server 的初始seq），对方回复ack（收到的seq+包的大小），这样发送端就知道有没有丢包了。</p>
+<p>握手的<code>次要目的</code>是告知和<code>协商一些信息</code>，图中黄框。<br><code>MSS–最大传输包</code><br><code>SACK_PERM–是否支持Selective ack(用户优化重传效率）</code><br><code>WS–窗口计算指数</code>（有点复杂的话先不用管）</p>
+<p><strong>这就是tcp为什么要握手建立连接，就是为了解决tcp的可靠传输。</strong></p>
+<h1 id="tcp断开连接的四次挥手">tcp断开连接的四次挥手</h1><p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/1347664.jpg" alt=""></p>
+<ul>
+<li>四个红框表示断开连接的四次挥手：<br>第一步： client主动发送<code>fin</code>包给server<br>第二步： server回复ack（对应第一步fin包的ack）给client，表示<code>server知道client要断开了</code><br>第三步： server发送<code>fin</code>包给client，表示<code>server也可以断开了</code><br>第四部： client回复<code>ack</code>给server，表示既然<code>双发都发送fin包表示断开</code>，<code>那么就真的断开吧</code></li>
+</ul>
+<hr>
+<h1 id="三次握手中协商的其它信息">三次握手中协商的其它信息</h1><p><code>MSS 最大一个包中能传输的信息</code>（不含tcp、ip包头）<br><code>MSS+包头就是MTU（最大传输单元）</code>，如果<code>MTU过大可能在传输的过程中被卡住过不去造成卡死</code>（这个大小的包一直传输不过去），跟丢包还不一样。</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">请求的三次握手</th>
+<th>端到端</th>
+<th>目的</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">第一次</td>
+<td>Client-&gt;Server</td>
+<td>1.建立连接+丢包保障(包大小) <br> 2.协商:MSS最大传输包+SACK_perm重传效率</td>
+<td>1.[SYN]seq=<em> len=</em> <br>2.MSS=<em> SACK_perm=</em></td>
+</tr>
+<tr>
+<td style="text-align:center">第二次</td>
+<td>Server-&gt;Client</td>
+<td>收到&amp;并确认</td>
+<td>[SYN,ACK]seq=<em> ACK=c-seq+len len=</em> MSS=*</td>
+</tr>
+<tr>
+<td style="text-align:center">第三次</td>
+<td>Client-&gt;Server</td>
+<td>收到&amp;并确认</td>
+<td>[SYN,ACK]seq=* ACK=s-seq</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">断开的四次握手</th>
+<th>端到端</th>
+<th>目的</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">第一次</td>
+<td>Client-&gt;Server</td>
+<td>client请求断线</td>
+<td>[FIN,ACK]</td>
+</tr>
+<tr>
+<td style="text-align:center">第二次</td>
+<td>Server-&gt;Client</td>
+<td>收到&amp;并确认</td>
+<td>[ACK]</td>
+</tr>
+<tr>
+<td style="text-align:center">第三次</td>
+<td>Server-&gt;Client</td>
+<td>server请求断线</td>
+<td>[FIN,ACK]</td>
+</tr>
+<tr>
+<td style="text-align:center">第四次</td>
+<td>Client-&gt;Server</td>
+<td>收到&amp;并确认</td>
+<td>[ACK]</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="重传策略">重传策略</h1><p>场景:client[1,2,3,4,5] server[1,2,4,5] <code>数据包3</code>丢了</p>
+<h2 id="超时重传机制:_client没有收到server回复的数据包3的ack,超时就重传">超时重传机制: client没有收到server回复的数据包3的ack,超时就重传</h2><p><code>关于建连接时SYN超时</code>  在Linux下，默认重试次数为5次，重试的间隔时间从1s开始每次都翻售，5次的重试时间间隔为1s, 2s, 4s, 8s, 16s，总共31s，第5次发出后还要等32s都知道第5次也超时了，所以，总共需要 1s + 2s + 4s+ 8s+ 16s + 32s = 2^6 -1 = 63s，TCP才会把断开这个连接<br><code>关于SYN Flood攻击</code> 一些恶意的人就为此制造了SYN Flood攻击——给服务器发了一个SYN后，就下线了，于是服务器需要默认等63s才会断开连接，这样，攻击者就可以把服务器的syn连接的队列耗尽，让正常的连接请求不能处理。于是，Linux下给了一个叫tcp_syncookies的参数来应对这个事——当SYN队列满了后，TCP会通过源地址端口、目标地址端口和时间戳打造出一个特别的Sequence Number发回去（又叫cookie），如果是攻击者则不会有响应，如果是正常连接，则会把这个 SYN Cookie发回来，然后服务端可以通过cookie建连接（即使你不在SYN队列中）。</p>
+<h2 id="快速重传机制">快速重传机制</h2><p>于是，TCP引入了一种叫Fast Retransmit 的算法，不以时间驱动，而以数据驱动重传。也就是说，如果，包没有连续到达，就ack最后那个可能被丢了的包，如果发送方连续收到3次相同的ack，就重传。Fast Retransmit的好处是不用等timeout了再重传</p>
+<h2 id="SACK_方法_[数据碎版_]">SACK 方法 [<code>数据碎版</code> ]</h2><p>另外一种更好的方式叫：Selective Acknowledgment (SACK)（参看RFC 2018），这种方式需要在TCP头里加一个SACK的东西，ACK还是Fast Retransmit的ACK，SACK则是汇报收到的数据碎版<br>这样，在发送端就可以根据回传的SACK来知道哪些数据到了，哪些没有到。于是就优化了Fast Retransmit的算法。当然，这个协议需要两边都支持。在 Linux下，可以通过tcp_sack参数打开这个功能（linux 2.4后默认打开）。</p>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/6094124.jpg" alt=""></p>
+<p>这里还需要注意一个问题——接收方<code>Reneging</code>，所谓Reneging的意思就是接收方有权把已经报给发送端<code>SACK里的数据给丢了</code>。这样干是不被鼓励的，因为这个事会把问题复杂化了，但是，接收方这么做可能会有些极端情况，比如要把内存给别的更重要的东西。所以，发送方也不能完全依赖SACK，还是要依赖ACK，并维护Time-Out，如果后续的ACK没有增长，那么还是<code>要把SACK的东西重传</code>，另外，接收端这边永远不能把SACK的包标记为Ack。</p>
+<p>注意：<code>SACK会消费发送方的资源</code>，试想，如果一个攻击者给数据发送方发<code>一堆SACK的选项</code>，这会导致发送方开始要重传甚至遍历已经发出的数据，这会消耗很多发送端的资源。详细的东西请参看《TCP SACK的性能权衡》</p>
+<h1 id="Duplicate_SACK_–_重复收到数据的问题">Duplicate SACK – 重复收到数据的问题</h1><p>Duplicate SACK又称D-SACK，其主要<code>使用了SACK来告诉发送方有哪些数据被重复接收了</code></p>
+<p>示例一：ACK丢包 <code>[ACK( 4000) &gt; SACK( 3000-3500) ]</code><br>下面的示例中，丢了两个ACK，所以，发送端重传了第一个数据包（3000-3499），于是接收端发现重复收到，于是回了一个<code>SACK=3000-3500</code>，因为<code>ACK都到了4000</code>意味着收到了4000之前的所有数据，所以这个SACK就是D-SACK——<code>旨在告诉发送端我收到了重复的数据</code>，而且我们的发送端<br>还知道，数据包没有丢，丢的是ACK包。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Transmitted     Segment</th>
+<th>Received     Segment</th>
+<th>ACK Sent     (Including SACK Blocks)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">3000-3499</td>
+<td>3000-3499</td>
+<td>3500 (ACK dropped)</td>
+</tr>
+<tr>
+<td style="text-align:center">3500-3999</td>
+<td>3500-3999</td>
+<td>4000 (ACK dropped)</td>
+</tr>
+<tr>
+<td style="text-align:center">3000-3499</td>
+<td>3000-3499</td>
+<td>4000, SACK=3000-3500</td>
+</tr>
+</tbody>
+</table>
+<p>示例二，网络延误 <code>[ACK(3000) &gt; SACK(1000-1500)]</code> (+ACK重复,SACK碎片补偿)<br>下面的示例中，网络包（1000-1499）被网络给延误了，导致发送方没有收到ACK，而后面到达的三个包触发了“Fast Retransmit算法”，所以重传，但重传时，被延误的包又到了，所以，回了一个<code>SACK=1000-1500</code>，因为<code>ACK已到了3000</code>，所以，<code>这个SACK是D-SACK——标识收到了重复的包</code>。<br>这个案例下，发送端知道之前因为“Fast Retransmit算法”触发的重传不是因为发出去的包丢了，也不是因为回应的ACK包丢了，而是因为网络延时<br>了。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Transmitted     Segment</th>
+<th>Received     Segment</th>
+<th>ACK Sent     (Including SACK Blocks)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">500-999</td>
+<td>500-999</td>
+<td>1000</td>
+</tr>
+<tr>
+<td style="text-align:center">1000-1499</td>
+<td>(delayed)</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">1500-1999</td>
+<td>1500-1999</td>
+<td>1000, SACK=1500-2000</td>
+</tr>
+<tr>
+<td style="text-align:center">2000-2499</td>
+<td>2000-2499</td>
+<td>1000, SACK=1500-2500</td>
+</tr>
+<tr>
+<td style="text-align:center">2500-2999</td>
+<td>2500-2999</td>
+<td>1000, SACK=1500-3000</td>
+</tr>
+<tr>
+<td style="text-align:center">1000-1499</td>
+<td>1000-1499</td>
+<td>3000</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td>1000-1499</td>
+<td>3000, SACK=1000-1500</td>
+</tr>
+</tbody>
+</table>
+<p><code>引入了D-SACK，有这么几个好处</code>：<br>1）可以让发送方知道，是发出去的包丢了，还是回来的ACK包丢了。<br>2）是不是自己的timeout太小了，导致重传。<br>3）网络上出现了先发的包后到的情况（又称reordering）<br>4）网络上是不是把我的数据包给复制了。<br><code>Linux下的tcp_dsack参数用于开启这个功能（Linux 2.4后默认打开）</code></p>
+<hr>
+<h1 id="TCP(HTTP)长连接和短连接区别和怎样维护长连接">TCP(HTTP)长连接和短连接区别和怎样维护长连接</h1><p>在HTTP/1.0中，默认使用的是短连接。也就是说，浏览器和服务器每进行一次HTTP操作，就建立一次连接，但任务结束就中断连接<br>从 HTTP/1.1起，默认使用长连接，用以保持连接特性。使用长连接的HTTP协议，会在响应头有加入这行代码：<br><code>Connection:keep-alive</code></p>
+<p><code>模拟一下长连接的情况</code>，client向server发起连接，server接受client连接，双方建立连接。Client与server完成一次读写之后，它们之间的连接并不会主动关闭，后续的读写操作会继续使用这个连接</p>
+<p>首先说一下TCP/IP详解上讲到的TCP保活功能，保活功能主要为服务器应用提供，服务器应用希望知道客户主机是否崩溃，从而可以代表客户使用资源。如果客户已经消失，使得服务器上保留一个半开放的连接，而服务器又在等待来自客户端的数据，则服务器将<code>永远等待客户端的数据</code>，<code>保活</code>功能就是<code>试图在服务器端检测到这种半开放的连接</code>。</p>
+<p>— #  HTTP 协议格式 和 HTTP Header</p>
+<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/90636666.jpg" alt=""></p>
+<p>请求字段(Request)<br>能够接受</p>
+<p><code>DevDocs — HTTP / Headers</code></p>
+<p><a href="http://devdocs.io/http-headers/" target="_blank" rel="external">http://devdocs.io/http-headers/</a></p>
+<p><strong> 请求字段(Request) </strong></p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept-?</td>
+<td>自 方 支持说明 <br> (类型,字符集,编码,语言,时间版本)</td>
+<td>Accept-Charset: utf-8     <br>Accept-Encoding:gzip, deflate     <br>Accept-Language: en-US     <br>Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT     <br>TE: trailers, deflate</td>
+</tr>
+<tr>
+<td></td>
+<td>告知对方(安全,cookie,要求匹配,跨域)</td>
+<td>Authorization: Basic   QWxhZGRpbjpvcGVuIHNlc2FtZQ==     <br>Cookie: $Version=1; Skin=new;     <br>Cache-Control: no-cache     <br>If-Match: “737060cd8c284d8af7ad3082f209582d”     <br>If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT     <br>If-None-Match: “737060cd8c284d8af7ad3082f209582d”     <br>If-Range: “737060cd8c284d8af7ad3082f209582d”     <br>If-Unmodified-Since: Sat, 29 Oct 1994 19:43:31 GMT     <br>Origin: <a href="http://www.example-social-network.com" target="_blank" rel="external">http://www.example-social-network.com</a></td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>连接预期</td>
+<td>Connection:   keep-alive     <br>Connection: Upgrade</td>
+</tr>
+<tr>
+<td>Content-?</td>
+<td>交换信息(长度,编码,类型)</td>
+<td>Content-Length:   348     <br>Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==     <br>Content-Type: application/x-www-form-urlencoded</td>
+</tr>
+<tr>
+<td></td>
+<td>自方信息 <br> (时间,期望,请求方信息,目标域,设备,代理)</td>
+<td>Date: Tue, 15 Nov 1994 08:12:31   GMT     <br>Expect: 100-continue     <br>From: user@example.com     <br>Host:en.wikipedia.org:80     <br>Host: en.wikipedia.org     <br>Referer: <a href="http://en.wikipedia.org/wiki/Main_Page" target="_blank" rel="external">http://en.wikipedia.org/wiki/Main_Page</a>     <br>User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0)   Gecko/20100101 Firefox/21.0     <br>     <br>Max-Forwards: 10     <br>Proxy-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==     <br>Via: 1.0 fred, 1.1 example.com (Apache/1.1)     <br>     <br>Range: bytes=500-999     <br>Pragma: no-cache     <br>Warning: 199 Miscellaneous warning</td>
+</tr>
+</tbody>
+</table>
+<p><strong>响应 字段(Response) </strong></p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Access-?</td>
+<td>自 方 支持说明(域,编码,动作)</td>
+<td>Access-Control-Allow-Origin: *     <br>Accept-Patch: text/example;charset=utf-8     <br>Accept-Ranges: bytes     <br>Allow: GET, HEAD</td>
+</tr>
+<tr>
+<td>　</td>
+<td>缓存相关</td>
+<td>Age: 12     <br>Cache-Control: max-age=3600</td>
+</tr>
+<tr>
+<td>　</td>
+<td>连接预期</td>
+<td>Connection: close</td>
+</tr>
+<tr>
+<td>　</td>
+<td>交换信息(内容,状态)</td>
+<td>Content-Disposition:   attachment; filename=”fname.ext”     <br>Content-Encoding: gzip     <br>Content-Language: da     <br>Content-Length: 348     <br>Content-Location: /index.htm     <br>Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==     <br>Content-Range: bytes 21010-47021/47022     <br>Content-Type: text/html; charset=utf-8     <br>Status: 200 OK</td>
+</tr>
+<tr>
+<td>　</td>
+<td>自 方信息<br>(时间,tag版本,失效时,代理,服务容器)</td>
+<td>Date:   Tue, 15 Nov 1994 08:12:31 GMT     <br>ETag: “737060cd8c284d8af7ad3082f209582d”     <br>Expires: Thu, 01 Dec 1994 16:00:00 GMT     <br>Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT     <br>Link: ; rel=”alternate”     <br>Location: <a href="http://www.w3.org/pub/WWW/People.html" target="_blank" rel="external">http://www.w3.org/pub/WWW/People.html</a>     <br>Pragma: no-cache     <br>Proxy-Authenticate: Basic     <br>Public-Key-Pins: max-age=2592000; pin-<br>sha256=”E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=”;     <br>Refresh: 5; url=<a href="http://www.w3.org/pub/WWW/People.html" target="_blank" rel="external">http://www.w3.org/pub/WWW/People.html</a>     <br>Server: Apache/2.4.1 (Unix)</td>
+</tr>
+<tr>
+<td>　</td>
+<td>告知对方<br> (cookie,传输, 重定向, 协议头,途径要求,警告,认证模式 )</td>
+<td>Set-Cookie:   UserID=JohnDoe; Max-Age=3600; Version=1 <br>Location: <a href="http://www.w3.org/pub/WWW/People.html" target="_blank" rel="external">http://www.w3.org/pub/WWW/People.html</a> <br>Transfer-Encoding: chunked     <br>Upgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11     <br>Vary: *     <br>Via: 1.0 fred, 1.1 example.com (Apache/1.1)     <br>Warning: 199 Miscellaneous warning     <br>WWW-Authenticate: Basic     <br>X-Frame-Options: deny</td>
+</tr>
+</tbody>
+</table>
+<p>完整见： <a href="http://www.jianshu.com/p/b963643ffe72" target="_blank" rel="external">http://www.jianshu.com/p/b963643ffe72</a></p>
+<hr>
+<p><code>就是要你懂 TCP</code> -  <code>什么是工程效率，什么是知识效率</code></p>
+<p><a href="http://www.tuicool.com/articles/rUzEJ3" target="_blank" rel="external">http://www.tuicool.com/articles/rUzEJ3</a></p>
+<p><code>关于TCP 半连接队列和全连接队列 | 阿里中间件团队博客</code><br><a href="http://jm.taobao.org/2017/05/25/525-1/" target="_blank" rel="external">http://jm.taobao.org/2017/05/25/525-1/</a><br><code>另外每个具体问题都是最好学习的机会，光看书理解肯定是不够深刻的，请珍惜每个具体问题，碰到后能够把来龙去脉弄清楚。</code></p>
+<p><code>tcp/ip 上，丢包重传机制 - DBC12345666的专栏 - 博客频道 - CSDN.NET</code><br><a href="http://blog.csdn.net/dbc12345666/article/details/42499889" target="_blank" rel="external">http://blog.csdn.net/dbc12345666/article/details/42499889</a></p>
+<p><code>TCP(HTTP)长连接和短连接区别和怎样维护长连接 - jayxu无捷之径的博客 - 博客频道 - CSDN.NET</code><br><a href="http://blog.csdn.net/ls5718/article/details/51757467" target="_blank" rel="external">http://blog.csdn.net/ls5718/article/details/51757467</a></p>
+<p><code>HTTP 协议格式 和 HTTP Header</code><br>www.tuicool.com/articles/jMFfIv</p>
+<p><code>HTTP Header简介 - 简书</code><br><a href="http://www.jianshu.com/p/b963643ffe72" target="_blank" rel="external">http://www.jianshu.com/p/b963643ffe72</a><br><a href="http://kb.cnblogs.com/page/92320/" target="_blank" rel="external">http://kb.cnblogs.com/page/92320/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="TCP">TCP</h1><p>特点：三次握手 /  四次挥手 /  可靠连接 /  丢包重传<br>核心的： tcp是可以可靠传输协议，它的所有特点都为这个可靠传输服务</p>
+<hr>
+<p>位码即tcp标志位，有6种标示：<br><code>SYN(sync]]>
+    </summary>
+    
+      <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[jvm相关]]></title>
     <link href="http://yoursite.com/2017/07/02/jvm%E7%9B%B8%E5%85%B3/"/>
     <id>http://yoursite.com/2017/07/02/jvm相关/</id>
     <published>2017-07-01T16:00:00.000Z</published>
-    <updated>2017-07-03T01:22:46.233Z</updated>
+    <updated>2017-07-05T09:56:11.959Z</updated>
     <content type="html"><![CDATA[<p>详见 : <code>jvm相关.xmind</code></p>
 <hr>
 <p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/81372067.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/34371066.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/44918091.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/10451692.jpg" alt=""><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/97280524.jpg" alt=""></p>
 <hr>
-<p><strong>参考</strong><br><code>★ Java虚拟机规范（Java SE 7）.pdf</code></p>
+<p><strong>参考</strong><br><code>★  Java虚拟机规范（Java SE 7）.pdf</code></p>
 <p><code>JVM内幕：Java虚拟机详解 - ImportNew</code><br><a href="http://www.importnew.com/17770.html" target="_blank" rel="external">http://www.importnew.com/17770.html</a><br><a href="http://www.jianshu.com/p/c63a8b5a84f9" target="_blank" rel="external">http://www.jianshu.com/p/c63a8b5a84f9</a></p>
 <p><code>JVM内存模型 - 简书</code>  - <code>jijs</code></p>
 <p><a href="http://www.jianshu.com/p/a60d6ef0771b" target="_blank" rel="external">http://www.jianshu.com/p/a60d6ef0771b</a></p>
@@ -48,13 +335,13 @@
     <link href="http://yoursite.com/2017/06/29/markdown_tables%E8%A1%A8%E6%A0%BC%E5%B7%A5%E5%85%B7/"/>
     <id>http://yoursite.com/2017/06/29/markdown_tables表格工具/</id>
     <published>2017-06-28T16:00:00.000Z</published>
-    <updated>2017-07-02T16:19:03.697Z</updated>
-    <content type="html"><![CDATA[<p>在线：<a href="http://www.tablesgenerator.com/markdown_tables" target="_blank" rel="external">http://www.tablesgenerator.com/markdown_tables</a></p>
+    <updated>2017-07-05T09:56:11.943Z</updated>
+    <content type="html"><![CDATA[<p>在线： <a href="http://www.tablesgenerator.com/markdown_tables" target="_blank" rel="external">http://www.tablesgenerator.com/markdown_tables</a></p>
 <p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/97052676.jpg" alt=""></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center"></th>
+<th style="text-align:center">/</th>
 <th>提供client请求目标的方式</th>
 <th style="text-align:right">(反)序列化消息体</th>
 <th>网络服务</th>
@@ -69,7 +356,7 @@
 <td style="text-align:center">Dubbo</td>
 <td>spring-Bean</td>
 <td style="text-align:right">Object-二进制</td>
-<td>tcp(dubbo),nio</td>
+<td>tcp(dubbo), nio</td>
 <td>zookeeper</td>
 <td>二进制-Object</td>
 <td>spring-Bean</td>
@@ -92,7 +379,7 @@
 <td>tcp(rmi)</td>
 <td>rmi_doc</td>
 <td>二进制-Object</td>
-<td>LocateRegistry.createRegistry<br>Naming.rebind</td>
+<td>LocateRegistry.createRegistry <br> Naming.rebind</td>
 <td>thread</td>
 </tr>
 <tr>
@@ -109,7 +396,7 @@
 </table>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>在线：<a href="http://www.tablesgenerator.com/markdown_tables" target="_blank" rel="external">http://www.tablesgenerator.com/markdown_tables]]>
+    <![CDATA[<p>在线： <a href="http://www.tablesgenerator.com/markdown_tables" target="_blank" rel="external">http://www.tablesgenerator.com/markdown_table]]>
     </summary>
     
       <category term="markdown" scheme="http://yoursite.com/tags/markdown/"/>
@@ -121,15 +408,12 @@
     <link href="http://yoursite.com/2017/06/26/%E4%BE%9D%E6%8D%AE%E4%BB%BB%E5%8A%A1%E4%BC%98%E5%85%88%E7%BA%A7,%E5%AE%9E%E7%8E%B0%E5%8F%AF%E6%8F%92%E9%98%9F%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%B1%A0-%E7%AE%80%E8%A3%85/"/>
     <id>http://yoursite.com/2017/06/26/依据任务优先级,实现可插队的线程池-简装/</id>
     <published>2017-06-25T16:00:00.000Z</published>
-    <updated>2017-06-26T06:35:21.104Z</updated>
+    <updated>2017-07-05T10:06:44.312Z</updated>
     <content type="html"><![CDATA[<h1 id="关键">关键</h1><ul>
 <li>队列： <code>PriorityBlockingQueue</code> 优先级</li>
 <li>思路：线程实现Comparable / 仅作用在未开始的线程,故注意corePoolSize<br><code>class MyRunnableComp implements Runnable, Comparable&lt;MyRunnableComp&gt;</code></li>
 </ul>
-<ul>
-<li>源码(工具故障导致 格式乱了 -待修复)：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">package pool.priority;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import java.util.concurrent.BlockingQueue;</span><br><span class="line">import java.util.concurrent.PriorityBlockingQueue;</span><br><span class="line">import java.util.concurrent.ThreadPoolExecutor;</span><br><span class="line">import java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">* [简单封装]依据任务优先级,可插队的线程池</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> MyPriorityThreadPool &#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">ThreadPoolExecutor threadPoolExecutor = <span class="keyword">new</span> ThreadPool_demo().executor();</span><br><span class="line"></span><br><span class="line">boolean coreThreadTimeOut = threadPoolExecutor.allowsCoreThreadTimeOut();<span class="comment">// 将包括“核心线程”在内的，没有任务分配的任何线程，在等待keepAliveTime时间后全部进行回收</span></span><br><span class="line">System.out.println(coreThreadTimeOut);<span class="comment">// 默认是false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"><span class="comment">/* 常规线程(先进先出-LinkedTransferQueue[CAS乐观锁]) */</span></span><br><span class="line"><span class="comment">//            threadPoolExecutor.execute(new Runnable() &#123;</span></span><br><span class="line"><span class="comment">//                @Override</span></span><br><span class="line"><span class="comment">//                public void run() &#123;</span></span><br><span class="line"><span class="comment">//                    System.out.println(Thread.currentThread().getName() + "正在执行。。。");</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line"><span class="comment">//            &#125;);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 优先级控制线程(依优先级插队-PriorityBlockingQueue)|仅作用在未开始的线程,故注意corePoolSize */</span></span><br><span class="line">threadPoolExecutor.execute(<span class="keyword">new</span> MyRunnableComp((<span class="keyword">int</span>) (<span class="number">1000</span> + Math.random() * (<span class="number">9999</span> - <span class="number">1000</span> + <span class="number">1</span>))));<span class="comment">// 首个立即执行</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> ThreadPool_demo &#123;</span><br><span class="line"><span class="keyword">int</span> corePoolSize = <span class="number">1</span>;<span class="comment">// 核心线程(产生后不释放待复用)</span></span><br><span class="line"><span class="keyword">int</span> maximumPoolSize = <span class="number">100</span>;<span class="comment">// 最大池(核心线程数+临时线程数)</span></span><br><span class="line"><span class="keyword">long</span> keepAliveTime = <span class="number">0l</span>;<span class="comment">// 空闲时间(多出corePoolSize的线程在空闲时间超过 keepAliveTime 时将会终止)</span></span><br><span class="line">TimeUnit unit = TimeUnit.MILLISECONDS;<span class="comment">// 单位 毫秒 纳秒</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// BlockingQueue&lt;Runnable&gt; workQueue = new LinkedBlockingQueue&lt;Runnable&gt;();// 双链表,无限队列大小/ 不会有多于corePoolSize的线程被创建,maximumPoolSize没意义</span></span><br><span class="line"><span class="comment">// BlockingQueue&lt;Runnable&gt; workQueue = new LinkedTransferQueue&lt;Runnable&gt;();// 无锁方式-CAS ★</span></span><br><span class="line"><span class="comment">// BlockingQueue&lt;Runnable&gt; workQueue = new SynchronousQueue&lt;Runnable&gt;();// 同步</span></span><br><span class="line">BlockingQueue&lt;Runnable&gt; workQueue = <span class="keyword">new</span> PriorityBlockingQueue&lt;Runnable&gt;();<span class="comment">// 优先级</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> ThreadPoolExecutor <span class="title">executor</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">* 优先级可控的线程池</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">class</span> MyRunnableComp implements Runnable, Comparable&lt;MyRunnableComp&gt; &#123;</span><br><span class="line"><span class="keyword">int</span> priority;<span class="comment">// 优先级</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MyRunnableComp</span><span class="params">(<span class="keyword">int</span> priority)</span> </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.priority = priority;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPriority</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> priority;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPriority</span><span class="params">(<span class="keyword">int</span> priority)</span> </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.priority = priority;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="function">Override</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">System.out.println(Thread.currentThread().getName() + <span class="string">"["</span> + <span class="keyword">this</span>.priority + <span class="string">"]"</span> + <span class="string">"正在执行。。。"</span>);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Thread.sleep(<span class="number">300</span>);<span class="comment">// 延长任务完成时间,给优先级排序预留时间</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="function">Override</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(MyRunnableComp o)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (o.getPriority() == <span class="keyword">this</span>.priority) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> o.getPriority() &gt; <span class="keyword">this</span>.priority ? -<span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">* Java线程池揭秘 - 推酷</span><br><span class="line">* http://www.tuicool.com/articles/32632uB</span><br><span class="line">* &lt;p&gt;</span><br><span class="line">* Java线程池总结 - 推酷</span><br><span class="line">* http://www.tuicool.com/articles/e2aUvyR</span><br><span class="line">* &lt;p&gt;</span><br><span class="line">* PriorityBlockingQueue | 并发编程网 – ifeve.com</span><br><span class="line">* http://ifeve.com/tag/priorityblockingqueue/</span><br><span class="line">*</span><br><span class="line">* Java 7中的TransferQueue | 并发编程网 – ifeve.com</span><br><span class="line">* http://ifeve.com/java-transfer-queue/</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">package pool.priority;</span><br><span class="line"> </span><br><span class="line">import java.util.concurrent.BlockingQueue;</span><br><span class="line">import java.util.concurrent.PriorityBlockingQueue;</span><br><span class="line">import java.util.concurrent.ThreadPoolExecutor;</span><br><span class="line">import java.util.concurrent.TimeUnit;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line">* [简单封装]依据任务优先级,可插队的线程池</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> MyPriorityThreadPool &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ThreadPoolExecutor threadPoolExecutor = <span class="keyword">new</span> ThreadPool_demo().executor();</span><br><span class="line"> </span><br><span class="line">        boolean coreThreadTimeOut = threadPoolExecutor.allowsCoreThreadTimeOut();<span class="comment">// 将包括“核心线程”在内的，没有任务分配的任何线程，在等待keepAliveTime时间后全部进行回收</span></span><br><span class="line">        System.out.println(coreThreadTimeOut);<span class="comment">// 默认是false</span></span><br><span class="line"> </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="comment">/* 常规线程(先进先出-LinkedTransferQueue[CAS乐观锁]) */</span></span><br><span class="line"><span class="comment">//            threadPoolExecutor.execute(new Runnable() &#123;</span></span><br><span class="line"><span class="comment">//                @Override</span></span><br><span class="line"><span class="comment">//                public void run() &#123;</span></span><br><span class="line"><span class="comment">//                    System.out.println(Thread.currentThread().getName() + "正在执行。。。");</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line"><span class="comment">//            &#125;);</span></span><br><span class="line"> </span><br><span class="line">            <span class="comment">/* 优先级控制线程(依优先级插队-PriorityBlockingQueue)|仅作用在未开始的线程,故注意corePoolSize */</span></span><br><span class="line">            threadPoolExecutor.execute(<span class="keyword">new</span> MyRunnableComp((<span class="keyword">int</span>) (<span class="number">1000</span> + Math.random() * (<span class="number">9999</span> - <span class="number">1000</span> + <span class="number">1</span>))));<span class="comment">// 首个立即执行</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> ThreadPool_demo &#123;</span><br><span class="line">    <span class="keyword">int</span> corePoolSize = <span class="number">1</span>;<span class="comment">// 核心线程(产生后不释放待复用)</span></span><br><span class="line">    <span class="keyword">int</span> maximumPoolSize = <span class="number">100</span>;<span class="comment">// 最大池(核心线程数+临时线程数)</span></span><br><span class="line">    <span class="keyword">long</span> keepAliveTime = <span class="number">0l</span>;<span class="comment">// 空闲时间(多出corePoolSize的线程在空闲时间超过 keepAliveTime 时将会终止)</span></span><br><span class="line">    TimeUnit unit = TimeUnit.MILLISECONDS;<span class="comment">// 单位 毫秒 纳秒</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">// BlockingQueue&lt;Runnable&gt; workQueue = new LinkedBlockingQueue&lt;Runnable&gt;();// 双链表,无限队列大小/ 不会有多于corePoolSize的线程被创建,maximumPoolSize没意义</span></span><br><span class="line">    <span class="comment">// BlockingQueue&lt;Runnable&gt; workQueue = new LinkedTransferQueue&lt;Runnable&gt;();// 无锁方式-CAS ★</span></span><br><span class="line">    <span class="comment">// BlockingQueue&lt;Runnable&gt; workQueue = new SynchronousQueue&lt;Runnable&gt;();// 同步</span></span><br><span class="line">    BlockingQueue&lt;Runnable&gt; workQueue = <span class="keyword">new</span> PriorityBlockingQueue&lt;Runnable&gt;();<span class="comment">// 优先级</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> ThreadPoolExecutor <span class="title">executor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line">* 优先级可控的线程池</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">class</span> MyRunnableComp implements Runnable, Comparable&lt;MyRunnableComp&gt; &#123;</span><br><span class="line">    <span class="keyword">int</span> priority;<span class="comment">// 优先级</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyRunnableComp</span><span class="params">(<span class="keyword">int</span> priority)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.priority = priority;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPriority</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> priority;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPriority</span><span class="params">(<span class="keyword">int</span> priority)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.priority = priority;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @<span class="function">Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">"["</span> + <span class="keyword">this</span>.priority + <span class="string">"]"</span> + <span class="string">"正在执行。。。"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">300</span>);<span class="comment">// 延长任务完成时间,给优先级排序预留时间</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 顺序控制</span><br><span class="line">     * @param o</span><br><span class="line">     * @return</span><br><span class="line">     */</span></span><br><span class="line">    @<span class="function">Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(MyRunnableComp o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (o.getPriority() == <span class="keyword">this</span>.priority) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> o.getPriority() &gt; <span class="keyword">this</span>.priority ? -<span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line">* Java线程池揭秘 - 推酷</span><br><span class="line">* http://www.tuicool.com/articles/32632uB</span><br><span class="line">* &lt;p&gt;</span><br><span class="line">* Java线程池总结 - 推酷</span><br><span class="line">* http://www.tuicool.com/articles/e2aUvyR</span><br><span class="line">* &lt;p&gt;</span><br><span class="line">* PriorityBlockingQueue | 并发编程网 – ifeve.com</span><br><span class="line">* http://ifeve.com/tag/priorityblockingqueue/</span><br><span class="line">*</span><br><span class="line">* Java 7中的TransferQueue | 并发编程网 – ifeve.com</span><br><span class="line">* http://ifeve.com/java-transfer-queue/</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="关键">关键</h1><ul>
@@ -146,7 +430,7 @@
     <link href="http://yoursite.com/2017/06/23/API%E5%AE%89%E5%85%A8%E4%B8%8E%E4%BC%9A%E8%AF%9D/"/>
     <id>http://yoursite.com/2017/06/23/API安全与会话/</id>
     <published>2017-06-22T16:00:00.000Z</published>
-    <updated>2017-07-03T00:58:47.795Z</updated>
+    <updated>2017-07-05T10:17:36.585Z</updated>
     <content type="html"><![CDATA[<h1 id="https">https</h1><ul>
 <li>目标: 网络过程, 加密传输,对称加解密</li>
 <li>作用:  劫持,监听,篡改 (广告), 隐私泄露</li>
@@ -154,7 +438,7 @@
 <table>
 <thead>
 <tr>
-<th></th>
+<th>/</th>
 <th>对称密钥如何保护</th>
 <th>加密方案约定</th>
 <th>互信</th>
@@ -164,17 +448,18 @@
 <tbody>
 <tr>
 <td>单向验证</td>
-<td>生成随机数作为密钥<br>传输过程用公钥加密<br>-B公钥不可解密<br>-B私钥可以</td>
-<td>明文反馈加密<br>使用预定的加密方案<br>+B公钥+A随机对称密钥</td>
+<td>生成随机数作为密钥<br> 传输过程用公钥加密<br> -B公钥不可解密<br> -B私钥可以</td>
+<td>明文反馈加密<br>使用预定的加密方案<br>+B公钥+A</td>
+<td>随机对称密钥</td>
 <td>A获得B证书,进行验证(服务端可信)</td>
-<td>B公钥<br>加密方案 <br>加密过的对称密钥(B公钥)</td>
+<td>B 公钥<br> 加密方案 <br> 加密过的对称密钥(B公钥)</td>
 </tr>
 <tr>
 <td>双向验证</td>
-<td>生成随机数作为密钥<br>传输过程用公钥加密<br>-B公钥不可解密<br>-B私钥可以</td>
-<td>A公钥加密反馈加密方案<br>(仅A私钥可解) <br>使用预定的加密方案 <br>+B公钥+A随机对称密钥</td>
-<td>A获得B证书,进行验证(服务端可信)<br>B也获得A证书,进行验证(客户端可信)</td>
-<td>B公钥<br>A公钥<br>加密过的加密方案(A公钥)<br>加密过的对称密钥(B公钥)</td>
+<td>生成随机数作为密钥<br> 传输过程用公钥加密<br> -B公钥不可解密<br> -B私钥可以</td>
+<td>A公钥加密反馈加密方案<br> (仅A私钥可解) <br> 使用预定的加密方案 <br> +B公钥+A随机对称密钥</td>
+<td>A获得B证书,进行验证(服务端可信)<br> B也获得A证书,进行验证(客户端可信)</td>
+<td>B 公钥<br> A公钥 <br> 加密过的加密方案(A公钥) <br> 加密过的对称密钥(B公钥)</td>
 </tr>
 </tbody>
 </table>
@@ -232,8 +517,8 @@
 <table>
 <thead>
 <tr>
-<th></th>
-<th>对称密钥如]]>
+<th>/</th>
+<th>对称密钥]]>
     </summary>
     
       <category term="API" scheme="http://yoursite.com/tags/API/"/>
@@ -911,30 +1196,6 @@
     </summary>
     
       <category term="Maven" scheme="http://yoursite.com/tags/Maven/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[ionic日期控件ionicdatepicker]]></title>
-    <link href="http://yoursite.com/2017/05/09/ionic%E6%97%A5%E6%9C%9F%E6%8E%A7%E4%BB%B6ionicdatepicker/"/>
-    <id>http://yoursite.com/2017/05/09/ionic日期控件ionicdatepicker/</id>
-    <published>2017-05-08T16:00:02.000Z</published>
-    <updated>2017-05-31T10:27:24.882Z</updated>
-    <content type="html"><![CDATA[<h1 id="ionic-datepicker">ionic-datepicker</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower <span class="operator"><span class="keyword">install</span> ionic-datepicker <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure>
-<p><a href="https://market.ionic.io/plugins/ionicdatepicker" target="_blank" rel="external">https://market.ionic.io/plugins/ionicdatepicker</a><br><code>github</code> <a href="https://github.com/rajeshwarpatlolla/ionic-datepicker" target="_blank" rel="external">https://github.com/rajeshwarpatlolla/ionic-datepicker</a>  <code>★</code><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/42969560.jpg" alt=""></p>
-<hr>
-<h1 id="datepicker-for-ionic">datepicker-for-ionic</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bower <span class="tag">i</span> datepicker-<span class="keyword">for</span>-ionic --save</span><br><span class="line">npm <span class="tag">i</span> datepicker-<span class="keyword">for</span>-ionic --save</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.npmjs.com/package/datepicker-for-ionic" target="_blank" rel="external">https://www.npmjs.com/package/datepicker-for-ionic</a><br><a href="http://npm.taobao.org/package/datepicker-for-ionic" target="_blank" rel="external">http://npm.taobao.org/package/datepicker-for-ionic</a></p>
-<p><code>github</code>   <a href="https://github.com/celsomarques/ionic-datepicker" target="_blank" rel="external">https://github.com/celsomarques/ionic-datepicker</a><br><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/72000024.jpg" alt=""></p>
-<hr>
-<p><strong>参考</strong><br><code>ionic之时间&amp;日期组件实例 - 博客频道 - CSDN.NET</code><br><a href="http://blog.csdn.net/xuexiiphone/article/details/52087915" target="_blank" rel="external">http://blog.csdn.net/xuexiiphone/article/details/52087915</a></p>
-<p><code>Ionic集成ionic-datepicker插件 - ljw124213的博客 - 博客频道 - CSDN.NET</code><br><a href="http://blog.csdn.net/ljw124213/article/details/60588752" target="_blank" rel="external">http://blog.csdn.net/ljw124213/article/details/60588752</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="ionic-datepicker">ionic-datepicker</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><]]>
-    </summary>
-    
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
     
   </entry>
   
