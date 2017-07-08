@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2016/07/08/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E8%AE%A4%E8%AF%86/</loc>
-    <lastmod>2017-07-08T05:45:10.890Z</lastmod>
+    <loc>http://yoursite.com/2017/07/08/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E8%AE%A4%E8%AF%86/</loc>
+    <lastmod>2017-07-08T06:19:31.444Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/07/05/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%EF%BC%88tcp%E6%8F%A1%E6%89%8B%E9%87%8D%E4%BC%A0,http%E9%95%BF%E7%9F%AD%E9%93%BE%E6%8E%A5,Header%E5%88%86%E7%B1%BB%EF%BC%89/</loc>
+    <lastmod>2017-07-08T06:17:30.870Z</lastmod>
   </url>
   
   <url>
@@ -34,11 +39,6 @@
   <url>
     <loc>http://yoursite.com/2017/06/23/API%E5%AE%89%E5%85%A8(https)%E4%B8%8E%E4%BC%9A%E8%AF%9D(OAuth,%E5%8F%82%E6%95%B0%E7%AD%BE%E5%90%8D)/</loc>
     <lastmod>2017-07-07T06:47:57.377Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/07/05/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%EF%BC%88tcp%E6%8F%A1%E6%89%8B%E9%87%8D%E4%BC%A0,http%E9%95%BF%E7%9F%AD%E9%93%BE%E6%8E%A5,Header%E5%88%86%E7%B1%BB%EF%BC%89/</loc>
-    <lastmod>2017-07-05T10:16:18.820Z</lastmod>
   </url>
   
   <url>

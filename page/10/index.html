@@ -223,6 +223,69 @@
 </script>
       <div class="body-wrap">
   
+    <article id="post-linux yum相关" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/23/linux yum相关/" class="article-date">
+  	<time datetime="2016-11-22T16:00:02.000Z" itemprop="datePublished">2016-11-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/23/linux yum相关/">linux yum相关</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">安装软件(以foo-x<span class="class">.x</span><span class="class">.x</span><span class="class">.rpm</span>为例）：yum install foo-x<span class="class">.x</span><span class="class">.x</span><span class="class">.rpm</span></span><br><span class="line">yum常用命令</span><br><span class="line">yum常用命令</span><br><span class="line">删除软件：yum remove foo-x<span class="class">.x</span><span class="class">.x</span><span class="class">.rpm</span>或者yum erase foo-x<span class="class">.x</span><span class="class">.x</span><span class="class">.rpm</span></span><br><span class="line">升级软件：yum upgrade foo或者yum update foo</span><br><span class="line">查询信息：yum info foo</span><br><span class="line">搜索软件（以包含foo字段为例）：yum search foo</span><br><span class="line">显示软件包依赖关系：yum deplist foo</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">　　-e 静默执行</span><br><span class="line">　　-t 忽略错误</span><br><span class="line">　　-R[分钟] 设置等待时间</span><br><span class="line">　　-y 自动应答yes</span><br><span class="line">　　<span class="comment">--skip-broken 忽略依赖问题</span></span><br><span class="line">　　<span class="comment">--nogpgcheck 忽略GPG验证</span></span><br><span class="line"> </span><br><span class="line">　　<span class="operator"><span class="keyword">check</span>-<span class="keyword">update</span> 检查可更新的包</span><br><span class="line">　　clearn 清除全部</span><br><span class="line">　　clean packages 清除临时包文件（/<span class="keyword">var</span>/<span class="keyword">cache</span>/yum 下文件）</span><br><span class="line">　　clearn headers 清除rpm头文件</span><br><span class="line">　　clean oldheaders 清除旧的rpm头文件</span><br><span class="line">　　deplist 列出包的依赖</span><br><span class="line">　　<span class="keyword">list</span> 可安装和可更新的RPM包</span><br><span class="line">　　<span class="keyword">list</span> installed 已安装的包</span><br><span class="line">　　<span class="keyword">list</span> extras 已安装且不在资源库的包</span><br><span class="line">　　info 可安装和可更新的RPM包 信息</span><br><span class="line">　　info installed 已安装包的信息(-qa 参数相似)</span><br><span class="line">　　<span class="keyword">install</span>[RPM包] 安装包</span><br><span class="line">　　localinstall 安装本地的 RPM包</span><br><span class="line">　　<span class="keyword">update</span>[RPM包] 更新包</span><br><span class="line">　　<span class="keyword">upgrade</span> 升级系统</span><br><span class="line">　　<span class="keyword">search</span>[关键词] 搜索包</span><br><span class="line">　　provides[关键词] 搜索特定包文件名</span><br><span class="line">　　reinstall[RPM包] 重新安装包</span><br><span class="line">　　repolist 显示资源库的配置</span><br><span class="line">　　resolvedep 指定依赖</span><br><span class="line">　　remove[RPM包] 卸载包</span></span><br></pre></td></tr></table></figure>
+<p><code>yum_百度百科</code><br><a href="http://baike.baidu.com/item/yum" target="_blank" rel="external">http://baike.baidu.com/item/yum</a></p>
+<hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>使用YUM查找软件包</span><br><span class="line">命令：yum search</span><br><span class="line"><span class="number">2.</span>列出所有可安装的软件包</span><br><span class="line">命令：yum <span class="built_in">list</span></span><br><span class="line"><span class="number">3.</span>列出所有可更新的软件包</span><br><span class="line">命令：yum <span class="built_in">list</span> updates</span><br><span class="line"><span class="number">4.</span>列出所有已安装的软件包</span><br><span class="line">命令：yum <span class="built_in">list</span> installed</span><br><span class="line"><span class="number">5.</span>列出所有已安装但不在 Yum Repository 內的软件包</span><br><span class="line">命令：yum <span class="built_in">list</span> extras</span><br><span class="line"><span class="number">6.</span>列出所指定的软件包</span><br><span class="line">命令：yum <span class="built_in">list</span> <span class="number">7.</span>使用YUM获取软件包信息</span><br><span class="line">命令：yum info <span class="number">8.</span>列出所有软件包的信息</span><br><span class="line">命令：yum info</span><br><span class="line"><span class="number">9.</span>列出所有可更新的软件包信息</span><br><span class="line">命令：yum info updates</span><br><span class="line"><span class="number">10.</span>列出所有已安裝的软件包信息</span><br><span class="line">命令：yum info installed</span><br><span class="line"><span class="number">11.</span>列出所有已安裝但不在 Yum Repository 內的软件包信息</span><br><span class="line">命令：yum info extras</span><br><span class="line"><span class="number">12.</span>列出软件包提供哪些文件</span><br><span class="line">命令：yum provides</span><br></pre></td></tr></table></figure>
+<p><code>linux yum命令详解 - chuncn - 博客园</code><br><a href="http://www.cnblogs.com/chuncn/archive/2010/10/17/1853915.html" target="_blank" rel="external">http://www.cnblogs.com/chuncn/archive/2010/10/17/1853915.html</a></p>
+<h1 id="手册_yum">手册 yum</h1><p><a href="http://man.linuxde.net/yum" target="_blank" rel="external">http://man.linuxde.net/yum</a><br><a href="http://www.runoob.com/linux/linux-yum.html" target="_blank" rel="external">http://www.runoob.com/linux/linux-yum.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-yum相关/">linux yum相关</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-js值传递,引用传递,引用断离" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -862,65 +925,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-前端异常日志收集与监控" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/13/前端异常日志收集与监控/" class="article-date">
-  	<time datetime="2016-10-12T16:00:00.000Z" itemprop="datePublished">2016-10-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/13/前端异常日志收集与监控/">前端异常日志收集与监控</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>前端代码异常日志收集与监控_知识库_博客园</code><br><a href="http://kb.cnblogs.com/page/527520/" target="_blank" rel="external">http://kb.cnblogs.com/page/527520/</a></p>
-<p><code>前端代码异常监控</code><br><a href="http://rapheal.sinaapp.com/2014/11/06/javascript-error-monitor/" target="_blank" rel="external">http://rapheal.sinaapp.com/2014/11/06/javascript-error-monitor/</a></p>
-<p><code>构建可靠的前端异常监控服务 - 采集篇 - 推酷</code><br><a href="http://www.tuicool.com/articles/Rjy2Yjz" target="_blank" rel="external">http://www.tuicool.com/articles/Rjy2Yjz</a></p>
-<p><code>JSTracker 之前端异常数据采集 - 推酷</code><br><a href="http://www.tuicool.com/articles/BZN3amR" target="_blank" rel="external">http://www.tuicool.com/articles/BZN3amR</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端异常/">前端异常</a></li></ul>
 	</div>
 
       

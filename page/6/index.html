@@ -223,6 +223,104 @@
 </script>
       <div class="body-wrap">
   
+    <article id="post-【java脚手架搭建】注解 spring-context-annotation.xml" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/08/【java脚手架搭建】注解 spring-context-annotation.xml/" class="article-date">
+  	<time datetime="2017-03-07T16:00:05.000Z" itemprop="datePublished">2017-03-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/08/【java脚手架搭建】注解 spring-context-annotation.xml/">【java脚手架搭建】注解 spring-context-annotation.xml</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="注解相关">注解相关</h1><p><code>@Service</code> 用于标注业务层组件<br><code>@Controller</code> 用于标注控制层组件（如struts中的action）<br><code>@Repository</code> 用于标注数据访问组件，即DAO组件<br><code>@Component</code> 泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。</p>
+<ul>
+<li>初始化<br><code>&lt;context:component-scan</code>标签默认情况下自动扫描指定路径下的包（含所有子包），将带有<br><code>@Component、@Repository、@Service、@Controller</code><br>标签的类自动注册到spring容器。<br>对标记了<br><code>Spring&#39;s</code> @Required、@Autowired、<br><code>JSR250&#39;s</code> @PostConstruct、@PreDestroy、@Resource、<br><code>JAX-WS&#39;s</code> @WebServiceRef、<br><code>EJB3&#39;s</code> @EJB、<br><code>JPA&#39;s</code> @PersistenceContext、@PersistenceUnit<br>等注解的类进行对应的操作使注解生效（包含了annotation-config标签的作用）。</li>
+</ul>
+<ul>
+<li>自动注入<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Autowired</span>后不需要<span class="function">getter</span>()和<span class="function">setter</span>()方法，Spring也会自动注入</span><br><span class="line">当接口存在两个实现类的时候必须使用<span class="variable">@Qualifier</span>指定注入哪个实现类，否则可以省略，只写<span class="variable">@Autowired</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>参考</strong><br><code>Spring注解@Component、@Repository、@Service、@Controller区别 - zhang854429783的专栏</code><br><a href="http://blog.csdn.net/zhang854429783/article/details/6785574" target="_blank" rel="external">http://blog.csdn.net/zhang854429783/article/details/6785574</a></p>
+<hr>
+<h1 id="注解配置">注解配置</h1><ul>
+<li><p>支持mvc注解?</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">mvc:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启用spring mvc 注解?</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 启用spring mvc 注解 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">context:annotation-config</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注解获取配置值</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 加载应用属性实例，可通过  @Value("#&#123;config['jdbc.driver']&#125;") String jdbcDriver 方式引用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">util:properties</span> <span class="attribute">id</span>=<span class="value">"config"</span> <span class="attribute">location</span>=<span class="value">"classpath:config.properties"</span> <span class="attribute">local-override</span>=<span class="value">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自动Bean注册<code>Annotation</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`spring-context.xml`</span><br><span class="line"><span class="comment">&lt;!-- `@Service`注解生效 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">context:component-scan</span> <span class="attribute">base-package</span>=<span class="value">"com.wosai.bright.service"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>spring-servlet.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- `@RequestMapping`注解生效(servlet映射) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">context:component-scan</span> <span class="attribute">base-package</span>=<span class="value">"com.wosai.bright.controller"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>或<br><code>spring-context.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用Annotation自动注册Bean，解决事物失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller注解。  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">context:component-scan</span> <span class="attribute">base-package</span>=<span class="value">"com.thinkgem.jeesite"</span>&gt;</span><span class="comment">&lt;!-- base-package 如果多个，用“,”分隔 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">context:exclude-filter</span> <span class="attribute">type</span>=<span class="value">"annotation"</span> <span class="attribute">expression</span>=<span class="value">"org.springframework.stereotype.Controller"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>spring-mvc.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用Annotation自动注册Bean,只扫描@Controller --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">context:component-scan</span> <span class="attribute">base-package</span>=<span class="value">"com.thinkgem.jeesite"</span> <span class="attribute">use-default-filters</span>=<span class="value">"false"</span>&gt;</span><span class="comment">&lt;!-- base-package 如果多个，用“,”分隔 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">context:include-filter</span> <span class="attribute">type</span>=<span class="value">"annotation"</span> <span class="attribute">expression</span>=<span class="value">"org.springframework.stereotype.Controller"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">context:component-scan</span>&gt;</span></span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>支持事务注解的（<code>@Transactional</code>） </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">tx:annotation-driven</span>/&gt;</span></span><br><span class="line">``` </span><br><span class="line">- `@Transactional`注解的类定义事务</span><br><span class="line">```xml</span><br><span class="line"><span class="comment">&lt;!-- 配置 Annotation 驱动，扫描@Transactional注解的类定义事务  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">tx:annotation-driven</span> <span class="attribute">transaction-manager</span>=<span class="value">"transactionManager"</span> <span class="attribute">proxy-target-class</span>=<span class="value">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>@Aspect</code>注解代理(aspect切面)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 激活自动代理功能 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">aop:aspectj-autoproxy</span> <span class="attribute">proxy-target-class</span>=<span class="value">"true"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>更多<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">aop:advisor</span>&gt;</span> 定义一个AOP通知者 </span><br><span class="line"><span class="tag">&lt;<span class="title">aop:after</span>&gt;</span> 后通知 </span><br><span class="line"><span class="tag">&lt;<span class="title">aop:after-returning</span>&gt;</span> 返回后通知 </span><br><span class="line"><span class="tag">&lt;<span class="title">aop:after-throwing</span>&gt;</span> 抛出后通知 </span><br><span class="line"><span class="tag">&lt;<span class="title">aop:around</span>&gt;</span> 周围通知 </span><br><span class="line"><span class="tag">&lt;<span class="title">aop:aspect</span>&gt;</span>定义一个切面 </span><br><span class="line"><span class="tag">&lt;<span class="title">aop:before</span>&gt;</span>前通知 </span><br><span class="line"><span class="tag">&lt;<span class="title">aop:config</span>&gt;</span>顶级配置元素，类似于<span class="tag">&lt;<span class="title">beans</span>&gt;</span>这种东西 </span><br><span class="line"><span class="tag">&lt;<span class="title">aop:pointcut</span>&gt;</span>定义一个切点</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>注解：计划任务<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 计划任务配置，用 @Service @Lazy(false)标注类，用@Scheduled(cron = "0 0 2 * * ?")标注方法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">task:executor</span> <span class="attribute">id</span>=<span class="value">"executor"</span> <span class="attribute">pool-size</span>=<span class="value">"10"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">task:scheduler</span> <span class="attribute">id</span>=<span class="value">"scheduler"</span> <span class="attribute">pool-size</span>=<span class="value">"10"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">task:annotation-driven</span> <span class="attribute">scheduler</span>=<span class="value">"scheduler"</span> <span class="attribute">executor</span>=<span class="value">"executor"</span> <span class="attribute">proxy-target-class</span>=<span class="value">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1 id="MVC注解支持_&amp;_数据处理">MVC注解支持 &amp; 数据处理</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--RequestMappingHandlerAdapter--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">mvc:annotation-driven</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">mvc:message-converters</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"stringHttpMessageConverter"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"marshallingHttpMessageConverter"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ref</span> <span class="attribute">bean</span>=<span class="value">"mappingJackson2HttpMessageConverter"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">mvc:message-converters</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">mvc:annotation-driven</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">context:component-scan</span> <span class="attribute">base-package</span>=<span class="value">"com.wosai.framework.controller"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"stringHttpMessageConverter"</span></span><br><span class="line">      <span class="attribute">class</span>=<span class="value">"org.springframework.http.converter.StringHttpMessageConverter"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"marshallingHttpMessageConverter"</span></span><br><span class="line">      <span class="attribute">class</span>=<span class="value">"org.springframework.http.converter.xml.MarshallingHttpMessageConverter"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"marshaller"</span> <span class="attribute">ref</span>=<span class="value">"castorMarshaller"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"unmarshaller"</span> <span class="attribute">ref</span>=<span class="value">"castorMarshaller"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"mappingJackson2HttpMessageConverter"</span></span><br><span class="line">      <span class="attribute">class</span>=<span class="value">"org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"supportedMediaTypes"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">list</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">value</span>&gt;</span>application/json<span class="tag">&lt;/<span class="title">value</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">value</span>&gt;</span>application/xml<span class="tag">&lt;/<span class="title">value</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">value</span>&gt;</span>text/html<span class="tag">&lt;/<span class="title">value</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">value</span>&gt;</span>text/plain<span class="tag">&lt;/<span class="title">value</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">value</span>&gt;</span>text/xml<span class="tag">&lt;/<span class="title">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">list</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"castorMarshaller"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.oxm.castor.CastorMarshaller"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;mvc:annotation-driven&gt;</code> 标签，controller类相关注解（<code>@RequestMapping</code>,<code>@Controller</code>）及url映射支持<br><code>&lt;mvc:message-converters&gt;</code> 标签，设定字符集和json处理类</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/脚手架/">脚手架</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-【java脚手架搭建】权限 spring-context-shiro.xml" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -897,72 +995,6 @@
 <p><code>Linux下查看文件内容的命令 - 梨璐2012 - 博客园</code><br><a href="http://www.cnblogs.com/luying--lulu/p/5314963.html" target="_blank" rel="external">http://www.cnblogs.com/luying--lulu/p/5314963.html</a></p>
 <p><code>linux中查看文件指定行的数据_百度经验</code><br><a href="http://jingyan.baidu.com/article/15622f24125872fdfdbea560.html" target="_blank" rel="external">http://jingyan.baidu.com/article/15622f24125872fdfdbea560.html</a></p>
 <p><code>Linux 中查看文件第n行内容的命令</code><br><a href="http://blog.csdn.net/fireblue1990/article/details/51534271" target="_blank" rel="external">http://blog.csdn.net/fireblue1990/article/details/51534271</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-linux上传,下载" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/24/linux上传,下载/" class="article-date">
-  	<time datetime="2017-01-23T16:00:02.000Z" itemprop="datePublished">2017-01-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/24/linux上传,下载/">linux上传,下载</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#工具<br><code>lrzsz</code></p>
-<h1 id="下载&amp;安装">下载&amp;安装</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="comment">//ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz</span></span><br><span class="line">tar zxvf lrzsz-<span class="number">0.12</span><span class="number">.20</span>.tar.gz &amp;&amp; cd lrzsz-<span class="number">0.12</span><span class="number">.20</span></span><br><span class="line">./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-<p>上面安装过程默认把lsz和lrz安装到了/usr/local/bin/目录下，现在我们并不能直接使用，下面创建软链接，并命名为rz/sz：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/bin</span><br><span class="line">ln <span class="operator">-s</span> /usr/<span class="built_in">local</span>/bin/lrz rz</span><br><span class="line">ln <span class="operator">-s</span> /usr/<span class="built_in">local</span>/bin/lsz sz</span><br></pre></td></tr></table></figure></p>
-<h1 id="使用说明">使用说明</h1><p>sz命令发送文件到本地：<code>sz filename</code> 配合文件夹压缩 <code>tar zcvf filaname.tar.gz filename</code><br>rz命令本地上传文件到服务器：<code>rz</code> (上传)  <code>rz -y</code>(覆盖上传)<br>(执行该命令后，在弹出框中选择要上传的文件即可)</p>
-<hr>
-<h1 id="配套相关">配套相关</h1><ul>
-<li><p>压缩<br>tar cvf lk.tar.gz lk</p>
-</li>
-<li><p>解压<br>unzip -d iserver -o iserver.zip</p>
-</li>
-</ul>
 
       
     </div>

@@ -223,6 +223,78 @@
 </script>
       <div class="body-wrap">
   
+    <article id="post-现代浏览器中内置的几个可以等效替代jQuery的功能" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/30/现代浏览器中内置的几个可以等效替代jQuery的功能/" class="article-date">
+  	<time datetime="2016-08-29T16:00:00.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/30/现代浏览器中内置的几个可以等效替代jQuery的功能/">现代浏览器中内置的几个可以等效替代jQuery的功能</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="获取元素选择器是一样的[selector选择器]_<!-￼0->">获取元素选择器是一样的[selector选择器] <figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$('.contant&gt;h1');</span><br><span class="line"><span class="annotation">[&lt;h1&gt;现代浏览器中内置的几个可以等效替代jQuery的功能&lt;/h1&gt;]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">document.querySelector('.contant&gt;h1');</span><br><span class="line">&lt;h1&gt;现代浏览器中内置的几个可以等效替代jQuery的功能&lt;/h1&gt;</span><br></pre></td></tr></table></figure></h1><h1 id="API依然存在差异">API依然存在差异</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// jQuery</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">'.contant&gt;h1'</span>).html();</span><br><span class="line"><span class="string">"现代浏览器中内置的几个可以等效替代jQuery的功能"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// querySelector</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.contant&gt;h1'</span>).html();</span><br><span class="line">VM1257:<span class="number">1</span> Uncaught <span class="built_in">TypeError</span>: <span class="built_in">document</span>.querySelector(...).html is not a <span class="function"><span class="keyword">function</span>(<span class="params">…</span>)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// jQuery</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">".contant&gt;h1"</span>).css(<span class="string">'background-color'</span>,<span class="string">"salmon"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// querySelector</span></span><br><span class="line"><span class="built_in">document</span>.<span class="built_in">querySelector</span>(<span class="string">'.contant&gt;h1'</span>).style.backgroundColor=<span class="string">"salmon"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// jQuery方式</span></span><br><span class="line">$(<span class="string">"#picture"</span>).attr(<span class="string">"src"</span>, <span class="string">"http://placekitten.com/200/200"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//使用将querySelector映射为$的原生js方式</span></span><br><span class="line">$(<span class="string">"#picture"</span>).src = <span class="string">"http://placekitten.com/200/200"</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="表达式_$_统一">表达式 <code>$</code> 统一</h1><blockquote>
+<p>并不建议,因为除选择器以外的API都不一样.而使用统样的表达式<code>$</code>程序员容易混淆,犯错<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">  <span class="comment">// 创建全局的 '$' 变量</span></span><br><span class="line">  <span class="built_in">window</span>.$ = <span class="function"><span class="keyword">function</span>(<span class="params">selector</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.querySelector(selector);</span><br><span class="line">  &#125;;</span><br><span class="line"> </span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 通过id查找item1，将它的背景颜色修改为浅红</span></span><br><span class="line">    <span class="keyword">var</span> item = $(<span class="string">"#salmon"</span>).style.backgroundColor=<span class="string">"salmon"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(item);</span><br><span class="line">  &#125;()); </span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="document-queryselectorall_返回的是一个节点列表">document.queryselectorall 返回的是一个节点列表</h1><p>一个很巧妙的做法是将querySelector映射为\$，而将querySelectorAll函数映射为$$。但它返回的是一个节点列表，不如jQuery里返回的Array格式好用，我们可以使用Array.prototype.slice.call(nodeList)方法加工一下，让它更方便。</p>
+<p><code>现代浏览器中内置的几个可以等效替代jQuery的功能 - 推酷</code><br><a href="http://www.tuicool.com/articles/2y2Qvy2" target="_blank" rel="external">http://www.tuicool.com/articles/2y2Qvy2</a></p>
+<hr>
+<h1 id="angular环境使用angular-element()">angular环境使用<code>angular.element()</code></h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">angular</span><span class="class">.element</span>()</span><br><span class="line"><span class="tag">JQLite</span> <span class="rules">&#123;&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">方法一：</span><br><span class="line"></span><br><span class="line">var test = angular.<span class="literal">element</span>(document.querySelector(<span class="string">'#testId'</span>));</span><br><span class="line">test.addClass(‘testClass’);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">方法二：</span><br><span class="line"></span><br><span class="line">var test = angular.<span class="literal">element</span>(document.getElementById(<span class="string">'test'</span>);</span><br><span class="line">test.addClass(‘testClass’);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">方法三：</span><br><span class="line"></span><br><span class="line">angular.forEach(angular.<span class="literal">element</span>(document).find(<span class="string">'div'</span>),<span class="keyword">function</span>(node)&#123;</span><br><span class="line">            if(node.id == <span class="string">'testId'</span>)&#123;</span><br><span class="line">                     node.addClass(<span class="string">'testClass'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">if(node.className == ‘testClass’)&#123;</span><br><span class="line">node.removeClass(‘testClass’)</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">方法四：使用<span class="variable">$documen</span>.</span><br><span class="line"></span><br><span class="line"><span class="variable">$document</span>就和angular.<span class="literal">element</span>(document)是一样的</span><br><span class="line"></span><br><span class="line">angular.forEach(<span class="variable">$document</span>.find(<span class="string">'div'</span>),<span class="keyword">function</span>(node)&#123;</span><br><span class="line">            if(node.id == <span class="string">'testId'</span>)&#123;</span><br><span class="line">                     node.addClass(<span class="string">'testClass'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">if(node.className == <span class="string">'testClass'</span>)&#123;</span><br><span class="line">node.removeClass(‘testClass’)</span><br><span class="line">&#125;</span><br><span class="line">           &#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<p><code>Angular.element和$document的使用方法分析，代替jquery - Simon_ITer的个人空间 - 开源中国社区</code><br><a href="http://my.oschina.net/keysITer/blog/626746" target="_blank" rel="external">http://my.oschina.net/keysITer/blog/626746</a></p>
+<p><code>Angular&#39;s jqLite</code><br><a href="http://devdocs.io/angularjs~1.5/api/ng/function/angular.element" target="_blank" rel="external">http://devdocs.io/angularjs~1.5/api/ng/function/angular.element</a></p>
+<p><a href="http://www.cnblogs.com/ys-ys/p/4918985.html" target="_blank" rel="external">http://www.cnblogs.com/ys-ys/p/4918985.html</a></p>
+<p><code>angular源码分析：angular的整个加载流程 - 王大鹏 - 博客园</code><br><a href="http://www.cnblogs.com/web2-developer/p/angular-7.html" target="_blank" rel="external">http://www.cnblogs.com/web2-developer/p/angular-7.html</a></p>
+<p><code>angular源码分析：angular中jqLite的实现——你可以丢掉jQuery了 - 王大鹏 - 博客园</code><br><a href="http://www.cnblogs.com/web2-developer/archive/2015/11/09/angular-5.html" target="_blank" rel="external">http://www.cnblogs.com/web2-developer/archive/2015/11/09/angular-5.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/替代jQuery/">替代jQuery</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-ionic 路由view综合控制" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -834,6 +906,69 @@
 
 
   
+    <article id="post-markdown 输入段落缩进" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/09/markdown 输入段落缩进/" class="article-date">
+  	<time datetime="2016-08-08T16:00:00.000Z" itemprop="datePublished">2016-08-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/09/markdown 输入段落缩进/">markdown 输入段落缩进</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="对应css">对应css</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span> <span class="rules">&#123;</span><br><span class="line">     <span class="rule"><span class="attribute">text-indent</span>:<span class="value"> <span class="number">2em</span></span></span>; <span class="comment">/*首行缩进*/</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<h1 id="方法一：_全角空格">方法一： 全角空格</h1><p>&emsp; &emsp; 全角空格，切换到全角模式下（一般的中文输入法都是按 shift + space）输入两个空格就行了。这个相对  <code>$nbsp;</code>  来说稍微干净一点，而且宽度是整整两个汉字，很整齐。</p>
+<p><code>在 Markdown 语言中，如何实现段首空格的显示 ？ - 中文排版 - 知乎</code></p>
+<p><a href="http://www.zhihu.com/question/21420126" target="_blank" rel="external">http://www.zhihu.com/question/21420126</a></p>
+<h1 id="方法二：制表符_&amp;emsp;_&amp;emsp;">方法二：制表符 <code>&amp;emsp; &amp;emsp;</code></h1><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">半方大的空白<span class="keyword">&amp;</span><span class="tag">ensp</span>;或<span class="keyword">&amp;</span><span class="id">#8194</span>;</span><br><span class="line">全方大的空白<span class="keyword">&amp;</span><span class="tag">emsp</span>;或<span class="keyword">&amp;</span><span class="id">#8195</span>;</span><br><span class="line">不断行的空白格<span class="keyword">&amp;</span><span class="tag">nbsp</span>;或<span class="keyword">&amp;</span><span class="id">#160</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><code>markdown.css 让 HTML 显示成 Markdown 纯文本 见证 CSS 的强大</code><br><a href="https://segmentfault.com/a/1190000000487062" target="_blank" rel="external">https://segmentfault.com/a/1190000000487062</a></p>
+<p><code>Html转换为MarkDown样式代码 | Html2MarkDown - aTool在线工具</code><br><a href="http://www.atool.org/html2markdown.php" target="_blank" rel="external">http://www.atool.org/html2markdown.php</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-HTML5-CSS3 特性检测库(兼容性测试) - modernizr" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -916,69 +1051,6 @@
 
 
   
-    <article id="post-markdown 输入段落缩进" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/09/markdown 输入段落缩进/" class="article-date">
-  	<time datetime="2016-08-08T16:00:00.000Z" itemprop="datePublished">2016-08-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/09/markdown 输入段落缩进/">markdown 输入段落缩进</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="对应css">对应css</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span> <span class="rules">&#123;</span><br><span class="line">     <span class="rule"><span class="attribute">text-indent</span>:<span class="value"> <span class="number">2em</span></span></span>; <span class="comment">/*首行缩进*/</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<h1 id="方法一：_全角空格">方法一： 全角空格</h1><p>&emsp; &emsp; 全角空格，切换到全角模式下（一般的中文输入法都是按 shift + space）输入两个空格就行了。这个相对  <code>$nbsp;</code>  来说稍微干净一点，而且宽度是整整两个汉字，很整齐。</p>
-<p><code>在 Markdown 语言中，如何实现段首空格的显示 ？ - 中文排版 - 知乎</code></p>
-<p><a href="http://www.zhihu.com/question/21420126" target="_blank" rel="external">http://www.zhihu.com/question/21420126</a></p>
-<h1 id="方法二：制表符_&amp;emsp;_&amp;emsp;">方法二：制表符 <code>&amp;emsp; &amp;emsp;</code></h1><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">半方大的空白<span class="keyword">&amp;</span><span class="tag">ensp</span>;或<span class="keyword">&amp;</span><span class="id">#8194</span>;</span><br><span class="line">全方大的空白<span class="keyword">&amp;</span><span class="tag">emsp</span>;或<span class="keyword">&amp;</span><span class="id">#8195</span>;</span><br><span class="line">不断行的空白格<span class="keyword">&amp;</span><span class="tag">nbsp</span>;或<span class="keyword">&amp;</span><span class="id">#160</span>;</span><br></pre></td></tr></table></figure>
-<hr>
-<p><code>markdown.css 让 HTML 显示成 Markdown 纯文本 见证 CSS 的强大</code><br><a href="https://segmentfault.com/a/1190000000487062" target="_blank" rel="external">https://segmentfault.com/a/1190000000487062</a></p>
-<p><code>Html转换为MarkDown样式代码 | Html2MarkDown - aTool在线工具</code><br><a href="http://www.atool.org/html2markdown.php" target="_blank" rel="external">http://www.atool.org/html2markdown.php</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-为配合“Android6.0权限检查机制改变”提供的cordova权限插件" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1033,99 +1105,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/07/29/为配合“Android6.0权限检查机制改变”提供的cordova权限插件/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-linux 服务器批量安全控制" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/28/linux 服务器批量安全控制/" class="article-date">
-  	<time datetime="2016-07-27T16:00:00.000Z" itemprop="datePublished">2016-07-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/28/linux 服务器批量安全控制/">linux 服务器批量安全控制</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="linux_ssh端口修改-md">linux ssh端口修改.md</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo   sed -i <span class="string">"s/#Port 22/Port 1997/g"</span> <span class="regexp">/etc/</span>ssh/sshd_config</span><br><span class="line">sudo cat <span class="regexp">/etc/</span>ssh/sshd_config |grep Port</span><br></pre></td></tr></table></figure>
-<h1 id="linux_ssh禁止root登陆-md">linux ssh禁止root登陆.md</h1><ul>
-<li><p>新建替代root的管理用户</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">adduser sysadmin</span><br><span class="line">passwd sysadmin    <span class="comment"># 修改密码</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">grep</span> sysadmin /etc/passwd <span class="comment"># 查看用户是否存在</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>同步用户环境变量</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cp</span> -rf .bashrc /home/sysadmin/</span><br><span class="line"><span class="keyword">cp</span> -rf cfg /home/sysadmin/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>为新建的用户（sysadmin）赋予<code>sudo</code>权限</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">'sysadmin  ALL=(ALL)    NOPASSWD:ALL'</span> &gt;&gt; <span class="regexp">/etc/</span>sudoers </span><br><span class="line"># 或手动: sudo vim  <span class="regexp">/etc/</span>sudoers</span><br><span class="line"></span><br><span class="line">sudo cat <span class="regexp">/etc/</span>sudoers |<span class="keyword">grep</span> <span class="string">"ALL=(ALL)"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>关闭root用户的ssh通道（即禁止root登陆）</p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># 更新配置</span></span><br><span class="line">sudo sed -i <span class="string">"s/PermitRootLogin yes/PermitRootLogin no/g"</span> /etc/ssh/sshd_config</span><br><span class="line"><span class="preprocessor"># 查看</span></span><br><span class="line">sudo   cat /etc/ssh/sshd_config |grep PermitRootLogin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># 重启生效</span></span><br><span class="line">sudo /etc/init.d/sshd restart</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="linux_限制普通用户su切换到_root-md">linux 限制普通用户su切换到 root.md</h1><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor"># 修改sysadmin用户分组为wheel</span></span><br><span class="line">usermod -g  wheel sysadmin</span><br><span class="line"><span class="preprocessor"># 查看</span></span><br><span class="line">id sysadmin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># 更新配置（wheel组外用户不允许切换至root）</span></span><br><span class="line">sudo vim /etc/pam.d/su # auth required pam_wheel.so use_uid (解开此注释)</span><br><span class="line"><span class="preprocessor"># 查看</span></span><br><span class="line">sudo   cat /etc/pam.d/su |grep <span class="string">'required'</span></span><br></pre></td></tr></table></figure>
-<h1 id="linux_防火墙iptables设置-md">linux 防火墙iptables设置.md</h1><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -A INPUT -i lo -j ACCEPT <span class="comment">#允许来自于lo接口的数据包</span></span><br><span class="line">sudo   iptables -A INPUT -p tcp --dport <span class="number">1997</span> -j ACCEPT <span class="comment">#ssh端口22-&gt;1997</span></span><br><span class="line"><span class="comment">#  sudo  iptables -A INPUT -p tcp --dport 21 -j ACCEPT #FTP端口21</span></span><br><span class="line">sudo   iptables -A INPUT -p tcp --dport <span class="number">80</span> -j ACCEPT <span class="comment">#web服务端口80</span></span><br><span class="line">sudo   iptables -A INPUT -p tcp --dport <span class="number">8080</span> -j ACCEPT <span class="comment">#tomcat</span></span><br><span class="line"><span class="comment">#  sudo   iptables -A INPUT -p tcp --dport xxxx -j ACCEPT #mysql</span></span><br><span class="line"><span class="comment">#  sudo   iptables -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT #允许icmp包通过,也就是允许ping</span></span><br><span class="line"><span class="comment">#  sudo   iptables -A INPUT -p tcp -s 45.96.174.68 -j ACCEPT #如果要添加内网ip信任（接受其所有TCP请求）</span></span><br><span class="line">sudo   iptables -A INPUT -m <span class="keyword">state</span> --state ESTABLISHED -j ACCEPT <span class="comment">#允许所有对外请求的返回包</span></span><br><span class="line">sudo   iptables -P INPUT DROP <span class="comment">#过滤所有非以上规则的请求</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看（ 所有iptables以序号标记显示 ）</span></span><br><span class="line">sudo iptables -L -n --line-numbers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机启动-chkconfig</span></span><br><span class="line">sudo service iptables save <span class="comment"># 保存现状</span></span><br><span class="line">sudo chkconfig iptables <span class="keyword">on</span> <span class="comment"># 添加到自启动chkconfig</span></span><br><span class="line">chkconfig --list | grep '<span class="number">3</span>:<span class="keyword">on</span>' <span class="comment"># 检查开机启动</span></span><br></pre></td></tr></table></figure>
-<h1 id="linux_nginx权限控制策略-md">linux nginx权限控制策略.md</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo chown -R sysadmin <span class="regexp">/usr/</span>local<span class="regexp">/nginx/</span>html </span><br><span class="line">sudo chown -R sysadmin <span class="regexp">/usr/</span>local<span class="regexp">/apache-tomcat-*/</span>webapps</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cd <span class="regexp">/usr/</span>local<span class="regexp">/nginx/</span>html &amp;&amp; ll</span><br><span class="line">cd  <span class="regexp">/usr/</span>local<span class="regexp">/apache-tomcat-*/</span>webapps  &amp;&amp; ll</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="恢复(建议使用root用户)">恢复(建议使用root用户)</h1><h1 id="四_-_linux_ssh端口修改-md">四 . linux ssh端口修改.md</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo   sed -i <span class="string">"s/Port 1997/#Port 22/g"</span> <span class="regexp">/etc/</span>ssh/sshd_config</span><br><span class="line">sudo cat <span class="regexp">/etc/</span>ssh/sshd_config |grep Port</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo <span class="regexp">/etc/</span>init.d/sshd restart</span><br></pre></td></tr></table></figure>
-<h1 id="二_-_linux_ssh禁止root登陆-md">二 . linux ssh禁止root登陆.md</h1><ul>
-<li><p>恢复root用户的ssh通道（即 恢复 root登陆）</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i <span class="string">"s/PermitRootLogin no/PermitRootLogin yes/g"</span> <span class="regexp">/etc/</span>ssh/sshd_config</span><br><span class="line">sudo cat <span class="regexp">/etc/</span>ssh/sshd_config |grep PermitRootLogin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo <span class="regexp">/etc/</span>init.d/sshd restart</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>回收：新建的用户（sysadmin）赋予sudo权限</p>
-</li>
-</ul>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/sudoers #  手动删除或注释  'sysadmin  <span class="keyword">ALL</span>=(<span class="keyword">ALL</span>)    NOPASSWD:<span class="keyword">ALL</span>'  </span><br><span class="line">sudo cat /etc/sudoers |grep "<span class="keyword">ALL</span>=(<span class="keyword">ALL</span>)"</span><br></pre></td></tr></table></figure>
-<ul>
-<li>回收：新建替代root的管理用户<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">userdel sysadmin <span class="preprocessor">#  仅删除用户帐号，而不删除相关文件。( 需手动删除用户主目录和邮件目录)</span></span><br><span class="line"><span class="preprocessor">#  -f 删除用户登入目录以及目录中所有文件。</span></span><br><span class="line">rm -rf /home/sysadmin</span><br><span class="line"></span><br><span class="line">rm -rf /<span class="keyword">var</span>/mail/sysadmin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># 或</span></span><br><span class="line">userdel -r sysadmin <span class="preprocessor"># -r 彻底删除（含用户主目录和邮件目录）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">grep sysadmin /etc/passwd</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="三-_linux_限制普通用户su切换到_root-md">三. linux 限制普通用户su切换到 root.md</h1><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo   vim /etc/pam.<span class="keyword">d</span>/<span class="keyword">su</span> # auth required pam_wheel.<span class="keyword">so</span> use_uid (还原注释)</span><br><span class="line"></span><br><span class="line">sudo   <span class="keyword">cat</span> /etc/pam.<span class="keyword">d</span>/<span class="keyword">su</span> |grep 'required'</span><br></pre></td></tr></table></figure>
-<h1 id="一-linux_防火墙iptables设置-md">一.linux 防火墙iptables设置.md</h1><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清空规则(重置)</span></span><br><span class="line"><span class="title">sudo</span>   iptables -P INPUT ACCEPT <span class="comment"># 恢复默认允许访问(不恢复就麻烦了~)</span></span><br><span class="line">sudo   iptables -F <span class="comment"># 清空默认所有规则</span></span><br><span class="line">sudo   iptables -X <span class="comment"># 清空自定义的所有规则</span></span><br><span class="line">sudo   iptables -Z <span class="comment"># 计数器置0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看（ 所有iptables以序号标记显示 ）</span></span><br><span class="line"></span><br><span class="line">sudo   iptables -L -n --line-numbers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机启动-chkconfig</span></span><br><span class="line">sudo service iptables save <span class="comment"># 保存现状</span></span><br><span class="line">sudo   chkconfig iptables <span class="built_in">off</span> <span class="comment"># 删除</span></span><br><span class="line">chkconfig --list | grep <span class="string">'3:on'</span> <span class="comment"># 检查开机启动</span></span><br></pre></td></tr></table></figure>
-<h1 id="五-_linux_nginx权限控制策略-md">五. linux nginx权限控制策略.md</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo chown -R root <span class="regexp">/usr/</span>local<span class="regexp">/nginx/</span>html </span><br><span class="line">sudo chown -R root <span class="regexp">/usr/</span>local<span class="regexp">/apache-tomcat-*/</span>webapps</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cd <span class="regexp">/usr/</span>local<span class="regexp">/nginx/</span>html &amp;&amp; ll</span><br><span class="line">cd  <span class="regexp">/usr/</span>local<span class="regexp">/apache-tomcat-*/</span>webapps  &amp;&amp; ll</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安全/">安全</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/07/28/linux 服务器批量安全控制/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

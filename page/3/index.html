@@ -223,6 +223,96 @@
 </script>
       <div class="body-wrap">
   
+    <article id="post-linux vi 行号-位置-查找-区间-输出-过滤-下载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/18/linux vi 行号-位置-查找-区间-输出-过滤-下载/" class="article-date">
+  	<time datetime="2017-05-17T16:00:00.000Z" itemprop="datePublished">2017-05-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/18/linux vi 行号-位置-查找-区间-输出-过滤-下载/">linux vi 行号/位置/查找/区间/输出/过滤/下载</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="行号">行号</h1><p>显示行号 <code>:nu</code><br>全文显示 <code>:set nu</code></p>
+<ul>
+<li>全文行数<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ23huf4wo4Z logs]<span class="preprocessor"># wc -l localhost_access_log<span class="number">.2017</span>-<span class="number">05</span>-<span class="number">18.</span>txt </span></span><br><span class="line"><span class="number">770460</span> localhost_access_log<span class="number">.2017</span>-<span class="number">05</span>-<span class="number">18.</span>txt</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="位置">位置</h1><p><code>gg</code>  跳到首一行</p>
+<p><code>GG</code>  跳到尾一行</p>
+<h1 id="查找（相对光标所在位置）">查找（相对光标所在位置）</h1><p><code>/content</code>  （自上往下）</p>
+<ul>
+<li>下一个<code>n</code></li>
+<li>上一个<code>Shift+n</code></li>
+</ul>
+<p><code>?content</code>  （自 下 往 上 ）</p>
+<ul>
+<li>上 一个<code>n</code></li>
+<li>下 一个<code>Shift+n</code></li>
+</ul>
+<hr>
+<h1 id="打印出起始行和结束行之间的内容">打印出起始行和结束行之间的内容</h1><p><code>sed -n  &#39;210048,210049p&#39;  catalina.out</code></p>
+<ul>
+<li>输出文件<br><code>sed -n  &#39;210048,312712p&#39;  catalina.out &gt; catalina.out.0209.12</code></li>
+</ul>
+<h1 id="过滤打印">过滤打印</h1><p><code>cat catalina.out.0209.12 | grep 操作计时</code><br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[k12Service]  操作计时：<span class="number">188</span>ms  类名: com.wosai.teach.restful.knowPoint.<span class="type">KnowPointLoadExpReadInterFace</span>  方法名:getMain() <span class="literal">result</span>:</span><br><span class="line">[k12Service]  操作计时：<span class="number">29</span>ms  类名: com.wosai.teach.restful.sys.<span class="type">SysConfigInterface</span>  方法名:sysConfig() <span class="literal">result</span>:</span><br><span class="line">[k12Service]  操作计时：<span class="number">120</span>ms  类名: com.wosai.teach.restful.order.<span class="type">FindProductListInterface</span>  方法名:getMain() <span class="literal">result</span>:</span><br><span class="line">[k12Service]  操作计时：<span class="number">112</span>ms  类名: com.wosai.teach.restful.order.<span class="type">FindProductListInterface</span>  方法名:getMain() <span class="literal">result</span>:</span><br><span class="line">[k12Service]  操作计时：<span class="number">224</span>ms  类名: com.wosai.teach.restful.knowPoint.<span class="type">KnowPointLoadExpReadInterFace</span>  方法名:getMain() <span class="literal">result</span>:</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>输出文件<br><code>cat catalina.out.0209.12 | grep 操作计时 &gt; catalina.out.0209.12.grep</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr_selector">[root@iZ23ult4m4yZ logs]</span># <span class="tag">vi</span> <span class="tag">catalina</span><span class="class">.out</span></span><br><span class="line"><span class="tag">catalina</span><span class="class">.out</span>               <span class="tag">catalina</span><span class="class">.out</span><span class="class">.0209</span><span class="class">.12</span>       <span class="tag">catalina</span><span class="class">.out</span><span class="class">.0209</span><span class="class">.12</span><span class="class">.grep</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载文件<br><code>sz catalina.out.0209.12.grep</code></p>
+</li>
+</ul>
+<hr>
+<p><code>linux vi 查找 - 疯狂程序员 - 博客频道 - CSDN.NET</code><br><a href="http://blog.csdn.net/shine0181/article/details/6632597" target="_blank" rel="external">http://blog.csdn.net/shine0181/article/details/6632597</a></p>
+<p><code>VIM中gg=G是什么 - 编程</code><br><a href="http://www.myexception.cn/program/880876.html" target="_blank" rel="external">http://www.myexception.cn/program/880876.html</a></p>
+<p><code>在linux中使用vi 打开文件时，能显示行号吗？_百度知道</code><br><a href="https://zhidao.baidu.com/question/812870968035725732.html" target="_blank" rel="external">https://zhidao.baidu.com/question/812870968035725732.html</a></p>
+<p><code>linux下的vim/vi永久显示行号</code><br><a href="http://www.07net01.com/linux/2016/04/1426154.html" target="_blank" rel="external">http://www.07net01.com/linux/2016/04/1426154.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-spring注解@ResponseBody返回JSON 设置不返回为 null 的值" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -920,68 +1010,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ngrok/">ngrok</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-javaScript空值[undefined,null,--,0]比较" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/09/javaScript空值[undefined,null,--,0]比较/" class="article-date">
-  	<time datetime="2017-04-08T16:00:00.000Z" itemprop="datePublished">2017-04-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/javaScript空值[undefined,null,--,0]比较/">javaScript空值[undefined,null,&#39;&#39;,0]比较</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://segmentfault.com/img/bVkpiW" alt=""></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;<span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> aa = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> aaa = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">var</span> aaaa = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(a)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(aa));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(aaa));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(aaaa));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'--------------------------------'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a === <span class="literal">undefined</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(a == <span class="literal">undefined</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aa === <span class="literal">undefined</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aa == <span class="literal">undefined</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaa === <span class="literal">undefined</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aaa == <span class="literal">undefined</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaaa === <span class="literal">undefined</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aaaa == <span class="literal">undefined</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'--------------------------------'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a === <span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a == <span class="literal">null</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aa === <span class="literal">null</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(aa == <span class="literal">null</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaa === <span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aaa == <span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaaa === <span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aaaa == <span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'--------------------------------'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a === <span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a == <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aa === <span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aa == <span class="string">''</span>);<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaa === <span class="string">''</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(aaa == <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(aaaa === <span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.log(aaaa == <span class="string">''</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'--------------------------------'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(!a);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(!aa);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(!aaa);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(!aaaa);<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p><code>undefined与null的区别 - 阮一峰的网络日志</code><br><a href="http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
-<p><a href="https://segmentfault.com/a/1190000002441634" target="_blank" rel="external">https://segmentfault.com/a/1190000002441634</a></p>
-<p><code>细说 Javascript 拾遗篇（二） : undefined 和 null - StephenLee - SegmentFault</code><br><a href="https://segmentfault.com/a/1190000000512023" target="_blank" rel="external">https://segmentfault.com/a/1190000000512023</a></p>
-<p><code>js判断undefined类型,undefined,null, 的区别详细解析 - 博客频道 - CSDN.NET</code><br><a href="http://blog.csdn.net/qq_34117825/article/details/52325685" target="_blank" rel="external">http://blog.csdn.net/qq_34117825/article/details/52325685</a></p>
-<p><code>javascript类型系统——undefined和null - 推酷</code><br><a href="http://www.tuicool.com/articles/b2MVJ3" target="_blank" rel="external">http://www.tuicool.com/articles/b2MVJ3</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/空值/">空值</a></li></ul>
 	</div>
 
       

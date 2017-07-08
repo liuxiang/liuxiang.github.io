@@ -223,10 +223,10 @@
 </script>
       <div class="body-wrap">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-github.io 博客建立（github pages）&amp; hexo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/01/hello-world/" class="article-date">
+      <a href="/2015/10/01/github.io 博客建立（github pages）& hexo/" class="article-date">
   	<time datetime="2015-09-30T16:00:00.000Z" itemprop="datePublished">2015-10-01</time>
 </a>
     </div>
@@ -240,7 +240,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/01/hello-world/">Hello World</a>
+      <a class="article-title" href="/2015/10/01/github.io 博客建立（github pages）& hexo/">github.io 博客建立（github pages）&amp; hexo</a>
     </h1>
   
 
@@ -249,24 +249,54 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <p>基于github pages支持，建立静态博客。使用静态博客工具hexo<br>依赖工具 node,git</p>
+<h2 id="github的独立二级域名开通方法：">github的独立二级域名开通方法：</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https:</span><span class="comment">//pages.github.com/</span></span><br><span class="line"><span class="string">http:</span><span class="comment">//jingyan.baidu.com/article/ed2a5d1f3732cb09f7be1745.html</span></span><br></pre></td></tr></table></figure>
+<h2 id="hexo_完整部署过程：">hexo 完整部署过程：</h2><p><code>hexo你的博客</code><br><a href="http://www.tuicool.com/articles/AfQnQjy/">http://www.tuicool.com/articles/AfQnQjy/</a></p>
+<p><code>如何搭建一个独立博客——简明Github Pages与Hexo教程</code><br><a href="http://www.jianshu.com/p/05289a4bc8b2">http://www.jianshu.com/p/05289a4bc8b2</a></p>
+<p><code>史上最详细“截图”搭建Hexo博客并部署到Github_百度经验</code><br><a href="http://jingyan.baidu.com/article/d8072ac47aca0fec95cefd2d.html">http://jingyan.baidu.com/article/d8072ac47aca0fec95cefd2d.html</a></p>
+<p><code>hexo | 逝去的记忆</code><br><a href="http://www.coolpython.cn/category/hexo/">http://www.coolpython.cn/category/hexo/</a></p>
+<p><code>使用Hexo搭建博客</code><br><a href="https://blog.lmintlcx.com/post/blog-with-hexo.html">https://blog.lmintlcx.com/post/blog-with-hexo.html</a></p>
+<h3 id="常用命令">常用命令</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>npm install hexo-cli -g <span class="comment">#npm安装hexo-cli</span></span><br><span class="line"><span class="variable">$ </span>hexo init blog <span class="comment">#hexo初始化,命名blog</span></span><br><span class="line"><span class="variable">$ </span>cd blog <span class="comment">#进入目录</span></span><br><span class="line"><span class="variable">$ </span>npm install <span class="comment">#安装依赖模块</span></span><br><span class="line"><span class="variable">$ </span>hexo server <span class="comment">#开启预览(http://localhost:4000,Press Ctrl+C to stop)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$ </span>hexo generate <span class="comment">#生成静态页面</span></span><br><span class="line"><span class="variable">$ </span>hexo server <span class="comment">#开启预览(http://localhost:4000,Press Ctrl+C to stop)</span></span><br><span class="line"><span class="variable">$ </span>hexo deploy <span class="comment">#发布github(依赖_config.yml中deploy-github配置)</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>输出在：hexo\public\  里面内容可以手动拷贝出来,使用git客户端工具上传到<youname>.github.io项目里面就ok了。<br>其它教程多见配置ssh（适合脱离git客户端使用）</p>
+<h3 id="命令上传到github">命令上传到github</h3><p><code>配置SSH keys</code><br><a href="http://www.jianshu.com/p/05289a4bc8b2">http://www.jianshu.com/p/05289a4bc8b2</a></p>
+<blockquote>
+<p>安装Git - 打开Git Bash Here窗口<br>设置用户名邮箱<br>git config –global user.name “liuxiang”<br>git config –global user.email “liuxiang.1227@qq.com.com”</p>
+</blockquote>
+<p>SSH keys</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>  ssh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$ </span>ssh-keygen -t rsa -<span class="constant">C </span><span class="string">"邮件地址@youremail.com"</span></span><br><span class="line"><span class="constant">Generating </span>public/private rsa key pair.</span><br><span class="line"><span class="constant">Enter </span>file <span class="keyword">in</span> which to save the key (<span class="regexp">/Users/your</span>_user_directory/.ssh/id_rsa)<span class="symbol">:&lt;</span>回车就好&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="constant">Enter </span>passphrase (empty <span class="keyword">for</span> no passphrase)<span class="symbol">:&lt;</span>输入加密串&gt;  (不建议输入密码,hexo提交默认是无密码)</span><br><span class="line"><span class="constant">Enter </span>same passphrase <span class="symbol">again:</span>&lt;再次输入加密串&gt;</span><br></pre></td></tr></table></figure>
+<p>效果<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"liuxiang.1227@qq.com"</span></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa):</span><br><span class="line">/c/Users/Administrator/.ssh/id_rsa already exists.</span><br><span class="line">Overwrite (y/n)? y</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved in /c/Users/Administrator/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /c/Users/Administrator/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:GDZ/8mEe4W9vL+re3ZI0S16zSgWgAB23/lvQVi+BEi4 liuxiang.1227<span class="comment">@qq.com</span></span><br><span class="line">The key's randomart image is:</span><br><span class="line">+---[RSA 2048]----+</span><br><span class="line">|<span class="string">     .oo....     </span>|</span><br><span class="line">|<span class="string">       .o.o...   </span>|</span><br><span class="line">|<span class="string">      + Eo+ .... </span>|</span><br><span class="line">|<span class="string">     . =.o o. o..</span>|</span><br><span class="line">|<span class="string">      . S.*. o...</span>|</span><br><span class="line">|<span class="string">         *.+o =o.</span>|</span><br><span class="line">|<span class="string">          o.o* =o</span>|</span><br><span class="line">|<span class="string">           .+oBo.</span>|</span><br><span class="line">|<span class="string">           ++++++</span>|</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>添加SSH Key到GitHub<br>在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。</p>
+<p>1、打开本地C:\Documents and Settings\Administrator.ssh\id_rsa.pub文件。此文件里面内容为刚才生成人密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。</p>
+<p>2、登陆github系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys</p>
+<p>3、把你本地生成的密钥复制到里面（key文本框中）， 点击 add key 就ok了</p>
+<p>测试</p>
+</blockquote>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi liuxiang! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span> provide shell access.</span><br></pre></td></tr></table></figure>
+<h3 id="扩展能力">扩展能力</h3><p>RSS      <code>npm install hexo-generator-feed</code><br>sitemap     <code>npm install hexo-generator-sitemap</code></p>
+<h3 id="fancybox">fancybox</h3><p>可能有人对这个 Reading 页面中图片的 fancybox 效果感兴趣，这个是怎么做的呢。<br>很简单，只需要在你的文章*.md文件的头上添加 photos 项即可，然后一行行添加你要展示的照片：<br> <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">layout:</span> photo</span><br><span class="line"><span class="string">title:</span> 我的阅历</span><br><span class="line"><span class="string">date:</span> <span class="number">2085</span>-<span class="number">01</span>-<span class="number">16</span> <span class="number">07</span>:<span class="number">33</span>:<span class="number">44</span></span><br><span class="line"><span class="string">tags:</span> [hexo]</span><br><span class="line"><span class="string">photos:</span></span><br><span class="line">- <span class="string">http:</span><span class="comment">//bruce.u.qiniudn.com/2013/11/27/reading/photos-0.jpg</span></span><br><span class="line">- <span class="string">http:</span><span class="comment">//bruce.u.qiniudn.com/2013/11/27/reading/photos-1.jpg</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="主题推荐：">主题推荐：</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//www.zhihu.com/question/24422335</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
     <div class="article-info article-info-index">
       
       
-      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
+	</div>
 
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/blog/">blog</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/01/github.io 博客建立（github pages）& hexo/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
 

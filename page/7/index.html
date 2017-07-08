@@ -223,6 +223,72 @@
 </script>
       <div class="body-wrap">
   
+    <article id="post-linux上传,下载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/24/linux上传,下载/" class="article-date">
+  	<time datetime="2017-01-23T16:00:02.000Z" itemprop="datePublished">2017-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/24/linux上传,下载/">linux上传,下载</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#工具<br><code>lrzsz</code></p>
+<h1 id="下载&amp;安装">下载&amp;安装</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="comment">//ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz</span></span><br><span class="line">tar zxvf lrzsz-<span class="number">0.12</span><span class="number">.20</span>.tar.gz &amp;&amp; cd lrzsz-<span class="number">0.12</span><span class="number">.20</span></span><br><span class="line">./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>上面安装过程默认把lsz和lrz安装到了/usr/local/bin/目录下，现在我们并不能直接使用，下面创建软链接，并命名为rz/sz：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/bin</span><br><span class="line">ln <span class="operator">-s</span> /usr/<span class="built_in">local</span>/bin/lrz rz</span><br><span class="line">ln <span class="operator">-s</span> /usr/<span class="built_in">local</span>/bin/lsz sz</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用说明">使用说明</h1><p>sz命令发送文件到本地：<code>sz filename</code> 配合文件夹压缩 <code>tar zcvf filaname.tar.gz filename</code><br>rz命令本地上传文件到服务器：<code>rz</code> (上传)  <code>rz -y</code>(覆盖上传)<br>(执行该命令后，在弹出框中选择要上传的文件即可)</p>
+<hr>
+<h1 id="配套相关">配套相关</h1><ul>
+<li><p>压缩<br>tar cvf lk.tar.gz lk</p>
+</li>
+<li><p>解压<br>unzip -d iserver -o iserver.zip</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-jira安装&amp;破解" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -833,75 +899,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端框架库/">前端框架库</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-前端模板库" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/23/前端模板库/" class="article-date">
-  	<time datetime="2016-12-22T16:00:02.000Z" itemprop="datePublished">2016-12-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/23/前端模板库/">前端模板库</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前端模板库">前端模板库</h1><ul>
-<li><p><a href="https://github.com/janl/mustache.js" target="_blank" rel="external">janl/mustache.js</a> <code>star 10,184</code> </p>
-</li>
-<li><p><a href="https://github.com/aui/artTemplate" target="_blank" rel="external">aui/artTemplate</a>   <code>star 4065</code> <code>速度极快</code> </p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue" target="_blank" rel="external"> vuejs/vue</a> <code>star 37,491</code>   <code>使用mustache风格</code></p>
-</li>
-<li><p><a href="https://github.com/wycats/handlebars.js" target="_blank" rel="external"> wycats/handlebars.js </a> <code>star 11,256</code></p>
-</li>
-</ul>
-<h1 id="更多">更多</h1><p>前端templating(Mustache, underscore, handlebars)</p>
-<p>Handlebars 、Mustache 、artTemplate 、nunjucks 、transparency 、doT</p>
-<p><img src="http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/85503059-file_1484818205143_15fbe.png" alt=""></p>
-<p><a href="http://www.cnblogs.com/chen4342024/p/4890617.html" target="_blank" rel="external">http://www.cnblogs.com/chen4342024/p/4890617.html</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端模板库/">前端模板库</a></li></ul>
 	</div>
 
       
