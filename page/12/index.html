@@ -349,6 +349,146 @@
 
 
   
+    <article id="post-javaScript 模块进化" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/16/javaScript 模块进化/" class="article-date">
+  	<time datetime="2016-09-15T16:00:00.000Z" itemprop="datePublished">2016-09-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/16/javaScript 模块进化/">javaScript 模块进化</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="最初的美好">最初的美好</h1><ul>
+<li><p>污染全局变量</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>减少了全局变量 &amp;  暴露所有的模块成员，内部状态可以被外部读写</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myModule = &#123;</span><br><span class="line">    bar: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;,</span><br><span class="line">    log: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line">myMoudle.bar();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>匿名闭包的写法（Immediately-Invoked Function Expression，IIFE）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myModule = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _log = <span class="string">"hello world"</span>;</span><br><span class="line">    <span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(_log);</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        log: log</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"> </span><br><span class="line"><span class="comment">//引用</span></span><br><span class="line">myModule.log();<span class="comment">//hello world</span></span><br><span class="line">myModule._log;<span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>引入依赖关系</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var myModule = (<span class="function"><span class="keyword">function</span><span class="params">($)</span>&#123;</span></span><br><span class="line">    var $<span class="built_in">log</span> = $('.<span class="built_in">log</span>');</span><br><span class="line">    var <span class="built_in">log</span> = <span class="function"><span class="keyword">function</span><span class="params">()</span>&#123;</span></span><br><span class="line">        console.<span class="built_in">log</span>($<span class="built_in">log</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    return &#123;</span><br><span class="line">        <span class="built_in">log</span>: <span class="built_in">log</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(jQuery);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//引用</span></span><br><span class="line">myModule.<span class="built_in">log</span>();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>依赖管理</p>
+</li>
+<li>没有引入一个依赖的 js 文件而导致后面 js 的功能失效. | 请求过多 ，不利于性能优化<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"dialog.js"</span>&gt;</span><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"tooltip.js"</span>&gt;</span><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"toast.js"</span>&gt;</span><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"handlebar.js"</span>&gt;</span><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="undefined"></span><br><span class="line">......</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1 id="CommonJS规范、AMD规范、CMD规范">CommonJS规范、AMD规范、CMD规范</h1><h2 id="CommonJS(代表作:_Browserify_)">CommonJS(代表作: Browserify )</h2><ul>
+<li>服务器端的模块化的规范，是 Nood.js 在实践中推出的，Nood.js 也是首先采用 js 模块化的；</li>
+<li>exports 定义模块</li>
+<li>require 加载模块<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//math.js</span></span><br><span class="line">exports.add = <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> c = a + b;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="built_in">require</span>(<span class="string">'math'</span>).add;<span class="comment">//</span></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="number">1</span>));<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="AMD(代表作:RequireJS_)">AMD(代表作:RequireJS )</h2><ul>
+<li>Asynchronous Module Definition，即异步的模块定义，是浏览器端的模块化规范，是 RequireJS 在推广过程中对模块定义的规范化产出</li>
+</ul>
+<ul>
+<li>define 定义模块(同时定义依赖),模块名为文件名<ul>
+<li><code>JavaScript模块化－require.js，r.js和打包发布 - 简书</code> <a href="http://www.jianshu.com/p/7186e5f2f341" target="_blank" rel="external">http://www.jianshu.com/p/7186e5f2f341</a><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">define</span>(<span class="title">id</span>?, dependencies?, factory);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">'myModule'</span>,[<span class="string">'jQuery'</span>,<span class="string">'types/Employee'</span>],<span class="function"><span class="keyword">function</span><span class="params">($,Employee)</span></span>&#123;<span class="comment">//定义模块myModule，引入依赖jQuery，types/Employee</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">Programmer</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="comment">//do something</span></span><br><span class="line">        &#125;;</span><br><span class="line">        Programmer.prototype = <span class="keyword">new</span> Employee();</span><br><span class="line">        <span class="keyword">return</span> Programmer;  <span class="comment">//return Constructor</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="CMD(代表作:SeaJS_)">CMD(代表作:SeaJS )</h2><ul>
+<li>Common Module Definition，即通用模块定义，是浏览器端的模块化规范，是 SeaJS 在推广过程中对模块定义的规范化产出</li>
+</ul>
+<ul>
+<li>seajs.use模块载入<ul>
+<li>seajs.use(‘./a’),require(‘a’), require.asyc(‘./a.js’)</li>
+<li><code>Seajs模块载入方法 - 简书</code> <a href="http://www.jianshu.com/p/2de0d5b24c8c" target="_blank" rel="external">http://www.jianshu.com/p/2de0d5b24c8c</a></li>
+</ul>
+</li>
+<li><p>define 定义模块(require提取依赖模块),模块名为文件名</p>
+<ul>
+<li><code>seajs模块加载机制 - 简书</code> <a href="http://www.jianshu.com/p/1245af09383e" target="_blank" rel="external">http://www.jianshu.com/p/1245af09383e</a><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">define</span>(<span class="title">factory</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>AMD 是 依赖关系前置，提前执行 ；CMD 是类似于 CommonJS 那样 按需加载，延迟执行 ：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//CMD recommanded</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'a'</span>);</span><br><span class="line">  a.doSomething();</span><br><span class="line">  <span class="keyword">var</span> b = <span class="built_in">require</span>(<span class="string">'b'</span>);</span><br><span class="line">  b.doSomething();    <span class="comment">// 依赖就近，延迟执行</span></span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//AMD recommanded</span></span><br><span class="line">define([<span class="string">'a'</span>, <span class="string">'b'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">    a.doSomething();    <span class="comment">// 依赖前置，提前执行</span></span><br><span class="line">    b.doSomething();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1 id="RequireJS模块化及r-js指南">RequireJS模块化及r.js指南</h1><ul>
+<li><p>在 html 中指定了 RrequireJS 第一次需要加载的模块，也就是通过 data-main 所指定</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- index.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">data-main</span>=<span class="value">"src/js/app/index"</span> <span class="attribute">src</span>=<span class="value">"src/js/lib/require.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>index.js</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">requirejs.config(&#123;</span><br><span class="line">  baseUrl: <span class="symbol">'src</span>/js',</span><br><span class="line">  paths: &#123;</span><br><span class="line">    jquery: <span class="symbol">'lib</span>/jquery',</span><br><span class="line">    backTop: <span class="symbol">'com</span>/backTop',</span><br><span class="line">    jumpTo: <span class="symbol">'com</span>/jumpTo',</span><br><span class="line">    carousel: <span class="symbol">'com</span>/carousel',</span><br><span class="line">    exposure: <span class="symbol">'com</span>/exposure',</span><br><span class="line">    navfloor: <span class="symbol">'com</span>/navfloor',</span><br><span class="line">    waterfall: <span class="symbol">'com</span>/waterfall'</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其中 baseUrl 是改变基准路径，所有的模块相对于 baseUrl 来加载； baseUrl 路径以 index.html 所在的目录为基准；</p>
+</li>
+<li>其中 requirejs.config() 函数的 paths 属性指定各个模块的加载路径(相对于 baseUrl )，如果没有指定 baseUrl ，路径默认和主模块在同一目录;</li>
+</ul>
+<p>采用了 RequireJS 模块化写法解决了命名冲突和依赖管理的问题，同时也增加了文件数量，这也意味着请求的增多，无疑会带来性能问题；</p>
+<ul>
+<li><p>打包（优化）工具 r.js ,它可以实现前端文件的压缩与合并,减少服务器请求</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(&#123;</span><br><span class="line">    baseUrl: <span class="string">"./src/js"</span>,</span><br><span class="line">    paths: &#123;</span><br><span class="line">        <span class="variable">'jquery</span><span class="variable">':</span> <span class="variable">'lib/bower_components/jquery/dist/jquery.min</span>'</span><br><span class="line">    &#125;,</span><br><span class="line">    name: <span class="string">"main"</span>,</span><br><span class="line">    out: <span class="string">"dist/js/merge.js"</span></span><br><span class="line">&#125;)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>baseUrl 路径设置应与主模块中 require.config() 方法里的 baseUrl 实际路径一致</p>
+</li>
+<li>nam 指定的是解析入口，这里写了主模块，路径相对于前面指定的 baseUrl </li>
+</ul>
+<hr>
+<p><code>前端模块化之旅（一）：因何生它 - 推酷</code></p>
+<p><a href="http://www.tuicool.com/articles/z2AFRfF" target="_blank" rel="external">http://www.tuicool.com/articles/z2AFRfF</a></p>
+<p><code>前端模块化之旅（二）：CommonJS、AMD和CMD - 推酷</code><br>www.tuicool.com/articles/ZFvIfmz</p>
+<p><code>前端模块化之旅（三）：RequireJS模块化及r.js指南 - 推酷</code><br><a href="http://www.tuicool.com/articles/qyInuum" target="_blank" rel="external">http://www.tuicool.com/articles/qyInuum</a></p>
+<p><code>Javascript模块化编程（一）：模块的写法 - 阮一峰的网络日志</code><br><a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/10/javascript_module.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模块化/">模块化</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-aat(async auto test 异步自动化测试) 介绍&amp;模块化实践" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -473,146 +613,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自动化测试/">自动化测试</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-javaScript 模块进化" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/16/javaScript 模块进化/" class="article-date">
-  	<time datetime="2016-09-15T16:00:00.000Z" itemprop="datePublished">2016-09-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/16/javaScript 模块进化/">javaScript 模块进化</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="最初的美好">最初的美好</h1><ul>
-<li><p>污染全局变量</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>减少了全局变量 &amp;  暴露所有的模块成员，内部状态可以被外部读写</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myModule = &#123;</span><br><span class="line">    bar: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;,</span><br><span class="line">    log: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line">myMoudle.bar();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>匿名闭包的写法（Immediately-Invoked Function Expression，IIFE）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myModule = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _log = <span class="string">"hello world"</span>;</span><br><span class="line">    <span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(_log);</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        log: log</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"> </span><br><span class="line"><span class="comment">//引用</span></span><br><span class="line">myModule.log();<span class="comment">//hello world</span></span><br><span class="line">myModule._log;<span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p>引入依赖关系</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var myModule = (<span class="function"><span class="keyword">function</span><span class="params">($)</span>&#123;</span></span><br><span class="line">    var $<span class="built_in">log</span> = $('.<span class="built_in">log</span>');</span><br><span class="line">    var <span class="built_in">log</span> = <span class="function"><span class="keyword">function</span><span class="params">()</span>&#123;</span></span><br><span class="line">        console.<span class="built_in">log</span>($<span class="built_in">log</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    return &#123;</span><br><span class="line">        <span class="built_in">log</span>: <span class="built_in">log</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(jQuery);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//引用</span></span><br><span class="line">myModule.<span class="built_in">log</span>();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>依赖管理</p>
-</li>
-<li>没有引入一个依赖的 js 文件而导致后面 js 的功能失效. | 请求过多 ，不利于性能优化<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"dialog.js"</span>&gt;</span><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"tooltip.js"</span>&gt;</span><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"toast.js"</span>&gt;</span><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"handlebar.js"</span>&gt;</span><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="undefined"></span><br><span class="line">......</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h1 id="CommonJS规范、AMD规范、CMD规范">CommonJS规范、AMD规范、CMD规范</h1><h2 id="CommonJS(代表作:_Browserify_)">CommonJS(代表作: Browserify )</h2><ul>
-<li>服务器端的模块化的规范，是 Nood.js 在实践中推出的，Nood.js 也是首先采用 js 模块化的；</li>
-<li>exports 定义模块</li>
-<li>require 加载模块<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//math.js</span></span><br><span class="line">exports.add = <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> c = a + b;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="built_in">require</span>(<span class="string">'math'</span>).add;<span class="comment">//</span></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="number">1</span>));<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="AMD(代表作:RequireJS_)">AMD(代表作:RequireJS )</h2><ul>
-<li>Asynchronous Module Definition，即异步的模块定义，是浏览器端的模块化规范，是 RequireJS 在推广过程中对模块定义的规范化产出</li>
-</ul>
-<ul>
-<li>define 定义模块(同时定义依赖),模块名为文件名<ul>
-<li><code>JavaScript模块化－require.js，r.js和打包发布 - 简书</code> <a href="http://www.jianshu.com/p/7186e5f2f341" target="_blank" rel="external">http://www.jianshu.com/p/7186e5f2f341</a><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">define</span>(<span class="title">id</span>?, dependencies?, factory);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">'myModule'</span>,[<span class="string">'jQuery'</span>,<span class="string">'types/Employee'</span>],<span class="function"><span class="keyword">function</span><span class="params">($,Employee)</span></span>&#123;<span class="comment">//定义模块myModule，引入依赖jQuery，types/Employee</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">Programmer</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="comment">//do something</span></span><br><span class="line">        &#125;;</span><br><span class="line">        Programmer.prototype = <span class="keyword">new</span> Employee();</span><br><span class="line">        <span class="keyword">return</span> Programmer;  <span class="comment">//return Constructor</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="CMD(代表作:SeaJS_)">CMD(代表作:SeaJS )</h2><ul>
-<li>Common Module Definition，即通用模块定义，是浏览器端的模块化规范，是 SeaJS 在推广过程中对模块定义的规范化产出</li>
-</ul>
-<ul>
-<li>seajs.use模块载入<ul>
-<li>seajs.use(‘./a’),require(‘a’), require.asyc(‘./a.js’)</li>
-<li><code>Seajs模块载入方法 - 简书</code> <a href="http://www.jianshu.com/p/2de0d5b24c8c" target="_blank" rel="external">http://www.jianshu.com/p/2de0d5b24c8c</a></li>
-</ul>
-</li>
-<li><p>define 定义模块(require提取依赖模块),模块名为文件名</p>
-<ul>
-<li><code>seajs模块加载机制 - 简书</code> <a href="http://www.jianshu.com/p/1245af09383e" target="_blank" rel="external">http://www.jianshu.com/p/1245af09383e</a><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">define</span>(<span class="title">factory</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>AMD 是 依赖关系前置，提前执行 ；CMD 是类似于 CommonJS 那样 按需加载，延迟执行 ：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//CMD recommanded</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'a'</span>);</span><br><span class="line">  a.doSomething();</span><br><span class="line">  <span class="keyword">var</span> b = <span class="built_in">require</span>(<span class="string">'b'</span>);</span><br><span class="line">  b.doSomething();    <span class="comment">// 依赖就近，延迟执行</span></span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//AMD recommanded</span></span><br><span class="line">define([<span class="string">'a'</span>, <span class="string">'b'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">    a.doSomething();    <span class="comment">// 依赖前置，提前执行</span></span><br><span class="line">    b.doSomething();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h1 id="RequireJS模块化及r-js指南">RequireJS模块化及r.js指南</h1><ul>
-<li><p>在 html 中指定了 RrequireJS 第一次需要加载的模块，也就是通过 data-main 所指定</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- index.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">data-main</span>=<span class="value">"src/js/app/index"</span> <span class="attribute">src</span>=<span class="value">"src/js/lib/require.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>index.js</p>
-<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">requirejs.config(&#123;</span><br><span class="line">  baseUrl: <span class="symbol">'src</span>/js',</span><br><span class="line">  paths: &#123;</span><br><span class="line">    jquery: <span class="symbol">'lib</span>/jquery',</span><br><span class="line">    backTop: <span class="symbol">'com</span>/backTop',</span><br><span class="line">    jumpTo: <span class="symbol">'com</span>/jumpTo',</span><br><span class="line">    carousel: <span class="symbol">'com</span>/carousel',</span><br><span class="line">    exposure: <span class="symbol">'com</span>/exposure',</span><br><span class="line">    navfloor: <span class="symbol">'com</span>/navfloor',</span><br><span class="line">    waterfall: <span class="symbol">'com</span>/waterfall'</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>其中 baseUrl 是改变基准路径，所有的模块相对于 baseUrl 来加载； baseUrl 路径以 index.html 所在的目录为基准；</p>
-</li>
-<li>其中 requirejs.config() 函数的 paths 属性指定各个模块的加载路径(相对于 baseUrl )，如果没有指定 baseUrl ，路径默认和主模块在同一目录;</li>
-</ul>
-<p>采用了 RequireJS 模块化写法解决了命名冲突和依赖管理的问题，同时也增加了文件数量，这也意味着请求的增多，无疑会带来性能问题；</p>
-<ul>
-<li><p>打包（优化）工具 r.js ,它可以实现前端文件的压缩与合并,减少服务器请求</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(&#123;</span><br><span class="line">    baseUrl: <span class="string">"./src/js"</span>,</span><br><span class="line">    paths: &#123;</span><br><span class="line">        <span class="variable">'jquery</span><span class="variable">':</span> <span class="variable">'lib/bower_components/jquery/dist/jquery.min</span>'</span><br><span class="line">    &#125;,</span><br><span class="line">    name: <span class="string">"main"</span>,</span><br><span class="line">    out: <span class="string">"dist/js/merge.js"</span></span><br><span class="line">&#125;)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>baseUrl 路径设置应与主模块中 require.config() 方法里的 baseUrl 实际路径一致</p>
-</li>
-<li>nam 指定的是解析入口，这里写了主模块，路径相对于前面指定的 baseUrl </li>
-</ul>
-<hr>
-<p><code>前端模块化之旅（一）：因何生它 - 推酷</code></p>
-<p><a href="http://www.tuicool.com/articles/z2AFRfF" target="_blank" rel="external">http://www.tuicool.com/articles/z2AFRfF</a></p>
-<p><code>前端模块化之旅（二）：CommonJS、AMD和CMD - 推酷</code><br>www.tuicool.com/articles/ZFvIfmz</p>
-<p><code>前端模块化之旅（三）：RequireJS模块化及r.js指南 - 推酷</code><br><a href="http://www.tuicool.com/articles/qyInuum" target="_blank" rel="external">http://www.tuicool.com/articles/qyInuum</a></p>
-<p><code>Javascript模块化编程（一）：模块的写法 - 阮一峰的网络日志</code><br><a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/10/javascript_module.html</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模块化/">模块化</a></li></ul>
 	</div>
 
       
