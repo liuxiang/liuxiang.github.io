@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <title>排序算法相关(java) | 编程在继续</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="常见的内部排序算法插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序等123456789101112131415161718192021public class SortingDemo &amp;#123;    public static void main(String[] args) &amp;#123;        /* 简单排序 */        EasySort.bubb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序算法相关(java)">
+<meta property="og:url" content="http://yoursite.com/2017/08/10/排序算法相关(java)/index.html">
+<meta property="og:site_name" content="编程在继续">
+<meta property="og:description" content="常见的内部排序算法插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序等123456789101112131415161718192021public class SortingDemo &amp;#123;    public static void main(String[] args) &amp;#123;        /* 简单排序 */        EasySort.bubb">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2419179-2804b792efe11837.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2419179-8403919aa4a9383a.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2419179-b703fa5194694a5f.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2419179-3b6bbe9a5b4a3c22.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/675733-58e22d5b09c167f2.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2419179-ced6d60c4e8aa5d9.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/675733-07c5e4edb9b0f8b7.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/675733-a1330ae9ce4293a4.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/675733-4ea6e4e8613f769f.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/675733-873e48115b182525.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/675733-f9bd437a4a3eeab7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/675733-3f48f14f89392094.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-12T04:49:05.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="排序算法相关(java)">
+<meta name="twitter:description" content="常见的内部排序算法插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序等123456789101112131415161718192021public class SortingDemo &amp;#123;    public static void main(String[] args) &amp;#123;        /* 简单排序 */        EasySort.bubb">
+  
+    <link rel="alternative" href="/atom.xml" title="编程在继续" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/assets/blogImg/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">刘祥@赛学霸</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">编程在继续，刘祥&#39;s blog</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="https://github.com/liuxiang/blog.hexo/tree/master/source/_posts">搜索</a></li>
+				        
+							<li><a href="http://liuxiang.github.io/iloveyuan">i love yuan</a></li>
+				        
+							<li><a href="http://liuxiang.github.io/iloveyuan/FullPageImageGallery/photo.html">Gallery</a></li>
+				        
+							<li><a href="/1988/12/27/关于我(技术的生活面)/">关于我(技术的生活面)</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/liuxiang" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="mailto: liuxiang@wosaitech.com" title="mail">mail</a>
+					        
+						</div>
+
+						<div id="mobile-busuanzi" style="font-size: 12px;">
+							站访问<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次
+							站访客<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>人
+						</div>
+					</nav>
+
+
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-远程调试/" style="font-size: 10px;">Android 远程调试</a> <a href="/tags/Android6-0/" style="font-size: 10px;">Android6.0</a> <a href="/tags/Android签名/" style="font-size: 10px;">Android签名</a> <a href="/tags/Apple-Developer/" style="font-size: 10px;">Apple Developer</a> <a href="/tags/BCompare/" style="font-size: 10px;">BCompare</a> <a href="/tags/Chrom/" style="font-size: 10px;">Chrom</a> <a href="/tags/Chrome/" style="font-size: 11px;">Chrome</a> <a href="/tags/Chrome-Dev-Tools/" style="font-size: 11px;">Chrome Dev Tools</a> <a href="/tags/Chrome-DevTools/" style="font-size: 10px;">Chrome DevTools</a> <a href="/tags/Chrome-Web-Tools/" style="font-size: 10px;">Chrome Web Tools</a> <a href="/tags/Cordova-plugin-qpay/" style="font-size: 10px;">Cordova-plugin-qpay</a> <a href="/tags/Crosswalk/" style="font-size: 10px;">Crosswalk</a> <a href="/tags/DevTools/" style="font-size: 10px;">DevTools</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/FunctionalInterface/" style="font-size: 10px;">FunctionalInterface</a> <a href="/tags/Generator/" style="font-size: 10px;">Generator</a> <a href="/tags/Github，搜索技巧/" style="font-size: 10px;">Github，搜索技巧</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HashMap/" style="font-size: 10px;">HashMap</a> <a href="/tags/IDE/" style="font-size: 11px;">IDE</a> <a href="/tags/IIFE/" style="font-size: 10px;">IIFE</a> <a href="/tags/IntelliJ/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 11px;">IntelliJ IDEA</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lambda/" style="font-size: 10px;">Lambda</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/Popups/" style="font-size: 10px;">Popups</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Pull-Request/" style="font-size: 10px;">Pull Request</a> <a href="/tags/RPC/" style="font-size: 10px;">RPC</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/React-native/" style="font-size: 10px;">React native</a> <a href="/tags/Safari/" style="font-size: 11px;">Safari</a> <a href="/tags/Stream/" style="font-size: 10px;">Stream</a> <a href="/tags/TPS/" style="font-size: 10px;">TPS</a> <a href="/tags/Tips/" style="font-size: 10px;">Tips</a> <a href="/tags/Vue-js/" style="font-size: 10px;">Vue.js</a> <a href="/tags/WebStorm/" style="font-size: 12px;">WebStorm</a> <a href="/tags/Webstorm/" style="font-size: 11px;">Webstorm</a> <a href="/tags/Web前端黑客技术揭秘/" style="font-size: 10px;">Web前端黑客技术揭秘</a> <a href="/tags/Win10/" style="font-size: 10px;">Win10</a> <a href="/tags/Wox/" style="font-size: 10px;">Wox</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android打包/" style="font-size: 10px;">android打包</a> <a href="/tags/angular/" style="font-size: 13px;">angular</a> <a href="/tags/angular的自定义弹窗层/" style="font-size: 10px;">angular的自定义弹窗层</a> <a href="/tags/ant-renamer/" style="font-size: 10px;">ant renamer</a> <a href="/tags/api文档生成工具/" style="font-size: 10px;">api文档生成工具</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/async-await/" style="font-size: 10px;">async-await</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/build/" style="font-size: 10px;">build</a> <a href="/tags/builtInFunction/" style="font-size: 10px;">builtInFunction</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/chrome/" style="font-size: 11px;">chrome</a> <a href="/tags/chrome-Emulated-Devices/" style="font-size: 10px;">chrome Emulated Devices</a> <a href="/tags/chromium/" style="font-size: 10px;">chromium</a> <a href="/tags/cnpm/" style="font-size: 10px;">cnpm</a> <a href="/tags/cocos/" style="font-size: 10px;">cocos</a> <a href="/tags/console/" style="font-size: 10px;">console</a> <a href="/tags/console控制/" style="font-size: 10px;">console控制</a> <a href="/tags/cordova-qpay/" style="font-size: 10px;">cordova qpay</a> <a href="/tags/css/" style="font-size: 14px;">css</a> <a href="/tags/css-tips/" style="font-size: 10px;">css tips</a> <a href="/tags/css兼容性前缀/" style="font-size: 10px;">css兼容性前缀</a> <a href="/tags/css选择器/" style="font-size: 10px;">css选择器</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/drag/" style="font-size: 10px;">drag</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/emoji/" style="font-size: 10px;">emoji</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/flex-table-fixed布局差异/" style="font-size: 10px;">flex/table/fixed布局差异</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/github-pages/" style="font-size: 11px;">github pages</a> <a href="/tags/git命令/" style="font-size: 10px;">git命令</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 11px;">https</a> <a href="/tags/hybrid/" style="font-size: 11px;">hybrid</a> <a href="/tags/iOS证书-打包-上架/" style="font-size: 10px;">iOS证书&打包&上架</a> <a href="/tags/iTunesConnect/" style="font-size: 10px;">iTunesConnect</a> <a href="/tags/idea/" style="font-size: 10px;">idea</a> <a href="/tags/innerHTML/" style="font-size: 10px;">innerHTML</a> <a href="/tags/inspect/" style="font-size: 11px;">inspect</a> <a href="/tags/interface-default/" style="font-size: 10px;">interface default</a> <a href="/tags/ionic/" style="font-size: 19px;">ionic</a> <a href="/tags/ionic-native-transitions/" style="font-size: 10px;">ionic-native-transitions</a> <a href="/tags/ionic安装/" style="font-size: 10px;">ionic安装</a> <a href="/tags/ionic路由控制/" style="font-size: 10px;">ionic路由控制</a> <a href="/tags/ios/" style="font-size: 13px;">ios</a> <a href="/tags/ios-内测托管平台/" style="font-size: 10px;">ios 内测托管平台</a> <a href="/tags/ios免审核/" style="font-size: 10px;">ios免审核</a> <a href="/tags/ios证书/" style="font-size: 10px;">ios证书</a> <a href="/tags/ios问题笔录/" style="font-size: 10px;">ios问题笔录</a> <a href="/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="/tags/java/" style="font-size: 16px;">java</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/javaScript/" style="font-size: 16px;">javaScript</a> <a href="/tags/javaScript-循环遍历/" style="font-size: 10px;">javaScript 循环遍历</a> <a href="/tags/javaScript-时间格式化/" style="font-size: 10px;">javaScript 时间格式化</a> <a href="/tags/javaScript风格/" style="font-size: 10px;">javaScript风格</a> <a href="/tags/javaUtil/" style="font-size: 10px;">javaUtil</a> <a href="/tags/javap/" style="font-size: 10px;">javap</a> <a href="/tags/jdk工具命令，jstack/" style="font-size: 10px;">jdk工具命令，jstack</a> <a href="/tags/jetbrains/" style="font-size: 10px;">jetbrains</a> <a href="/tags/jira/" style="font-size: 10px;">jira</a> <a href="/tags/json/" style="font-size: 11px;">json</a> <a href="/tags/jsoup抓取/" style="font-size: 10px;">jsoup抓取</a> <a href="/tags/js对象传递/" style="font-size: 10px;">js对象传递</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/linux-yum相关/" style="font-size: 10px;">linux yum相关</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/markdown/" style="font-size: 12px;">markdown</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mysql/" style="font-size: 12px;">mysql</a> <a href="/tags/mysql依据数据库表/" style="font-size: 10px;">mysql依据数据库表</a> <a href="/tags/ngin-conf/" style="font-size: 10px;">ngin.conf</a> <a href="/tags/nginx/" style="font-size: 14px;">nginx</a> <a href="/tags/nginx日志/" style="font-size: 10px;">nginx日志</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm/" style="font-size: 11px;">npm</a> <a href="/tags/npm-registry/" style="font-size: 10px;">npm registry</a> <a href="/tags/online-web-tools/" style="font-size: 10px;">online-web-tools</a> <a href="/tags/oracle/" style="font-size: 12px;">oracle</a> <a href="/tags/oracle-函数-with-as/" style="font-size: 10px;">oracle 函数  with as</a> <a href="/tags/package-json/" style="font-size: 12px;">package.json</a> <a href="/tags/phonegap/" style="font-size: 11px;">phonegap</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/skiplist/" style="font-size: 10px;">skiplist</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/sql编程/" style="font-size: 10px;">sql编程</a> <a href="/tags/ssh/" style="font-size: 12px;">ssh</a> <a href="/tags/su/" style="font-size: 10px;">su</a> <a href="/tags/sublime-text/" style="font-size: 10px;">sublime text</a> <a href="/tags/svn/" style="font-size: 13px;">svn</a> <a href="/tags/t-ips/" style="font-size: 10px;">t ips</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/twoColons-function-realize/" style="font-size: 10px;">twoColons::function realize</a> <a href="/tags/userScript/" style="font-size: 10px;">userScript</a> <a href="/tags/video/" style="font-size: 11px;">video</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/web跨域/" style="font-size: 10px;">web跨域</a> <a href="/tags/win-R/" style="font-size: 10px;">win+R</a> <a href="/tags/windows文件与linux文件比对/" style="font-size: 10px;">windows文件与linux文件比对</a> <a href="/tags/wiz/" style="font-size: 10px;">wiz</a> <a href="/tags/xmind/" style="font-size: 12px;">xmind</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/yeoman/" style="font-size: 14px;">yeoman</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/【Shiro-流程】java安全框架-cas单点登录/" style="font-size: 10px;">【Shiro-流程】java安全框架&cas单点登录</a> <a href="/tags/上传/" style="font-size: 10px;">上传</a> <a href="/tags/中国历史大事年表/" style="font-size: 10px;">中国历史大事年表</a> <a href="/tags/书录/" style="font-size: 11px;">书录</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/位运算/" style="font-size: 11px;">位运算</a> <a href="/tags/六位密码框/" style="font-size: 10px;">六位密码框</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/兼容性测试/" style="font-size: 10px;">兼容性测试</a> <a href="/tags/判断实时网络/" style="font-size: 10px;">判断实时网络</a> <a href="/tags/前端/" style="font-size: 17px;">前端</a> <a href="/tags/前端-加密-混淆-，-gulp/" style="font-size: 10px;">前端 加密 混淆 ， gulp</a> <a href="/tags/前端-加密-混淆-，-gulp，-ionic-，cordova-hook/" style="font-size: 10px;">前端 加密 混淆 ， gulp， ionic ，cordova hook</a> <a href="/tags/前端-规范/" style="font-size: 11px;">前端 规范</a> <a href="/tags/前端图片/" style="font-size: 10px;">前端图片</a> <a href="/tags/前端安全-认证/" style="font-size: 10px;">前端安全&认证</a> <a href="/tags/前端导航/" style="font-size: 10px;">前端导航</a> <a href="/tags/前端异常/" style="font-size: 10px;">前端异常</a> <a href="/tags/前端技术/" style="font-size: 10px;">前端技术</a> <a href="/tags/前端文集/" style="font-size: 10px;">前端文集</a> <a href="/tags/前端框架库/" style="font-size: 10px;">前端框架库</a> <a href="/tags/前端模板库/" style="font-size: 10px;">前端模板库</a> <a href="/tags/加密/" style="font-size: 10px;">加密</a> <a href="/tags/匿名-function/" style="font-size: 10px;">匿名 function</a> <a href="/tags/单例/" style="font-size: 12px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/压力测试/" style="font-size: 11px;">压力测试</a> <a href="/tags/压力测试，-阿里云-PTS/" style="font-size: 10px;">压力测试， 阿里云 PTS</a> <a href="/tags/反向工程设计/" style="font-size: 10px;">反向工程设计</a> <a href="/tags/后端/" style="font-size: 10px;">后端</a> <a href="/tags/善用佳软/" style="font-size: 10px;">善用佳软</a> <a href="/tags/图片加载/" style="font-size: 10px;">图片加载</a> <a href="/tags/图片取色/" style="font-size: 10px;">图片取色</a> <a href="/tags/图片拖拽/" style="font-size: 10px;">图片拖拽</a> <a href="/tags/图片转换为Base64/" style="font-size: 10px;">图片转换为Base64</a> <a href="/tags/图片预览/" style="font-size: 10px;">图片预览</a> <a href="/tags/大数据/" style="font-size: 10px;">大数据</a> <a href="/tags/天气/" style="font-size: 10px;">天气</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/学习内容平均留存率/" style="font-size: 10px;">学习内容平均留存率</a> <a href="/tags/安全/" style="font-size: 11px;">安全</a> <a href="/tags/工程结构/" style="font-size: 10px;">工程结构</a> <a href="/tags/并发控制/" style="font-size: 10px;">并发控制</a> <a href="/tags/广告/" style="font-size: 10px;">广告</a> <a href="/tags/开发文档API/" style="font-size: 10px;">开发文档API</a> <a href="/tags/异步加载/" style="font-size: 11px;">异步加载</a> <a href="/tags/异步编程/" style="font-size: 10px;">异步编程</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/微信支付/" style="font-size: 10px;">微信支付</a> <a href="/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/快速启动/" style="font-size: 11px;">快速启动</a> <a href="/tags/思维导图/" style="font-size: 18px;">思维导图</a> <a href="/tags/思维导图log4j/" style="font-size: 10px;">思维导图log4j</a> <a href="/tags/情商/" style="font-size: 10px;">情商</a> <a href="/tags/打开QQ群/" style="font-size: 10px;">打开QQ群</a> <a href="/tags/托管/" style="font-size: 10px;">托管</a> <a href="/tags/技术栈/" style="font-size: 10px;">技术栈</a> <a href="/tags/抽奖转盘/" style="font-size: 11px;">抽奖转盘</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/推酷/" style="font-size: 10px;">推酷</a> <a href="/tags/效果库/" style="font-size: 10px;">效果库</a> <a href="/tags/数据结构/" style="font-size: 12px;">数据结构</a> <a href="/tags/数据透视图/" style="font-size: 10px;">数据透视图</a> <a href="/tags/文档托管平台/" style="font-size: 10px;">文档托管平台</a> <a href="/tags/文章/" style="font-size: 10px;">文章</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/替代jQuery/" style="font-size: 10px;">替代jQuery</a> <a href="/tags/服务器监测/" style="font-size: 11px;">服务器监测</a> <a href="/tags/权限检查机制/" style="font-size: 10px;">权限检查机制</a> <a href="/tags/权限管理/" style="font-size: 10px;">权限管理</a> <a href="/tags/构造数据/" style="font-size: 10px;">构造数据</a> <a href="/tags/架构/" style="font-size: 13px;">架构</a> <a href="/tags/模块化/" style="font-size: 10px;">模块化</a> <a href="/tags/正则/" style="font-size: 11px;">正则</a> <a href="/tags/正确的情商认知/" style="font-size: 10px;">正确的情商认知</a> <a href="/tags/注解/" style="font-size: 11px;">注解</a> <a href="/tags/浮点数计算/" style="font-size: 10px;">浮点数计算</a> <a href="/tags/涟漪效果/" style="font-size: 10px;">涟漪效果</a> <a href="/tags/清理当前页-缓存/" style="font-size: 10px;">清理当前页 缓存</a> <a href="/tags/爬虫/" style="font-size: 11px;">爬虫</a> <a href="/tags/特性检测库/" style="font-size: 10px;">特性检测库</a> <a href="/tags/白帽子讲web安全/" style="font-size: 10px;">白帽子讲web安全</a> <a href="/tags/知识/" style="font-size: 11px;">知识</a> <a href="/tags/科学上网/" style="font-size: 11px;">科学上网</a> <a href="/tags/科学上网，hosts/" style="font-size: 10px;">科学上网，hosts</a> <a href="/tags/程序锁使用/" style="font-size: 10px;">程序锁使用</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/线程/" style="font-size: 10px;">线程</a> <a href="/tags/线程池/" style="font-size: 10px;">线程池</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/编程书籍/" style="font-size: 10px;">编程书籍</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/网络/" style="font-size: 11px;">网络</a> <a href="/tags/网络分层/" style="font-size: 10px;">网络分层</a> <a href="/tags/网络劫持/" style="font-size: 10px;">网络劫持</a> <a href="/tags/脚手架/" style="font-size: 17px;">脚手架</a> <a href="/tags/自动化测试/" style="font-size: 15px;">自动化测试</a> <a href="/tags/自动输入/" style="font-size: 10px;">自动输入</a> <a href="/tags/自定义书签/" style="font-size: 10px;">自定义书签</a> <a href="/tags/表单验证/" style="font-size: 10px;">表单验证</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/设计模式-23/" style="font-size: 10px;">设计模式-23</a> <a href="/tags/运维/" style="font-size: 10px;">运维</a> <a href="/tags/远程调试/" style="font-size: 10px;">远程调试</a> <a href="/tags/逆向-递归/" style="font-size: 10px;">逆向 递归</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/问题定位分析/" style="font-size: 11px;">问题定位分析</a> <a href="/tags/隧道/" style="font-size: 10px;">隧道</a> <a href="/tags/静态博客/" style="font-size: 10px;">静态博客</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jeremy017.github.io">正一的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://zouxuewen.github.io">邹学文博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">刘祥@赛学霸</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">刘祥@赛学霸</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/assets/blogImg/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">刘祥@赛学霸</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">编程在继续，刘祥&#39;s blog</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="https://github.com/liuxiang/blog.hexo/tree/master/source/_posts">搜索</a></li>
+		        
+					<li><a href="http://liuxiang.github.io/iloveyuan">i love yuan</a></li>
+		        
+					<li><a href="http://liuxiang.github.io/iloveyuan/FullPageImageGallery/photo.html">Gallery</a></li>
+		        
+					<li><a href="/1988/12/27/关于我(技术的生活面)/">关于我(技术的生活面)</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/liuxiang" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="mailto: liuxiang@wosaitech.com" title="mail">mail</a>
+			        
+				</div>
+				
+				<div style="font-size: 12px;padding-left: 11px;">
+					站访问<span id="busuanzi_value_site_pv_copy"><i class="fa fa-spinner fa-spin"></i></span>次
+					站访客<span id="busuanzi_value_site_uv_copy"><i class="fa fa-spinner fa-spin"></i></span>人
+				</div>
+
+			</nav>
+
+		</header>				
+	</div>
+</nav>
+
+<script>
+	function busuanzi_copy(){
+		$("#busuanzi_value_site_pv_copy").text($("#busuanzi_value_site_pv").text());
+		$("#busuanzi_value_site_uv_copy").text($("#busuanzi_value_site_uv").text());
+	}
+	setTimeout(busuanzi_copy,500);
+</script>
+      <div class="body-wrap"><article id="post-排序算法相关(java)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/10/排序算法相关(java)/" class="article-date">
+  	<time datetime="2017-08-09T16:00:00.000Z" itemprop="datePublished">2017-08-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      排序算法相关(java)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/排序算法/">排序算法</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+
+        <div style="font-size: 12px;">
+          此文阅<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次
+        </div>
+
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="常见的内部排序算法">常见的内部排序算法</h1><p>插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序等<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SortingDemo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/* 简单排序 */</span></span><br><span class="line">        EasySort.bubbleList();<span class="comment">// 冒泡</span></span><br><span class="line">        EasySort.bubbleArray();<span class="comment">// 冒泡</span></span><br><span class="line">        EasySort.xuanze();<span class="comment">// 选择</span></span><br><span class="line">        EasySort.charu();<span class="comment">// 插入</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/* 高效排序 */</span></span><br><span class="line">        QuickSort.quickSort();<span class="comment">// 快排</span></span><br><span class="line">        MergeSort.mergeSort();<span class="comment">// 归并排序(分治递归思想)</span></span><br><span class="line">        ShellSort.shellSort();<span class="comment">// 希尔排序(插入排序的一种高效率的实现，也叫缩小增量排序)</span></span><br><span class="line">        <span class="comment">// 堆排序(升序排序就使用大顶堆，反之使用小顶堆)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/* 线性排序 */</span></span><br><span class="line">        <span class="comment">// 计数排序</span></span><br><span class="line">        <span class="comment">// 桶排序</span></span><br><span class="line">        <span class="comment">// 基数排序</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2419179-2804b792efe11837.gif?imageMogr2/auto-orient/strip" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/2419179-8403919aa4a9383a.gif?imageMogr2/auto-orient/strip" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/2419179-b703fa5194694a5f.gif?imageMogr2/auto-orient/strip" alt=""><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* 简单排序</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">class</span> EasySort &#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">    * 冒泡排序 List</span><br><span class="line">    * &lt;p&gt;</span><br><span class="line">    * 算法思想：遍历待排序的数组，每次遍历比较相邻的两个元素，如果他们的排列顺序错误就交换他们的位置，</span><br><span class="line">    * 经过一趟排序后，最大的元素会浮置数组的末端。重复操作，直到排序完成。</span><br><span class="line">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; <span class="built_in">list</span> = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>);</span><br><span class="line">        Collections.shuffle(<span class="built_in">list</span>);<span class="comment">// list随机打乱</span></span><br><span class="line">        System.out.println(<span class="built_in">list</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">list</span>.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="built_in">list</span>.size() - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> current = <span class="built_in">list</span>.get(j);</span><br><span class="line">                <span class="keyword">int</span> comp = <span class="built_in">list</span>.get(j + <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (current &gt; comp) &#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = <span class="built_in">list</span>.get(j + <span class="number">1</span>);</span><br><span class="line">                    <span class="built_in">list</span>.<span class="built_in">set</span>(j + <span class="number">1</span>, <span class="built_in">list</span>.get(j));</span><br><span class="line">                    <span class="built_in">list</span>.<span class="built_in">set</span>(j, temp);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="built_in">list</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">    * 冒泡排序 Array (循环最大值置顶)</span><br><span class="line">    * &lt;p&gt;</span><br><span class="line">    * 算法思想：遍历待排序的数组，每次遍历比较相邻的两个元素，如果他们的排列顺序错误就交换他们的位置，</span><br><span class="line">    * 经过一趟排序后，最大的元素会浮置数组的末端。重复操作，直到排序完成。</span><br><span class="line">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleArray</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; <span class="built_in">list</span> = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>);</span><br><span class="line">        Collections.shuffle(<span class="built_in">list</span>);<span class="comment">// list随机打乱</span></span><br><span class="line">        Integer[] values = (Integer[]) <span class="built_in">list</span>.toArray();</span><br><span class="line">        System.out.println(Arrays.asList(values));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; values.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> current = values[j];</span><br><span class="line">                <span class="keyword">int</span> comp = values[j + <span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span> (current &gt; comp) &#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = values[j + <span class="number">1</span>];</span><br><span class="line">                    values[j + <span class="number">1</span>] = values[j];</span><br><span class="line">                    values[j] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(Arrays.asList(values));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">    * 选择排序</span><br><span class="line">    * &lt;p&gt;</span><br><span class="line">    * 算法思想：重待排序的数组中选择一个最小的元素，将它与数组的第一个位置的元素交换位置。</span><br><span class="line">    * 然后从剩下的元素中选择一个最小的元素，将它与第二个位置的元素交换位置，</span><br><span class="line">    * 如果最小元素就是该位置的元素，就将它和自身交换位置，依次类推，直到排序完成。</span><br><span class="line">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">xuanze</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; <span class="built_in">list</span> = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>);</span><br><span class="line">        Collections.shuffle(<span class="built_in">list</span>);<span class="comment">// list随机打乱</span></span><br><span class="line">        Integer[] values = (Integer[]) <span class="built_in">list</span>.toArray();</span><br><span class="line">        System.out.println(Arrays.asList(values));</span><br><span class="line"></span><br><span class="line">        Integer[] <span class="built_in">array</span> = values;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> courrentMinIndex = i;<span class="comment">// 当前最小值下标</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 从当前下标到最后的范围,找出最小的值</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; values.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (values[j] &lt; values[courrentMinIndex]) &#123;</span><br><span class="line">                    courrentMinIndex = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 当前位与最小值位交换</span></span><br><span class="line">            <span class="keyword">int</span> temp = values[i];</span><br><span class="line">            values[i] = values[courrentMinIndex];</span><br><span class="line">            values[courrentMinIndex] = temp;</span><br><span class="line"></span><br><span class="line">            System.out.println(Arrays.asList(<span class="built_in">array</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">    * 插入排序(优先保障currentIndex前置有序)</span><br><span class="line">    * &lt;p&gt;</span><br><span class="line">    * 算法思想:从数组的第二个元素开始遍历，将该元素与前面的元素比较，如果该元素比前面的元素小，</span><br><span class="line">    * 将该元素保存进临时变量中，依次将前面的元素后移，然后将该元素插入到合适的位置。</span><br><span class="line">    * 每次排序完成后，索引左边的元素一定是有序的，但是还可以移动。对于倒置越少的数组，该算法的排序效率越高。</span><br><span class="line">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">charu</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; <span class="built_in">list</span> = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>);</span><br><span class="line">        Collections.shuffle(<span class="built_in">list</span>);<span class="comment">// list随机打乱</span></span><br><span class="line">        Integer[] values = (Integer[]) <span class="built_in">list</span>.toArray();</span><br><span class="line">        System.out.println(Arrays.asList(values));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> current = values[i];</span><br><span class="line">                <span class="keyword">int</span> comp = values[j];</span><br><span class="line">                <span class="keyword">if</span> (current &lt; comp) &#123;</span><br><span class="line">                    <span class="keyword">int</span> third = values[i];</span><br><span class="line">                    values[i] = values[j];</span><br><span class="line">                    values[j] = third;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(Arrays.asList(values));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2419179-3b6bbe9a5b4a3c22.gif?imageMogr2/auto-orient/strip" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/675733-58e22d5b09c167f2.gif?imageMogr2/auto-orient/strip" alt=""><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* 快速排序</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">class</span> QuickSort &#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">    * 快速排序的基本思想：通过一趟排序将待排序记录分割成独立的两部分，其中一部分记录的关键字均比另一部分关键字小，</span><br><span class="line">    * 则分别对这两部分继续进行排序，直到整个序列有序。</span><br><span class="line">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; <span class="built_in">list</span> = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>);</span><br><span class="line">        Collections.shuffle(<span class="built_in">list</span>);<span class="comment">// list随机打乱</span></span><br><span class="line">        System.out.println(<span class="string">"======(分区)"</span>);</span><br><span class="line">        Integer[] values = (Integer[]) <span class="built_in">list</span>.toArray();</span><br><span class="line">        System.out.println(Arrays.asList(values));</span><br><span class="line">        quickSortEasy(values, <span class="number">0</span>, values.length - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"======(交换)"</span>);</span><br><span class="line">        values = (Integer[]) <span class="built_in">list</span>.toArray();</span><br><span class="line">        System.out.println(Arrays.asList(values));</span><br><span class="line">        quickSortSwap(values, <span class="number">0</span>, values.length - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">    * 分治法-分区(方便理解)</span><br><span class="line">    *</span><br><span class="line">    * @param values</span><br><span class="line">    * @param begin</span><br><span class="line">    * @param end</span><br><span class="line">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSortEasy</span><span class="params">(Integer[] values, <span class="keyword">int</span> begin, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (begin &gt;= end) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> middleIndex = quickSortMiddleEasy(values, begin, end);</span><br><span class="line"></span><br><span class="line">        System.out.<span class="built_in">printf</span>(<span class="string">"begin:%d end:%d middleIndex:%d(value=%d) %n"</span>, begin, end, middleIndex, values[middleIndex]);</span><br><span class="line">        System.out.println(Arrays.asList(values));<span class="comment">// 定位中位数时,已经完成分治</span></span><br><span class="line"></span><br><span class="line">        quickSortEasy(values, begin, middleIndex - <span class="number">1</span>);</span><br><span class="line">        quickSortEasy(values, middleIndex + <span class="number">1</span>, end);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">quickSortMiddleEasy</span><span class="params">(Integer[] values, <span class="keyword">int</span> begin, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 第一步,以最低位值作为中轴,将其它数进行两边分治法.结束后,中轴位不再参与后续排序(因为位置已经确定了)</span></span><br><span class="line">        <span class="comment">// 示例:[6, 2, 1, 8, 5, 4, 9, 3, 7]中轴值为6,分治法结果[32145]6[987](交换)/[21543]6[897](分区)</span></span><br><span class="line">        <span class="keyword">int</span> middleValue = values[begin];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 第二步,分治法.先腾出中轴值位置[0],并保持中轴值.</span></span><br><span class="line">        List&lt;Integer&gt; left = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;Integer&gt; right = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        left.addAll(Arrays.asList(Arrays.copyOfRange(values, <span class="number">0</span>, begin)));<span class="comment">// 排序区间前</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = begin; i &lt; end + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (values[i] &lt; middleValue) &#123;</span><br><span class="line">                left.add(values[i]); <span class="comment">// 排序区间左区</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (values[i] &gt; middleValue) &#123;</span><br><span class="line">                right.add(values[i]);<span class="comment">// 排序区间右区</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        left.add(middleValue);<span class="comment">// 排序区间中轴</span></span><br><span class="line">        <span class="keyword">int</span> middleIndex = left.size() - <span class="number">1</span>;</span><br><span class="line">        left.addAll(right);<span class="comment">// 排序区间右区也合并到单个集合</span></span><br><span class="line">        left.addAll(Arrays.asList(Arrays.copyOfRange(values, end + <span class="number">1</span>, values.length)));<span class="comment">// 排序区间后</span></span><br><span class="line"></span><br><span class="line">        values = left.toArray(values);<span class="comment">// 重写原数组</span></span><br><span class="line">        <span class="keyword">return</span> middleIndex;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">    * 分治法-交换(节省内存空间)</span><br><span class="line">    * @param values</span><br><span class="line">    * @param begin</span><br><span class="line">    * @param end</span><br><span class="line">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSortSwap</span><span class="params">(Integer[] values, <span class="keyword">int</span> begin, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (begin &gt;= end) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> middleIndex = getMiddle(values, begin, end);</span><br><span class="line"></span><br><span class="line">        System.out.<span class="built_in">printf</span>(<span class="string">"begin:%d end:%d middleIndex:%d(value=%d) %n"</span>, begin, end, middleIndex, values[middleIndex]);</span><br><span class="line">        System.out.println(Arrays.asList(values));<span class="comment">// 定位中位数时,已经完成分治</span></span><br><span class="line"></span><br><span class="line">        quickSortSwap(values, begin, middleIndex - <span class="number">1</span>);</span><br><span class="line">        quickSortSwap(values, middleIndex + <span class="number">1</span>, end);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getMiddle</span><span class="params">(Integer[] numbers, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 示例:[6, 2, 1, 8, 5, 4, 9, 3, 7]中轴值为6,分治法结果[32145]6[987](交换)/[21543]6[897](分区)</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> temp = numbers[low]; <span class="comment">// 数组的第一个作为中轴</span></span><br><span class="line">        numbers[low] = null;<span class="comment">// 原位置值已经转移,未来也会被分治法的新值覆盖,可省略.但标记null,方便理解</span></span><br><span class="line">        <span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">            <span class="keyword">while</span> (low &lt; high &amp;&amp; numbers[high] &gt; temp) &#123;<span class="comment">// 先最高位与中轴值比较</span></span><br><span class="line">                high--;</span><br><span class="line">            &#125;</span><br><span class="line">            numbers[low] = numbers[high];<span class="comment">// 比中轴小的记录移到低端</span></span><br><span class="line">            numbers[high] = null;<span class="comment">// 原位置值已经转移,未来也会被分治法的新值覆盖,可省略.但标记null,方便理解</span></span><br><span class="line">            <span class="keyword">while</span> (low &lt; high &amp;&amp; numbers[low] &lt; temp) &#123;</span><br><span class="line">                low++;</span><br><span class="line">            &#125;</span><br><span class="line">            numbers[high] = numbers[low]; <span class="comment">//比中轴大的记录移到高端</span></span><br><span class="line">            numbers[low] = null;<span class="comment">// 原位置值已经转移,未来也会被分治法的新值覆盖,可省略.但标记null,方便理解</span></span><br><span class="line">        &#125;</span><br><span class="line">        numbers[low] = temp; <span class="comment">//中轴记录到尾</span></span><br><span class="line">        <span class="keyword">return</span> low; <span class="comment">// 返回中轴的位置</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2419179-ced6d60c4e8aa5d9.gif?imageMogr2/auto-orient/strip" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/675733-07c5e4edb9b0f8b7.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<hr>
+<h1 id="归并排序">归并排序</h1><ul>
+<li>基本思想:<br>先递归划分子问题，然后合并结果。把待排序列看成由两个有序的子序列，然后合并两个子序列，然后把子序列看成由两个有序序列。<br>倒着来看，其实就是先两两合并，然后四四合并，最终形成有序序列。</li>
+<li>做法(建议sublime中编辑,方便符号对其):<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> mid = (beginIndex + endIndex) / <span class="number">2</span>;<span class="comment">// 取中位index</span></span><br><span class="line">middleSort(values, beginIndex, mid);<span class="comment">// 左侧递归再分,到不可再分</span></span><br><span class="line">middleSort(values, mid + <span class="number">1</span>, endIndex);<span class="comment">// 右侧递归再分,到不可再分</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/675733-a1330ae9ce4293a4.gif?imageMogr2/auto-orient/strip" alt=""><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">8</span></span><br><span class="line">-  -  -  -  -  -  -  -  -<span class="number">8</span></span><br><span class="line">-  -  -  -  -<span class="number">4</span></span><br><span class="line">-  -  -<span class="number">2</span></span><br><span class="line">-  -<span class="number">1</span></span><br><span class="line">        -  -<span class="number">3</span></span><br><span class="line">                -  -  -  -<span class="number">7</span></span><br><span class="line">                -  -<span class="number">5</span></span><br><span class="line">                        -  -<span class="number">6</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>比较交换,方法一</code>:<br>mid左侧第一位开始与mid右侧第一位开始比较,小的添加到新array.最后再按区间更新原array<br>如:<code>[5, 6, 7, 1, 2]</code>(中位数两侧事前已经经过排序)会拆位<code>[5,6,7][1,2]</code>(进行合并)<br>5&lt;&gt;1 =&gt; <code>1(小)</code> tempArray=[1]<br>5&lt;&gt;2 =&gt; <code>2(小)</code> tempArray=[1,2]<br>把没有到tempArray的大值添加进去: tempArray=<code>[1,2,5,6,7]</code></li>
+</ul>
+<p>见: <code>★面试中的排序算法总结 - 简书</code> - 归并排序`<br><a href="http://www.jianshu.com/p/c360a58db21d" target="_blank" rel="external">http://www.jianshu.com/p/c360a58db21d</a></p>
+<ul>
+<li><code>比较交换,方法二(推荐)</code>: 对待合并数据[5, 6, 7][1, 2]直接仅需插入排序.<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 待合并的二分数据,已经基本有序,所有使用<span class="string">`插入排序`</span>进行合并,具备更高的性能(因为移动的位置较少)且不需要更多的内存仅需一个交换变量.</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = beginIndex + <span class="number">1</span>; i &lt; endIndex; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = beginIndex; j &lt; i; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">values</span>[i] &lt; <span class="keyword">values</span>[j]) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="keyword">values</span>[j];</span><br><span class="line">            <span class="keyword">values</span>[j] = <span class="keyword">values</span>[i];</span><br><span class="line">            <span class="keyword">values</span>[i] = temp;</span><br><span class="line">            System.out.println(<span class="string">"markNum:"</span>+markNum++);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(Arrays.asList(<span class="keyword">values</span>));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>见: <code>myServer/@java/demo-sorting/SortingDemo.java</code><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* 归并排序</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">class</span> MergeSort &#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; <span class="built_in">list</span> = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>);</span><br><span class="line">        Collections.shuffle(<span class="built_in">list</span>);<span class="comment">// list随机打乱</span></span><br><span class="line">        Integer[] values = (Integer[]) <span class="built_in">list</span>.toArray();</span><br><span class="line">        System.out.println(Arrays.asList(values));</span><br><span class="line"></span><br><span class="line">        middleSort(values, <span class="number">0</span>, values.length);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> markNum=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">middleSort</span><span class="params">(Integer[] values, <span class="keyword">int</span> beginIndex, <span class="keyword">int</span> endIndex)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!(beginIndex &lt; endIndex))</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> mid = (beginIndex + endIndex) / <span class="number">2</span>;<span class="comment">// 取中位index</span></span><br><span class="line"></span><br><span class="line">        middleSort(values, beginIndex, mid);<span class="comment">// 左侧递归再分,到不可再分</span></span><br><span class="line">        middleSort(values, mid + <span class="number">1</span>, endIndex);<span class="comment">// 右侧递归再分,到不可再分</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 对最近的二分数据进行合并. 如:[5,6,7][1,2]</span></span><br><span class="line">        <span class="comment">// 待合并的二分数据,已经基本有序,所有使用`插入排序`进行合并,具备更高的性能(因为移动的位置较少)且不需要更多的内存仅需一个交换变量.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = beginIndex + <span class="number">1</span>; i &lt; endIndex; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = beginIndex; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (values[i] &lt; values[j]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = values[j];</span><br><span class="line">                    values[j] = values[i];</span><br><span class="line">                    values[i] = temp;</span><br><span class="line">                    System.out.println(<span class="string">"markNum:"</span>+markNum++);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Arrays.asList(values));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="希尔排序">希尔排序</h1><p>基本思想是：先将整个待排记录序列分割成为若干子序列，分别进行直接插入排序。待整个序列中的记录基本有序时，再对全体记录进行一次直接插入排序。<br><img src="http://upload-images.jianshu.io/upload_images/675733-4ea6e4e8613f769f.gif?imageMogr2/auto-orient/strip" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/675733-873e48115b182525.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">9</span></span><br><span class="line">length/<span class="number">2</span>=<span class="number">4</span></span><br><span class="line">-          -</span><br><span class="line">  -          -</span><br><span class="line">      -          -</span><br><span class="line">        -              -</span><br><span class="line">            -          -</span><br><span class="line"><span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">9</span></span><br><span class="line"><span class="number">4</span>/<span class="number">2</span>=<span class="number">2</span></span><br><span class="line">-    -</span><br><span class="line">  -    -</span><br><span class="line">      -    -</span><br><span class="line">        -    -</span><br><span class="line">      -    -    -</span><br><span class="line">        -    -    -</span><br><span class="line">      -    -    -    -</span><br><span class="line">x    x</span><br><span class="line">  <span class="number">1</span>    <span class="number">5</span></span><br><span class="line">      x    <span class="number">8</span></span><br><span class="line">        x    <span class="number">7</span></span><br><span class="line">      x    <span class="number">6</span>    <span class="number">8</span></span><br><span class="line">        <span class="number">2</span>    <span class="number">5</span>    <span class="number">7</span></span><br><span class="line">      x    x    x    <span class="number">9</span></span><br><span class="line"><span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">9</span></span><br><span class="line"><span class="number">2</span>/<span class="number">2</span>=<span class="number">1</span></span><br><span class="line">-  -</span><br><span class="line">  -  -</span><br><span class="line">  -  -  -</span><br><span class="line">  -  -  -  -</span><br><span class="line">  -  -  -  -  -</span><br><span class="line">  -  -  -  -  -  -</span><br><span class="line">  -  -  -  -  -  -  -</span><br><span class="line">  -  -  -  -  -  -  -  -</span><br><span class="line"><span class="number">1</span>  <span class="number">3</span> i=<span class="number">1</span></span><br><span class="line">  x  x i=<span class="number">2</span></span><br><span class="line">  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span> i=<span class="number">3</span>  </span><br><span class="line">  x  x  x  <span class="number">6</span> i=<span class="number">4</span></span><br><span class="line">  x  x  x  <span class="number">5</span>  <span class="number">6</span> i=<span class="number">5</span></span><br><span class="line">  x  x  x  x  X  <span class="number">8</span> i=<span class="number">6</span></span><br><span class="line">  x  x  x  x  X  <span class="number">7</span>  <span class="number">8</span> i=<span class="number">7</span></span><br><span class="line">  x  x  x  x  X  x  x  x  <span class="number">9</span> i=<span class="number">8</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* 希尔排序</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">class</span> ShellSort &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shellSort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; <span class="built_in">list</span> = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>);</span><br><span class="line">        Collections.shuffle(<span class="built_in">list</span>);<span class="comment">// list随机打乱</span></span><br><span class="line">        Integer[] values = (Integer[]) <span class="built_in">list</span>.toArray();<span class="comment">// List 转 Array</span></span><br><span class="line">        System.out.println(Arrays.asList(values));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] valuesI = <span class="keyword">new</span> <span class="keyword">int</span>[values.length];</span><br><span class="line">        Arrays.stream(values).forEachOrdered(i -&gt; valuesI[i - <span class="number">1</span>] = values[i - <span class="number">1</span>].intValue());<span class="comment">// 封装数组转基础数组(Integer[] 转 int[])</span></span><br><span class="line">        Arrays.stream(valuesI).forEach(value -&gt; System.out.print(value + <span class="string">", "</span>));<span class="comment">// 打印基础类型数组(int[])</span></span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] valuesI2 = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">8</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">9</span>&#125;;<span class="comment">// 自定义</span></span><br><span class="line">        shellSort(valuesI2);</span><br><span class="line">        Arrays.stream(valuesI2).forEach(value -&gt; System.out.print(value + <span class="string">", "</span>));<span class="comment">// 打印基础类型数组(int[])</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">    * 希尔排序的一趟插入</span><br><span class="line">    *</span><br><span class="line">    * @param arr 待排数组</span><br><span class="line">    * @param d  增量</span><br><span class="line">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shellInsert</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"d:"</span> + d);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = d; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> j = i - d;</span><br><span class="line">            <span class="keyword">int</span> temp = arr[i];    <span class="comment">//记录要插入的数据</span></span><br><span class="line">            <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; arr[j] &gt; temp) &#123;  <span class="comment">//从后向前，找到比其小的数的位置</span></span><br><span class="line">                arr[j + d] = arr[j];    <span class="comment">//向后挪动</span></span><br><span class="line">                j -= d;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (j != i - d)    <span class="comment">//存在比其小的数</span></span><br><span class="line">                arr[j + d] = temp;</span><br><span class="line"></span><br><span class="line">            Arrays.stream(arr).forEach(value -&gt; System.out.print(value + <span class="string">", "</span>));<span class="comment">// 打印基础类型数组(int[])</span></span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shellSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (arr == null || arr.length == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> d = arr.length / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span> (d &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">            shellInsert(arr, d);</span><br><span class="line">            d /= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="时间复杂度,空间复杂度,稳定性">时间复杂度,空间复杂度,稳定性</h1><p><img src="http://upload-images.jianshu.io/upload_images/675733-f9bd437a4a3eeab7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>关于时间复杂度：<br><code>平方阶(O(n2))排序</code>：各类简单排序:直接插入、直接选择和冒泡排序。<br><code>线性对数阶(O(nlog2n))排序</code>：快速排序、堆排序和归并排序。<br><code>O(n1+§))排序</code>：§是介于0和1之间的常数。<br><code>线性阶(O(n))排序</code>：基数排序，此外还有桶、箱排序。</p>
+</li>
+<li><p>关于稳定性：<br><code>稳定的排序算法</code>：冒泡排序、插入排序、归并排序和基数排序；<br><code>不是稳定的排序算法</code>：选择排序、快速排序、希尔排序、堆排序。</p>
+</li>
+</ul>
+<hr>
+<h1 id="平均时间,最坏情况,辅助存储">平均时间,最坏情况,辅助存储</h1><p><img src="http://upload-images.jianshu.io/upload_images/675733-3f48f14f89392094.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><code>平均时间</code>来看，<code>快速排序</code>是效率最高的。但快速排序在最坏情况下的时间性能，不如堆排序和归并排序。而后者相比较的结果是在n较大时，归并排序使用时间较少，但使用辅助空间较多。</li>
+<li><code>简单排序</code>，包括除希尔排序之外的所有冒泡排序、插入排序、简单选择排序。其中<code>直接插入</code>排序最简单。但<code>序列基本有序或者n较小时，直接插入排序是好的方法</code>。因此常将它和其他的排序方法，如<code>快速排序、归并排序</code>等结合在一起使用。</li>
+<li><code>基数排序</code>的时间复杂度也可以写成O(d*n)。因此它最使用于n值很大而关键字较小的的序列。若关键字也很大，而序列中大多数记录的最高关键字均不同，则亦可先按最高关键字不同，将序列分成若干小的子序列，而后进行直接插入排序。</li>
+<li>从方法的<code>稳定性</code>来比较，<code>基数排序是稳定的内排方法</code>，所有时间复杂度为O(n^2)的简单排序也是稳定的。但是快速排序、堆排序、希尔排序等时间性能较好的排序方法都是不稳定的。稳定性需要根据具体需求选择。</li>
+<li>上面的算法实现大多数是使用<code>线性存储结构</code>，像插入排序这种算法，用<code>链表</code>实现更好，省去了移动元素的时间。具体的存储结构，在具体的实现版本中也是不同的。</li>
+</ul>
+<hr>
+<p><strong>参考</strong><br><code>★面试中的排序算法总结 - 简书</code><br><a href="http://www.jianshu.com/p/c360a58db21d" target="_blank" rel="external">http://www.jianshu.com/p/c360a58db21d</a></p>
+<p><code>排序算法图形化比较：快速排序、插入排序、选择排序、冒泡排序 - 简书</code><br><a href="http://www.jianshu.com/p/70619984fbc6" target="_blank" rel="external">http://www.jianshu.com/p/70619984fbc6</a><br><code>完全二叉树实现优先队列与堆排序 - 简书</code><br><a href="http://www.jianshu.com/p/9a456d1b59b5" target="_blank" rel="external">http://www.jianshu.com/p/9a456d1b59b5</a></p>
+<p><code>8大排序算法图文讲解</code><br><a href="http://www.jianshu.com/p/e6ad4423efcd" target="_blank" rel="external">http://www.jianshu.com/p/e6ad4423efcd</a></p>
+<p><code>八大排序算法 - guisu，程序人生。 逆水行舟，不进则退。 - CSDN博客</code><br><a href="http://blog.csdn.net/hguisu/article/details/7776068" target="_blank" rel="external">http://blog.csdn.net/hguisu/article/details/7776068</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/07/java SQL动态参数绑定工具/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java SQL动态参数绑定工具</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="排序算法相关(java)" data-title="排序算法相关(java)" data-url="http://yoursite.com/2017/08/10/排序算法相关(java)/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 刘祥@赛学霸
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
