@@ -1,4 +1,4 @@
-title: blog 之 hexo&travis-ci
+title: blog工具选择 & travis-ci自动构建
 date: 2017-9-14 00:00:00
 categories: hexo
 tags: [hexo,travis-ci]
@@ -89,7 +89,7 @@ $ hexo server        #开启预览(http://localhost:4000,Press Ctrl+C to stop)
 - 新建Repositories > 选择`.github.io`项目
 - travis中配置GH_TOKEN常量. [Settings > Environment Variables > key:GH_TOKEN value:github-token]
 - 仓库`.github.io`代码发生代码push时，会自动触发travis-ci构建，其中包含将构建结果push到marster. 最终blog内容将自动更新。
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-9-14/70710785.jpg)
+![](http://7xnbs3.com1.z0.glb.clouddn.com/17-9-14/39011824.jpg)
  
 `.travis.yml`
 ```
