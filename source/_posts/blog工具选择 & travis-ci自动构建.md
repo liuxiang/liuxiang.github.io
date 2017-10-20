@@ -4,6 +4,9 @@ categories: hexo
 tags: [hexo,travis-ci]
 
 ---
+
+[TOC]
+
 # 一.为什么要写blog
 ![](http://7xnbs3.com1.z0.glb.clouddn.com/15-12-18/30111185.jpg)
 
@@ -50,7 +53,7 @@ https://github.com/atian25/blog/issues/7#issue-50490772
 [你的文章改个标题也能轻松10万+ - 推酷](http://www.tuicool.com//articles/F3673aJ)
 
 ---
-# 四.blog 之 hexo&travis-ci
+# 四.blog搭建 之 hexo&travis-ci
 ## 1.概念
 hexo：[静态博客生成器](https://www.staticgen.com)工具 （类：Jekyll,Hugo）
 yaml：标记语言([配置文件](http://colobu.com/2017/08/31/configuration-file-format/?utm_source=tuicool&utm_medium=referral)) （类：json,xml,properties）
@@ -61,6 +64,22 @@ github-pages：免费的静态资源部署容器（类：Coding Pages）
 
 ---
 ## 2.安装hexo
+- 准备
+```
+# 安装brew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# 安装node
+brew install node
+
+# 切换国内registry
+npm install nrm -g
+nrm ls
+nrm use taobao
+npm config list
+```
+参考:[Mac上安装Node和NPM - 简书](http://www.jianshu.com/p/20ea93641bda)
+
 - 安装
 ```
 $ npm install hexo-cli -g        #npm安装hexo-cli
@@ -79,6 +98,21 @@ $ hexo server        #开启预览(http://localhost:4000,Press Ctrl+C to stop)
 详见：
 `hexo你的博客`  http://www.tuicool.com/articles/AfQnQjy/
 [`手把手搭blog & github pages,hexo.md`](http://liuxiang.github.io/2016/03/13/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%90%ADblog%20&%20github%20pages,hexo/)
+
+### hexo相关
+`Plugins | Hexo`
+https://hexo.io/plugins/ 
+
+`浅析 Hexo 搭建博客的原理 - 掘金`
+https://juejin.im/post/598eeaff5188257d592e55bb
+
+`markdown格式，编写指导`
+马克飞象 https://maxiang.io/ 
+作业部落 https://www.zybuluo.com/mdeditor 
+七牛图床 http://yotuku.cn/
+
+`highlight Web语法高亮显示 Syntax highlighting for the Web`
+https://highlightjs.org/static/demo/ 
 
 ## 3.配置`travis-ci`
 - 准备
@@ -120,8 +154,16 @@ env:
 global:
   - GH_REF: github.com/yourname/yourname.github.io.git  #设置GH_REF，注意更改yourname
 ```
-
 细节详见：http://www.jianshu.com/p/92dc63551b80
+### 维护
+```
+git clone https://github.com/liuxiang/liuxiang.github.io.git
+git checkout blog-source
+...
+git add .
+git commit -am 'update'
+git push
+```
 
 ---
 ## 4.可能遇到的问题
@@ -159,7 +201,7 @@ Template render error: (unknown path) [Line 8, Column 23]
 http://www.cnblogs.com/qyun/p/6628601.html
 https://hexo.io/docs/troubleshooting.html
 
-### 问题一：`git push *`时`fatal: Authentication failed for 'https://@github.com/liuxiang/liuxiang.github.io.git/'`
+### 问题二：`git push *`时`fatal: Authentication failed for 'https://@github.com/liuxiang/liuxiang.github.io.git/'`
 ```
 The command "hexo g" exited with 0.
 $ cd ./public
