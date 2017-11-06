@@ -1,103 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8eb93ff1-6577-4b89-8c37-311758bc15cb" name="Default" comment="">
+    <list default="true" id="8eb93ff1-6577-4b89-8c37-311758bc15cb" name="Default" comment="update">
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/.babelrc" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/.editorconfig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/.eslintignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/.eslintrc.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/.gitattributes" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/languages/default.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/languages/fr.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/languages/nl.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/languages/no.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/languages/ru.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/languages/zh-CN.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/languages/zh-tw.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/aside.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/baidu-analytics.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/css.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/post/changyan.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/post/gitment.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/post/wangyiyun.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/script.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/toc.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/tools.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/viewer.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/_core.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/_function.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/archive.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/article-inner.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/article-main.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/article-nav.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/article.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/aside.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/comment.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/core/_animation.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/core/_media-queries.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/core/_mixin.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/core/_reset.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/core/_variables.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/fonts.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/fonts/iconfont.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/fonts/iconfont.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/fonts/iconfont.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/fonts/iconfont.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/footer.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/global.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/grid.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/highlight.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/img/checkered-pattern.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/img/scrollbar_arrow.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/img/tooltip.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/left.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/main.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/mobile-slider.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/mobile.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/page.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/reward.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/scroll.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/share.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/social.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/tags-cloud.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/tags.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/tools.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/css/tooltip.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/Q.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/anm.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/aside.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/browser.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/fix.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/main.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/mobile.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/report.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/share.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/slider.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/util.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/js/viewer.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source-src/script.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/fonts/default-skin.b257fa.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/fonts/iconfont.16acc2.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/fonts/iconfont.45d7ee.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/fonts/iconfont.8c627f.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/fonts/iconfont.b322fa.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/fonts/tooltip.4004ff.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/img/default-skin.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/img/preloader.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/main.507b3a.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/main.507b3a.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/mobile.fdc4b7.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/source/slider.e37972.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia/webpack.config.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/archive.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/tag.ejs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_variables.styl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/helpers/fancybox_buttons.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/helpers/jquery.fancybox-buttons.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/jquery.fancybox.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/jquery.fancybox.pack.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/js/jquery.lazyload.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/README.md" afterPath="$PROJECT_DIR$/themes/yilia_bak/README.md" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/_config.yml" afterPath="$PROJECT_DIR$/themes/yilia_bak/_config.yml" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/after-footer.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/after-footer.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/archive-post.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/archive-post.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/archive.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/archive.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/article.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/article.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/footer.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/footer.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/google-analytics.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/google-analytics.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/head.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/head.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/header.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/header.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/left-col.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/left-col.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/mathjax.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/mathjax.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/mobile-nav.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/mobile-nav.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/post/category.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/post/category.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/post/date.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/post/date.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/post/duoshuo.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/post/duoshuo.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/post/nav.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/post/nav.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/post/share.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/post/share.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/post/tag.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/post/tag.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/post/title.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/_partial/post/title.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/archive.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/archive.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/category.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/category.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/index.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/index.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/layout.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/layout.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/page.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/page.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/post.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/post.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/tag.ejs" afterPath="$PROJECT_DIR$/themes/yilia_bak/layout/tag.ejs" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/package.json" afterPath="$PROJECT_DIR$/themes/yilia_bak/package.json" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/assets/blogImg/head 13k.jpg" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/assets/blogImg/head 13k.jpg" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/assets/blogImg/head 32k.jpg" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/assets/blogImg/head 32k.jpg" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/assets/blogImg/head.jpg" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/assets/blogImg/head.jpg" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_extend.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_extend.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/archive.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/archive.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/article.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/article.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/footer.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/footer.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/header.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/header.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/highlight.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/highlight.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/instagram.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/instagram.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/main.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/main.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/mobile-slider.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/mobile-slider.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/mobile.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/mobile.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/page.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/page.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/scroll.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/scroll.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/share.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/share.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/tagcloud.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/tagcloud.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_partial/wheelmenu.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_partial/wheelmenu.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_util/grid.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_util/grid.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_util/mixin.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_util/mixin.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/_variables.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/_variables.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/fonts/fontawesome-webfont.eot" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/fonts/fontawesome-webfont.svg" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/fonts/fontawesome-webfont.svgz" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/fonts/fontawesome-webfont.svgz" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/fonts/fontawesome-webfont.ttf" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/fonts/fontawesome-webfont.woff" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/css/style.styl" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/css/style.styl" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/blank.gif" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/blank.gif" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/fancybox_loading.gif" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/fancybox_loading.gif" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/fancybox_loading@2x.gif" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/fancybox_loading@2x.gif" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/fancybox_overlay.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/fancybox_overlay.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/fancybox_sprite.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/fancybox_sprite.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/fancybox_sprite@2x.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/fancybox_sprite@2x.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/helpers/fancybox_buttons.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/helpers/fancybox_buttons.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/helpers/jquery.fancybox-buttons.css" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/helpers/jquery.fancybox-buttons.css" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/helpers/jquery.fancybox-buttons.js" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/helpers/jquery.fancybox-buttons.js" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/helpers/jquery.fancybox-media.js" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/helpers/jquery.fancybox-media.js" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/helpers/jquery.fancybox-thumbs.css" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/helpers/jquery.fancybox-thumbs.css" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/helpers/jquery.fancybox-thumbs.js" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/helpers/jquery.fancybox-thumbs.js" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/jquery.fancybox.css" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/jquery.fancybox.css" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/jquery.fancybox.js" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/jquery.fancybox.js" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/fancybox/jquery.fancybox.pack.js" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/fancybox/jquery.fancybox.pack.js" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/coderwall.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/coderwall.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/delicious.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/delicious.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/douban.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/douban.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/facebook.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/facebook.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/github.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/github.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/google.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/google.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/img-err.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/img-err.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/img-loading.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/img-loading.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/linkedin.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/linkedin.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/mail.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/mail.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/pinboard.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/pinboard.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/pinterest.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/pinterest.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/rss.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/rss.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/scrollbar_arrow.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/scrollbar_arrow.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/stackoverflow.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/stackoverflow.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/twitter.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/twitter.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/weibo.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/weibo.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/img/zhihu.png" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/img/zhihu.png" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/js/instagram.js" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/js/instagram.js" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/js/jquery.lazyload.js" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/js/jquery.lazyload.js" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/js/main.js" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/js/main.js" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/js/mobile.js" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/js/mobile.js" />
-      <change beforePath="$PROJECT_DIR$/themes/yilia/source/js/pc.js" afterPath="$PROJECT_DIR$/themes/yilia_bak/source/js/pc.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -152,11 +155,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_config.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_config.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_config.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="749">
-              <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -232,6 +245,7 @@
       <find>多说</find>
       <find>theme</find>
       <find>share_jia</find>
+      <find>top</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/themes/yilia_bak</dir>
@@ -256,6 +270,7 @@
         <option value="$PROJECT_DIR$/source/_posts/﻿idea关联sftp.md" />
         <option value="$PROJECT_DIR$/themes/yilia/_config.yml" />
         <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -303,17 +318,6 @@
             <path>
               <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="yilia" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -437,12 +441,12 @@
       <option name="presentableId" value="Default" />
       <updated>1508471176614</updated>
       <workItem from="1508471180811" duration="3646000" />
-      <workItem from="1509952806452" duration="7234000" />
+      <workItem from="1509952806452" duration="7620000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10880000" />
+    <option name="totallyTimeSpent" value="11266000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="813" extended-state="0" />
@@ -456,7 +460,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38022283" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5696379" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2532189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -481,18 +485,15 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/善用佳软@liuxiang.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -625,7 +626,15 @@
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="749">
-          <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
           <folding />
         </state>
       </provider>
