@@ -1,4 +1,4 @@
-﻿title: idea关联sftp
+﻿title: jetbrains idea关联sftp
 date: 2017-10-31 00:00:00
 categories: idea
 tags: [idea]

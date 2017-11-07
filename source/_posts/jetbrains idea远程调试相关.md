@@ -1,4 +1,4 @@
-﻿title: idea远程调试相关
+﻿title: jetbrains idea远程调试相关
 date: 2017-10-26 00:00:00
 categories: idea
 tags: [idea]

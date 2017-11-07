@@ -1,14 +1,15 @@
+
 # Header
 
 menu:
   主页: /
   所有文章: /archives
-  搜索(git): https://github.com/liuxiang/liuxiang.github.io/tree/blog-source/source/_posts
+  # 搜索(git): https://github.com/liuxiang/liuxiang.github.io/tree/blog-source/source/_posts
   # 搜索: https://github.com/liuxiang/blog.hexo/tree/master/source/_posts
   # 搜索: https://github.com/liuxiang/blog.hexo/search?l=markdown&o=desc&s=indexed&type=Code&utf8=%E2%9C%93
   i love yuan: http://liuxiang.github.io/iloveyuan
   Gallery: http://liuxiang.github.io/iloveyuan/FullPageImageGallery/photo.html
-  关于我(技术的生活面): /1988/12/27/关于我(技术的生活面)/
+  # 关于我(技术的生活面): /1988/12/27/关于我(技术的生活面)/
   # 随笔: /tags/随笔
 
 # SubNav
@@ -60,7 +61,7 @@ weixin:
 
 # 目录
 # 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
-toc: 1
+toc: 2
 # 根据自己的习惯来设置，如果你的目录标题习惯有标号，置为true即可隐藏hexo重复的序号；否则置为false
 toc_hide_index: true
 # 目录为空时的提示
@@ -137,5 +138,3 @@ friends:
   #友情链接6: http://localhost:4000/
 
 aboutme: 感谢评读
-
-
