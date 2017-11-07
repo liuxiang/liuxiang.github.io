@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8eb93ff1-6577-4b89-8c37-311758bc15cb" name="Default" comment="update">
-      <change beforePath="" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/blog2git.lnk" afterPath="$PROJECT_DIR$/win/blog2git.lnk" />
-      <change beforePath="$PROJECT_DIR$/blogrun.lnk" afterPath="$PROJECT_DIR$/win/blogrun.lnk" />
-      <change beforePath="$PROJECT_DIR$/github上传更新.bat" afterPath="$PROJECT_DIR$/win/github上传更新.bat" />
-      <change beforePath="$PROJECT_DIR$/node模块初始化.bat" afterPath="$PROJECT_DIR$/win/node模块初始化.bat" />
-      <change beforePath="$PROJECT_DIR$/启动本地服务.bat" afterPath="$PROJECT_DIR$/win/启动本地服务.bat" />
-      <change beforePath="$PROJECT_DIR$/编译.bat" afterPath="$PROJECT_DIR$/win/编译.bat" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/jetbrains idea远程调试相关.md" afterPath="$PROJECT_DIR$/source/_posts/jetbrains idea远程调试相关.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,25 +25,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="jetbrains idea远程调试相关.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/jetbrains idea远程调试相关.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="235">
-                <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <first_editor relative-caret-position="165">
+                <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.travis.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-140">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -107,9 +91,9 @@
         <option value="$PROJECT_DIR$/source/_posts/idea远程调试相关.md" />
         <option value="$PROJECT_DIR$/source/_posts/idea关联sftp.md" />
         <option value="$PROJECT_DIR$/source/_posts/jetbrains idea关联sftp.md" />
-        <option value="$PROJECT_DIR$/source/_posts/jetbrains idea远程调试相关.md" />
         <option value="$PROJECT_DIR$/win/github上传更新.bat" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/source/_posts/jetbrains idea远程调试相关.md" />
       </list>
     </option>
   </component>
@@ -158,6 +142,41 @@
             <path>
               <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="2017" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="2017" type="462c0819:PsiDirectoryNode" />
+              <item name="10" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="2017" type="462c0819:PsiDirectoryNode" />
+              <item name="10" type="462c0819:PsiDirectoryNode" />
+              <item name="26" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="2017" type="462c0819:PsiDirectoryNode" />
+              <item name="10" type="462c0819:PsiDirectoryNode" />
+              <item name="26" type="462c0819:PsiDirectoryNode" />
+              <item name="jetbrains idea远程调试相关" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -287,12 +306,12 @@
       <workItem from="1508471180811" duration="3646000" />
       <workItem from="1509952806452" duration="8004000" />
       <workItem from="1509964506046" duration="53000" />
-      <workItem from="1510018656131" duration="3099000" />
+      <workItem from="1510018656131" duration="3497000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14802000" />
+    <option name="totallyTimeSpent" value="15200000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="813" extended-state="0" />
@@ -593,17 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/jetbrains idea远程调试相关.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="45">
-            <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/jetbrains idea效率.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -690,11 +698,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-508">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="235">
             <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/jetbrains idea远程调试相关.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="165">
+            <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />

@@ -53,7 +53,7 @@ idea 555 liuxiang 151u IPv4 0xe8ce82f432b2fc1f 0t0 TCP 10.57.240.227:58302->loca
 # 四.动态更新远程服务器
 ## 1.变量赋值Evaluate Expression (`当前线程栈有效,新线程失效`)
 ![](http://7xnbs3.com1.z0.glb.clouddn.com/17-11-6/37841573.jpg)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-11-6/39263772.jpg)
+![](http://7xnbs3.com1.z0.glb.clouddn.com/17-11-7/22897891.jpg)
 
 ## 2.本地字节码,同步远程服务器(`当前实例,重启失效`)
 - 第一步: 先debug连接上远程服务器
