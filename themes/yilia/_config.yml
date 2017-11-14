@@ -128,8 +128,9 @@ smart_menu:
   #aboutme: '关于我'
 
 friends:
-  正一的博客: http://jeremy017.github.io
-  邹学文博客: http://zouxuewen.github.io
+  正一blog: http://jeremy017.github.io
+  学文blog: http://zouxuewen.github.io
+  小伍blog: https://zhouxiaowu.coding.me
   #友情链接1: http://localhost:4000/
   #友情链接2: http://localhost:4000/
   #友情链接3: http://localhost:4000/
