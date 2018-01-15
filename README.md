@@ -22,3 +22,10 @@ git push
 - 配置:_config.yml中deploy
 
 详见:﻿blog工具选择 & travis-ci自动构建.md
+
+# git remote -v (配合 .travis.yml)
+```
+liuxiang.github.io git:(blog-source) ✗ git remote -v
+origin  https://github.com/liuxiang/liuxiang.github.io.git (fetch)
+origin  https://github.com/liuxiang/liuxiang.github.io.git (push)
+```
