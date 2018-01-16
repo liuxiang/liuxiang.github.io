@@ -1,5 +1,6 @@
-title: idea plugin - findtheflow相关
-date: 2018-01-10 00:00:00
+﻿title: idea plugin - findtheflow相关
+date: 2018-1-10 00:00:00
+categories: findtheflow
 tags: [findtheflow]
 
 ---
@@ -46,6 +47,40 @@ http://findtheflow.io/docs/doc_intellij.html#_how_to_record_an_execution
 
 - 场景2:记录应用的启动堆栈.方法同`场景1`设置勾选`flow-Start recording from the beginning`
 - 场景3:对运行时,片段执行程序生成堆栈视图. 在操作前点击`Record`,操作后点击`Stop`,会自动生成`Recording`
+
+---
+# 三.不使用IntelliJ？尝试流单机版 `How to use Flow standalone version?`
+> We recommend you to use Flow in standalone mode only if you do not run your application from IntelliJ. You can skip this section if you are using Flow plugin for IntelliJ.
+
+## 1.Download and Installation
+Download the standalone version of Flow. Unzip it to any place you like.
+http://download.findtheflow.io/flow-20171022095110.zip
+
+## 2.Startup
+Run Flow standalone version with command:
+`java -jar flow-${version-number}.jar`
+You will see the message below when Flow is started.
+```
+$ java -jar flow-20171022095110.jar
+______ _
+| ___|| |
+| |_ | | ___ __ __
+| _| | | / _ \ \ \ /\ / /
+| | | || (_) | \ V V /
+\_| |_| \___/ \_/\_/
+Flow is starting...
+Flow is ready.
+```
+
+## 3.Configure and run your application with Flow
+You need to run your application with the following VM options:
+- `-javaagent:${user-directory}/.flow/resources/javaagent.jar`
+- `-Dflow.agent.include=com.foo` : packages and classes to include to the recording (comma-separated)
+- `-Dflow.agent.exclude=com.foo,com.bar.Baz (optional)`: packages and classes to exclude from the recording (comma-separated)
+- `-Dflow.agent.autostart (optional)`: record the application from the beginning
+- `-Dflow.agent.execution-name=myapp (optional)`: execution and recording name displayed in the Flow webapp
+
+详见: http://findtheflow.io/docs/doc_intellij.html#_how_to_use_flow_standalone_version
 
 ---
 **更多参考** 

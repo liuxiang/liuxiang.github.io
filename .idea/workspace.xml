@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8eb93ff1-6577-4b89-8c37-311758bc15cb" name="Default" comment="update">
-      <change beforePath="" afterPath="$PROJECT_DIR$/source/_posts/﻿dubbo连接关系查看.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/source/_posts/﻿git submodule(子模块).md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/source/_posts/﻿mysql null如何比较相等.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/source/_posts/﻿mysql sql json解析支持.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/source/_posts/﻿powermock + JaCoCo的覆盖率为None情况(版本不兼容导致).md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/source/_posts/﻿spring boot项目打包war.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/source/_posts/﻿前端 xss攻击,标签转义防御.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/source/_posts/﻿匿名内部类,构造块{{_}}.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/source/_posts/﻿数据库表关系检索方法.md" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/yeoman 之 generator-gulp-angular 部分js,css,fonts不能自动" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/﻿10x效率.md" afterPath="" />
-    </list>
+    <list default="true" id="8eb93ff1-6577-4b89-8c37-311758bc15cb" name="Default" comment="update" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +21,21 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="277">
+                <caret line="25" column="29" lean-forward="false" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -59,6 +60,7 @@
       <find>jetbrains</find>
       <find>toc</find>
       <find>YAMLException</find>
+      <find>blog-source</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/themes/yilia_bak</dir>
@@ -88,7 +90,6 @@
         <option value="$PROJECT_DIR$/source/_posts/idea关联sftp.md" />
         <option value="$PROJECT_DIR$/source/_posts/jetbrains idea关联sftp.md" />
         <option value="$PROJECT_DIR$/win/github上传更新.bat" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/source/_posts/jetbrains idea远程调试相关.md" />
         <option value="$PROJECT_DIR$/source/_posts/﻿善用佳软.md" />
         <option value="$PROJECT_DIR$/themes/yilia/_config.yml" />
@@ -104,6 +105,7 @@
         <option value="$PROJECT_DIR$/win/启动本地服务.bat" />
         <option value="$PROJECT_DIR$/source/_posts/﻿dubbo连接关系查看.md" />
         <option value="$PROJECT_DIR$/source/_posts/hexo YAML [分类 &amp; 标签]编译问题.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -149,17 +151,6 @@
             <path>
               <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="_posts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -299,15 +290,16 @@
       <workItem from="1510056446448" duration="770000" />
       <workItem from="1510624759950" duration="406000" />
       <workItem from="1510658752423" duration="112000" />
-      <workItem from="1516013795547" duration="2288000" />
+      <workItem from="1516013795547" duration="2956000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20096000" />
+    <option name="totallyTimeSpent" value="20764000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="813" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -320,10 +312,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Mybatis datasource" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="MyBatis Sql Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6518106" sideWeight="0.49713877" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31058496" sideWeight="0.49713877" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27539343" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27539343" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -580,16 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="87">
-            <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/yilia/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -750,6 +732,17 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="277">
+            <caret line="25" column="29" lean-forward="false" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
             <folding />
           </first_editor>
           <second_editor />
