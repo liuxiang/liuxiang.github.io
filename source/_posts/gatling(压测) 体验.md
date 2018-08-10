@@ -1,4 +1,4 @@
-title: gatling(压测) 体验
+﻿title: gatling(压测工具) 体验
 date: 2018-4-05 00:00:00
 categories: gatling
 tags: [gatling]
@@ -8,10 +8,30 @@ tags: [gatling]
 [TOC]
 
 ---
-# gatling 概述
+# 一.gatling 概述
+能生成丰富多彩的报告，包含测试案例中收集的所有指标。该功能似乎比 JMeter 更好
+
+- 比对
+- lr，太臃肿，99%的功能用不上。
+- ab，安装apache的附属品，windows安装失败。
+- locust，基于python，号称能发起百万级并发。但是，对比测试结果的时候，跟jmeter和gatling差一个数量级。
+
+- 下载 : https://gatling.io/download/
+```
+bin/目录存放gatling的可执行文件，conf/存放配置，通常保持默认即可，lib/存放gatling本身的依赖，用户不用管，results/存放报告，user-files/是用户最主要使用的目录，用户定义的测试场景相关的代码均存放于此目录下。
+zip包解压缩以后已经带有了一个官方的示例文件BasicSimulation.scala，想看看演示效果的直接使用bin/gatling.(bat|sh)启动就可以了。这个演示的场景描述见官方文档。那几个AdvancedSimulationStep其实效果上和BasicSimulation完全一致，只是官方提供了一些参考的DSL写法而已。
+```
+
+- 运行:`sh gatling.sh`
+Gatling教程系列,见: https://segmentfault.com/a/1190000005057103
+
+-  idea 集成
+    - 运行:`mvn gatling:execute`
+    - maven-plugin: https://gatling.io/docs/2.3/extensions/maven_plugin/
+见:http://www.51testing.com/html/56/n-3723956.html
 
 ---
-# Simulation配置
+# 二.配置(Simulation)
 - user-files/simulations/computerdatabase/BasicSimulation.scala
 ```
 package computerdatabase // 1
@@ -60,12 +80,13 @@ val 是定义一个常量的关键字。变量类型没有定义，由Scala编�
 时间单位默认为 seconds（秒），如：pause(5)等同于 pause(5 seconds).
 关于Simulation 结构的详细信息，请查看 Simulation 参考页面.
 ```
+**参考**
 https://gatling.io/docs/current/quickstart/#gatling-scenario-explained
 https://testerhome.com/topics/3633
 
 ---
-# 压测场景
-## 1 几种压测场景示例：
+# 三.压测场景
+## 1. 几种压测场景示例：
 ```
 //600秒跑1000个用户
 setUp(scn.inject(rampUsers(100000) over (600 seconds)).protocols(httpConf))  
@@ -77,14 +98,14 @@ setUp(scn.inject(rampUsersPerSec(250) to 300 during(10 minutes)).protocols(httpC
 setUp(scn.inject(atOnceUsers(300)).protocols(httpConf))  
 ```
 
-## 2 并发场景：
+## 2. 并发场景：
 如果需要同时压多台机器，可以使用方法：
 ```
 .baseURLs("http://10.0.0.1",“http://10.0.0.2")  
 注：场景并发数据为压测多台机机并发数的总和
 ```
 
-## 3 其他场景介绍：
+## 3. 其他场景介绍：
 ```
 setUp(  
   scn.inject(  
@@ -116,7 +137,8 @@ setUp(
 `gatling详细使用 - CSDN博客`
 https://blog.csdn.net/qq_37023538/article/details/54950827
 
-# maven集成
+---
+# 四.maven集成
 - 配置
 ```
 <properties>
@@ -141,7 +163,7 @@ https://blog.csdn.net/qq_37023538/article/details/54950827
             <version>${gatling-plugin.version}</version>
             <configuration>
                 <!-- 测试脚本 -->
-                <simulationClass>c/test/scala</simulationClass>
+                <simulationClass>gatling.GatewaySimulation</simulationClass><!-- src/Test/gatling/GatewaySimulation -->
 
                 <!-- 结果输出地址 -->
                 <resultsFolder>target/gatling/results</resultsFolder>
@@ -168,32 +190,111 @@ https://blog.csdn.net/qq_37023538/article/details/54950827
 </build>
 ```
 
+## 多测试脚本
+```
+<configuration>
+    <!-- (单)测试脚本 -->
+    <!--<simulationClass>gatling.GatewaySimulation</simulationClass>-->
+    <!-- 多测试脚本 -->
+    <runMultipleSimulations>true</runMultipleSimulations>
+    <includes>
+        <param>gatling.GatewayServletSimulation</param>
+        <param>gatling.GatewayFluxSimulation</param>
+    </includes>
+    <!-- 结果输出地址 -->
+    <resultsFolder>target/gatling/results</resultsFolder>
+    <!-- 其它 -->
+    <!--<configFolder>src/test/resources</configFolder>-->
+    <!--<dataFolder>src/test/resources/data</dataFolder>-->
+    <!--<bodiesFolder>src/test/resources/bodies</bodiesFolder>-->
+</configuration>
+```
+- 仅配置runMultipleSimulations可跑全部模拟
+```
+<configuration>
+    <runMultipleSimulations>true</runMultipleSimulations>
+</configuration>
+```
+
+## Maven生命周期控制
+- 需要在构建中多次运行插件(例如,为了按顺序运行多个模拟).一个解决方案是配置几个execution块，每块有不同的configuration块
+```
+<executions>
+    <execution>
+        <id>execution-1</id>
+        <goals>
+            <goal>execute</goal>
+        </goals>
+        <configuration>
+            <simulationClass>gatling.GatewayServletSimulation</simulationClass>
+            <resultsFolder>target/gatling/results</resultsFolder>
+        </configuration>
+    </execution>
+
+    <execution>
+        <id>execution-2</id>
+        <goals>
+            <goal>execute</goal>
+        </goals>
+        <configuration>
+            <simulationClass>gatling.GatewayFluxSimulation</simulationClass>
+            <resultsFolder>target/gatling/results</resultsFolder>
+        </configuration>
+    </execution>
+    <!-- Here, can repeat the above execution segment to do another test -->
+</executions>
+```
+
 - 运行
 ```
 mvn gatling:execute
+
+- 测试
+mvn gatling:test // bound to test phase
+mvn gatling:integration-test // bound to integration-test phase
 ```
 
 `GETTING STARTED WITH SCALA IN INTELLIJ`
 https://docs.scala-lang.org/getting-started-intellij-track/getting-started-with-scala-in-intellij.html
 
-# 相关资源
-- plugins.jetbrains scala 下载
-https://plugins.jetbrains.com/plugin/1347-scala
+---
+# 五.测试mvc与flux差异
+## servlet 
+![](http://7xnbs3.com1.z0.glb.clouddn.com/18-8-7/49517667.jpg)
 
-# 问题
+## webFlux
+![](http://7xnbs3.com1.z0.glb.clouddn.com/18-8-7/22986327.jpg)
+
+---
+# 六.可能会遇到的问题
 ## object gatling is not a member of package io
 ```
 10:57:26.167 [main][ERROR][ZincCompiler.scala:140] i.g.c.ZincCompiler$ - /Users/liuxiang/Desktop/work/forseti-zuul/forseti-gateway/service/src/test/scala/ForsetiGatewaySimulation.scala:18: object gatling is not a member of package io
 10:57:26.179 [main][ERROR][ZincCompiler.scala:140] i.g.c.ZincCompiler$ - import io.gatling.core.Predef._
 ```
 - 尝试一: 导入scala-SDK. (结果:未解决,`io.gatling.core.Predef._`非`scala`内容,而是`gatling`内容)
-
 - 尝试二: 检查gatling依赖.结果:依赖完整,但无法在compile时不能识别.
 
-
+---
+## Pruning sources from previous analysis, due to incompatible 
+```
+03:02:39.500 [main][WARN ][ZincCompiler.scala:141] i.g.c.ZincCompiler$ - Pruning sources from previous analysis, due to incompatible CompileSetup.
+java.lang.reflect.InvocationTargetException
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at io.gatling.mojo.MainWithArgsInFile.runMain(MainWithArgsInFile.java:50)
+        at io.gatling.mojo.MainWithArgsInFile.main(MainWithArgsInFile.java:33)
+Caused by: java.lang.IllegalArgumentException: The requested class 'gatling.ForsetiGatewaySimulation' can not be found in the classpath or does not extends Simulation.
+        at io.gatling.app.Selection$Selector.$anonfun$trySelectingSingleSimulation$3(Selection.scala:80)
+```
+- 诊断: can not be found in the classpath or does not extends Simulation. 未继承Simulation,看起来像没有找到这个类文件.检查target
+- 原因: 检查target发现未生成class,删除原target,重新builder即可恢复.  后续变更,如不能实时build,可暂时手动处理(`或Command+Shift+F9`)
 
 ---
-**相关**
+**相关参考**
+
 `Gatling Load and Performance testing - Open-source load and performance testing`
 https://gatling.io/docs/current/quickstart/
 翻译: https://testerhome.com/topics/3633
@@ -210,3 +311,10 @@ https://www.tuicool.com/articles/fiemeyN
 `jenkins：应用篇（Gatling plugin的使用） - shihuc - 博客园`
 https://www.cnblogs.com/shihuc/p/5149035.html
 https://www.bbsmax.com/A/QW5YXDnYJm/
+
+`性能测试Gatling入门教程 | EZLippi-浮生志`
+https://www.ezlippi.com/blog/2018/01/gatling.html
+
+`plugins.jetbrains scala 下载`
+https://plugins.jetbrains.com/plugin/1347-scala
+

@@ -1,4 +1,4 @@
-title: hexo YAML [分类 & 标签]编译问题
+title: hexo YAML (分类 & 标签)编译问题
 date: 2015-11-30 00:00:00 #发表日期，一般不改动
 categories: hexo #文章文类 
 tags: [hexo,YAML]

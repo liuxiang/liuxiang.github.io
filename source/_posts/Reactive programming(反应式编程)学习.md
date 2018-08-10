@@ -1,4 +1,4 @@
-title: Reactive programming(反应式编程)学习
+title: Reactive programming(响应式编程)学习
 date: 2018-4-19 00:00:00
 categories: Reactive
 tags: [Reactive]
@@ -8,29 +8,30 @@ tags: [Reactive]
 [TOC]
 
 ---
+# 体验概述
+- 编程模式(反应式)的改变
+- 利用反应式编程方便对非阻塞实现的封装(WebFlux)
+- ...
+
+---
+
 # 介绍
 反应式编程（Reactive Programming）这种新的编程范式越来越受到开发人员的欢迎。在 Java 社区中比较流行的是 RxJava 和 RxJava 2。以及一个新的反应式编程库 Reactor。
 
 ReactiveX是Reactive Extensions的缩写，一般简写为Rx。Rx是一个编程模型，目标是提供一致的编程接口，帮助开发者更方便的处理异步数据流，Rx库支持.NET、JavaScript和C++，Rx近几年越来越流行了，现在已经支持几乎全部的流行编程语言了。社区网站是 ReactiveX 。
 
 - `RxJava / RxJava2`  (https://github.com/ReactiveX/RxJava)
-    - https://github.com/ReactiveX/RxJava/wiki
-    - https://github.com/mcxiaoke/RxDocs  `中文doc`
-    - https://github.com/kaushikgopal/RxJava-Android-Samples  `示例`
-    - http://gank.io/post/560e15be2dca930e00da1083#toc_8 `示例`
-
-- `Reactor3` (https://github.com/reactor/reactor-core) / Spring WebFlux
-    - http://projectreactor.io/docs
-    - http://projectreactor.io/docs/core/release/api/
-    - http://projectreactor.io/docs/core/release/reference/
+- `Reactor3` (https://github.com/reactor/reactor-core)
+    - `Spring WebFlux`(https://docs.spring.io/spring/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/web-reactive.html#webflux)
 
 ## reactivex.io/doc
-http://reactivex.io/documentation/observable.html   
+> http://reactivex.io/documentation/observable.html   
 http://reactivex.io/documentation/operators.html
 http://reactivex.io/documentation/single.html 
 http://reactivex.io/documentation/subject.html
 http://reactivex.io/documentation/scheduler.html
 
+---
 **参考**
 `Java Reactive 异步与并发编程`
 https://blog.csdn.net/pmlpml/article/details/70470416
@@ -50,12 +51,13 @@ https://www.zhihu.com/topic/20027327/top-answers?page=1
 
 ---
 ## 反应式编程介绍
-反应式编程来源于数据流和变化的传播，意味着由底层的执行模型负责通过数据流来自动传播变化。比如求值一个简单的表达式 c=a+b，当 a 或者 b 的值发生变化时，传统的编程范式需要对 a+b 进行重新计算来得到 c 的值。如果使用反应式编程，当 a 或者 b 的值发生变化时，c 的值会自动更新。反应式编程最早由 .NET 平台上的 Reactive Extensions (Rx) 库来实现。后来迁移到 Java 平台之后就产生了著名的 RxJava 库，并产生了很多其他编程语言上的对应实现。在这些实现的基础上产生了后来的反应式流（Reactive Streams）规范。该规范定义了反应式流的相关接口，并将集成到 Java 9 中。
+反应式编程来源于数据流和变化的传播，意味着由底层的执行模型负责通过数据流来自动传播变化。`比如求值一个简单的表达式 c=a+b，当 a 或者 b 的值发生变化时，传统的编程范式需要对 a+b 进行重新计算来得到 c 的值`。如果`使用反应式编程，当 a 或者 b 的值发生变化时，c 的值会自动更新`。反应式编程最早由 .NET 平台上的 Reactive Extensions (Rx) 库来实现。后来迁移到 Java 平台之后就产生了著名的 RxJava 库，并产生了很多其他编程语言上的对应实现。在这些实现的基础上产生了后来的反应式流（Reactive Streams）规范。该规范定义了反应式流的相关接口，并将集成到 Java 9 中。
 在传统的编程范式中，我们一般通过迭代器（Iterator）模式来遍历一个序列。这种遍历方式是由调用者来控制节奏的，采用的是拉的方式。每次由调用者通过 next()方法来获取序列中的下一个值。使用反应式流时采用的则是推的方式，即常见的发布者-订阅者模式。当发布者有新的数据产生时，这些数据会被推送到订阅者来进行处理。在反应式流上可以添加各种不同的操作来对数据进行处理，形成数据处理链。这个以声明式的方式添加的处理链只在订阅者进行订阅操作时才会真正执行。
 反应式流中第一个重要概念是负压（backpressure）。在基本的消息推送模式中，当消息发布者产生数据的速度过快时，会使得消息订阅者的处理速度无法跟上产生的速度，从而给订阅者造成很大的压力。当压力过大时，有可能造成订阅者本身的奔溃，所产生的级联效应甚至可能造成整个系统的瘫痪。负压的作用在于提供一种从订阅者到生产者的反馈渠道。订阅者可以通过 request()方法来声明其一次所能处理的消息数量，而生产者就只会产生相应数量的消息，直到下一次 request()方法调用。这实际上变成了推拉结合的模式。
 
+---
 ## Reactor 简介
-前面提到的 RxJava 库是 JVM 上反应式编程的先驱，也是反应式流规范的基础。RxJava 2 在 RxJava 的基础上做了很多的更新。不过 RxJava 库也有其不足的地方。RxJava 产生于反应式流规范之前，虽然可以和反应式流的接口进行转换，但是由于底层实现的原因，使用起来并不是很直观。RxJava 2 在设计和实现时考虑到了与规范的整合，不过为了保持与 RxJava 的兼容性，很多地方在使用时也并不直观。Reactor 则是完全基于反应式流规范设计和实现的库，没有 RxJava 那样的历史包袱，在使用上更加的直观易懂。Reactor 也是 Spring 5 中反应式编程的基础。学习和掌握 Reactor 可以更好地理解 Spring 5 中的相关概念。
+前面提到的 RxJava 库是 JVM 上反应式编程的先驱，也是反应式流规范的基础。RxJava 2 在 RxJava 的基础上做了很多的更新。不过 RxJava 库也有其不足的地方。RxJava 产生于反应式流规范之前，虽然可以和反应式流的接口进行转换，但是由于底层实现的原因，使用起来并不是很直观。RxJava 2 在设计和实现时考虑到了与规范的整合，不过为了保持与 RxJava 的兼容性，很多地方在使用时也并不直观。`Reactor 则是完全基于反应式流规范设计和实现的库`，没有 RxJava 那样的历史包袱，在使用上更加的直观易懂。Reactor 也是 Spring 5 中反应式编程的基础。学习和掌握 Reactor 可以更好地理解 Spring 5 中的相关概念。
 
 `使用 Reactor 进行反应式编程`
 https://www.ibm.com/developerworks/cn/java/j-cn-with-reactor-response-encode/index.html?lnk=hmhm
@@ -70,7 +72,51 @@ https://luyiisme.github.io/2017/02/11/spring-reactor-programing/?utm_source=tuic
 http://blog.51cto.com/liukang/2090191
 
 ---
+# Rxjava
+- `RxJava / RxJava2`  (https://github.com/ReactiveX/RxJava)
+    - https://github.com/ReactiveX/RxJava/wiki
+        - How To Use RxJava(如何使用) https://github.com/ReactiveX/RxJava/wiki/How-To-Use-RxJava
+        - What's different in 2.0 (在2.0有什么不同) https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0
+    - https://github.com/mcxiaoke/RxDocs  `中文doc`
+    - https://github.com/kaushikgopal/RxJava-Android-Samples  `示例`
+    - http://gank.io/post/560e15be2dca930e00da1083#toc_8 `示例`
+
+## 观察者模式
+- Observable ( 被观察者 ) / Observer ( 观察者 )
+- Flowable （被观察者）/ Subscriber （观察者）
+![](https://upload-images.jianshu.io/upload_images/3994917-21e4dcc1b5e3196a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+
+## RxJava2
+`这可能是最好的RxJava 2.x 教程（完结版） - 简书` https://www.jianshu.com/p/0cd258eecf60
+`给初学者的RxJava2.0教程(一)` https://www.jianshu.com/p/464fa025229e
+`给初学者的RxJava2.0教程(二) - 简书` https://www.jianshu.com/p/8818b98c44e2
+`可能是最好的 Rx 初学者教程` https://zhuanlan.zhihu.com/p/25552305
+
+### RxJava2 vs RxJava1
+- RxJava2最大的改动就是对于backpressure的处理，为此将原来的Observable拆分成了新的Observable和Flowable，同时其他相关部分也同时进行了拆分。https://www.jianshu.com/p/850af4f09b61
+- rxjava1 到 rxjava2的一些类名和类的方法名发生了变化。因此在使用new方式来设置对象的时候，通过要把类名和方法名字一起改了，如果使用的是lambda表达式，那么基本不用改代码。[+变更事项]   https://blog.csdn.net/weixin_39595561/article/details/78463173
+- RxJava1 跟 RxJava2 不能共存.[+变更事项]  https://www.jianshu.com/p/6d644ca1678f
+- Subject是RxJava1.x中就有的，继承自Observable，所以不支持背压，Processor是RxJava2.x中新加入的，所以支持背压 [+变更事项]  https://blog.csdn.net/jeasonlzy/article/details/74269443
+- RxJava2与RxJava的比较 https://blog.csdn.net/jianesrq0724/article/details/54892758
+
+---
 # Reactor3 / Spring WebFlux 
+
+- `Reactor3` (https://github.com/reactor/reactor-core) / Spring WebFlux
+    - http://projectreactor.io/docs
+    - http://projectreactor.io/docs/core/release/api/
+    - http://projectreactor.io/docs/core/release/reference/
+    - http://projectreactor.mydoc.io/ `Reactor2中文版`
+    - http://htmlpreview.github.io/?https://github.com/get-set/reactor-core/blob/master-zh/src/docs/index.html `Reactor3中文版`
+
+`响应式编程库Reactor 3 Reference Guide参考文档中文版（跟进最新版） - CSDN博客`
+https://blog.csdn.net/get_set/article/details/79471861
+
+---
+## WebFlux 简介
+WebFlux 模块的名称是 spring-webflux，名称中的 Flux 来源于 Reactor 中的类 Flux。该模块中包含了对反应式 HTTP、服务器推送事件和 WebSocket 的客户端和服务器端的支持。对于开发人员来说，比较重要的是服务器端的开发，这也是本文的重点。在服务器端，WebFlux 支持两种不同的编程模型：第一种是 Spring MVC 中使用的基于 Java 注解的方式；第二种是基于 Java 8 的 lambda 表达式的函数式编程模型。这两种编程模型只是在代码编写方式上存在不同。它们运行在同样的反应式底层架构之上，因此在运行时是相同的。WebFlux 需要底层提供运行时的支持，WebFlux 可以运行在支持 Servlet 3.1 非阻塞 IO API 的 Servlet 容器上，或是其他异步运行时环境，如 Netty 和 Undertow。
+
+---
 ## Spring WebFlux动机
 为什么要创建Spring WebFlux？
 部分答案是需要一个无阻塞的Web栈来处理少量线程的并发性，并用较少的硬件资源进行扩展。Servlet 3.1确实为非阻塞I / O提供了一个API。但是，使用它会导致Servlet API的其余部分在同步（Filter，Servlet）或阻塞（getParameter， getPart）中生效。这是一个新的公共API作为跨越任何非阻塞运行时的基础的动机。这一点很重要，因为诸如Netty这样的服务器已经在异步，非阻塞空间中很好地建立起来了。
@@ -85,6 +131,29 @@ http://blog.51cto.com/liukang/2090191
 `（5）Spring WebFlux快速上手——响应式Spring的道法术器-刘康的博客-51CTO博客`
 http://blog.51cto.com/liukang/2090198
 
+```
+# 仅参考
+SpringMVC是同步阻塞的IO模型，在处理一个比较耗时的任务时,线程一直在任务完成，期间线程是阻塞状态
+Spring WebFlux的异步非阻塞模型,在处理一个比较耗时的任务时,线程可以做别的事情，期间线程是非阻塞状态.  
+`深入浅出Spring Webflux系列（一）`
+https://baijiahao.baidu.com/s?id=1590054970815500024&wfr=spider&for=pc
+```
+
+- Reactive意义: 当同步阻塞实现时,没有什么意义.但当流式处理时,客户端能逐步接收服务端的数据,表现为`同步非阻塞`实现.
+```
+/**
+ * localhost:8080/flux/times
+ *
+ * @return
+ */
+@GetMapping(value = "/times", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+public Flux<String> times() {
+    return Flux.interval(Duration.ofSeconds(1)) 
+            .map(l -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));// 无限流[服务端推送]
+}
+```
+
+---
 **参考**
 `spring Reactive RESTful Web Service`
 https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-module
@@ -100,7 +169,7 @@ https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reacti
 `Spring 5 之 Spring Webflux 开发 Reactive 应用 - 可译网`
 https://coyee.com/article/12086-spring-5-reactive-web
 
-`使用 Spring 5 的 WebFlux 开发反应式 Web 应用`
+`使用 Spring 5 的 WebFlux 开发反应式 Web 应用` `★★★`
 https://www.ibm.com/developerworks/cn/java/spring5-webflux-reactive/index.html
 
 `Spring 5：使用 Spring Webflux 开发 Reactive 应用 - 技术翻译 - 开源中国社区`
@@ -120,7 +189,7 @@ https://www.oschina.net/translate/spring-5-reactive-web-services
 - WebFlux: 核心组件，协调上下游各个组件提供响应式编程支持。
 - Reactive Streams: 一种支持背压（Backpressure）的异步数据流处理标准，主流实现有RxJava和Reactor，Spring WebFlux默认集成的是Reactor。
 在Web容器的选择上，Spring WebFlux既支持像Tomcat，Jetty这样的的传统容器（前提是支持Servlet 3.1 Non-Blocking IO API），又支持像Netty，Undertow那样的异步容器。不管是何种容器，Spring WebFlux都会将其输入输出流适配成Flux<DataBuffer>格式，以便进行统一处理。
-值得一提的是，除了新的Router Functions接口，Spring WebFlux同时支持使用老的Spring MVC注解声明Reactive Controller。和传统的MVC Controller不同，Reactive Controller操作的是非阻塞的ServerHttpRequest和ServerHttpResponse，而不再是Spring MVC里的HttpServletRequest和HttpServletResponse。
+值得一提的是，除了新的Router Functions接口，Spring WebFlux同时支持使用老的Spring MVC注解声明Reactive Controller。和传统的MVC Controller不同，Reactive Controller操作的是非阻塞的`ServerHttpRequest`和`ServerHttpResponse`，而不再是Spring MVC里的`HttpServletRequest`和`HttpServletResponse`。
 ```
  @GetMapping("/reactive/restaurants")
     public Flux<Restaurant> findAll() {
@@ -237,3 +306,4 @@ https://www.jianshu.com/p/3ccfca09dcd6
 ---
 # 其它
 - 相关`Reactor / Proactor` 见: `Reactor Proactor 事件模式[reactor/proactor].md`
+

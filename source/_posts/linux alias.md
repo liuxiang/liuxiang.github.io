@@ -1,7 +1,5 @@
 
-title:  linux alias
-
-
+title: linux alias
 date: 2017-05-21 00:00:00
 tags: [ alias ]
 
