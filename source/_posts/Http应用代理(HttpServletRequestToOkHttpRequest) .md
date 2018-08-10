@@ -4,7 +4,9 @@ categories: httpProxy
 tags: [httpProxy]
 
 ---
+[TOC]
 
+---
 # 场景
 当某客户端想调用的某服务端,受到网络隔离等因素造成无法访问. 
 如果存在一台两边互通的应用(proxy),可以借此为`跳板应用`.
@@ -14,7 +16,7 @@ tags: [httpProxy]
 - http流切换,兼容代理:  基于inputStream自动切换request(HttpServletRequestToOkHttpRequest)可全类型自动兼容,再代理发送.
 
 - 示例:
-localhost:8010/httpProxy?uri=localhost:8010/httpProxy/serverMock&aa=bb
+localhost:8010/httpProxy?uri=localhost:8010/serverMock&aa=bb
 
 ---
 # Http流切换,兼容代理示例
@@ -29,13 +31,20 @@ localhost:8010/httpProxy?uri=localhost:8010/httpProxy/serverMock&aa=bb
     @RequestMapping(value = "")
     public Object httpProxy(@RequestParam String uri,HttpServletRequest request) throws Exception {
         uri = new URL(request.getRequestURL().toString()).getProtocol() + "://" + uri;
+
         okhttp3.Request okhttpRequest = new HttpServletRequestToOkHttpRequest
-                .Builder().setQueryParamsRemove(Arrays.asList("uri")).build()
+                .Builder()
+                .Builder()
+                .setQueryParamsRemove(Arrays.asList("uri"))// 剔除query参数
+                .setHeadersAdd(null)// 补充header
+                .setIgnoredHeaders(null)// 剔除header
+                .setInputStreamSet(null)// 自定义流(更新body内容)
+                .build()
                 .buildOkhttpRequest((HttpServletRequest)request, URI.create(uri));
 
         okhttp3.Response response = client.newCall(request).execute();
         return JSON.parse(response.body().string());// 实际出参依据接口而定.
-        // 如需代理响应,需将okhttp3.Response拆装如HttpServletResponse即可.
+        // 如需代理响应,需将okhttp3.Response拆装为HttpServletResponse即可.
     }
 ```
 

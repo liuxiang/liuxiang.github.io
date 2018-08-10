@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8eb93ff1-6577-4b89-8c37-311758bc15cb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Reactive programming(反应式编程)学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Reactive programming(反应式编程)学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/gatling(压测) 体验.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/gatling(压测) 体验.md" afterDir="false" />
-    </list>
+    <list default="true" id="8eb93ff1-6577-4b89-8c37-311758bc15cb" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,12 +32,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="【并发,并行_阻塞,非阻塞_Reactor,Proactor】理解梳理.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="【并发,并行_阻塞,非阻塞_Reactor,Proactor】理解梳理.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/【并发,并行_阻塞,非阻塞_Reactor,Proactor】理解梳理.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
+              <first_editor relative-caret-position="135">
+                <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hexo YAML (分类 &amp; 标签)编译问题.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/hexo YAML (分类 &amp; 标签)编译问题.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
               <first_editor>
-                <caret column="38" selection-start-column="38" selection-end-column="38" />
+                <caret column="7" selection-start-column="7" selection-end-column="30" />
               </first_editor>
               <second_editor />
             </state>
@@ -95,7 +102,7 @@
       <find>hexo-generator-json-content</find>
       <find>fs</find>
       <find>jsonContent</find>
-      <find />
+      <find>toc: 1</find>
       <find>多说</find>
       <find>theme</find>
       <find>share_jia</find>
@@ -148,7 +155,6 @@
         <option value="$PROJECT_DIR$/source/_posts/﻿[工具使用]idea plugin - findtheflow相关.md" />
         <option value="$PROJECT_DIR$/win/启动本地服务.bat" />
         <option value="$PROJECT_DIR$/source/_posts/﻿dubbo连接关系查看.md" />
-        <option value="$PROJECT_DIR$/source/_posts/hexo YAML [分类 &amp; 标签]编译问题.md" />
         <option value="$PROJECT_DIR$/source/_posts/idea plugin - findtheflow相关.md" />
         <option value="$PROJECT_DIR$/source/_posts/﻿API Gateway 实践体验.md" />
         <option value="$PROJECT_DIR$/source/_posts/﻿Grafana + mysql体验.md" />
@@ -164,6 +170,7 @@
         <option value="$PROJECT_DIR$/source/_posts/gatling(压测) 体验.md" />
         <option value="$PROJECT_DIR$/source/_posts/[并发,并行_阻塞,非阻塞_Reactor,Proactor]理解梳理.md" />
         <option value="$PROJECT_DIR$/source/_posts/【并发,并行_阻塞,非阻塞_Reactor,Proactor】理解梳理.md" />
+        <option value="$PROJECT_DIR$/source/_posts/hexo YAML [分类 &amp; 标签]编译问题.md" />
       </list>
     </option>
   </component>
@@ -328,7 +335,7 @@
       <workItem from="1521425621760" duration="1763000" />
       <workItem from="1524896217818" duration="2628000" />
       <workItem from="1524899302716" duration="1612000" />
-      <workItem from="1533882688424" duration="1553000" />
+      <workItem from="1533882688424" duration="2740000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1524899474598</created>
@@ -341,7 +348,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33324000" />
+    <option name="totallyTimeSpent" value="34511000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="809" extended-state="6" />
@@ -523,16 +530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/hexo YAML [分类 &amp; 标签]编译问题.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="30">
-            <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -758,8 +755,18 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/【并发,并行_阻塞,非阻塞_Reactor,Proactor】理解梳理.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
+          <first_editor relative-caret-position="135">
+            <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/hexo YAML (分类 &amp; 标签)编译问题.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
           <first_editor>
-            <caret column="38" selection-start-column="38" selection-end-column="38" />
+            <caret column="7" selection-start-column="7" selection-end-column="30" />
           </first_editor>
           <second_editor />
         </state>
