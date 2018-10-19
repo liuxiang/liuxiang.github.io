@@ -12,7 +12,7 @@ tags: [ 前端 加密 混淆 ， gulp ]
 *   Google Closure Compiler
 *   UglifyJS
 *   JScrambler (付费) - 目前还无法被反混淆
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-5-10/99220276.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-5-10/99220276.jpg)
 
 
 # 反混淆工具：  

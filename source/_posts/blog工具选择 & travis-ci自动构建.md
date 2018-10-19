@@ -8,7 +8,7 @@ tags: [hexo,travis-ci]
 [TOC]
 
 # 一.为什么要写blog
-![](http://7xnbs3.com1.z0.glb.clouddn.com/15-12-18/30111185.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-18/30111185.jpg)
 
 `我们为什么应该坚持写博客 - 推酷`
 http://www.tuicool.com/articles/EjIV7nv
@@ -123,7 +123,7 @@ https://highlightjs.org/static/demo/
 - 新建Repositories > 选择`.github.io`项目
 - travis中配置GH_TOKEN常量. [Settings > Environment Variables > key:GH_TOKEN value:github-token]
 - 仓库`.github.io`代码发生代码push时，会自动触发travis-ci构建，其中包含将构建结果push到marster. 最终blog内容将自动更新。
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-9-14/39011824.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-9-14/39011824.jpg)
  
 `.travis.yml`
 ```

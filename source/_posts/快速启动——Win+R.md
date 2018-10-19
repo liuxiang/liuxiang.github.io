@@ -83,5 +83,5 @@ start chrome %url%
 
 
 # 曝光 我的配置
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/15-12-1/46291970.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-1/46291970.jpg)
 <!-- more -->

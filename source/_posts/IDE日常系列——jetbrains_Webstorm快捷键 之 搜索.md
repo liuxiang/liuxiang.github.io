@@ -11,7 +11,7 @@ tags: [ Webstorm ]
 > 且会展示各类资源的快捷键
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-2-23/95893666.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-2-23/95893666.jpg)
 
 
 # N
@@ -40,7 +40,7 @@ tags: [ Webstorm ]
 > 特色支持preview(预览) -v11版新增
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-2-23/74796693.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-2-23/74796693.jpg)
 
 
 # F7

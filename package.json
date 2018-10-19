@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.7.1"
+    "version": "3.8.0"
   },
   "dependencies": {
-    "hexo": "^3.7.1",
+    "hexo": "^3.8.0",
     "hexo-algolia": "^0.2.0",
     "hexo-deployer-git": "0.0.4",
     "hexo-fs": "^0.2.3",
@@ -21,6 +21,7 @@
     "hexo-renderer-marked": "^0.2.4",
     "hexo-renderer-stylus": "^0.3.0",
     "hexo-server": "^0.1.2",
-    "node-sass": "^4.9.0"
+    "node-sass": "^4.9.0",
+    "npm-check-updates": "^2.14.2"
   }
 }

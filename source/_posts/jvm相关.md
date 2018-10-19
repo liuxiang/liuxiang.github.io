@@ -13,19 +13,19 @@ tags: [ jvm ]
 ---
 
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/81372067.jpg)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/34371066.jpg)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/44918091.jpg)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/10451692.jpg)
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-7-3/97280524.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-3/81372067.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-3/34371066.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-3/44918091.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-3/10451692.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-3/97280524.jpg)
 
 
 ---
 `JVM运行时内存结构 - 格物致知的个人页面 - 开源中国社区` - 见笔记
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-7-22/95515055.jpg)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-22/11395610.jpg)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-22/57895078.jpg)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-22/38375267.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-22/95515055.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-22/11395610.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-22/57895078.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-22/38375267.jpg)
 
 ---
 **参考**

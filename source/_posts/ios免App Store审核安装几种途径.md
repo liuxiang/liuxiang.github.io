@@ -40,7 +40,7 @@ tags: [ ios ,ios免审核 ]
 
 
 >结果ipa文件会出现在桌面
-![](http://7xnbs3.com1.z0.glb.clouddn.com/15-12-14/33383602.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-14/33383602.jpg)
 
 
 ## 发布包上架AppStore
@@ -56,7 +56,7 @@ tags: [ ios ,ios免审核 ]
 
 * 内部测试:审核通过前可安装使用. ( 限25名用户)
 * 外部测试:签核后才可安装使用. (不限 用户)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/15-12-14/24893265.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-14/24893265.jpg)
 ---
 
 # 途径三(推荐): 企业账号,使用企业证书打包

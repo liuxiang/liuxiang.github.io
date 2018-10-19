@@ -13,7 +13,7 @@ tags: [ jetbrains ]
 
 
 http://subversion.apache.org/packages.html#windows
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/88396036.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/88396036.jpg)
 
 
 
@@ -22,7 +22,7 @@ http://subversion.apache.org/packages.html#windows
 https://tortoisesvn.net/downloads.html  `TortoiseSVN-1.9.5.27581-x64-svn-1.9.5.msi`
 
 使用的是TortoiseSVN-1.9.4.27285-x64-svn-1.9.4，安装过程需要注意的是，默认安装没有选择”command line client tools”
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/25113416.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/25113416.jpg)
 
 
 
@@ -40,7 +40,7 @@ https://sliksvn.com/download/
 # 配置
 `Ctrl + Alt + S`
 ** Use Command line client ** ：  `svn` 或 `C:\Program Files\SlikSvn\bin\svn.exe`
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/56881942.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/56881942.jpg)
 
 
 ---

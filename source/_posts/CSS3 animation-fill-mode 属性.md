@@ -46,7 +46,7 @@ animation: assetAnim 2s 1 forwards;
 
 
 # 实例一:
-![](http://7xnbs3.com1.z0.glb.clouddn.com/16-9-24/69071103.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-9-24/69071103.jpg)
 
 
 
@@ -88,7 +88,7 @@ http://stackoverflow.com/questions/30855985/pure-css-animation-visibility-with-d
 
 
 # 示例二 ： 全css实现动画延时前隐藏，后显示
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-9-24/2471608.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-9-24/2471608.jpg)
  
 ```
 <!doctype html>

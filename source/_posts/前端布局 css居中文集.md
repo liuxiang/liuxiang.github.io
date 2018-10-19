@@ -340,7 +340,7 @@ align-items: center;         /* -垂直居中*/
     - box-align 属性规定如何对齐框的子元素 。
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-4-24/75684487.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-4-24/75684487.jpg)
 <!-- 
     -->
  

@@ -8,7 +8,7 @@ tags: [git , Pull Request ]
 ---
 # 1.接收到Pull Request任务: Pull Request #1 分支同步
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/15-12-15/82136519.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-15/82136519.jpg)
 
 
 <!--
@@ -21,7 +21,7 @@ tags: [git , Pull Request ]
 
 
 # 2.收到邮件
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/15-12-15/81861364.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-15/81861364.jpg)
 
 
 <!--
@@ -49,7 +49,7 @@ git push origin master
 
 
 # 4.收到邮件
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/15-12-15/79177319.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-15/79177319.jpg)
 
 
 <!-- 

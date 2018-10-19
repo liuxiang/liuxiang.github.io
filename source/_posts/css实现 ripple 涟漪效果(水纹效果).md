@@ -103,7 +103,7 @@ http://www.cnblogs.com/baixc/p/5046922.html
 http://www.cssscript.com/android-l-ripple-click-effect-with-javascript-and-css3/
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-9-24/3481297.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-9-24/3481297.jpg)
 
 
 `涟漪效果按钮的实现 - 笔记 - 前端网（W3Cfuns）`

@@ -260,10 +260,10 @@ https://docs.scala-lang.org/getting-started-intellij-track/getting-started-with-
 ---
 # 五.测试mvc与flux差异
 ## servlet 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-8-7/49517667.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-8-7/49517667.jpg)
 
 ## webFlux
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-8-7/22986327.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-8-7/22986327.jpg)
 
 ---
 # 六.可能会遇到的问题

@@ -14,7 +14,7 @@ Code Sign error: No matching provisioning profile found: Your build settings spe
 ```
 ## UUID   “ 5789f696-49dc-4b81-977c-48f780c54273 ” 是什么?
 UUID是"Provisioning Profile"对应的实际文件名,证明:
-![](http://7xnbs3.com1.z0.glb.clouddn.com/15-12-14/94102932.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-14/94102932.jpg)
 
 ## 解决问题, 清理无效的UUID
 1.打开路径`cd   /Users/*/Library/MobileDevice` `open Provisioning Profiles` ,

@@ -80,7 +80,7 @@ class SingleTon_Test {
 
 
 - 如图(方法区信息) : 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-7/95411964.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-7/95411964.jpg)
 
 
 - new SingleTon()何时被执行? [即 `static属性在方法区的结构` ]

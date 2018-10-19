@@ -15,14 +15,14 @@ tags: [ 数据结构 ]
 
 
 # Tree：根结点-内部节点-终端节点(叶子节点) 组成的数据结构
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/12872520.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-6-17/12872520.jpg)
 
 
 
 ---
 # 二叉树【Binary tree】：每个节点最多有两个子节点
 - 遍历二叉树：前序，中序，后续 （利用递归或自循环+ Stack栈回放路径 ）  
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/94470744.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-6-17/94470744.jpg)
 
 
 ---
@@ -32,7 +32,7 @@ tags: [ 数据结构 ]
 -  删除： 叶子结点(直删)  单叶内部结点(子替位)  双叶内部结点(前驱或后继替位)
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/51153658.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-6-17/51153658.jpg)
 
 
 ---
@@ -40,7 +40,7 @@ tags: [ 数据结构 ]
 -  `平衡因子（BF）`  = 左字树深度-右子树深度
 - `BF值为正（即左子树深）`，因此为达到平衡将`整树右旋` / 反之  `整树左旋` 【 目标：找最小不平衡树，进行平衡控制】
 - 特殊场景：`旋转节点的BF值`与`旋转方向的参考节点的BF值`是相反的情况下，需要先统一
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/3065500.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-6-17/3065500.jpg)
 
  
 ---
@@ -59,14 +59,14 @@ tags: [ 数据结构 ]
      - `删非终端 3结点中元素`  ： 会出现不平衡情况，需要`平衡补位` ，前置或后置元素 替位
 
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/93548120.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-6-17/93548120.jpg)
 
 - `2-3-4树`：类似`2-3树`，要么没有孩子要么4个孩子，结点元素可以为1到3个
 
     - 插入，删除操作同` 2-3树 `逻辑
 
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/15573800.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-6-17/15573800.jpg)
 
  
 - `B树【B-tree】`： `2-3树`是3阶B树， `2-3-4树`是4阶B树。树阶是最大孩子树的数目
@@ -76,7 +76,7 @@ tags: [ 数据结构 ]
     -  插入，删除操作同` 2-3树 `  `2-3-4树` 逻辑
 
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/91316945.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-6-17/91316945.jpg)
 
  
 - `B+树`：是`B树`的变形树
@@ -85,7 +85,7 @@ tags: [ 数据结构 ]
     - 2.每个叶子节点会保存指向下一个叶子节点的指针：`范围查找`（从起点开始随下一叶子节点位置按顺序找到范围内所有记录）
 
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-6-17/83935023.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-6-17/83935023.jpg)
 
 
 

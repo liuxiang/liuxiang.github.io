@@ -6,7 +6,7 @@ tags: [ ios ,ios证书 ]
 
 ---
 # Provisioning Profiles 证书
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/15-12-14/99305824.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-14/99305824.jpg)
 
 
 Development 开发 -不可上app Store

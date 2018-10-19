@@ -38,12 +38,12 @@ https://bbs.aliyun.com/read/284699.html?spm=5176.bbsr284699.0.0.CPENAv&page=2
 http://ipv6-test.com/validate.php
 
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/40359048-file_1484818385165_1033c.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/40359048-file_1484818385165_1033c.png)
 
 https://bbs.aliyun.com/read/290628.html 
 
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/50457131-file_1484818397697_151a0.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/50457131-file_1484818397697_151a0.png)
 https://bbs.aliyun.com/read/295314.html
 
 
@@ -80,7 +80,7 @@ Addresses:  2001:da8:20d:400::7837:f474
 
 
 - 购买海外云解析
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/80019689-file_1484818340912_10ae5.png)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/80019689-file_1484818340912_10ae5.png)
 
 
 ---
@@ -89,12 +89,12 @@ http://www.solve6.com/
 
 
 - 方案一：使用教育网的NAT64+DNS64服务
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/97591629-file_1484818351454_c057.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/97591629-file_1484818351454_c057.png)
 
 
 
  - 方案二：使用IPv6隧道
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/74309866-file_1484818362144_31c4.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/74309866-file_1484818362144_31c4.png)
 
 
 # 文章

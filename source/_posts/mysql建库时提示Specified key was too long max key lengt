@@ -177,7 +177,7 @@ INSTALL PLUGIN INNODB SONAME 'ha_innodb.so';
 ```
 ---
 # 相关错误 `1286 unknown storage engine innoDB`
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/95967764.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/95967764.jpg)
 
 
 - 处理：

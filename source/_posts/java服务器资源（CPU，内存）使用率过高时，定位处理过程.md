@@ -3,10 +3,10 @@ date: 2015-10-19 00:00:00 #发表日期，一般不改动
 categories: 监测维护 #文章文类
 tags: [java,服务器监测,问题定位分析] #文章标签，多于一项时用这种格式
 photos:
-- http://7xnbs3.com1.z0.glb.clouddn.com/15-10-19/69991098.jpg
+- http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-19/69991098.jpg
 - http://yusuke.homeip.net/samurai/en/images/threadTab_en.gif
-- http://7xnbs3.com1.z0.glb.clouddn.com/15-10-8/10907762.jpg
-- http://7xnbs3.com1.z0.glb.clouddn.com/15-10-19/15047487.jpg
+- http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-8/10907762.jpg
+- http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-19/15047487.jpg
 ---
 
 
@@ -45,7 +45,7 @@ photos:
 <!-- more -->
 # 查看GC回收情况(预先配置VM -Xloggc:gc.log)
 http://ip/sys/gc.log
-![gcviewer-1.35-SNAPSHOT.jar](http://7xnbs3.com1.z0.glb.clouddn.com/15-10-19/69991098.jpg)
+![gcviewer-1.35-SNAPSHOT.jar](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-19/69991098.jpg)
 
 
 ## 手动收集当前GC情况
@@ -143,5 +143,5 @@ PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND
 ```
 ---
 # 监控同步,相关工具  jconsole ， VisualVM ， JMC， Jprofile
-![JProfiler 内存对象](http://7xnbs3.com1.z0.glb.clouddn.com/15-10-19/15047487.jpg)
-![JProfiler 线程内存&耗时](http://7xnbs3.com1.z0.glb.clouddn.com/15-10-8/10907762.jpg)
+![JProfiler 内存对象](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-19/15047487.jpg)
+![JProfiler 线程内存&耗时](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-8/10907762.jpg)

@@ -25,7 +25,7 @@ css控制内容溢出时，使用`...`末尾
 }
 ```
 # 效果
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-3-14/80967330.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-3-14/80967330.jpg)
 <!-- 
   `=>`    -->
 
@@ -69,7 +69,7 @@ https://github.com/driftyco/ionic/blob/master/scss/_items.scss   line:150
 }
 
 ```
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-3-14/73237505.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-3-14/73237505.jpg)
 <!--
   =>   -->
 

@@ -84,7 +84,7 @@ If you want to capture traffic coming from a single terminal (e.g. wget, npm) us
 
 windows - Proxy设置：
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/33300421.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/33300421.jpg)
 
 
 

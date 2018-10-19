@@ -205,11 +205,11 @@ https://blog.csdn.net/qq_34438958/article/details/78539234
 ## Flux,Mono 图示
 - `Flux`的工作模式，可以看出Flux可以emit很多item
 Flux 相当于一个 RxJava Observable，能够发出 0~N 个数据项，然后（可选地）completing 或 erroring。
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-4-28/66036038.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-4-28/66036038.jpg)
 
 - `Mono`只能emit最多只能emit一个item
 Mono ,是指最多只能触发(emit) (事件)一次。它对应于 RxJava 库的 Single 和 Maybe 类型。因此一个异步任务，如果只是想要在完成时给出完成信号，就可以使用 Mono<Void> 。
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-4-28/62777616.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-4-28/62777616.jpg)
 
 `Spring 5 WebFlux - 简书` Flux,Mono 图示
 https://www.jianshu.com/p/40a0ebe321be

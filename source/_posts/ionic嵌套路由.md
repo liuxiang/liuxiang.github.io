@@ -10,7 +10,7 @@ tags: [ionic ]
 
 # getting-started
 http://ionicframework.com/getting-started
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/30893720.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/30893720.jpg)
 
 
 ---
@@ -19,7 +19,7 @@ https://github.com/driftyco/ionic-starter-tabs
 
 
 http://plnkr.co/edit/qYMCrt?p=preview
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/36107114.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/36107114.jpg)
 
 
 - tab / tab.dash， tab.friends
@@ -125,7 +125,7 @@ https://github.com/driftyco/ionic-starter-sidemenu
 
 
 http://plnkr.co/edit/0RXSDB?p=preview
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/68685846.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/68685846.jpg)
 
 
 # 侧边栏+菜单
@@ -344,16 +344,16 @@ function isShow(stateName) {
 
 ---
 # tab切换出现菜单
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/9520430.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/9520430.jpg)
 
 
 
 -  出现情况，index=1 复用了historyId
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/38952069.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/38952069.jpg)
 
  
 - 不出现情况，各自为index=0
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/35408752.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/35408752.jpg)
 
 
 - 问题原因：嵌套路由间切换，同样会发生历史轨迹，出现返回键的情况
@@ -370,7 +370,7 @@ $scope.go = function (value) {
 # 同时使用 Tabs + Side Menu
 ` Ionic Tabs + Side Menu `
 http://loring-dodge.azurewebsites.net/ionic-tabs-plus-side-menu/
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/22491562.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/22491562.jpg)
 
  
 ---

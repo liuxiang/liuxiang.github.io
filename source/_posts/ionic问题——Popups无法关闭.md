@@ -10,14 +10,14 @@ tags: [ ionic , Popups ]
 `确认/取消`回调then可被正常执行. 怀疑Popups对象与UI关系被断开.故判断为组件问题
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-2-23/99633147.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-2-23/99633147.jpg)
 
 
 # 官方解决于 v1.2.4  2015.10.16 提交代码
 https://github.com/driftyco/ionic/commit/5b39fa34dcaa35108aea37c20a037f5786b00d39
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-2-23/42560782.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-2-23/42560782.jpg)
 
 
 
@@ -34,7 +34,7 @@ https://github.com/driftyco/ionic/commit/5b39fa34dcaa35108aea37c20a037f5786b00d3
 
 
 # 问题搜索新方法: 到github的"Issues"上搜问题解决办法
-![](http://7xnbs3.com1.z0.glb.clouddn.com/16-2-23/89527662.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-2-23/89527662.jpg)
 
 
 

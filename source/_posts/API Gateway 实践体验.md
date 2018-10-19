@@ -85,7 +85,7 @@ tags: [API Gateway]
 ---
 # 三.Zuul 应用
 ## 系统设计
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-3-19/45541994.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-3-19/45541994.jpg)
 
 ## 功能
 - 集群及节点管理:对接triton，定时刷新-可配
@@ -299,7 +299,7 @@ public Server getServer() {
 
 详见: http://zh.linuxvirtualserver.org/node/37
 ```
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-3-19/68971967.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-3-19/68971967.jpg)
 
 - 最大公约数的意义
 ```
@@ -653,7 +653,7 @@ forseti.gateway.filter
 forseti.gateway.zuul
 forseti.gateway.exception
 ```
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-3-19/6378748.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-3-19/6378748.jpg)
 
 ---
 # 六.指标情况(基准测试) 

@@ -14,7 +14,7 @@ tags: [Hystrix]
 https://www.jianshu.com/p/efb049107572
 
 ## 大致表现
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-4-27/18411187.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-4-27/18411187.jpg)
 
 `熔断Hystrix使用尝鲜 - 掘金`
 https://juejin.im/post/5aab23c05188257bf550cdd6?utm_source=tuicool&utm_medium=referral
@@ -110,7 +110,7 @@ this.executionSemaphoreOverride = executionSemaphore;
 ```
 
 ## 断路器实现: com.netflix.hystrix.HystrixCircuitBreaker.HystrixCircuitBreakerImpl
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-4-27/33464218.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-4-27/33464218.jpg)
 - 函数
     - subscribeToStream()
     - attemptExecution()
@@ -440,8 +440,8 @@ https://blog.csdn.net/qq_24504315/article/details/79121938
 - 开启注解: @EnableHystrixDashboard 
     - 集群监听: @EnableTurbine // 启用收集断路器集群服务功能
 - 访问: http://localhost:8080/hystrix/monitor?stream=http://localhost:8080/hystrix.stream
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-4-28/3796358.jpg)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-4-28/10125367.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-4-28/3796358.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-4-28/10125367.jpg)
 
 ---
 **参考**

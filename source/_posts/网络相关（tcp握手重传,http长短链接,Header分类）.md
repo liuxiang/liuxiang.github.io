@@ -40,7 +40,7 @@ tcp在传输过程中都有一个ack，接收方通过ack告诉发送方收到�
 
 #  tcp建连接的三次握手
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/44504274.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-5/44504274.jpg)
 
 
 
@@ -66,7 +66,7 @@ tcp在传输过程中都有一个ack，接收方通过ack告诉发送方收到�
 
 
 # tcp断开连接的四次挥手
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/1347664.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-5/1347664.jpg)
  
 - 四个红框表示断开连接的四次挥手：
 第一步： client主动发送`fin`包给server
@@ -122,7 +122,7 @@ tcp在传输过程中都有一个ack，接收方通过ack告诉发送方收到�
 这样，在发送端就可以根据回传的SACK来知道哪些数据到了，哪些没有到。于是就优化了Fast Retransmit的算法。当然，这个协议需要两边都支持。在 Linux下，可以通过tcp_sack参数打开这个功能（linux 2.4后默认打开）。
 
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/6094124.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-5/6094124.jpg)
 
 
 这里还需要注意一个问题——接收方`Reneging`，所谓Reneging的意思就是接收方有权把已经报给发送端`SACK里的数据给丢了`。这样干是不被鼓励的，因为这个事会把问题复杂化了，但是，接收方这么做可能会有些极端情况，比如要把内存给别的更重要的东西。所以，发送方也不能完全依赖SACK，还是要依赖ACK，并维护Time-Out，如果后续的ACK没有增长，那么还是`要把SACK的东西重传`，另外，接收端这边永远不能把SACK的包标记为Ack。
@@ -191,7 +191,7 @@ Duplicate SACK又称D-SACK，其主要`使用了SACK来告诉发送方有哪些�
 
 --- #  HTTP 协议格式 和 HTTP Header
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-5/90636666.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-5/90636666.jpg)
 
  
 

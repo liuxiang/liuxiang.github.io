@@ -7,7 +7,7 @@ tags: [oracle ]
 
 
 # 安装`PL/SQL`
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/9554637.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/9554637.jpg)
 
 
 
@@ -22,14 +22,14 @@ http://www.fxxz.com/soft/216837.html
 ---
 # 下载`oracle客户度`程序
 http://www.oracle.com/technetwork/indexes/downloads/index.html#database
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/68724956.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/68724956.jpg)
 
 
 路径：`Database` > `Database Features` > `Database Instant Client`
 
 http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html
 - `OCI,OCCI,JDBC-OCI`相关程序下载
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/59505301.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/59505301.jpg)
 
 
 `Basic` 基础版【72M】
@@ -40,11 +40,11 @@ http://www.oracle.com/technetwork/database/features/instant-client/index-097480.
 ---
 
 # 登录窗口取消进入设置，更新`PL/SQL`配置Oracle,OCI库位置。
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/15296306.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/15296306.jpg)
 
 
 - 重启`PL/SQL`效果(数据库 无法读取 )
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/74710081.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/74710081.jpg)
 
 
 
@@ -63,7 +63,7 @@ TNS_ADMIN = ` F:\Tool\DB Orecle\instantclient_12_1\ `
 
 
 - 重启`PL/SQL`效果(同步 ` tnsnames.ora`中数据库选择 )  [`可能要重启电脑`]
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/17366696.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/17366696.jpg)
 
 
 
@@ -71,7 +71,7 @@ TNS_ADMIN = ` F:\Tool\DB Orecle\instantclient_12_1\ `
 
 # 管理及使用
 ## DAB账号登录`sys`，连接为`SYSDBA`
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/12589487.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/12589487.jpg)
 
 
 ## 新建表空间（PL/SQL不提供试图创建，常用SQL）
@@ -89,7 +89,7 @@ grant dba to wosai with admin option;
 
 
 错误：ORA-65096：公用用户名或角色名无效
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/91807164.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/91807164.jpg)
 
 
 - 解决

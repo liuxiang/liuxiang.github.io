@@ -13,13 +13,13 @@ server{
         }
 }
 ```
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/60383016-file_1484816953830_c781.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/60383016-file_1484816953830_c781.png)
 
  
 ---
 注意:部分浏览器会自动加www前缀(360极速浏览器),
 **怎么分辨** 首发请求网络中就带有了www前缀,说明浏览器处理的.没有(如上)就是程序处理的.
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/86307962-file_1484816982497_68aa.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/86307962-file_1484816982497_68aa.png)
 
 
 

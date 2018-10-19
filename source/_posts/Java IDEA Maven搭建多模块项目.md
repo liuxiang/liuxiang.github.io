@@ -10,24 +10,24 @@ tags: [ Maven ]
 
 
 # 主工程
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/95754311.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/95754311.jpg)
 
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/54843808.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/54843808.jpg)
 
  
 # 子模块（web/或不选）
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/87323924.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/87323924.jpg)
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/42850945.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/42850945.jpg)
 
 
 # 预览
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/1742924.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/1742924.jpg)
 
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/17956154.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/17956154.jpg)
 
 
 
@@ -38,7 +38,7 @@ http://git.oschina.net/iBase4J/iBase4J
 
 
 ` #32 iBase4J 架构研究 [置顶]` http://git.oschina.net/iBase4J/iBase4J/issues/32
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/85002761.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/85002761.jpg)
 
 
 # 快速构建
@@ -84,7 +84,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 ---
 # 小技巧
 功能搜索`Ctrl+shift+A`-`reim` 选择`Reimport`即可`刷新 工程 maven`
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-21/41633512.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-21/41633512.jpg)
 
 
 ---

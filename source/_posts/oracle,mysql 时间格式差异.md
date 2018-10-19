@@ -12,12 +12,12 @@ TimeStamp：精确到微秒
 
 
 `PL/SQL`
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/85760702.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/85760702.jpg)
 
 
 
 `navicat`
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/65780430.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/65780430.jpg)
 
  
 `oracle date与timestamp的比较与使用注意-livedba-ITPUB博客`
@@ -31,13 +31,13 @@ datetime     精确到秒  `推荐`
 
 
 `navicat`
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/57189723.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/57189723.jpg)
 
 
 ---
 
 # plsql 更新时间显示格式
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/29537999.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/29537999.jpg)
 
 
 

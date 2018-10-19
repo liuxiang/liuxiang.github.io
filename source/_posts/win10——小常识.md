@@ -8,13 +8,13 @@ tags: [ Win10 ]
 
 
 # 快速当前路径下打开控制台
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-3-5/83780706.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-3-5/83780706.jpg)
 <!--
 -->
 
 
 效果:
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-3-5/47052609.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-3-5/47052609.jpg)
 <!--
 -->
 

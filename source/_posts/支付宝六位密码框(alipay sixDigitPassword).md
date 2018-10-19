@@ -8,10 +8,10 @@ tags: [六位密码框]
 ---
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-5-5/48657885.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-5-5/48657885.jpg)
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-5-5/17867479.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-5-5/17867479.jpg)
 
 
 # github Search
@@ -28,7 +28,7 @@ javaScript控制，界面密码，光标图片代替。
 
 
 # 简化实现
-![](http://7xnbs3.com1.z0.glb.clouddn.com/16-5-5/25214920.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-5-5/25214920.jpg)
 
 
 
@@ -39,7 +39,7 @@ javaScript控制，界面密码，光标图片代替。
 
 
 * 遗留问题
-![](http://7xnbs3.com1.z0.glb.clouddn.com/16-5-5/32584045.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-5-5/32584045.jpg)
 
 
 

@@ -13,7 +13,7 @@ https://jq.qq.com/?_wv=1027&k=43b8mqv
 
 
 #   获取方式二：QQ群管理
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/8806496-file_1484817960373_a59b.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/8806496-file_1484817960373_a59b.png)
 http://qun.qq.com/join.html
  
 - 网页

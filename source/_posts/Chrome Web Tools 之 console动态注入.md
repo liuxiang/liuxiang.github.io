@@ -66,7 +66,7 @@ console.inject('jquery');
 **参考**
 chrome插件`Console Injector`
 https://chrome.google.com/webstore/detail/console-injector/abdfbnapkafgcheofcijaieahcbjnpkd?utm_source=chrome-ntp-icon
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-2-23/45182493.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-2-23/45182493.jpg)
 
 
 **类似插件**

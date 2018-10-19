@@ -236,7 +236,7 @@ sign=MD5(stringSignTemp).toUpperCase()="9A0A8659F005D6984697E2CA0A9CF3B7"
 https://qpay.qq.com/account/api_cert.shtml
 <!--
 -->
-![](http://7xnbs3.com1.z0.glb.clouddn.com/16-12-23/82075208-file_1482463058867_b57.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-12-23/82075208-file_1482463058867_b57.png)
  
 ## 2.调起支付
 - android

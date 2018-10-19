@@ -109,7 +109,7 @@ Content-Disposition: form-data; name="xxx"
 
 对于不可F12的chrome插件.如`postman` ,可以通过一个特别的入口进入查看
 chrome://inspect/#apps
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-2-23/49600881.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-2-23/49600881.jpg)
 
 
 **参考**

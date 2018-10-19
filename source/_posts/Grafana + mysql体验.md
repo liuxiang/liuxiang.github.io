@@ -81,7 +81,7 @@ group by DATE_FORMAT(gmt_create,'%Y-%m-%d')
 ORDER BY id ASC
 ```
 更多文档见:http://docs.grafana.org/features/datasources/mysql/
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-2-8/29820002.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-2-8/29820002.jpg)
 
 ## 各报表面板设置
 http://docs.grafana.org/features/panels/graph/ `图表`
@@ -90,10 +90,10 @@ http://docs.grafana.org/features/panels/singlestat/ `仪图`
 ## templating 模板
 http://docs.grafana.org/reference/templating/
 http://docs.grafana.org/features/datasources/mysql/#query-variable `mysql的查询表达式`
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-2-8/86842944.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-2-8/86842944.jpg)
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-3-19/55292517.jpg)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-3-19/45274927.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-3-19/55292517.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-3-19/45274927.jpg)
 
 - 在查询中使用变量
 http://docs.grafana.org/features/datasources/mysql/#using-variables-in-queries
@@ -109,12 +109,12 @@ group by DATE_FORMAT(gmt_create,'%Y-%m-%d')
 ORDER BY id ASC
 ```
 - 效果
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-2-8/52927063.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-2-8/52927063.jpg)
 
 ---
 # 报警
 http://docs.grafana.org/alerting/notifications/
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-2-8/8688942.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-2-8/8688942.jpg)
 
 - Grafana添加`Webhook channel`
 https://www.tuicool.com/articles/VZf6JjF

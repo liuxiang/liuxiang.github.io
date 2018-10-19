@@ -28,8 +28,8 @@ http://findtheflow.io/docs/doc_intellij.html
 
 ---
 # 二.体验(localhost:7575)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-1-15/52922894.jpg)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-1-15/60089987.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-1-15/52922894.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-1-15/60089987.jpg)
 
 ## 1.Recordings 堆栈记录,可通过`Explore`观察堆栈视图.
 - 场景1:junit单测程序,在结束时会自动生成.
@@ -37,7 +37,7 @@ http://findtheflow.io/docs/doc_intellij.html
 
 ## 2.executions: 常规正在运行时的应用程序(不支持实时的`Explore`,而是主动`Record ~ Stop`可自动生成`Recording`)
 - 场景1:main函数测试类在运行后立即消亡,Executions中也会同时消失.如需保留`Recording`,需勾选flow-`Start recording from the beginning`
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-1-15/13523823.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-1-15/13523823.jpg)
 
 `how_to_record_an_execution`
 ```

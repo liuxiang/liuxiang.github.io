@@ -263,26 +263,26 @@ client依赖
 
 生成`HelloWorld.wsdl` (右键-WebServices`-Generate WSDL Form Java Code`)
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/58767281.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/58767281.jpg)
 
 
 
 - 浏览器即可访问(工具:Wizdler)
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/51287937.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/51287937.jpg)
 
 
 - postman也可访问
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/84860502.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/84860502.jpg)
 
 
 # 生成客户端
 - 方式一： 选择` HelloWorld.wsdl `右键-`Generate Java Code Form Wsdl`
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/124167.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/124167.jpg)
 
 
 - 方式二：  新建工程（`Apache Axis为web方式`，`JAX-WS为注解方式`）
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/19095284.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/19095284.jpg)
 
 
 ` intellij 开发webservice - 先知后觉 - 博客园`

@@ -7,7 +7,7 @@ tags: [ ionic,android打包 ]
 ---
 # 常规打包`cordova build --release android`
 可能会出现的错误
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/15-12-14/77923767.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-14/77923767.jpg)
 
 
 ```
@@ -189,7 +189,7 @@ android {
 }
 ```
 如图:
-![](http://7xnbs3.com1.z0.glb.clouddn.com/15-12-14/57618196.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-14/57618196.jpg)
 
 
 <!-- more -->

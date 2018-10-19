@@ -6,7 +6,7 @@ tags: [dubbo]
 ---
 # 检查连接哪台机器的dubbo提供者(或哪些机器连接了本机的dubbo服务)
 `netstat -an|grep 20880`  (再者可以根据dubbo-admin页面中查询)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-1-15/78474250.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-1-15/78474250.jpg)
 
 ---
 # 连接端口进程

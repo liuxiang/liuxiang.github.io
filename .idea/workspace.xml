@@ -1,9 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8eb93ff1-6577-4b89-8c37-311758bc15cb" name="Default" comment="" />
+    <list default="true" id="8eb93ff1-6577-4b89-8c37-311758bc15cb" name="Default" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/10x效率.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/10x效率.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/API Gateway 实践体验.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/API Gateway 实践体验.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/BCompare 解决 windows文件与linux文件比对问题（SFTP协议）.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/BCompare 解决 windows文件与linux文件比对问题（SFTP协议）.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/CSS3 animation-fill-mode 属性.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/CSS3 animation-fill-mode 属性.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Chrome  DevTools-网络抓包——Betwixt.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Chrome  DevTools-网络抓包——Betwixt.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Chrome DevTools Devices inspect无法显示调试工具.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Chrome DevTools Devices inspect无法显示调试工具.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Chrome Web Tools 之 console动态注入.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Chrome Web Tools 之 console动态注入.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Chrome浏览器远程调试Android Web App.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Chrome浏览器远程调试Android Web App.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Crosswalk Android ADT打包(ionic打包正常),运行闪退问题解决.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Crosswalk Android ADT打包(ionic打包正常),运行闪退问题解决.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Github 搜索技巧.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Github 搜索技巧.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Grafana + mysql体验.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Grafana + mysql体验.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/HTML5-CSS3 特性检测库(兼容性测试) - modernizr.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/HTML5-CSS3 特性检测库(兼容性测试) - modernizr.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Hystrix(熔断器) 体验.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Hystrix(熔断器) 体验.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/IDE日常系列——jetbrains_WebStorm Deployment 支持ip访问和外部连接" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/IDE日常系列——jetbrains_WebStorm Deployment 支持ip访问和外部连接" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/IDE日常系列——jetbrains_WebStorm 提示快捷键.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/IDE日常系列——jetbrains_WebStorm 提示快捷键.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/IDE日常系列——jetbrains_WebStorm自动编译SCSS(配置Watchers).md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/IDE日常系列——jetbrains_WebStorm自动编译SCSS(配置Watchers).md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/IDE日常系列——jetbrains_Webstorm快捷键 之 搜索.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/IDE日常系列——jetbrains_Webstorm快捷键 之 搜索.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Java IDEA Maven搭建多模块项目.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Java IDEA Maven搭建多模块项目.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Java程序,服务保障.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Java程序,服务保障.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Kibana + Elasticsearch体验.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Kibana + Elasticsearch体验.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/PLSQL Developer连接Oracle相关.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/PLSQL Developer连接Oracle相关.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/QQ支付-cordova qpay.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/QQ支付-cordova qpay.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/RPC 相关.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/RPC 相关.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/React native相关.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/React native相关.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Reactive programming(反应式编程)学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Reactive programming(反应式编程)学习.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Vue.js相关.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Vue.js相关.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Web API文档生成工具apidoc.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Web API文档生成工具apidoc.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/angular ng-click程序触发.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/angular ng-click程序触发.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/angular图片或附件上传.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/angular图片或附件上传.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/bjui异步控制相关-innerHTML.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/bjui异步控制相关-innerHTML.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/blog工具选择 &amp; travis-ci自动构建.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/blog工具选择 &amp; travis-ci自动构建.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/chrome Developer：Clear Timer.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/chrome Developer：Clear Timer.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/css实现 ripple 涟漪效果(水纹效果).md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/css实现 ripple 涟漪效果(水纹效果).md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/css控制内容溢出控制.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/css控制内容溢出控制.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/css自动兼容性前缀-prefixfree.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/css自动兼容性前缀-prefixfree.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/dubbo连接关系查看.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/dubbo连接关系查看.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/excel数据透视图.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/excel数据透视图.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/flex、table、fixed布局差异.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/flex、table、fixed布局差异.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/gatling(压测) 体验.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/gatling(压测) 体验.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/https,网络分层.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/https,网络分层.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/https、网络分层.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/https、网络分层.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/idea plugin - findtheflow相关.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/idea plugin - findtheflow相关.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/influxdb 体验.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/influxdb 体验.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ionic cordova hook 加密混淆.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ionic cordova hook 加密混淆.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ionic 路由view综合控制.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ionic 路由view综合控制.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ionic嵌套路由.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ionic嵌套路由.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ionic打包未签名apk.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ionic打包未签名apk.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ionic日期控件ionicdatepicker.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ionic日期控件ionicdatepicker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ionic问题——Popups无法关闭.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ionic问题——Popups无法关闭.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ios免App Store审核安装几种途径.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ios免App Store审核安装几种途径.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ios编译-打包问题笔录.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ios编译-打包问题笔录.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ios证书结构.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ios证书结构.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ipv6.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ipv6.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/javaScript前端图片相关（预览，压缩，Base64，上传，异步加载）.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/javaScript前端图片相关（预览，压缩，Base64，上传，异步加载）.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/java服务器资源（CPU，内存）使用率过高时，定位处理过程.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/java服务器资源（CPU，内存）使用率过高时，定位处理过程.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/java架构相关-性能.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/java架构相关-性能.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/java架构相关-架构模式.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/java架构相关-架构模式.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/java架构相关-系统高可用架构.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/java架构相关-系统高可用架构.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/jetbrains IntelliJ-Webstorm svn插件初始化.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/jetbrains IntelliJ-Webstorm svn插件初始化.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/jetbrains idea关联sftp.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/jetbrains idea关联sftp.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/jetbrains idea远程调试相关.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/jetbrains idea远程调试相关.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/jetbrains_IntelliJ IDEA 初始化Application Servers.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/jetbrains_IntelliJ IDEA 初始化Application Servers.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/jetbrains_WebStorm ES6 语法支持设置.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/jetbrains_WebStorm ES6 语法支持设置.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/jetbrains_webstorm 使用External Tools-实现运行支持ES6(babe" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/jetbrains_webstorm 使用External Tools-实现运行支持ES6(babe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/jetbrains_webstorm 保存文件,不能触发BrowserSync程序同步.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/jetbrains_webstorm 保存文件,不能触发BrowserSync程序同步.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/js拖拽(drag)相关.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/js拖拽(drag)相关.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/jvm相关.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/jvm相关.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/linux 1.新磁盘格式化--2.mount挂载--3.软连接ln.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/linux 1.新磁盘格式化--2.mount挂载--3.软连接ln.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/linux 限制普通用户su切换到 root.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/linux 限制普通用户su切换到 root.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/markdown 图片注释.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/markdown 图片注释.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/markdown_tables表格工具.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/markdown_tables表格工具.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/mysql建库时提示Specified key was too long max key lengt" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/mysql建库时提示Specified key was too long max key lengt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/nginx.conf 配置自动www前缀.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/nginx.conf 配置自动www前缀.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ngrok配置本地服务.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ngrok配置本地服务.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/online-web-tools.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/online-web-tools.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/oracle,mysql 时间格式差异.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/oracle,mysql 时间格式差异.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/oracle大小写相关.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/oracle大小写相关.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/react-native Fetching JS Bundle 问题排查.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/react-native Fetching JS Bundle 问题排查.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/sql编程学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/sql编程学习.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/sublime text 最新破解下载.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/sublime text 最新破解下载.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/svn不能上传.so包的问题.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/svn不能上传.so包的问题.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/video html5视频标签操作.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/video html5视频标签操作.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/web网络劫持,被嵌入广告.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/web网络劫持,被嵌入广告.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/win10——小常识.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/win10——小常识.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/windows 下chromium 安装flash插件.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/windows 下chromium 安装flash插件.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/wiz2md 为知Markdown笔记批量导出.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/wiz2md 为知Markdown笔记批量导出.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/x-www-form-urlencoded与form-data区别.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/x-www-form-urlencoded与form-data区别.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/yeoman 之 generator-gulp-angular,介绍.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/yeoman 之 generator-gulp-angular,介绍.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/【java脚手架搭建】问题处理.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/【java脚手架搭建】问题处理.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/【工具使用】findtheflow-工程启动分析体验.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/【工具使用】findtheflow-工程启动分析体验.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/为Chrome应用程序(postman为例)载入userScript.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/为Chrome应用程序(postman为例)载入userScript.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/为配合“Android6.0权限检查机制改变”提供的cordova权限插件.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/为配合“Android6.0权限检查机制改变”提供的cordova权限插件.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/你的网站，用了什么技术栈？.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/你的网站，用了什么技术栈？.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/关于我(技术的生活面).md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/关于我(技术的生活面).md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端事件相关.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/前端事件相关.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端代码静态规范检查.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/前端代码静态规范检查.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端加密混淆 &amp; gulp.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/前端加密混淆 &amp; gulp.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端大图拖动查看-框内图片拖拽.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/前端大图拖动查看-框内图片拖拽.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端布局 css居中文集.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/前端布局 css居中文集.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端框架库.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/前端框架库.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端模板库.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/前端模板库.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/动态获取图片位置颜色值.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/动态获取图片位置颜色值.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/压力测试-分析（阿里云 PTS,Lite）.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/压力测试-分析（阿里云 PTS,Lite）.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/压力测试-工具箱.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/压力测试-工具箱.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/善用佳软.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/善用佳软.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图片异步加载方案.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/图片异步加载方案.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/大数据-认识.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/大数据-认识.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/天气预报API.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/天气预报API.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/学习内容平均留存率.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/学习内容平均留存率.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/客户端将图片对象转Base64.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/客户端将图片对象转Base64.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/尝试的javaScript风格.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/尝试的javaScript风格.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/开发文档API阅读管理工具.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/开发文档API阅读管理工具.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/微信支付-APP支付.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/微信支付-APP支付.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/快速启动——Win+R.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/快速启动——Win+R.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/快速启动——新品介绍 Wow.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/快速启动——新品介绍 Wow.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-call,apply,bind.xmind.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-call,apply,bind.xmind.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-iOS证书&amp;打包&amp;上架.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-iOS证书&amp;打包&amp;上架.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-java架构相关.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-java架构相关.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-js原型链&amp;继承&amp;构造方法.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-js原型链&amp;继承&amp;构造方法.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-linux Web服务安全.xmind.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-linux Web服务安全.xmind.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-log4j.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-log4j.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-web跨域.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-web跨域.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-《白帽子讲web安全》《Web前端黑客技术揭秘》.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-《白帽子讲web安全》《Web前端黑客技术揭秘》.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-【Shiro-流程】java安全框架&amp;cas单点登录.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-【Shiro-流程】java安全框架&amp;cas单点登录.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-刘祥的知识图谱.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-刘祥的知识图谱.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-前端安全&amp;认证.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-前端安全&amp;认证.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-前端技术.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-前端技术.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-压力测试 &amp; 案例.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-压力测试 &amp; 案例.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-测试知识体系.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-测试知识体系.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-编程书籍.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-编程书籍.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/思维导图-设计模式-23.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/思维导图-设计模式-23.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/情商低的9种表现 &amp; 正确的情商认知-不谈高低.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/情商低的9种表现 &amp; 正确的情商认知-不谈高低.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/打开QQ群链接.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/打开QQ群链接.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/支付宝六位密码框(alipay sixDigitPassword).md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/支付宝六位密码框(alipay sixDigitPassword).md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/数据结构-skiplist(跳表).md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/数据结构-skiplist(跳表).md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/文档托管平台&amp;Web API文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/文档托管平台&amp;Web API文档.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/有效清理微信内置浏览器（x5内核）缓存办法.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/有效清理微信内置浏览器（x5内核）缓存办法.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/树&amp;二叉树&amp;二叉排序树&amp;多路搜索树(B树)-总结.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/树&amp;二叉树&amp;二叉排序树&amp;多路搜索树(B树)-总结.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/正则格式化图书目录 2 xmind 之 Tab区别.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/正则格式化图书目录 2 xmind 之 Tab区别.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/正则格式化图书目录 2 xmind 之 目录格式化.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/正则格式化图书目录 2 xmind 之 目录格式化.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/科学上网 - Shadowsocks for Mac.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/科学上网 - Shadowsocks for Mac.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/科学上网 ShadowSocks(免费).md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/科学上网 ShadowSocks(免费).md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/红黑树(Red-Black Tree，简称R-B Tree).md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/红黑树(Red-Black Tree，简称R-B Tree).md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/纯净环境安装ionic.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/纯净环境安装ionic.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/网络相关（tcp握手重传,http长短链接,Header分类）.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/网络相关（tcp握手重传,http长短链接,Header分类）.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/腾讯财付通 移动QQ支付 Cordova-plugin-qpay.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/腾讯财付通 移动QQ支付 Cordova-plugin-qpay.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/自动化测试.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/自动化测试.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/自动化测试Appium.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/自动化测试Appium.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/记一次 git Pull Request.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/记一次 git Pull Request.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/设计站点 &amp; 效果库.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/设计站点 &amp; 效果库.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/隧道(内网穿透) ngrok.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/隧道(内网穿透) ngrok.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/集合-数据结构.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/集合-数据结构.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/面试第一题 - HashMap.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/面试第一题 - HashMap.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/饿加载单例的危险-jvm操作数栈.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/饿加载单例的危险-jvm操作数栈.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/yilia/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/yilia/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/article.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/article.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/head.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/head.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/yilia/layout/_partial/left-col.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/yilia/layout/_partial/left-col.ejs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,69 +183,42 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="gatling(压测) 体验.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/gatling(压测) 体验.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="15" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="【并发,并行_阻塞,非阻塞_Reactor,Proactor】理解梳理.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/【并发,并行_阻塞,非阻塞_Reactor,Proactor】理解梳理.md">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="135">
-                <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="375">
+                <caret line="25" column="31" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="31" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hexo YAML (分类 &amp; 标签)编译问题.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/_posts/hexo YAML (分类 &amp; 标签)编译问题.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor>
-                <caret column="7" selection-start-column="7" selection-end-column="30" />
-              </first_editor>
-              <second_editor />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="【java脚手架搭建】Spring MVC 4之ViewResolver视图解析器.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/【java脚手架搭建】Spring MVC 4之ViewResolver视图解析器.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor>
-                <caret column="18" selection-start-column="17" selection-end-column="18" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="aat(async auto test 异步自动化测试) 介绍&amp;模块化实践.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/aat(async auto test 异步自动化测试) 介绍&amp;模块化实践.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reactive programming(反应式编程)学习.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/Reactive programming(反应式编程)学习.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -117,11 +252,17 @@
       <find>按权重负载均衡.md</find>
       <find>【并发,并行_阻塞,非阻塞_Reactor,Proactor】</find>
       <find>﻿findtheflow</find>
+      <find>7xnbs3.com1.z0.glb.clouddn.com</find>
+      <find>hexo-cli</find>
     </findStrings>
+    <replaceStrings>
+      <replace>ll-blog.oss-cn-hangzhou.aliyuncs.com</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/themes/yilia_bak</dir>
       <dir>$PROJECT_DIR$/themes/yilia_bak/layout</dir>
       <dir>$PROJECT_DIR$/themes/yilia/layout/_partial</dir>
+      <dir>$PROJECT_DIR$/source/_posts</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -164,18 +305,17 @@
         <option value="$PROJECT_DIR$/source/_posts/AbstractRibbonCommand.java" />
         <option value="$PROJECT_DIR$/source/_posts/﻿Hystrix(熔断器) 体验.md" />
         <option value="$PROJECT_DIR$/source/_posts/influxdb 体验.md" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/package-lock.json" />
         <option value="$PROJECT_DIR$/source/_posts/Reactive programming(反应式编程)学习.md" />
         <option value="$PROJECT_DIR$/source/_posts/gatling(压测) 体验.md" />
         <option value="$PROJECT_DIR$/source/_posts/[并发,并行_阻塞,非阻塞_Reactor,Proactor]理解梳理.md" />
         <option value="$PROJECT_DIR$/source/_posts/【并发,并行_阻塞,非阻塞_Reactor,Proactor】理解梳理.md" />
         <option value="$PROJECT_DIR$/source/_posts/hexo YAML [分类 &amp; 标签]编译问题.md" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
     <exe-path />
@@ -183,23 +323,19 @@
     <other-services-enabled>false</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="809" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -207,30 +343,17 @@
               <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="_posts" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="[&#9;FILE&#9;file:///Users/liuxiang/Desktop/doc/liuxiang.github.io/source/_posts/hexo YAML [分类 &amp; 标签]编译问题.md&#10;Reactive&#9;FILE&#9;file:///Users/liuxiang/Desktop/doc/liuxiang.github.io/source/_posts/Reactive programming(反应式编程)学习.md&#10;gatling&#9;FILE&#9;file:///Users/liuxiang/Desktop/doc/liuxiang.github.io/source/_posts/gatling(压测) 体验.md" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539943915905" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -251,65 +374,43 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="Applet" factoryName="Applet">
+    <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="recording" autostart="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="recording" autostart="true" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
+    <configuration default="true" type="TestNG">
       <extension name="recording" autostart="true" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -335,7 +436,8 @@
       <workItem from="1521425621760" duration="1763000" />
       <workItem from="1524896217818" duration="2628000" />
       <workItem from="1524899302716" duration="1612000" />
-      <workItem from="1533882688424" duration="2740000" />
+      <workItem from="1533882688424" duration="2758000" />
+      <workItem from="1539939364487" duration="3553000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1524899474598</created>
@@ -348,48 +450,45 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34511000" />
+    <option name="totallyTimeSpent" value="38082000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="809" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="812" extended-state="6" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info id="Image Layers" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5028612" side_tool="true" weight="0.30222842" />
-      <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="right" id="Mybatis datasource" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="MyBatis Sql Log" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49713877" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25250357" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29899856" />
-      <window_info anchor="right" id="Database" order="5" weight="0.3297568" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5028612" side_tool="true" weight="0.30222842" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49713877" visible="true" weight="0.4611111" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="MyBatis Sql Log" order="11" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.3297568" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Mybatis datasource" order="9" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
@@ -466,23 +565,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="78" column="6" selection-start-line="78" selection-end-line="78" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/win/github上传更新.bat">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="10" selection-start-column="10" selection-end-column="16" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-140" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db.json">
@@ -693,31 +780,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="30">
-            <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/﻿[并发,并行/阻塞,非阻塞/Reactor,Proactor]理解梳理.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/﻿[并发,并行/阻塞,非阻塞/Reactor,Proactor]理解梳理.md" />
     <entry file="file://$PROJECT_DIR$/source/_posts/Reactive programming(反应式编程)学习.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -767,6 +830,37 @@
         <state split_layout="SPLIT">
           <first_editor>
             <caret column="7" selection-start-column="7" selection-end-column="30" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="15" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="375">
+            <caret line="25" column="31" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="31" />
           </first_editor>
           <second_editor />
         </state>

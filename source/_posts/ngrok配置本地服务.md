@@ -83,7 +83,7 @@ http://3c9e34ca.ngrok.io/louyu?host=http://3c9e34ca.ngrok.io/bright/web
 ## 缺陷
 1.海外服务器,速度慢
 2.360安全提醒
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/78635931.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/78635931.jpg)
 
  
 ---
@@ -98,7 +98,7 @@ https://natapp.cn/
 
 
 `自定义子域名需购买付费产品`
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/5497063.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/5497063.jpg)
  
 ## 效果
 - `config.ini`
@@ -133,7 +133,7 @@ http://ik2ui2.natappfree.cc/louyu?host=http://ik2ui2.natappfree.cc/bright/web/
 
 
 - 免费缺点：
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/45480419.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/45480419.jpg)
 
 
 

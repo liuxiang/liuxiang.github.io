@@ -10,7 +10,7 @@ InfluxDB是time-series data数据库，负责高效处理实时数据。
 
 `InfluxData资源| 案例研究，网络研讨会，技术论文，视频`
 https://www.influxdata.com/_resources/
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-4-28/31590231.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-4-28/31590231.jpg)
 
 ---
 # 方法一：使用influxdb客户端查询数据

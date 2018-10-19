@@ -22,7 +22,7 @@ http://www.tuicool.com/articles/ZJRrEzq
 
 ---
 #  插入操作从而形成一个skiplist的过程
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-22/54436659.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-22/54436659.jpg)
 
 ` Redis内部数据结构详解(6)——skiplist - 推酷 `
 http://www.tuicool.com/articles/NRFBzq
@@ -31,7 +31,7 @@ http://www.tuicool.com/articles/NRFBzq
 # 跳跃表的应用
 Skip list(跳表）是一种可以代替平衡树的数据结构，`默认是按照Key值升序`的。Skip list让已排序的数据分布在多层链表中，以`0-1随机数决定一个数据的向上攀升与否`，通过“空间来换取时间”的一个算法，在每个节点中增加了向前的指针，在插入、删除、查找时可以忽略一些不可能涉及到的结点，从而提高了效率。
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-7-22/62551869.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-7-22/62551869.jpg)
 
 - 对于19，查找过程是：
 

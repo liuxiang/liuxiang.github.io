@@ -11,7 +11,7 @@ tags: [ HTML5 , 特性检测库, 兼容性测试 ]
 # Modernizr有一个 test页面
 
 http://modernizr.github.io/Modernizr/test/index.html
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-9-24/63662667.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-9-24/63662667.jpg)
 
 
 &emsp; &emsp; 言归正传。当我们引入了Modernizr.js类库后， <html> 标签的class属性就会被相应的赋值，以显示浏览器是否支持某类CSS属性。比如在IE6下面，不支持boderradius特性，那么在 <html> 标签中就会出现 no-borderradius 类，我们可以做一些fallback的工作：
@@ -85,7 +85,7 @@ Modernizr.load([
 
 ---
 http://html5test.com/
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-8-12/90259375.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-8-12/90259375.jpg)
  
 ---
 

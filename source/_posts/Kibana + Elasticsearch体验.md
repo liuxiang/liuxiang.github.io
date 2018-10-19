@@ -52,10 +52,10 @@ http://0.0.0.0:5601/app/kibana#/management/kibana/indices
 
 ## 新建图表&设置xy轴数据列
 http://0.0.0.0:5601/app/kibana#/visualize/new?_g=()
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-2-8/98836357.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-2-8/98836357.jpg)
 
 ## 仪表盘集成图表
-![](http://7xnbs3.com1.z0.glb.clouddn.com/18-2-8/81140044.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-2-8/81140044.jpg)
 
 ---
 **参考**

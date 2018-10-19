@@ -9,7 +9,7 @@ tags: [微信支付]
 # 业务流程
 
 https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_3
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/54482401-file_1484817226181_73db.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/54482401-file_1484817226181_73db.png)
 
 
 - 过程说明
@@ -80,7 +80,7 @@ sign=MD5(stringSignTemp).toUpperCase()="9A0A8659F005D6984697E2CA0A9CF3B7"
 
 - API密钥
 商户平台中设置  https://pay.weixin.qq.com
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/41729331-file_1484817256396_ffb0.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/41729331-file_1484817256396_ffb0.png)
 
  
 # 调起支付

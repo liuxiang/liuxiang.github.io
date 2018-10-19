@@ -3,9 +3,9 @@ date: 2015-10-06 00:00:00 #发表日期，一般不改动
 categories: 监测维护 #文章文类
 tags: [java,服务器监测,问题定位分析] #文章标签，多于一项时用这种格式
 photos:
-- http://7xnbs3.com1.z0.glb.clouddn.com/15-10-8/82324295.jpg
-- http://7xnbs3.com1.z0.glb.clouddn.com/15-10-8/10907762.jpg
-- http://7xnbs3.com1.z0.glb.clouddn.com/15-10-19/15047487.jpg
+- http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-8/82324295.jpg
+- http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-8/10907762.jpg
+- http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-19/15047487.jpg
 ---
 
 
@@ -42,12 +42,12 @@ MemoryAnalyzer                        分析内存Dump，可分析内存中具�
 
 ## 阿里云监控（仅对阿里云产品有效）
 监控目标是机器而不是JVM，其次可对高位资源使用情况发出告警（短信&邮箱）
-![阿里云监控](http://7xnbs3.com1.z0.glb.clouddn.com/15-10-8/82324295.jpg "阿里云监控")
+![阿里云监控](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-8/82324295.jpg "阿里云监控")
 
 
 ## 专业级分析工具，JProfiler:
 可以查看当前应用的对象、对象引用、内存、CPU使用情况、线程、线程运行情况（阻塞、等待等），同时可以查找应用内存使用得热点.
-![JProfiler 内存对象](http://7xnbs3.com1.z0.glb.clouddn.com/15-10-19/15047487.jpg)
-![JProfiler 线程内存&耗时](http://7xnbs3.com1.z0.glb.clouddn.com/15-10-8/10907762.jpg)
+![JProfiler 内存对象](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-19/15047487.jpg)
+![JProfiler 线程内存&耗时](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-10-8/10907762.jpg)
 
 

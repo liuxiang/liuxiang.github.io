@@ -31,7 +31,7 @@ function getBase64Image(img) {
   function main() {
     var img = document.createElement('img');
     img.crossOrigin = "Anonymous";// 开启客户端允许跨域
-    img.src = 'http://7xnbs3.com1.z0.glb.clouddn.com/16-5-4/24762894.jpg';
+    img.src = 'http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-5-4/24762894.jpg';
     img.crossOrigin = "Anonymous";// Tainted canvases may not be exported.
  
     img.onload = function () {

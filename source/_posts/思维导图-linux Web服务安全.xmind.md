@@ -5,7 +5,7 @@ tags: [ linux, 异步加载]
 
 ---
 [下载：`linux Web服务安全.xmind `]( https://github.com/liuxiang/xmind)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/16-7-25/37155340.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-7-25/37155340.jpg)
 
 
   <!-- more -->

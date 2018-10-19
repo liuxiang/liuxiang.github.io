@@ -8,7 +8,7 @@ tags: [oracle ]
 
 
 # oracle大小写相关
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/90238236.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/90238236.jpg)
 
 
 ```
@@ -65,11 +65,11 @@ create table TEST6
 
 ---
 # 问题
-- `ORA-00959` ： Navicat创建的表空间为小写导致。  ![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/5458590.jpg)
+- `ORA-00959` ： Navicat创建的表空间为小写导致。  ![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/5458590.jpg)
 
 
 - `ORA-01549` 删除表空间错误
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/37391008.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/37391008.jpg)
 
 
 解决：

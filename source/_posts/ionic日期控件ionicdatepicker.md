@@ -16,7 +16,7 @@ bower install ionic-datepicker --save
 ```
 https://market.ionic.io/plugins/ionicdatepicker
 `github` https://github.com/rajeshwarpatlolla/ionic-datepicker  ` ★ `  
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/42969560.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/42969560.jpg)
 
   ---
 # datepicker-for-ionic
@@ -29,7 +29,7 @@ http://npm.taobao.org/package/datepicker-for-ionic
 
 
 `github`   https://github.com/celsomarques/ionic-datepicker
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-5-31/72000024.jpg)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-5-31/72000024.jpg)
 
 
 

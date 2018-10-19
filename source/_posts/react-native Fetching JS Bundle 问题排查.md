@@ -7,7 +7,7 @@ tags: [react-native]
 
 
 # 问题现象
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/66720886-file_1484816673101_12b00.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/66720886-file_1484816673101_12b00.png)
 
 
 

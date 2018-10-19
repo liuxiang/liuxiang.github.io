@@ -20,12 +20,12 @@ could not find class 'org.xwalk.vore.XWalkActiveitDelegate',referenced form ...
 ## 反编译apk安装包内容查看
 
 `引用Crosswalk,ADT打包,会出现黑屏的apk`
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/15-12-5/44405151.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-5/44405151.jpg)
 
 
 `引用Crosswalk,ionic打包,正常apk`
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/15-12-5/32981252.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-5/32981252.jpg)
 
 
 >发现差异,缺少`org.xwalk.core`支持代码
@@ -48,11 +48,11 @@ https://crosswalk-project.org/documentation/downloads.html
 
 ## 3.更新项目配置,使用ADT
 ADT导入library项目` xwalk_core_library `,更新` xwalk_core_library_java.jar `引用
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/15-12-5/54973604.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-5/54973604.jpg)
 
 
 更新主工程`MainAvtivity`,引入library project ` xwalk_core_library `
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/15-12-5/498019.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-5/498019.jpg)
 
 
 ## 4.运行
@@ -61,7 +61,7 @@ Run as : Android Application
 
 
 ## 5.反编译apk安装包内容查看
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/15-12-5/32981252.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/15-12-5/32981252.jpg)
 
 
 # 注意:如果要还原ionic打包

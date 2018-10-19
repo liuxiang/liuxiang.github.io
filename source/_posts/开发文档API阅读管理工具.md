@@ -10,32 +10,32 @@ http://devdocs.io  `devdocs [在线]`
 `chrome商店`  https://chrome.google.com/webstore/detail/mnfehgbmkapmjnhcnbodoamcioleeooe?utm_source=chrome-app-launcher-info-dialog
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-2-23/96325003.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-2-23/96325003.jpg)
 
 
 OverAPI.com |收集所有的备忘单 http://overapi.com/
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-7-1/95625399.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-7-1/95625399.jpg)
 
 
 
 
 
 `apidocs` http://tool.oschina.net/apidocs
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-7-1/19976962.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-7-1/19976962.jpg)
 
 
 http://velocity.silverlakesoftware.com/  `Velocity [Win]`
 
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-2-23/40026256.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-2-23/40026256.jpg)
 
 
 https://zealdocs.org/  `Zeal [Win版dash]`
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-2-23/29898848.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-2-23/29898848.jpg)
 
 
 https://kapeli.com/dash  `dash [OS X]`
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/16-2-23/28049145.jpg)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/16-2-23/28049145.jpg)
 
 
 <!-- more -->

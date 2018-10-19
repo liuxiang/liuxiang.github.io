@@ -234,7 +234,7 @@ http://stackoverflow.com/questions/33155087/react-native-on-android-failed-to-fi
 
  
 - react-native Fetching JS Bundle
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/66720886-file_1484816673101_12b00.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/66720886-file_1484816673101_12b00.png)
 
 处理办法：删除node_modules,重新`npm install` (建议使用国内镜像)
  
@@ -242,10 +242,10 @@ http://stackoverflow.com/questions/33155087/react-native-on-android-failed-to-fi
 `react-native在Anroid真机运行时可能会遇到白屏的情况解决办法`
 http://blog.csdn.net/itpinpai/article/details/50845625
 
-![]( http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/80604699-file_1484818079208_893f.png)
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/65728024-file_1484818103275_f82a.png)
+![]( http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/80604699-file_1484818079208_893f.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/65728024-file_1484818103275_f82a.png)
 
-![](http://7xnbs3.com1.z0.glb.clouddn.com/17-1-19/50668486-file_1484818111205_13b48.png)
+![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/17-1-19/50668486-file_1484818111205_13b48.png)
 
 
 
