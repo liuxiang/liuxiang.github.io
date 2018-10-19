@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8eb93ff1-6577-4b89-8c37-311758bc15cb" name="Default" comment="图床替换: 7xnbs3.com1.z0.glb.clouddn.com &gt; ll-blog.oss-cn-hangzhou.aliyuncs.com">
-      <change afterPath="$PROJECT_DIR$/source/_posts/HTTP gzip压缩.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/HystrixRollingNumber 滑动窗口(qps)实现.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/[转载]入门科普,围绕JVM的各种外挂技术.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/classpath*:spring:*.xml的小烦恼.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/greys-anatomy(JVM进程执行过程中的异常诊断工具)体验.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/vjtools(唯品会工具集)体验.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/七牛关闭测试域名后的文件批量下载办法.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/限流相关.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8eb93ff1-6577-4b89-8c37-311758bc15cb" name="Default" comment="update">
+      <change beforePath="$PROJECT_DIR$/source/_posts/七牛关闭测试域名后的文件批量下载办法.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/七牛关闭测试域名后的文件批量下载办法.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,11 +24,23 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
+        <entry file="file://$PROJECT_DIR$/source/_posts/[转载]入门科普,围绕JVM的各种外挂技术.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="375">
-                <caret line="25" column="31" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="31" />
+              <first_editor relative-caret-position="165">
+                <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/手把手搭blog &amp; github pages,hexo.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="151">
+                <caret line="232" column="1" selection-start-line="232" selection-start-column="1" selection-end-line="232" selection-end-column="1" />
               </first_editor>
               <second_editor />
             </state>
@@ -44,11 +48,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/_posts/[转载]入门科普,围绕JVM的各种外挂技术.md">
+        <entry file="file://$PROJECT_DIR$/source/_posts/七牛关闭测试域名后的文件批量下载办法.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="15">
-                <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="30">
+                <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
               </first_editor>
               <second_editor />
             </state>
@@ -146,6 +150,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/source/_posts/[转载]入门科普,围绕JVM的各种外挂技术.md" />
+        <option value="$PROJECT_DIR$/source/_posts/七牛关闭测试域名后的文件批量下载办法.md" />
       </list>
     </option>
   </component>
@@ -156,10 +161,10 @@
     <other-services-enabled>false</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="809" />
+    <option name="height" value="812" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -176,6 +181,17 @@
               <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liuxiang.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liuxiang.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="_posts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -186,7 +202,7 @@
     <property name="SearchEverywhereHistoryKey" value="[&#9;FILE&#9;file:///Users/liuxiang/Desktop/doc/liuxiang.github.io/source/_posts/hexo YAML [分类 &amp; 标签]编译问题.md&#10;Reactive&#9;FILE&#9;file:///Users/liuxiang/Desktop/doc/liuxiang.github.io/source/_posts/Reactive programming(反应式编程)学习.md&#10;gatling&#9;FILE&#9;file:///Users/liuxiang/Desktop/doc/liuxiang.github.io/source/_posts/gatling(压测) 体验.md" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539946542310" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539947726286" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -273,7 +289,7 @@
       <workItem from="1524896217818" duration="2628000" />
       <workItem from="1524899302716" duration="1612000" />
       <workItem from="1533882688424" duration="2758000" />
-      <workItem from="1539939364487" duration="5808000" />
+      <workItem from="1539939364487" duration="6997000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1524899474598</created>
@@ -289,11 +305,18 @@
       <option name="project" value="LOCAL" />
       <updated>1539943955356</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update">
+      <created>1539946556334</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1539946556334</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40337000" />
+    <option name="totallyTimeSpent" value="41526000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
@@ -335,23 +358,12 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update" />
     <MESSAGE value="图床替换: 7xnbs3.com1.z0.glb.clouddn.com &gt; ll-blog.oss-cn-hangzhou.aliyuncs.com" />
-    <option name="LAST_COMMIT_MESSAGE" value="图床替换: 7xnbs3.com1.z0.glb.clouddn.com &gt; ll-blog.oss-cn-hangzhou.aliyuncs.com" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/_posts/﻿idea关联sftp.md" />
     <entry file="file://$PROJECT_DIR$/source/_posts/﻿idea远程调试相关.md" />
-    <entry file="file://$PROJECT_DIR$/source/_posts/手把手搭blog &amp; github pages,hexo.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="3345">
-            <caret line="223" column="32" selection-start-line="223" selection-start-column="26" selection-end-line="223" selection-end-column="32" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/yilia_bak/layout/_partial/left-col.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1185">
@@ -704,8 +716,28 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/[转载]入门科普,围绕JVM的各种外挂技术.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="15">
-            <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <first_editor relative-caret-position="165">
+            <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/手把手搭blog &amp; github pages,hexo.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="151">
+            <caret line="232" column="1" selection-start-line="232" selection-start-column="1" selection-end-line="232" selection-end-column="1" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/七牛关闭测试域名后的文件批量下载办法.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="30">
+            <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
           </first_editor>
           <second_editor />
         </state>
