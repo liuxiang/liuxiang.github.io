@@ -16,7 +16,7 @@ tags: [junit]
 
 ```
 
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'esSwitchInitialState': Unsatisfied dependency expressed through field 'esNotifyConfig'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'cn.fraudmetrix.module.elasticsearch.basic.ElasticSearchNotifyConfig' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'esSwitchInitialState': Unsatisfied dependency expressed through field 'esNotifyConfig'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'cn.***.module.elasticsearch.basic.ElasticSearchNotifyConfig' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 
 ```
 
@@ -34,32 +34,24 @@ public class SwitchStateFromZk {
 
 
 
--- 日志信息:`PathMatchingResourcePatternResolver [cn/fraudmetrix/module/elasticsearch/]`
+-- 日志信息:`PathMatchingResourcePatternResolver [cn/***/module/elasticsearch/]`
 
-PathMatchingResourcePatternResolver - Resolved classpath location [cn/fraudmetrix/module/elasticsearch/] to resources [URL [jar:file:...]]
-PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/Users/liuxiang/.m2/repository/cn/fraudmetrix/module-elasticsearch/5.0.45/module-elasticsearch-5.0.45.jar]
+PathMatchingResourcePatternResolver - Resolved classpath location [cn/***/module/elasticsearch/] to resources [URL [jar:file:...]]
+PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/Users/liuxiang/.m2/repository/cn/***/module-elasticsearch/5.0.45/module-elasticsearch-5.0.45.jar]
 PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:...]]
 
 ```
 
-## 疑问:哪里扫描的这个路径(cn/fraudmetrix/module/elasticsearch/)?
+## 疑问:哪里扫描的这个路径(cn/***/module/elasticsearch/)?
 
 - ***/module-elasticsearch-5.0.45.jar!/spring/module-elasticsearch.xml
 ```
-<context:component-scan base-package="cn.fraudmetrix.module.elasticsearch"/>
+<context:component-scan base-package="cn.***.module.elasticsearch"/>
 ```
 
 ## 为什么会去扫描jar库下的路径?
 
-- 日志中找到线索:`[classpath*:spring/*.xml]`时扫描到了大量的jar包中的`spring/***.xml` (其中依赖的Bean全部会被加载)
-
-```
-
-10:05:26.930 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:spring/*.xml] to resources [file [/Users/liuxiang/Desktop/work/td-holmes/holmes-api/dal/dal/target/test-classes/spring/eunomia.xml], file [/Users/liuxiang/Desktop/work/td-holmes/holmes-api/dal/dal/target/test-classes/spring/holmes-biz-service.xml], file [/Users/liuxiang/Desktop/work/td-holmes/holmes-api/dal/dal/target/test-classes/spring/holmes-dal-mysql.xml], file [/Users/liuxiang/Desktop/work/td-holmes/holmes-api/dal/dal/target/test-classes/spring/zookeeper.xml], URL [jar:file:/Users/liuxiang/.m2/repository/cn/fraudmetrix/module-kafka/2.3.6/module-kafka-2.3.6.jar!/spring/module-kafka.xml], URL [jar:file:/Users/liuxiang/.m2/repository/cn/fraudmetrix/module-elasticsearch/5.0.45/module-elasticsearch-5.0.45.jar!/spring/module-elasticsearch.xml]]
-
-```
-
-
+- 日志中找到线索:`[classpath*:spring/*.xml]`时扫描到了大量的jar包中的`spring/***.xml` (其中依赖的Bean全部会被加载)`
 
 ---
 
@@ -69,11 +61,11 @@ PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:...]
 
 ```
 <dependency>
-    <groupId>cn.fraudmetrix</groupId>
+    <groupId>cn.***</groupId>
     <artifactId>creditcloud-share</artifactId>
     <exclusions>
         <exclusion>
-            <groupId>cn.fraudmetrix</groupId>
+            <groupId>cn.***</groupId>
             <artifactId>module-elasticsearch</artifactId>
         </exclusion>
     </exclusions>

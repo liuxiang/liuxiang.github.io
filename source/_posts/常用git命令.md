@@ -98,8 +98,6 @@ The file will have its original line endings in your working directory.
 
 
 F:\work\SQL work>git.exe pull -v --progress "origin"  # 更新
-Username for 'https://git.oschina.net': liuxiang.1227@qq.com
-Password for 'https://liuxiang.1227@qq.com@git.oschina.net':
 fatal: Couldn't find remote ref #
 
 
@@ -108,7 +106,7 @@ F:\work\SQL work>git remote add origin https://git.oschina.net/liuxiang7/SQL-wor
 
 F:\work\SQL work>git push -u origin master
 Username for 'https://git.oschina.net': liuxiang.1227@qq.com
-Password for 'https://liuxiang.1227@qq.com@git.oschina.net':
+Password for '':
 Counting objects: 77, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (70/70), done.

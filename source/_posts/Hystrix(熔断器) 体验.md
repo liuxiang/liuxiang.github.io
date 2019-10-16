@@ -281,9 +281,9 @@ execution.isolation.semaphore.maxConcurrentRequests=100
 [优先级4]hystrix.command.default.execution.isolation.semaphore.maxConcurrentRequests
 见：https://www.jianshu.com/p/d401452fe76e
 
-# 设置semaphore(信号量)熔断`[有效]` (需指定集群如:ribbon serviceId:forseti-pro1) 
-hystrix.command.forseti-pro1.execution.isolation.semaphore.maxConcurrentRequests = 300
-zuul.eureka.forseti-pro1.semaphore.maxSemaphores=300
+# 设置semaphore(信号量)熔断`[有效]` (需指定集群如:ribbon serviceId:f**s***-pro1) 
+hystrix.command.f**s***-pro1.execution.isolation.semaphore.maxConcurrentRequests = 300
+zuul.eureka.f**s***-pro1.semaphore.maxSemaphores=300
 
 # fallback-semaphore
 hystrix.command.HystrixCommandKey.fallback.isolation.semaphore.maxConcurrentRequests

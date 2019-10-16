@@ -25,8 +25,6 @@ jdk1.7之后: -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n
 - 确定进程(找到端口address=9996)
 ```
 [admin@10-57-19-191 ~]$ ps -ef |grep 20974
-admin 20974 1 2 15:41 ? 00:04:34 /usr/install/jdk1.8.0_60/bin/java -Djava.util.logging.config.file=/home/admin/billing/deploy/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -server -Xms2g -Xmx2g -XX:PermSize=512m -XX:SurvivorRatio=2 -XX:+UseParallelOldGC -Dtrace.flag=true -Dtrace.output.dir=/home/admin/billing/deploy/trace/ -server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=9996,server=y,suspend=n -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8 -DdisableIntlRMIStatTask=true -Ddubbo.application.logger=slf4j -Djdk.tls.ephemeralDHKeySize=2048 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=10.57.19.191 -Djava.endorsed.dirs=/usr/install/tomcat/endorsed -classpath /usr/install/tomcat/bin/bootstrap.jar:/usr/install/tomcat/bin/tomcat-juli.jar -Dcatalina.base=/home/admin/billing/deploy/tomcat -Dcatalina.home=/usr/install/tomcat -Djava.io.tmpdir=/home/admin/billing/deploy/tomcat/temp org.apache.catalina.startup.Bootstrap start
-admin 24284 23346 0 18:18 pts/1 00:00:00 grep --color=auto 20974
 ```
 - 查看连接发起方
 ```

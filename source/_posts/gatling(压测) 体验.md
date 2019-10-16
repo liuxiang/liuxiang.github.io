@@ -180,7 +180,7 @@ https://blog.csdn.net/qq_37023538/article/details/54950827
                         <goal>execute</goal>
                     </goals>
                     <configuration>
-                        <simulationClass>scala/ForsetiGatewaySimulation</simulationClass>
+                        <simulationClass>scala/f**s***GatewaySimulation</simulationClass>
                     </configuration>
                 </execution>
                 <!-- Here, can repeat the above execution segment to do another test -->
@@ -269,7 +269,7 @@ https://docs.scala-lang.org/getting-started-intellij-track/getting-started-with-
 # 六.可能会遇到的问题
 ## object gatling is not a member of package io
 ```
-10:57:26.167 [main][ERROR][ZincCompiler.scala:140] i.g.c.ZincCompiler$ - /Users/liuxiang/Desktop/work/forseti-zuul/forseti-gateway/service/src/test/scala/ForsetiGatewaySimulation.scala:18: object gatling is not a member of package io
+10:57:26.167 [main][ERROR][ZincCompiler.scala:140] i.g.c.ZincCompiler$ - /Users/liuxiang/Desktop/work/f**s***-zuul/f**s***-gateway/service/src/test/scala/f**s***GatewaySimulation.scala:18: object gatling is not a member of package io
 10:57:26.179 [main][ERROR][ZincCompiler.scala:140] i.g.c.ZincCompiler$ - import io.gatling.core.Predef._
 ```
 - 尝试一: 导入scala-SDK. (结果:未解决,`io.gatling.core.Predef._`非`scala`内容,而是`gatling`内容)
@@ -286,7 +286,7 @@ java.lang.reflect.InvocationTargetException
         at java.lang.reflect.Method.invoke(Method.java:498)
         at io.gatling.mojo.MainWithArgsInFile.runMain(MainWithArgsInFile.java:50)
         at io.gatling.mojo.MainWithArgsInFile.main(MainWithArgsInFile.java:33)
-Caused by: java.lang.IllegalArgumentException: The requested class 'gatling.ForsetiGatewaySimulation' can not be found in the classpath or does not extends Simulation.
+Caused by: java.lang.IllegalArgumentException: The requested class 'gatling.f**s***GatewaySimulation' can not be found in the classpath or does not extends Simulation.
         at io.gatling.app.Selection$Selector.$anonfun$trySelectingSingleSimulation$3(Selection.scala:80)
 ```
 - 诊断: can not be found in the classpath or does not extends Simulation. 未继承Simulation,看起来像没有找到这个类文件.检查target

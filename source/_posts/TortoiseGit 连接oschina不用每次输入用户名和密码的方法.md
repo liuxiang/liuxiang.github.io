@@ -17,12 +17,7 @@ tags: [git ]
 
 
 # 记住用户名和密码
-下次再输入用户名和密码时，git就会记住，从而在C:\Documents and Settings\Administrator\ 目录下形成一个  .git-credentials
-
-```
-https://username:12345678@git.oschina.net  
-
-```
+下次再输入用户名和密码时，git就会记住，从而在C:\Documents and Settings\Administrator\ 目录下形成一个  .git-credentials  
 
 
 **参考**

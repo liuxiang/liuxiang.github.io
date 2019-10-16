@@ -6,9 +6,9 @@ tags: [spring]
 
 # 方式一: `xml <bean init-method="init"`
 ```
-<bean class="cn.fraudmetrix.billing.consumer.FlowConsumer" init-method="init" destroy-method="destroy">
-    <property name="kafkaTopics" value="${billing.kafka.topics}"/>
-    <property name="debug" value="${billing.flow.consumer.debug}"/>
+<bean class="cn.***.***.consumer.FlowConsumer" init-method="init" destroy-method="destroy">
+    <property name="kafkaTopics" value="${***.kafka.topics}"/>
+    <property name="debug" value="${***.flow.consumer.debug}"/>
 </bean>
 ```
 

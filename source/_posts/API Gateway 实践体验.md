@@ -91,10 +91,10 @@ tags: [API Gateway]
 - 集群及节点管理:对接triton，定时刷新-可配
 - 健康检查:故障节点管理(失效,恢复机制)
 - 负载均衡:权重（Weighted Round-Robin）
-- 集群路由:合作方与集群关系 见:`SELECT business_code, partner_code,cluster FROM forseti.partner_cluster WHERE status=1;`
-- 冠军挑战者: 见:`forseti.policy_set where challenged_uuid IS NOT NULL`
+- 集群路由:合作方与集群关系 见:`SELECT business_code, partner_code,cluster FROM f**s***.partner_cluster WHERE status=1;`
+- 冠军挑战者: 见:`f**s***.policy_set where challenged_uuid IS NOT NULL`
 - 缓存技术方案:启动时加载,可配定时更新. [ChallengerCache,ClusterNodeCache,PartnerConfigCache]
-- 流量拷贝(http Copy):见shutter配置`forseti-gateway-observe.properties`-`httpcopy.register:***`
+- 流量拷贝(http Copy):见shutter配置`f**s***-gateway-observe.properties`-`httpcopy.register:***`
 - 内部请求头处理: 非内网访问清理测试标记
 - 超时控制
 - 环境控制:stg环境不需要httpCopy,且无集群路由(固定集群),但有挑战者集群
@@ -181,7 +181,7 @@ public class PreHeaderFilter extends ZuulFilter {
 
 ### 对接triton,用作服务发现 (替代方案:Netflix/eureka)
 ```
-http://10.57.18.211/api/v1/apps/ips?app_name=forseti-api&env=production
+http://10.57.18.211/api/v1/apps/ips?app_name=f**s***-api&env=production
 ```
 
 eureka应用参考见:`微服务：Eureka+Zuul+Ribbon+Feign+Hystrix构建微服务架构`
@@ -223,7 +223,7 @@ zuul.routes.origin.serviceId=originService
 # Ribbon Service定义
 originService.ribbon.NFLoadBalancerClassName=com.netflix.loadbalancer.DynamicServerListLoadBalancer
 ## 设置(默认:AvailabilityFilteringRule)
-originService.ribbon.NFLoadBalancerRuleClassName=cn.fraudmetrix.forseti.gateway.rule.CustomWeightedResponseTimeRule
+originService.ribbon.NFLoadBalancerRuleClassName=cn.***.f**s***.gateway.rule.CustomWeightedResponseTimeRule
 
 ## Initial list of servers, can be changed via Archaius dynamic property at runtime
 originService.ribbon.listOfServers=localhost:8090,localhost:8091
@@ -551,7 +551,7 @@ IClientConfig iClientConfig = springClientFactory.getClientConfig(serviceName);
 logger.debug("initWithNiwsConfig [{}] before:{}", serviceName, iClientConfig);
 
 String loadBalancer = "com.netflix.loadbalancer.DynamicServerListLoadBalancer";
-String rule = "cn.fraudmetrix.forseti.gateway.rule.CustomWeightedResponseTimeRule";// 自定义权重轮询
+String rule = "cn.***.f**s***.gateway.rule.CustomWeightedResponseTimeRule";// 自定义权重轮询
 
 // 方式一:不可覆盖设置
 // iClientConfig.set(CommonClientConfigKey.NFLoadBalancerClassName, loadBalancer);
@@ -645,20 +645,20 @@ http://blog.csdn.net/forezp/article/details/74820899
     - http://localhost:8080/cache/setClusterNodeWeighted?cluster=originService&server=localhost:8090&weighted=150 
 
 ## 监控 (metrics采样,grafana制图及报警)
-详见: http://10.57.17.82:3000/dashboard/db/forseti-gateway?orgId=1&from=now-30m&to=now&var-interval=10s
+详见: http://10.57.17.82:3000/dashboard/db/f**s***-gateway?orgId=1&from=now-30m&to=now&var-interval=10s
 ```
-forseti.gateway.cluster
-forseti.gateway.count
-forseti.gateway.filter
-forseti.gateway.zuul
-forseti.gateway.exception
+f**s***.gateway.cluster
+f**s***.gateway.count
+f**s***.gateway.filter
+f**s***.gateway.zuul
+f**s***.gateway.exception
 ```
 ![](http://ll-blog.oss-cn-hangzhou.aliyuncs.com/18-3-19/6378748.jpg)
 
 ---
 # 六.指标情况(基准测试) 
 ## 压测结果
-local测试: forseti-gateway rt : 1~10ms. 平均2ms
+local测试: f**s***-gateway rt : 1~10ms. 平均2ms
 
 TODO 待压测出详细指标...
 

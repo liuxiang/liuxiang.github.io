@@ -94,7 +94,7 @@ Build-Jdk: 1.8.0_141
 Manifest-Version: 1.0
 Archiver-Version: Plexus Archiver
 Built-By: liuxiang
-Start-Class: cn.fraudmetrix.cash.service.Application
+Start-Class: cn.***.cash.service.Application
 Spring-Boot-Classes: WEB-INF/classes/
 Spring-Boot-Lib: WEB-INF/lib/
 Spring-Boot-Version: 2.0.0.M7

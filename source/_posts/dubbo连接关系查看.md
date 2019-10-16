@@ -11,10 +11,10 @@ tags: [dubbo]
 ---
 # 连接端口进程
 ```
-➜ billing git:(billing171129095710) lsof -i :20880
+➜  lsof -i :20880
 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME
 java 14225 liuxiang 63u IPv4 0xe82d742ed82d8037 0t0 TCP localhost:62197->localhost:20880 (ESTABLISHED)
 java 14225 liuxiang 259u IPv4 0xe82d742ed4d0092f 0t0 TCP *:20880 (LISTEN)
 java 14225 liuxiang 261u IPv4 0xe82d742ed391cb1f 0t0 TCP localhost:20880->localhost:65201 (ESTABLISHED)
-➜ billing git:(billing171129095710) lsof -i :20881
+➜lsof -i :20881
 ```

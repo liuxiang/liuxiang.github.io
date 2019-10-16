@@ -73,7 +73,7 @@ pidof java | xargs jmap -heap
 - 对象内存分布：jmap -histo:live $pid
 ```
 # 一键执行
-pidof java | xargs jmap -histo:live  | grep cn.fraudmetrix | head -n 20
+pidof java | xargs jmap -histo:live  | grep cn.*** | head -n 20
 ```
 
 - heap dump： jmap -dump:format=b,file=dumpfileName.dump $pid
@@ -224,13 +224,13 @@ CATALINA_OPTS="$CATALINA_OPTS -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/
 pid=`pidof java`; 
 jcmd $pid VM.unlock_commercial_features #先解锁技能
 
-jcmd $pid JFR.start name=myrec settings=tongdun delay=20s duration=2m filename=/tmp/$pid.jfr
+jcmd $pid JFR.start name=myrec settings=t**d** delay=20s duration=2m filename=/tmp/$pid.jfr
 或
 jcmd $pid JFR.start name=myrec delay=20s duration=2m filename=/tmp/$pid.jfr
 
 #其中，delay参数表示profile延迟启动时间，duration表示持续采集时间，这里设置为2分钟
-#settings表示使用哪种采集配置，这里用的就是第二步中放入的tongdun.jfc配置，它默认有一个名为profile的配置，如果不想采集异常信息，也可以直接用它。
-jcmd $pid JFR.start name=myrec settings=tongdun delay=20s duration=2m filename=/tmp/$pid.jfr
+#settings表示使用哪种采集配置，这里用的就是第二步中放入的t**d**.jfc配置，它默认有一个名为profile的配置，如果不想采集异常信息，也可以直接用它。
+jcmd $pid JFR.start name=myrec settings=t**d** delay=20s duration=2m filename=/tmp/$pid.jfr
 
 #注意，采集数据生成后请执行下列命令移除这个采集
 jcmd $pid JFR.stop name=myrec 
@@ -269,5 +269,5 @@ https://github.com/codecentric/spring-boot-admin
 
 - 远程下载dump
 ```
-scp admin@x.x.x.x:/home/admin/forseti-gateway/deploy/tomcat/temp/heapdump-1523203218367.hprof ~
+scp admin@x.x.x.x:/home/admin/f**s***-gateway/deploy/tomcat/temp/heapdump-1523203218367.hprof ~
 ```
